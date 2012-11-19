@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="test" basedir=".">
+
+
+
+    <!-- ============================================  -->
+    <!-- help.test                                     --> 
+    <!-- ============================================  -->	
+	<target name="help.test">
+		<echo message="test.phplint (PHP Validation)"   />
+		<echo message="test.phpunit (PHP Unit Testing)" />
+	</target>
+
+	
+	
+    <!-- ============================================  -->
+    <!-- test.phplint                                  --> 
+    <!-- ============================================  -->  
+    <target name="test.phplint" depends="report.index">
+		<echo msg="run test.phplint" />
+	
+        <mkdir dir="${project.path.reports}/phplint" />
+        
+        <phplint haltonfailure="true" tofile="${project.path.reports}/phplint/phplint.txt" cachefile="./phplint.cache">
+            <fileset dir=".">
+                <patternset refid="fileset.pattern.test.phplint" />
+            </fileset>
+        </phplint>
+    
+        <echo msg="end test.phplint" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- test.phpunit                                  --> 
+    <!-- ============================================  -->  
+    <target name="test.phpunit" depends="report.index,test.phplint">
+        <echo msg="run test.phpunit" />
+        
+        <mkdir dir="${project.path.reports}/phpunit" />
+        <mkdir dir="${project.path.reports}/phpunit-coverage-report" />
+
+        <echo msg="end test.phpunit" />
+    </target>    
+    
+    
+    
+</project>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="report" basedir=".">
+
+
+
+    <!-- ============================================  -->
+    <!-- help.report                                   --> 
+    <!-- ============================================  -->	
+	<target name="help.report">
+		<echo message="report.phpcpd         (PHP Copy and Paste Detection)" />
+		<echo message="report.phpdepend      (PHP Software Metrics)"         />
+		<echo message="report.phpmd          (PHP Mess Detection)"           />
+		<echo message="report.codesniffer    (Checkstyle Code Analysis)"     />
+		<echo message="report.apigen         (API Documentation)"            />
+		<echo message="report.clean          (Cleans all Reports)"           />
+		<echo message="report.all            (Generates all active Reports)" />
+	</target>
+		
+	
+		
+    <!-- ============================================  -->
+    <!-- report.phpcpd                                 -->
+    <!-- ============================================  -->
+    <target name="report.phpcpd" depends="report.index,test.phplint">
+        <echo msg="run report.phpcpd" />
+    
+        <mkdir dir="${project.path.reports}/phpcpd" />
+        
+        <phpcpd>
+            <fileset dir=".">
+                <patternset refid="fileset.pattern.report.phpcpd" />
+            </fileset>
+			
+            <formatter type="pmd" outfile="${project.path.reports}/phpcpd/phpcpd.xml" />
+        </phpcpd>
+        
+        <xslt file="${project.path.reports}/phpcpd/phpcpd.xml" tofile="${project.path.reports}/phpcpd/phpcpd.html" style="${phing:commons:xsl}/phpcpd.xsl" />
+    
+        <echo msg="end report.phpcpd" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpdepend                              -->
+    <!-- ============================================  -->
+    <target name="report.phpdepend" depends="report.index,test.phplint">
+        <echo msg="run report.phpdepend" />
+    
+        <mkdir dir="${project.path.reports}/phpdepend" />
+        
+        <phpdepend>
+            <fileset dir=".">
+                <patternset refid="fileset.pattern.report.phpdepend" />
+            </fileset>
+            
+            <logger type="jdepend-xml"      outfile="${project.path.reports}/phpdepend/phpdepend.xml"        />
+            <logger type="jdepend-chart"    outfile="${project.path.reports}/phpdepend/chart.png"            />
+            <logger type="overview-pyramid" outfile="${project.path.reports}/phpdepend/overview-pyramid.png" />
+            
+            <analyzer type="coderank-mode" value="method" />
+        </phpdepend>
+        
+        <xslt file="${project.path.reports}/phpdepend/phpdepend.xml" tofile="${project.path.reports}/phpdepend/phpdepend.html" style="${phing:commons:xsl}/phpdepend.xsl" />
+    
+        <echo msg="end report.phpdepend" />
+    </target>
+    
+    
+        
+    <!-- ============================================  -->
+    <!-- report.phpmd                                  -->
+    <!-- ============================================  -->
+    <target name="report.phpmd" depends="report.index,test.phplint">
+        <echo msg="run report.phpmd" />
+        
+        <mkdir dir="${project.path.reports}/phpmd" />
+        
+        <phpmd>
+            <fileset dir=".">
+                <patternset refid="fileset.pattern.report.phpmd" />
+            </fileset>
+            
+            <formatter type="xml" outfile="${project.path.reports}/phpmd/phpmd.xml" />
+        </phpmd>
+        
+        <xslt file="${project.path.reports}/phpmd/phpmd.xml" tofile="${project.path.reports}/phpmd/phpmd.html" style="${phing:commons:xsl}/phpmd.xsl" />
+    
+        <echo msg="end report.phpmd" />
+    </target>
+    
+    
+      
+    <!-- ============================================  -->
+    <!-- report.codesniffer                            -->
+    <!-- ============================================  -->
+    <target name="report.codesniffer" depends="report.index,test.phplint">
+        <echo msg="run report.codesniffer" />
+        
+        <mkdir dir="${project.path.reports}/checkstyle" />
+        
+        <phpcodesniffer standard="Zend" showSniffs="true" showWarnings="true" docGenerator="HTML" docFile="${project.path.reports}/checkstyle/checkstyle.codesniffer.overview.html">
+            <fileset dir=".">
+                <patternset refid="fileset.pattern.report.codesniffer" />
+            </fileset>
+            
+            <formatter type="checkstyle" outfile="${project.path.reports}/checkstyle/checkstyle.codesniffer.xml" />
+        </phpcodesniffer>
+        
+        <xslt file="${project.path.reports}/checkstyle/checkstyle.codesniffer.xml" tofile="${project.path.reports}/checkstyle/checkstyle.codesniffer.html" style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
+    
+        <echo msg="end report.codesniffer" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- report.apigen                                 -->
+    <!-- ============================================  -->
+    <target name="report.apigen" depends="report.index,test.phplint">
+        <echo msg="run report.apigen" />
+        
+        <mkdir dir="${project.path.reports}/api" />
+        <mkdir dir="${project.path.reports}/checkstyle" />
+        
+        <apigen 
+        config="./build.apigen.config" 
+        destination="${project.path.reports}/api" 
+        report="${project.path.reports}/checkstyle/checkstyle.apigen.xml" />
+
+        <xslt file="${project.path.reports}/checkstyle/checkstyle.apigen.xml" tofile="${project.path.reports}/checkstyle/checkstyle.apigen.html" style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
+    
+        <echo msg="end report.apigen" />
+    </target>
+    
+    
+     
+    <!-- ============================================  -->
+    <!-- report.clean                                  -->
+    <!-- ============================================  -->
+    <target name="report.clean">
+        <echo msg="run report.clean" />
+        
+        <delete dir="${project.path.reports}" />
+        <mkdir  dir="${project.path.reports}" />
+        
+        <echo msg="end report.clean" />
+    </target> 
+    
+    
+            
+    <!-- ============================================  -->
+    <!-- report.index                                  -->
+    <!-- ============================================  -->
+    <target name="report.index">
+        <echo msg="run report.index" />
+        
+        <mkdir dir="${project.path.reports}" />
+        
+        <tstamp>
+            <format property="date" pattern="%d.%m.%Y %H:%M:%S" />
+        </tstamp>
+        
+        <copy file="${phing:commons:xsl}/index.html" tofile="${project.path.reports}/index.html" overwrite="true">
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="DATETIME" value="${date}" />
+                </replacetokens>
+            </filterchain>  
+        </copy>
+        
+        <echo msg="end report.index" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- report.all                                    -->
+    <!-- ============================================  -->
+    <target name="report.all" depends="report.clean,report.index,report.phpcpd,report.phpdepend,report.phpmd,report.codesniffer,report.apigen">
+        <echo msg="run report.all" />
+        <echo msg="end report.all" />
+    </target>
+    
+    
+    
+</project>

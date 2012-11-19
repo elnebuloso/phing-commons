@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="base">
+
+
+    <!-- ============================================  -->
+    <!-- fetch properties                              --> 
+    <!-- ============================================  -->
+	<php function="dirname" returnProperty="phing:commons:basedir">
+		<param value="${phing.file.base}" />
+	</php>
+	<property name="phing:commons:basedir" value="${phing:commons:basedir}/.."  override="true" />
+	<property name="phing:commons:xml"     value="${phing:commons:basedir}/xml" override="true" />
+	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
+	
+	
+	
+    <!-- ============================================  -->
+    <!-- help                                          --> 
+    <!-- ============================================  -->
+    <target name="help" depends="help.base,help.test,help.report" />
+    
+    
+    <!-- ============================================  -->
+    <!-- help.base                                     --> 
+    <!-- ============================================  -->
+    <target name="help.base" depends="help.properties.base,help.properties.project" />
+    
+    
+        	
+    <!-- ============================================  -->
+    <!-- help.properties.base                          --> 
+    <!-- ============================================  -->  
+    <target name="help.properties.base">
+        <echo message="phing:commons:basedir   ${phing:commons:basedir}" />
+        <echo message="phing:commons:xml       ${phing:commons:xml}"     />
+        <echo message="phing:commons:xsl       ${phing:commons:xsl}"     />
+    </target>
+    
+    
+    	
+    <!-- ============================================  -->
+    <!-- help.properties.project                       --> 
+    <!-- ============================================  -->  
+    <target name="help.properties.project">
+        <echo message="project.name            ${project.name}"         />
+        <echo message="project.path.build      ${project.path.build}"   />
+        <echo message="project.path.reports    ${project.path.reports}" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- import commons                                --> 
+    <!-- ============================================  -->	
+	<import file="${phing:commons:xml}/test.xml"   />
+	<import file="${phing:commons:xml}/report.xml" />
+	
+	
+</project>

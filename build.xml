@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="phing-commons" default="help" basedir=".">
+
+
+
+    <!-- ============================================  -->
+    <!-- properties                                    -->
+    <!-- ============================================  -->
+	<property file="./build.properties" />
+	
+	
+	
+    <!-- ============================================  -->
+    <!-- fileset pattern                               -->
+    <!-- ============================================  -->
+    <patternset id="fileset.pattern.test.phplint">
+        <include name="**/*.php"     />
+        <include name="**/*.phtml"   />
+        <exclude name="build/**"     />
+        <exclude name="resources/**" />
+        <exclude name="vendor/**"    />
+    </patternset>
+    <patternset id="fileset.pattern.report.phpcpd">
+        <include name="**/*.php"     />
+        <exclude name="build/**"     />
+        <exclude name="resources/**" />
+        <exclude name="vendor/**"    />
+    </patternset>
+    <patternset id="fileset.pattern.report.phpdepend">
+        <include name="**/*.php"     />
+        <exclude name="build/**"     />
+        <exclude name="resources/**" />
+        <exclude name="vendor/**"    />
+    </patternset>
+    <patternset id="fileset.pattern.report.phpmd">
+        <include name="**/*.php"     />
+        <exclude name="build/**"     />
+        <exclude name="resources/**" />
+        <exclude name="vendor/**"    />
+    </patternset>
+    <patternset id="fileset.pattern.report.codesniffer">
+        <include name="**/*.php"     />
+        <exclude name="build/**"     />
+        <exclude name="resources/**" />
+        <exclude name="vendor/**"    />
+    </patternset>
+        
+        
+    	
+    <!-- ============================================  -->
+    <!-- import commons base                           -->
+    <!-- ============================================  -->
+    <import file="src/xml/base.xml" />
+	
+	
+	
+</project>
