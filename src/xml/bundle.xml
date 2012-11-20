@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- bundle                                                        --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="bundle">
+
+
+
+    <!-- ============================================  -->
+    <!-- tasks                                         -->
+    <!-- ============================================  -->
+    <includepath classpath="${phing:commons:basedir}/tasks" />
+    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append"  />
+    <taskdef classname="PhingCommonsCssMinTask" name="phing-commons-css-min" />
+    <taskdef classname="PhingCommonsJsMinTask"  name="phing-commons-js-min" />
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- help.bundle                                   --> 
+    <!-- ============================================  -->
+    <target name="help.bundle">
+        <echo message="bundle.pack.css (CSS Minify / Packing)"    />
+        <echo message="bundle.pack.js  (JS Minify / Packing)"     />
+        <echo message="bundle          (Bundle the project)"      />
+    </target>
+    
+  
+ 
+    <!-- ============================================  -->
+    <!-- bundle.pack.css                               --> 
+    <!-- ============================================  -->  
+    <target name="bundle.pack.css">
+        <echo msg="run bundle.pack.css" />
+        
+        <property name="tmp" value="${project.path.build}/tmp/css" />
+        
+        <delete dir="${tmp}" />
+        <mkdir  dir="${tmp}" />
+        
+        <phing-commons-append destFile="${tmp}/build.tmp.max.css" failonerror="true">
+            <filelist dir="${project.path.css}" listfile="${project.path.css}/build.max" />
+        </phing-commons-append>
+        
+        <phing-commons-append destFile="${tmp}/build.tmp.min.css" failonerror="true">
+            <filelist dir="${project.path.css}" listfile="${project.path.css}/build.min" />
+        </phing-commons-append>
+        
+        <phing-commons-css-min targetDir="${tmp}" suffix=".min" failonerror="false">
+            <filelist dir="${tmp}" files="build.tmp.min.css"/>
+        </phing-commons-css-min>        
+        
+        <phing-commons-append destFile="${tmp}/build.min.css" failonerror="true">
+            <filelist dir="${tmp}" files="build.tmp.max.css,build.tmp.min.min.css"/>
+        </phing-commons-append>
+                        
+        <echo msg="end bundle.pack.css" />
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.pack.js                                --> 
+    <!-- ============================================  -->  
+    <target name="bundle.pack.js" depends="test.jslint">
+        <echo msg="run bundle.pack.js" />
+        
+        <property name="tmp" value="${project.path.build}/tmp/js" />
+        
+        <delete dir="${tmp}" />
+        <mkdir  dir="${tmp}" />
+           
+        <phing-commons-append destFile="${tmp}/build.tmp.max.js" failonerror="true">
+            <filelist dir="${project.path.js}" listfile="${project.path.js}/build.max" />
+        </phing-commons-append>
+        
+        <phing-commons-append destFile="${tmp}/build.tmp.min.js" failonerror="true">
+            <filelist dir="${project.path.js}" listfile="${project.path.js}/build.min" />
+        </phing-commons-append>
+                
+        <phing-commons-js-min targetDir="${tmp}" suffix=".min" failonerror="false" packed="true">
+            <filelist dir="${tmp}" files="build.tmp.min.js"/>
+        </phing-commons-js-min>   
+              
+        <phing-commons-append destFile="${tmp}/build.min.js" failonerror="true">
+            <filelist dir="${tmp}" files="build.tmp.max.js,build.tmp.min.min.js"/>
+        </phing-commons-append>
+                                                
+        <echo msg="end bundle.pack.js" />
+    </target>
+    
+    
+
+    <!-- ============================================  -->
+    <!-- bundle                                        --> 
+    <!-- ============================================  -->  
+    <target name="bundle" depends="bundle.pack.css,bundle.pack.js" />
+    
+    
+                
+</project>
