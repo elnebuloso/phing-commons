@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="test" basedir=".">
+<!-- ============================================================  -->
+<!-- test                                                          --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="test">
 
 
 
@@ -10,6 +15,7 @@
 	<target name="help.test">
 		<echo message="test.phplint (PHP Validation)"   />
 		<echo message="test.phpunit (PHP Unit Testing)" />
+		<echo message="test.jslint  (JS Validation)"    />
 	</target>
 
 	
@@ -46,5 +52,22 @@
     </target>    
     
     
+ 
+    <!-- ============================================  -->
+    <!-- test.jslint                                   --> 
+    <!-- ============================================  -->  
+    <target name="test.jslint">
+        <echo msg="run test.jslint" />
+        
+        <jsllint cachefile="./jslint.cache">
+            <fileset dir="${project.path.js}">
+                <patternset refid="fileset.pattern.test.jslint" />
+            </fileset>
+        </jsllint>
+
+        <echo msg="end test.jslint" />
+    </target>  
     
+    
+        
 </project>

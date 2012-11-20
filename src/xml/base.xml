@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="base">
+<!-- ============================================================  -->
+<!-- base                                                          --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="base" basedir=".">
 
 
     <!-- ============================================  -->
-    <!-- fetch properties                              --> 
+    <!-- set properties                                --> 
     <!-- ============================================  -->
 	<php function="dirname" returnProperty="phing:commons:basedir">
 		<param value="${phing.file.base}" />
@@ -12,13 +17,13 @@
 	<property name="phing:commons:basedir" value="${phing:commons:basedir}/.."  override="true" />
 	<property name="phing:commons:xml"     value="${phing:commons:basedir}/xml" override="true" />
 	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
-	
-	
+
+
 	
     <!-- ============================================  -->
     <!-- help                                          --> 
     <!-- ============================================  -->
-    <target name="help" depends="help.base,help.test,help.report" />
+    <target name="help" depends="help.test,help.report,help.bundle" />
     
     
     <!-- ============================================  -->
@@ -55,6 +60,7 @@
     <!-- ============================================  -->	
 	<import file="${phing:commons:xml}/test.xml"   />
 	<import file="${phing:commons:xml}/report.xml" />
+	<import file="${phing:commons:xml}/bundle.xml" />
 	
 	
 </project>
