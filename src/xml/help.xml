@@ -25,7 +25,6 @@
         <echo message="phing:commons:xsl       ${phing:commons:xsl}"     />
         <echo message="project.name            ${project.name}"          />
         <echo message="build.version           ${build.version}"         />
-        <echo message="build.root              ${build.root}"            />
         <echo message="build.bundle            ${build.bundle}"          />
         <echo message="build.reports           ${build.reports}"         />
     </target>

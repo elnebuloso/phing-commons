@@ -94,24 +94,24 @@
     <!-- bundle                                        -->
     <!-- ============================================  -->
     <target name="bundle" depends="bundle.pack,init.patternset.bundle">
-        <delete dir="${build.bundle}" />
-        <mkdir  dir="${build.bundle}" />
+        <delete dir="${build.bundle}/bundle" />
+        <mkdir  dir="${build.bundle}/bundle" />
         
-        <copy todir="${build.bundle}">
+        <copy todir="${build.bundle}/bundle">
             <fileset dir=".">
                 <patternset refid="fileset.pattern.bundle" />
             </fileset>
         </copy>
 
-        <copy file="${build.tmp.css}/min.css" tofile="${build.bundle}/${project.public.css}/min.css" overwrite="true" />
-        <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/${project.public.js}/min.js"   overwrite="true" />
+        <copy file="${build.tmp.css}/min.css" tofile="${build.bundle}/bundle/${project.public.css}/min.css" overwrite="true" />
+        <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/bundle/${project.public.js}/min.js"   overwrite="true" />
         
         <phingcall target="bundle.after" />
         
-        <delete file="${build.root}/${build.version}.tar.gz" />
+        <delete file="${build.bundle}/${build.version}.tar.gz" />
         
-        <tar destfile="${build.root}/${build.version}.tar.gz" compression="gzip">
-            <fileset dir="${build.bundle}">
+        <tar destfile="${build.bundle}/${build.version}.tar.gz" compression="gzip">
+            <fileset dir="${build.bundle}/bundle">
                 <include name="**/**" />
             </fileset>
         </tar>

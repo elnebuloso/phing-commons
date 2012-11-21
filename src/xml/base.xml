@@ -18,7 +18,6 @@
 	<property name="phing:commons:basedir" value="${phing:commons:basedir}/.."  override="true" />
 	<property name="phing:commons:xml"     value="${phing:commons:basedir}/xml" override="true" />
 	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
-    <property name="build.root"            value="${build.bundle}/.." override="true" />
     <loadfile property="build.version"     file="./VERSION"/>
 
 
