@@ -93,13 +93,13 @@
     <!-- ============================================  -->
     <!-- bundle                                        -->
     <!-- ============================================  -->
-    <target name="bundle" depends="init.patternset.bundle.project.collect,bundle.pack">
+    <target name="bundle" depends="bundle.pack,init.patternset.bundle">
         <delete dir="${build.bundle}" />
         <mkdir  dir="${build.bundle}" />
         
         <copy todir="${build.bundle}">
             <fileset dir=".">
-                <patternset refid="fileset.pattern.bundle.project.collect" />
+                <patternset refid="fileset.pattern.bundle" />
             </fileset>
         </copy>
 
@@ -107,6 +107,15 @@
         <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/${project.public.js}/min.js"   overwrite="true" />
         
         <phingcall target="bundle.after" />
+        
+        <delete file="${build.root}/${build.version}.tar.gz" />
+        
+        <tar destfile="${build.root}/${build.version}.tar.gz" compression="gzip">
+            <fileset dir="${build.bundle}">
+                <include name="**/**" />
+            </fileset>
+        </tar>
+                
     </target>
     
     

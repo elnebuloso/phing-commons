@@ -122,12 +122,12 @@
     
 
     <!-- ============================================  -->
-    <!-- init.patternset.bundle.project.collect        --> 
+    <!-- init.patternset.bundle                        --> 
     <!-- ============================================  -->  
-    <target name="init.patternset.bundle.project.collect">
-        <echo message="init fileset.pattern.bundle.project.collect default" />
+    <target name="init.patternset.bundle">
+        <echo message="init fileset.pattern.bundle default" />
         
-        <patternset id="fileset.pattern.bundle.project.collect">
+        <patternset id="fileset.pattern.bundle">
             <include name="**/**"                   />
             <exclude name=".git/**"                 />
             <exclude name="build/**"                />

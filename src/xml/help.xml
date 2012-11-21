@@ -12,7 +12,7 @@
     <!-- ============================================  -->
     <!-- help                                          --> 
     <!-- ============================================  -->
-    <target name="help" depends="help.test,help.report,help.bundle" />
+    <target name="help" depends="help.properties,help.test,help.report,help.bundle" />
 
     
       
@@ -24,8 +24,10 @@
         <echo message="phing:commons:xml       ${phing:commons:xml}"     />
         <echo message="phing:commons:xsl       ${phing:commons:xsl}"     />
         <echo message="project.name            ${project.name}"          />
+        <echo message="build.version           ${build.version}"         />
+        <echo message="build.root              ${build.root}"            />
         <echo message="build.bundle            ${build.bundle}"          />
-        <echo message="build.reports           ${build.reports}"         />        
+        <echo message="build.reports           ${build.reports}"         />
     </target>
 
     
