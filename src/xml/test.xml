@@ -16,6 +16,7 @@
 		<echo message="test.phplint (PHP Validation)"   />
 		<echo message="test.phpunit (PHP Unit Testing)" />
 		<echo message="test.jslint  (JS Validation)"    />
+		<echo message="test         (run all)"          />
 	</target>
 
 	
@@ -23,9 +24,7 @@
     <!-- ============================================  -->
     <!-- test.phplint                                  --> 
     <!-- ============================================  -->  
-    <target name="test.phplint" depends="report.index">
-		<echo msg="run test.phplint" />
-	
+    <target name="test.phplint" depends="init.patternsets">
         <mkdir dir="${project.path.reports}/phplint" />
         
         <phplint haltonfailure="true" tofile="${project.path.reports}/phplint/phplint.txt" cachefile="./phplint.cache">
@@ -33,8 +32,6 @@
                 <patternset refid="fileset.pattern.test.phplint" />
             </fileset>
         </phplint>
-    
-        <echo msg="end test.phplint" />
     </target>
     
     
@@ -42,13 +39,9 @@
     <!-- ============================================  -->
     <!-- test.phpunit                                  --> 
     <!-- ============================================  -->  
-    <target name="test.phpunit" depends="report.index,test.phplint">
-        <echo msg="run test.phpunit" />
-        
+    <target name="test.phpunit" depends="init.patternsets,test.phplint">
         <mkdir dir="${project.path.reports}/phpunit" />
         <mkdir dir="${project.path.reports}/phpunit-coverage-report" />
-
-        <echo msg="end test.phpunit" />
     </target>    
     
     
@@ -56,18 +49,20 @@
     <!-- ============================================  -->
     <!-- test.jslint                                   --> 
     <!-- ============================================  -->  
-    <target name="test.jslint">
-        <echo msg="run test.jslint" />
-        
+    <target name="test.jslint" depends="init.patternsets">
         <jsllint cachefile="./jslint.cache">
             <fileset dir="${project.path.js}">
                 <patternset refid="fileset.pattern.test.jslint" />
             </fileset>
         </jsllint>
-
-        <echo msg="end test.jslint" />
     </target>  
     
     
-        
+    <!-- ============================================  -->
+    <!-- test                                          -->
+    <!-- ============================================  -->
+    <target name="test" depends="test.phplint,test.phpunit,test.jslint" />
+    
+    
+            
 </project>

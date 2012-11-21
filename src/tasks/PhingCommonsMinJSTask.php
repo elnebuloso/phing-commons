@@ -15,16 +15,16 @@ require_once 'phing/types/FileList.php';
 require_once 'phing/types/FileSet.php';
 
 /**
- * @link http://code.google.com/p/cssmin/
+ * @link http://dean.edwards.name/packer/
  */
-require_once 'vendor/cssmin-v3.0.1.php';
+require_once 'vendor/JavaScriptPacker.php';
 
 /**
- * CSS Minify Task
+ * JS Minify Dean Adwards
  *
  * @author  Jan Thoennessen <jan.thoennessen@googlemail.com>
  */
-class PhingCommonsCssMinTask extends Task {
+class PhingCommonsMinJSTask extends Task {
 
     /**
      * the source files
@@ -36,7 +36,7 @@ class PhingCommonsCssMinTask extends Task {
     /**
      * the source files
      *
-     * @var FileSet
+     * @var  FileSet
      */
     protected $filesets = array();
 
@@ -63,101 +63,11 @@ class PhingCommonsCssMinTask extends Task {
     protected $targetDir;
 
     /**
-     * the css filtes to use
+     * set true to pack the minified file
      *
-     * @var array
+     * @var bool
      */
-    protected $cssFilters = array(
-        'ImportImports' => false,  // default false
-        'ConvertLevel3Properties' => true // default true
-    );
-
-    /**
-     * the css plugins to use
-     *
-     * @var array
-     */
-    protected $cssPlugins = array(
-        'Variables' => true,  // default true
-        'ConvertFontWeight' => true,  // default false
-        'ConvertNamedColors' => true,  // default false
-        'CompressColorValues' => true,  // default false
-        'CompressUnitValues' => true // default false
-    );
-
-    /**
-     * set filter
-     *
-     * @param string $value
-     */
-    public function setImportImports($value) {
-        $this->cssFilters['ImportImports'] = array(
-            'BasePath' => $value
-        );
-    }
-
-    /**
-     * set filter
-     *
-     * @param bool $value
-     */
-    public function setConvertLevel3Properties($value) {
-        $this->cssFilters['ConvertLevel3Properties'] = $value;
-    }
-
-    /**
-     * set plugin
-     *
-     * @param bool $value
-     */
-    public function setVariables($value) {
-        $this->cssPlugins['Variables'] = $value;
-    }
-
-    /**
-     * set plugin
-     *
-     * @param bool $value
-     */
-    public function setConvertFontWeight($value) {
-        $this->cssPlugins['ConvertFontWeight'] = $value;
-    }
-
-    /**
-     * set plugin
-     *
-     * @param bool $value
-     */
-    public function setConvertNamedColors($value) {
-        $this->cssPlugins['ConvertNamedColors'] = $value;
-    }
-
-    /**
-     * set plugin
-     *
-     * @param bool $value
-     */
-    public function setCompressColorValues($value) {
-        $this->cssPlugins['CompressColorValues'] = $value;
-    }
-
-    /**
-     * set plugin
-     *
-     * @param bool $value
-     */
-    public function setCompressUnitValues($value) {
-        $this->cssPlugins['CompressUnitValues'] = $value;
-    }
-
-    /**
-     * Supports embedded <filelist> element.
-     * @return FileList
-     */
-    public function createFileList() {
-        $num = array_push($this->filelists, new FileList());
-        return $this->filelists[$num - 1];
-    }
+    protected $packed = false;
 
     /**
      * Nested creator, adds a set of files (nested <fileset> attribute).
@@ -167,6 +77,15 @@ class PhingCommonsCssMinTask extends Task {
     public function createFileSet() {
         $num = array_push($this->filesets, new FileSet());
         return $this->filesets[$num - 1];
+    }
+
+    /**
+     * Supports embedded <filelist> element.
+     * @return FileList
+     */
+    public function createFileList() {
+        $num = array_push($this->filelists, new FileList());
+        return $this->filelists[$num - 1];
     }
 
     /**
@@ -197,6 +116,15 @@ class PhingCommonsCssMinTask extends Task {
     }
 
     /**
+     * set to minify
+     *
+     * @param bool $packed
+     */
+    public function setPacked($packed) {
+        $this->packed = $packed;
+    }
+
+    /**
      * The init method: Do init steps.
      */
     public function init() {
@@ -215,17 +143,21 @@ class PhingCommonsCssMinTask extends Task {
 
                 foreach($files as $file) {
                     $this->log('Minifying file ' . $file);
-
                     try {
-                        $target = $this->targetDir . '/' . str_replace($fullPath, '', str_replace('.css', $this->suffix . '.css', $file));
+                        $target = $this->targetDir . '/' . str_replace($fullPath, '', str_replace('.js', $this->suffix . '.js', $file));
                         if(file_exists(dirname($target)) === false) {
                             mkdir(dirname($target), 0700, true);
                         }
 
                         $content = file_get_contents($fullPath . '/' . $file);
-                        $minifier = new CssMinifier($content, $this->cssFilters, $this->cssPlugins);
+                        if($this->packed === true) {
+                            $packer = new JavaScriptPacker($content, 'Normal', true, false);
+                        }
+                        else {
+                            $packer = new JavaScriptPacker($content, 'None', true, false);
+                        }
 
-                        file_put_contents($target, $minifier->getMinified());
+                        file_put_contents($target, $packer->pack());
                     }
                     catch(Exception $e) {
                         $this->log("Could not minify file $file: " . $e->getMessage(), Project::MSG_ERR);
@@ -248,20 +180,23 @@ class PhingCommonsCssMinTask extends Task {
             try {
                 $files = $fs->getDirectoryScanner($this->project)->getIncludedFiles();
                 $fullPath = realpath($fs->getDir($this->project));
-
                 foreach($files as $file) {
                     $this->log('Minifying file ' . $file);
-
                     try {
-                        $target = $this->targetDir . '/' . str_replace($fullPath, '', str_replace('.css', $this->suffix . '.css', $file));
+                        $target = $this->targetDir . '/' . str_replace($fullPath, '', str_replace('.js', $this->suffix . '.js', $file));
                         if(file_exists(dirname($target)) === false) {
                             mkdir(dirname($target), 0700, true);
                         }
 
                         $content = file_get_contents($fullPath . '/' . $file);
-                        $minifier = new CssMinifier($content, $this->cssFilters, $this->cssPlugins);
+                        if($this->packed === true) {
+                            $packer = new JavaScriptPacker($content, 'Normal', true, false);
+                        }
+                        else {
+                            $packer = new JavaScriptPacker($content, 'None', true, false);
+                        }
 
-                        file_put_contents($target, $minifier->getMinified());
+                        file_put_contents($target, $packer->pack());
                     }
                     catch(Exception $e) {
                         $this->log("Could not minify file $file: " . $e->getMessage(), Project::MSG_ERR);
