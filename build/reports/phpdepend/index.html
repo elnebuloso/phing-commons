@@ -1,0 +1,608 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>PHPDepend Analysis</title>
+<style type="text/css">
+      body {
+        font:normal 68% verdana,arial,helvetica;
+        color:#000000;
+      }
+      table tr td, tr th {
+          font-size: 68%;
+      }
+      table.details tr th{
+        font-weight: bold;
+        text-align:left;
+        background:#a6caf0;
+      }
+      table.details tr td{
+        background:#eeeee0;
+      }
+      
+      p {
+        line-height:1.5em;
+        margin-top:0.5em; margin-bottom:1.0em;
+        margin-left:2em;
+        margin-right:2em;
+      }
+      h1 {
+        margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
+      }
+      h2 {
+        margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
+      }
+      h3 {
+        margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
+      }
+      h4 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      h5 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      h6 {
+        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+      }
+      .Error {
+        font-weight:bold; color:red;
+      }
+      .Failure {
+        font-weight:bold; color:purple;
+      }
+      .Properties {
+        text-align:right;
+      }
+      </style>
+</head>
+<body>
+<h1><a name="top">PHPDepend Analysis</a></h1>
+<p align="right">Designed for use with <a href="http://pdepend.org/">PHPDepend</a> and <a href="http://www.phing.info">Phing</a>.</p>
+<hr size="2">
+<p><img src="chart.png"></p>
+<p><img src="overview-pyramid.png"></p>
+<table width="100%"><tr>
+<td><a name="NVsummary"><h2>Summary</h2></a></td>
+<td align="right">
+    [<a href="#NVsummary">summary</a>]
+    [<a href="#NVpackages">packages</a>]
+    [<a href="#NVcycles">cycles</a>]
+    [<a href="#NVexplanations">explanations</a>]
+    </td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Package</th>
+<th>Total Classes</th>
+<th><a href="#EXnumber">Abstract Classes</a></th>
+<th><a href="#EXnumber">Concrete Classes</a></th>
+<th><a href="#EXafferent">Afferent Couplings</a></th>
+<th><a href="#EXefferent">Efferent Couplings</a></th>
+<th><a href="#EXabstractness">Abstractness</a></th>
+<th><a href="#EXinstability">Instability</a></th>
+<th><a href="#EXdistance">Distance</a></th>
+</tr>
+<tr>
+<td align="left"><a href="#PK+global">+global</a></td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0,66666666666667</td>
+<td align="right">0,33333333333333</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKLemmy">Lemmy</a></td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Tokens">CssMin/Tokens</a></td>
+<td align="right">29</td>
+<td align="right">6</td>
+<td align="right">23</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0,20689655172414</td>
+<td align="right">0</td>
+<td align="right">0,79310344827586</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Parser/Plugins">CssMin/Parser/Plugins</a></td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0,076923076923077</td>
+<td align="right">1</td>
+<td align="right">0,076923076923077</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a></td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">0,125</td>
+<td align="right">0,8</td>
+<td align="right">0,075</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a></td>
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">0,1</td>
+<td align="right">1</td>
+<td align="right">0,1</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Formatter">CssMin/Formatter</a></td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0,33333333333333</td>
+<td align="right">0</td>
+<td align="right">0,66666666666667</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Parser">CssMin/Parser</a></td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0,33333333333333</td>
+<td align="right">0,66666666666667</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Minifier">CssMin/Minifier</a></td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0,28571428571429</td>
+<td align="right">0,71428571428571</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin">CssMin</a></td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0,28571428571429</td>
+<td align="right">0,71428571428571</td>
+</tr>
+<tr>
+<td align="left"><a href="#PKCssMin/Minifier/Pluginsn">CssMin/Minifier/Pluginsn</a></td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+</table>
+<table width="100%"><tr>
+<td><a name="NVpackages"><h2>Packages</h2></a></td>
+<td align="right">
+    [<a href="#NVsummary">summary</a>]
+    [<a href="#NVpackages">packages</a>]
+    [<a href="#NVcycles">cycles</a>]
+    [<a href="#NVexplanations">explanations</a>]
+    </td>
+</tr></table>
+<h3><a name="PK+global">+global</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 1</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 2</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0,66666666666667</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,33333333333333</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">PhingCommonsAppendTask<br>PhingCommonsMinCSSTask<br>PhingCommonsMinJSTask<br>JavaScriptPacker<br>ParseMaster<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a><br>
+</td>
+<td valign="top" width="25%">
+<a href="#PK+core">+core</a><br><a href="#PKCssMin/Minifier">CssMin/Minifier</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKLemmy">Lemmy</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 0</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 0</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0</td>
+<td>
+<a href="#EXdistance">Distance</a>: 1</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">Lemmy_Uuid<br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%"><i>None</i></td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Tokens">CssMin/Tokens</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 5</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 0</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0,20689655172414</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,79310344827586</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%">aCssToken<br>aCssRulesetStartToken<br>aCssRulesetEndToken<br>aCssDeclarationToken<br>aCssAtBlockStartToken<br>aCssAtBlockEndToken<br>
+</td>
+<td valign="top" width="25%">CssRulesetStartToken<br>CssRulesetEndToken<br>CssRulesetDeclarationToken<br>CssNullToken<br>CssCommentToken<br>CssAtVariablesStartToken<br>CssAtVariablesEndToken<br>CssAtVariablesDeclarationToken<br>CssAtPageStartToken<br>CssAtPageEndToken<br>CssAtPageDeclarationToken<br>CssAtMediaStartToken<br>CssAtMediaEndToken<br>CssAtKeyframesStartToken<br>CssAtKeyframesRulesetStartToken<br>CssAtKeyframesRulesetEndToken<br>CssAtKeyframesRulesetDeclarationToken<br>CssAtKeyframesEndToken<br>CssAtImportToken<br>CssAtFontFaceStartToken<br>CssAtFontFaceEndToken<br>CssAtFontFaceDeclarationToken<br>CssAtCharsetToken<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a><br><a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a><br><a href="#PKCssMin/Minifier/Pluginsn">CssMin/Minifier/Pluginsn</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br><a href="#PKCssMin/Parser/Plugins">CssMin/Parser/Plugins</a><br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Parser/Plugins">CssMin/Parser/Plugins</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 0</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 3</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0,076923076923077</td>
+<td>
+<a href="#EXinstability">Instability</a>: 1</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,076923076923077</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%">aCssParserPlugin<br>
+</td>
+<td valign="top" width="25%">CssUrlParserPlugin<br>CssStringParserPlugin<br>CssRulesetParserPlugin<br>CssExpressionParserPlugin<br>CssCommentParserPlugin<br>CssAtVariablesParserPlugin<br>CssAtPageParserPlugin<br>CssAtMediaParserPlugin<br>CssAtKeyframesParserPlugin<br>CssAtImportParserPlugin<br>CssAtFontFaceParserPlugin<br>CssAtCharsetParserPlugin<br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">
+<a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br><a href="#PKCssMin/Tokens">CssMin/Tokens</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 1</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 4</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0,125</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0,8</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,075</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%">aCssMinifierPlugin<br>
+</td>
+<td valign="top" width="25%">CssVariablesMinifierPlugin<br>CssConvertRgbColorsMinifierPlugin<br>CssConvertNamedColorsMinifierPlugin<br>CssConvertHslColorsMinifierPlugin<br>CssCompressUnitValuesMinifierPlugin<br>CssCompressExpressionValuesMinifierPlugin<br>CssCompressColorValuesMinifierPlugin<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier/Pluginsn">CssMin/Minifier/Pluginsn</a><br>
+</td>
+<td valign="top" width="25%">
+<a href="#PK+global">+global</a><br><a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Tokens">CssMin/Tokens</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 0</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 4</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0,1</td>
+<td>
+<a href="#EXinstability">Instability</a>: 1</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,1</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%">aCssMinifierFilter<br>
+</td>
+<td valign="top" width="25%">CssVariablesMinifierFilter<br>CssSortRulesetPropertiesMinifierFilter<br>CssRemoveLastDelarationSemiColonMinifierFilter<br>CssRemoveEmptyRulesetsMinifierFilter<br>CssRemoveEmptyAtBlocksMinifierFilter<br>CssRemoveCommentsMinifierFilter<br>CssImportImportsMinifierFilter<br>CssConvertLevel3PropertiesMinifierFilter<br>CssConvertLevel3AtKeyframesMinifierFilter<br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">
+<a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br><a href="#PKCssMin/Tokens">CssMin/Tokens</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Formatter">CssMin/Formatter</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 0</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 0</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0,33333333333333</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,66666666666667</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%">aCssFormatter<br>
+</td>
+<td valign="top" width="25%">CssWhitesmithsFormatter<br>CssOtbsFormatter<br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%"><i>None</i></td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Parser">CssMin/Parser</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 4</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 2</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0,33333333333333</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,66666666666667</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">CssParser<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a><br><a href="#PKCssMin/Parser/Plugins">CssMin/Parser/Plugins</a><br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Tokens">CssMin/Tokens</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Minifier">CssMin/Minifier</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 5</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 2</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0,28571428571429</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,71428571428571</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">CssMinifier<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PK+global">+global</a><br><a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a><br><a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a><br><a href="#PKCssMin/Minifier/Pluginsn">CssMin/Minifier/Pluginsn</a><br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin">CssMin</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin">CssMin</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 5</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 2</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 0,28571428571429</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0,71428571428571</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">CssMin<br>CssError<br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Minifier/Filters">CssMin/Minifier/Filters</a><br><a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br><a href="#PKCssMin/Parser/Plugins">CssMin/Parser/Plugins</a><br>
+</td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Parser">CssMin/Parser</a><br>
+</td>
+</tr>
+</table>
+<h3><a name="PKCssMin/Minifier/Pluginsn">CssMin/Minifier/Pluginsn</a></h3>
+<table width="100%"><tr>
+<td>
+<a href="#EXafferent">Afferent Couplings</a>: 0</td>
+<td>
+<a href="#EXefferent">Efferent Couplings</a>: 3</td>
+<td>
+<a href="#EXabstractness">Abstractness</a>: 0</td>
+<td>
+<a href="#EXinstability">Instability</a>: 1</td>
+<td>
+<a href="#EXdistance">Distance</a>: 0</td>
+</tr></table>
+<table width="100%" class="details">
+<tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">CssConvertFontWeightMinifierPlugin<br>
+</td>
+<td valign="top" width="25%"><i>None</i></td>
+<td valign="top" width="25%">
+<a href="#PKCssMin/Minifier">CssMin/Minifier</a><br><a href="#PKCssMin/Minifier/Plugins">CssMin/Minifier/Plugins</a><br><a href="#PKCssMin/Tokens">CssMin/Tokens</a><br>
+</td>
+</tr>
+</table>
+<table width="100%"><tr>
+<td><a name="NVcycles"><h2>Cycles</h2></a></td>
+<td align="right">
+    [<a href="#NVsummary">summary</a>]
+    [<a href="#NVpackages">packages</a>]
+    [<a href="#NVcycles">cycles</a>]
+    [<a href="#NVexplanations">explanations</a>]
+    </td>
+</tr></table>
+<h3>+global</h3>
+<p>+global<br>CssMin/Minifier<br>CssMin<br>CssMin/Minifier<br></p>
+<h3>CssMin/Parser/Plugins</h3>
+<p>CssMin/Parser/Plugins<br>CssMin<br>CssMin/Minifier<br>CssMin<br></p>
+<h3>CssMin/Minifier/Plugins</h3>
+<p>CssMin/Minifier/Plugins<br>+global<br>CssMin/Minifier<br>CssMin<br>CssMin/Minifier<br></p>
+<h3>CssMin/Minifier/Filters</h3>
+<p>CssMin/Minifier/Filters<br>CssMin<br>CssMin/Minifier<br>CssMin<br></p>
+<h3>CssMin/Parser</h3>
+<p>CssMin/Parser<br>CssMin<br>CssMin/Minifier<br>CssMin<br></p>
+<h3>CssMin/Minifier</h3>
+<p>CssMin/Minifier<br>CssMin<br>CssMin/Minifier<br></p>
+<h3>CssMin</h3>
+<p>CssMin<br>CssMin/Minifier<br>CssMin<br></p>
+<h3>CssMin/Minifier/Pluginsn</h3>
+<p>CssMin/Minifier/Pluginsn<br>CssMin/Minifier<br>CssMin<br>CssMin/Minifier<br></p>
+<table width="100%"><tr>
+<td><a name="NVexplanations"><h2>Explanations</h2></a></td>
+<td align="right">
+    [<a href="#NVsummary">summary</a>]
+    [<a href="#NVpackages">packages</a>]
+    [<a href="#NVcycles">cycles</a>]
+    [<a href="#NVexplanations">explanations</a>]
+    </td>
+</tr></table>
+<p>The following explanations are for quick reference and are lifted directly from the original <a href="http://www.clarkware.com/software/JDepend.html">JDepend documentation</a>.</p>
+<h3><a name="EXnumber">Number of Classes</a></h3>
+<p>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</p>
+<h3><a name="EXafferent">Afferent Couplings</a></h3>
+<p>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility. </p>
+<h3><a name="EXefferent">Efferent Couplings</a></h3>
+<p>The number of other packages that the classes in the package depend upon is an indicator of the package's independence. </p>
+<h3><a name="EXabstractness">Abstractness</a></h3>
+<p>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. </p>
+<p>The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package. </p>
+<h3><a name="EXinstability">Instability</a></h3>
+<p>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. </p>
+<p>The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package. </p>
+<h3><a name="EXdistance">Distance</a></h3>
+<p>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. </p>
+<p>A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). </p>
+<p>The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible. </p>
+</body>
+</html>

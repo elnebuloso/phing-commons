@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="1.2.0" timestamp="2012-11-21T21:57:23+01:00">
+  <file name="/var/www/phing-commons/src/tasks/PhingCommonsAppendTask.php">
+    <violation beginline="99" endline="199" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="PhingCommonsAppendTask" method="main" priority="3">
+      The method main() has a Cyclomatic Complexity of 23.
+    </violation>
+    <violation beginline="99" endline="199" rule="NPathComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="PhingCommonsAppendTask" method="main" priority="3">
+      The method main() has an NPath complexity of 961.
+    </violation>
+    <violation beginline="99" endline="199" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="PhingCommonsAppendTask" method="main" priority="3">
+      Avoid really long methods.
+    </violation>
+  </file>
+  <file name="/var/www/phing-commons/src/tasks/PhingCommonsMinCSSTask.php">
+    <violation beginline="209" endline="281" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="PhingCommonsMinCSSTask" method="main" priority="3">
+      The method main() has a Cyclomatic Complexity of 15.
+    </violation>
+  </file>
+  <file name="/var/www/phing-commons/src/tasks/PhingCommonsMinJSTask.php">
+    <violation beginline="137" endline="216" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="PhingCommonsMinJSTask" method="main" priority="3">
+      The method main() has a Cyclomatic Complexity of 17.
+    </violation>
+  </file>
+  <file name="/var/www/phing-commons/src/tasks/vendor/JavaScriptPacker.php">
+    <violation beginline="69" endline="537" rule="TooManyMethods" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#toomanymethods" class="JavaScriptPacker" priority="3">
+      This class has too many methods, consider refactoring it.
+    </violation>
+    <violation beginline="69" endline="537" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="JavaScriptPacker" priority="3">
+      The class JavaScriptPacker has an overall complexity of 59 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="122" endline="149" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_basicCompression" priority="3">
+      Avoid unused private methods such as '_basicCompression'.
+    </violation>
+    <violation beginline="151" endline="171" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_encodeSpecialChars" priority="3">
+      Avoid unused private methods such as '_encodeSpecialChars'.
+    </violation>
+    <violation beginline="173" endline="200" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_encodeKeywords" priority="3">
+      Avoid unused private methods such as '_encodeKeywords'.
+    </violation>
+    <violation beginline="214" endline="214" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$value'.
+    </violation>
+    <violation beginline="276" endline="278" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_sortWords" priority="3">
+      Avoid unused private methods such as '_sortWords'.
+    </violation>
+    <violation beginline="281" endline="357" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="JavaScriptPacker" method="_bootStrap" priority="3">
+      The method _bootStrap() has a Cyclomatic Complexity of 15.
+    </violation>
+    <violation beginline="281" endline="357" rule="NPathComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="JavaScriptPacker" method="_bootStrap" priority="3">
+      The method _bootStrap() has an NPath complexity of 22400.
+    </violation>
+    <violation beginline="295" endline="295" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$value'.
+    </violation>
+    <violation beginline="360" endline="362" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_insertFastDecode" priority="3">
+      Avoid unused private methods such as '_insertFastDecode'.
+    </violation>
+    <violation beginline="360" endline="360" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$match'.
+    </violation>
+    <violation beginline="363" endline="365" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_insertFastEncode" priority="3">
+      Avoid unused private methods such as '_insertFastEncode'.
+    </violation>
+    <violation beginline="363" endline="363" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$match'.
+    </violation>
+    <violation beginline="375" endline="377" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_encode10" priority="3">
+      Avoid unused private methods such as '_encode10'.
+    </violation>
+    <violation beginline="381" endline="383" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_encode36" priority="3">
+      Avoid unused private methods such as '_encode36'.
+    </violation>
+    <violation beginline="414" endline="416" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_encodePrivate" priority="3">
+      Avoid unused private methods such as '_encodePrivate'.
+    </violation>
+    <violation beginline="431" endline="433" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="JavaScriptPacker" method="_escape95Bis" priority="3">
+      Avoid unused private methods such as '_escape95Bis'.
+    </violation>
+    <violation beginline="540" endline="740" rule="TooManyMethods" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#toomanymethods" class="ParseMaster" priority="3">
+      This class has too many methods, consider refactoring it.
+    </violation>
+    <violation beginline="553" endline="553" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
+      Avoid unused private fields such as '$TRIM'.
+    </violation>
+    <violation beginline="561" endline="561" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$out'.
+    </violation>
+    <violation beginline="633" endline="663" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_replacement" priority="3">
+      Avoid unused private methods such as '_replacement'.
+    </violation>
+    <violation beginline="633" endline="663" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="ParseMaster" method="_replacement" priority="3">
+      The method _replacement() has a Cyclomatic Complexity of 11.
+    </violation>
+    <violation beginline="665" endline="673" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_backReferences" priority="3">
+      Avoid unused private methods such as '_backReferences'.
+    </violation>
+    <violation beginline="667" endline="667" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$quote'.
+    </violation>
+    <violation beginline="675" endline="679" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_replace_name" priority="3">
+      Avoid unused private methods such as '_replace_name'.
+    </violation>
+    <violation beginline="681" endline="683" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_replace_encoded" priority="3">
+      Avoid unused private methods such as '_replace_encoded'.
+    </violation>
+    <violation beginline="704" endline="707" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_escapeBis" priority="3">
+      Avoid unused private methods such as '_escapeBis'.
+    </violation>
+    <violation beginline="725" endline="735" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="ParseMaster" method="_unescapeBis" priority="3">
+      Avoid unused private methods such as '_unescapeBis'.
+    </violation>
+  </file>
+  <file name="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">
+    <violation beginline="435" endline="524" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Formatter" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssWhitesmithsFormatter" method="__toString" priority="3">
+      The method __toString() has a Cyclomatic Complexity of 28.
+    </violation>
+    <violation beginline="658" endline="729" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssVariablesMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 18.
+    </violation>
+    <violation beginline="658" endline="729" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssVariablesMinifierFilter" method="apply" priority="3">
+      The method apply() has an NPath complexity of 3080.
+    </violation>
+    <violation beginline="700" endline="700" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$null'.
+    </violation>
+    <violation beginline="772" endline="805" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssUrlParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 12.
+    </violation>
+    <violation beginline="854" endline="906" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssStringParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 15.
+    </violation>
+    <violation beginline="927" endline="987" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssSortRulesetPropertiesMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 15.
+    </violation>
+    <violation beginline="927" endline="987" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssSortRulesetPropertiesMinifierFilter" method="apply" priority="3">
+      The method apply() has an NPath complexity of 1729.
+    </violation>
+    <violation beginline="1085" endline="1164" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssRulesetParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 24.
+    </violation>
+    <violation beginline="1085" endline="1085" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$index'.
+    </violation>
+    <violation beginline="1085" endline="1085" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="1313" endline="1332" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssRemoveEmptyAtBlocksMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 11.
+    </violation>
+    <violation beginline="1378" endline="1792" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="CssMin/Parser" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="CssParser" priority="3">
+      The class CssParser has an overall complexity of 56 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="1599" endline="1707" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssParser" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 26.
+    </violation>
+    <violation beginline="1599" endline="1707" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Parser" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssParser" method="parse" priority="3">
+      The method parse() has an NPath complexity of 2576.
+    </violation>
+    <violation beginline="1599" endline="1707" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="CssMin/Parser" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="CssParser" method="parse" priority="3">
+      Avoid really long methods.
+    </violation>
+    <violation beginline="1811" endline="1894" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Formatter" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssOtbsFormatter" method="__toString" priority="3">
+      The method __toString() has a Cyclomatic Complexity of 28.
+    </violation>
+    <violation beginline="1960" endline="2023" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssMinifier" method="__construct" priority="3">
+      The method __construct() has a Cyclomatic Complexity of 12.
+    </violation>
+    <violation beginline="1960" endline="2023" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Minifier" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssMinifier" method="__construct" priority="3">
+      The method __construct() has an NPath complexity of 7200.
+    </violation>
+    <violation beginline="2058" endline="2127" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssMinifier" method="minify" priority="3">
+      The method minify() has a Cyclomatic Complexity of 13.
+    </violation>
+    <violation beginline="2218" endline="2260" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssMin" method="initialise" priority="3">
+      The method initialise() has a Cyclomatic Complexity of 10.
+    </violation>
+    <violation beginline="2222" endline="2222" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$i'.
+    </violation>
+    <violation beginline="2328" endline="2518" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="CssImportImportsMinifierFilter" priority="3">
+      The class CssImportImportsMinifierFilter has an overall complexity of 54 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="2342" endline="2517" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssImportImportsMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 54.
+    </violation>
+    <violation beginline="2342" endline="2517" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssImportImportsMinifierFilter" method="apply" priority="3">
+      The method apply() has an NPath complexity of 5579329.
+    </violation>
+    <violation beginline="2342" endline="2517" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="CssImportImportsMinifierFilter" method="apply" priority="3">
+      Avoid really long methods.
+    </violation>
+    <violation beginline="2573" endline="2603" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssExpressionParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 12.
+    </violation>
+    <violation beginline="2573" endline="2573" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="3197" endline="3239" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssConvertLevel3PropertiesMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 10.
+    </violation>
+    <violation beginline="3247" endline="3254" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="CssConvertLevel3PropertiesMinifierFilter" method="filter" priority="3">
+      Avoid unused private methods such as 'filter'.
+    </violation>
+    <violation beginline="3261" endline="3274" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="CssConvertLevel3PropertiesMinifierFilter" method="opacity" priority="3">
+      Avoid unused private methods such as 'opacity'.
+    </violation>
+    <violation beginline="3281" endline="3304" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="CssConvertLevel3PropertiesMinifierFilter" method="whiteSpace" priority="3">
+      Avoid unused private methods such as 'whiteSpace'.
+    </violation>
+    <violation beginline="3325" endline="3373" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Minifier/Filters" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssConvertLevel3AtKeyframesMinifierFilter" method="apply" priority="3">
+      The method apply() has a Cyclomatic Complexity of 11.
+    </violation>
+    <violation beginline="3583" endline="3583" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$m'.
+    </violation>
+    <violation beginline="3879" endline="3879" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$index'.
+    </violation>
+    <violation beginline="3982" endline="4043" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssAtVariablesParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 17.
+    </violation>
+    <violation beginline="3982" endline="3982" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="4172" endline="4240" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssAtPageParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 18.
+    </violation>
+    <violation beginline="4172" endline="4172" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="4348" endline="4348" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="4559" endline="4668" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssAtKeyframesParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 31.
+    </violation>
+    <violation beginline="4559" endline="4668" rule="NPathComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="CssAtKeyframesParserPlugin" method="parse" priority="3">
+      The method parse() has an NPath complexity of 252.
+    </violation>
+    <violation beginline="4559" endline="4668" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="CssAtKeyframesParserPlugin" method="parse" priority="3">
+      Avoid really long methods.
+    </violation>
+    <violation beginline="4559" endline="4559" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="4773" endline="4814" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssAtImportParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 11.
+    </violation>
+    <violation beginline="4773" endline="4773" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="4881" endline="4948" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="CssMin/Parser/Plugins" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="CssAtFontFaceParserPlugin" method="parse" priority="3">
+      The method parse() has a Cyclomatic Complexity of 18.
+    </violation>
+    <violation beginline="4881" endline="4881" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+    <violation beginline="5060" endline="5060" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$previousChar'.
+    </violation>
+  </file>
+</pmd>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="+global">
+      <Stats>
+        <TotalClasses>11</TotalClasses>
+        <ConcreteClasses>11</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>1</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>0,66666666666667</I>
+        <D>0,33333333333333</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/PhingCommonsAppendTask.php">PhingCommonsAppendTask</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/PhingCommonsMinCSSTask.php">PhingCommonsMinCSSTask</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/PhingCommonsMinJSTask.php">PhingCommonsMinJSTask</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/JavaScriptPacker.php">JavaScriptPacker</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/JavaScriptPacker.php">ParseMaster</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>+core</Package>
+        <Package>CssMin/Minifier</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>CssMin/Minifier/Plugins</Package>
+      </UsedBy>
+    </Package>
+    <Package name="Lemmy">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>0</Ce>
+        <A>0</A>
+        <I>0</I>
+        <D>1</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/application/library/Lemmy/Uuid.php">Lemmy_Uuid</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon/>
+      <UsedBy/>
+    </Package>
+    <Package name="CssMin/Tokens">
+      <Stats>
+        <TotalClasses>29</TotalClasses>
+        <ConcreteClasses>23</ConcreteClasses>
+        <AbstractClasses>6</AbstractClasses>
+        <Ca>5</Ca>
+        <Ce>0</Ce>
+        <A>0,20689655172414</A>
+        <I>0</I>
+        <D>0,79310344827586</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRulesetStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRulesetEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRulesetDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssNullToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssCommentToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtVariablesStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtVariablesEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtVariablesDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtPageStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtPageEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtPageDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtMediaStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtMediaEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesRulesetStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesRulesetEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesRulesetDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtImportToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtFontFaceStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtFontFaceEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtFontFaceDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtCharsetToken</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssRulesetStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssRulesetEndToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssDeclarationToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssAtBlockStartToken</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssAtBlockEndToken</Class>
+      </AbstractClasses>
+      <DependsUpon/>
+      <UsedBy>
+        <Package>CssMin/Minifier/Filters</Package>
+        <Package>CssMin/Minifier/Plugins</Package>
+        <Package>CssMin/Minifier/Pluginsn</Package>
+        <Package>CssMin/Parser</Package>
+        <Package>CssMin/Parser/Plugins</Package>
+      </UsedBy>
+    </Package>
+    <Package name="CssMin/Parser/Plugins">
+      <Stats>
+        <TotalClasses>13</TotalClasses>
+        <ConcreteClasses>12</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>3</Ce>
+        <A>0,076923076923077</A>
+        <I>1</I>
+        <D>0,076923076923077</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssUrlParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssStringParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRulesetParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssExpressionParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssCommentParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtVariablesParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtPageParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtMediaParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtKeyframesParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtImportParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtFontFaceParserPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssAtCharsetParserPlugin</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssParserPlugin</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>CssMin</Package>
+        <Package>CssMin/Parser</Package>
+        <Package>CssMin/Tokens</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="CssMin/Minifier/Plugins">
+      <Stats>
+        <TotalClasses>8</TotalClasses>
+        <ConcreteClasses>7</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>1</Ca>
+        <Ce>4</Ce>
+        <A>0,125</A>
+        <I>0,8</I>
+        <D>0,075</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssVariablesMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertRgbColorsMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertNamedColorsMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertHslColorsMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssCompressUnitValuesMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssCompressExpressionValuesMinifierPlugin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssCompressColorValuesMinifierPlugin</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssMinifierPlugin</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>+global</Package>
+        <Package>CssMin</Package>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Tokens</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>CssMin/Minifier/Pluginsn</Package>
+      </UsedBy>
+    </Package>
+    <Package name="CssMin/Minifier/Filters">
+      <Stats>
+        <TotalClasses>10</TotalClasses>
+        <ConcreteClasses>9</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>4</Ce>
+        <A>0,1</A>
+        <I>1</I>
+        <D>0,1</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssVariablesMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssSortRulesetPropertiesMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRemoveLastDelarationSemiColonMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRemoveEmptyRulesetsMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRemoveEmptyAtBlocksMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssRemoveCommentsMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssImportImportsMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertLevel3PropertiesMinifierFilter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertLevel3AtKeyframesMinifierFilter</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssMinifierFilter</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>CssMin</Package>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Parser</Package>
+        <Package>CssMin/Tokens</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="CssMin/Formatter">
+      <Stats>
+        <TotalClasses>3</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>0</Ce>
+        <A>0,33333333333333</A>
+        <I>0</I>
+        <D>0,66666666666667</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssWhitesmithsFormatter</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssOtbsFormatter</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">aCssFormatter</Class>
+      </AbstractClasses>
+      <DependsUpon/>
+      <UsedBy/>
+    </Package>
+    <Package name="CssMin/Parser">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>4</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>0,33333333333333</I>
+        <D>0,66666666666667</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssParser</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>CssMin</Package>
+        <Package>CssMin/Tokens</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>CssMin</Package>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Minifier/Filters</Package>
+        <Package>CssMin/Parser/Plugins</Package>
+      </UsedBy>
+    </Package>
+    <Package name="CssMin/Minifier">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>5</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>0,28571428571429</I>
+        <D>0,71428571428571</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssMinifier</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>CssMin</Package>
+        <Package>CssMin/Parser</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>+global</Package>
+        <Package>CssMin</Package>
+        <Package>CssMin/Minifier/Filters</Package>
+        <Package>CssMin/Minifier/Plugins</Package>
+        <Package>CssMin/Minifier/Pluginsn</Package>
+      </UsedBy>
+    </Package>
+    <Package name="CssMin">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>2</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>5</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>0,28571428571429</I>
+        <D>0,71428571428571</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssMin</Class>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssError</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Parser</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Minifier/Filters</Package>
+        <Package>CssMin/Minifier/Plugins</Package>
+        <Package>CssMin/Parser</Package>
+        <Package>CssMin/Parser/Plugins</Package>
+      </UsedBy>
+    </Package>
+    <Package name="CssMin/Minifier/Pluginsn">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>3</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/var/www/phing-commons/src/tasks/vendor/cssmin-v3.0.1.php">CssConvertFontWeightMinifierPlugin</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>CssMin/Minifier</Package>
+        <Package>CssMin/Minifier/Plugins</Package>
+        <Package>CssMin/Tokens</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles>
+    <Package Name="+global">
+      <Package>+global</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+    </Package>
+    <Package Name="CssMin/Parser/Plugins">
+      <Package>CssMin/Parser/Plugins</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+    </Package>
+    <Package Name="CssMin/Minifier/Plugins">
+      <Package>CssMin/Minifier/Plugins</Package>
+      <Package>+global</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+    </Package>
+    <Package Name="CssMin/Minifier/Filters">
+      <Package>CssMin/Minifier/Filters</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+    </Package>
+    <Package Name="CssMin/Parser">
+      <Package>CssMin/Parser</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+    </Package>
+    <Package Name="CssMin/Minifier">
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+    </Package>
+    <Package Name="CssMin">
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+    </Package>
+    <Package Name="CssMin/Minifier/Pluginsn">
+      <Package>CssMin/Minifier/Pluginsn</Package>
+      <Package>CssMin/Minifier</Package>
+      <Package>CssMin</Package>
+      <Package>CssMin/Minifier</Package>
+    </Package>
+  </Cycles>
+</PDepend>
