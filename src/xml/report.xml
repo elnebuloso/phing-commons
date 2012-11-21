@@ -18,7 +18,7 @@
 		<echo message="report.phpmd       (PHP Mess Detection)"           />
 		<echo message="report.codesniffer (PHP Checkstyle Code Analysis)" />
 		<echo message="report.apigen      (PHP API Documentation)"        />
-		<echo message="report.clean       (clean all Reports)"            />
+		<echo message="report.clean       (clean all reports)"            />
 		<echo message="report             (run all)"                      />
 	</target>
 		
@@ -27,18 +27,18 @@
     <!-- ============================================  -->
     <!-- report.phpcpd                                 -->
     <!-- ============================================  -->
-    <target name="report.phpcpd" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/phpcpd" />
+    <target name="report.phpcpd" depends="init.patternset.report.phpcpd,test.phplint">
+        <mkdir dir="${build.reports}/phpcpd" />
         
         <phpcpd>
             <fileset dir=".">
                 <patternset refid="fileset.pattern.report.phpcpd" />
             </fileset>
 			
-            <formatter type="pmd" outfile="${project.path.reports}/phpcpd/phpcpd.xml" />
+            <formatter type="pmd" outfile="${build.reports}/phpcpd/phpcpd.xml" />
         </phpcpd>
         
-        <xslt file="${project.path.reports}/phpcpd/phpcpd.xml" tofile="${project.path.reports}/phpcpd/index.html" style="${phing:commons:xsl}/phpcpd.xsl" />
+        <xslt file="${build.reports}/phpcpd/phpcpd.xml" tofile="${build.reports}/phpcpd/index.html" style="${phing:commons:xsl}/phpcpd.xsl" />
     </target>
     
     
@@ -46,22 +46,22 @@
     <!-- ============================================  -->
     <!-- report.phpdepend                              -->
     <!-- ============================================  -->
-    <target name="report.phpdepend" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/phpdepend" />
+    <target name="report.phpdepend" depends="init.patternset.report.phpdepend,test.phplint">
+        <mkdir dir="${build.reports}/phpdepend" />
         
         <phpdepend>
             <fileset dir=".">
                 <patternset refid="fileset.pattern.report.phpdepend" />
             </fileset>
             
-            <logger type="jdepend-xml"      outfile="${project.path.reports}/phpdepend/phpdepend.xml"        />
-            <logger type="jdepend-chart"    outfile="${project.path.reports}/phpdepend/chart.png"            />
-            <logger type="overview-pyramid" outfile="${project.path.reports}/phpdepend/overview-pyramid.png" />
+            <logger type="jdepend-xml"      outfile="${build.reports}/phpdepend/phpdepend.xml"        />
+            <logger type="jdepend-chart"    outfile="${build.reports}/phpdepend/chart.png"            />
+            <logger type="overview-pyramid" outfile="${build.reports}/phpdepend/overview-pyramid.png" />
             
             <analyzer type="coderank-mode" value="method" />
         </phpdepend>
         
-        <xslt file="${project.path.reports}/phpdepend/phpdepend.xml" tofile="${project.path.reports}/phpdepend/index.html" style="${phing:commons:xsl}/phpdepend.xsl" />
+        <xslt file="${build.reports}/phpdepend/phpdepend.xml" tofile="${build.reports}/phpdepend/index.html" style="${phing:commons:xsl}/phpdepend.xsl" />
     </target>
     
     
@@ -69,18 +69,18 @@
     <!-- ============================================  -->
     <!-- report.phpmd                                  -->
     <!-- ============================================  -->
-    <target name="report.phpmd" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/phpmd" />
+    <target name="report.phpmd" depends="init.patternset.report.phpmd,test.phplint">
+        <mkdir dir="${build.reports}/phpmd" />
         
         <phpmd>
             <fileset dir=".">
                 <patternset refid="fileset.pattern.report.phpmd" />
             </fileset>
             
-            <formatter type="xml" outfile="${project.path.reports}/phpmd/phpmd.xml" />
+            <formatter type="xml" outfile="${build.reports}/phpmd/phpmd.xml" />
         </phpmd>
         
-        <xslt file="${project.path.reports}/phpmd/phpmd.xml" tofile="${project.path.reports}/phpmd/index.html" style="${phing:commons:xsl}/phpmd.xsl" />
+        <xslt file="${build.reports}/phpmd/phpmd.xml" tofile="${build.reports}/phpmd/index.html" style="${phing:commons:xsl}/phpmd.xsl" />
     </target>
     
     
@@ -88,19 +88,19 @@
     <!-- ============================================  -->
     <!-- report.codesniffer                            -->
     <!-- ============================================  -->
-    <target name="report.codesniffer" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/codesniffer" />
-        <mkdir dir="${project.path.reports}/codesniffer-overview" />
+    <target name="report.codesniffer" depends="init.patternset.report.codesniffer,test.phplint">
+        <mkdir dir="${build.reports}/codesniffer" />
+        <mkdir dir="${build.reports}/codesniffer-overview" />
         
-        <phpcodesniffer standard="Zend" showSniffs="true" showWarnings="true" docGenerator="HTML" docFile="${project.path.reports}/codesniffer-overview/index.html">
+        <phpcodesniffer standard="Zend" showSniffs="true" showWarnings="true" docGenerator="HTML" docFile="${build.reports}/codesniffer-overview/index.html">
             <fileset dir=".">
                 <patternset refid="fileset.pattern.report.codesniffer" />
             </fileset>
             
-            <formatter type="checkstyle" outfile="${project.path.reports}/codesniffer/checkstyle.codesniffer.xml" />
+            <formatter type="checkstyle" outfile="${build.reports}/codesniffer/checkstyle.codesniffer.xml" />
         </phpcodesniffer>
         
-        <xslt file="${project.path.reports}/codesniffer/checkstyle.codesniffer.xml" tofile="${project.path.reports}/codesniffer/index.html" style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
+        <xslt file="${build.reports}/codesniffer/checkstyle.codesniffer.xml" tofile="${build.reports}/codesniffer/index.html" style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
     </target>
     
     
@@ -108,16 +108,16 @@
     <!-- ============================================  -->
     <!-- report.apigen                                 -->
     <!-- ============================================  -->
-    <target name="report.apigen" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/apigen" />
-        <mkdir dir="${project.path.reports}/apigen-checkstyle" />
+    <target name="report.apigen" depends="test.phplint">
+        <mkdir dir="${build.reports}/apigen" />
+        <mkdir dir="${build.reports}/apigen-checkstyle" />
         
         <apigen 
         config="./build.properties.apigen" 
-        destination="${project.path.reports}/apigen" 
-        report="${project.path.reports}/apigen-checkstyle/checkstyle.apigen.xml" />
+        destination="${build.reports}/apigen" 
+        report="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml" />
 
-        <xslt file="${project.path.reports}/apigen-checkstyle/checkstyle.apigen.xml" tofile="${project.path.reports}/apigen-checkstyle/index.html" style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
+        <xslt file="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml" tofile="${build.reports}/apigen-checkstyle/index.html" style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
     </target>
     
     
@@ -128,8 +128,8 @@
     <target name="report.clean">
         <echo msg="run report.clean" />
         
-        <delete dir="${project.path.reports}" />
-        <mkdir  dir="${project.path.reports}" />
+        <delete dir="${build.reports}" />
+        <mkdir  dir="${build.reports}" />
         
         <echo msg="end report.clean" />
     </target> 

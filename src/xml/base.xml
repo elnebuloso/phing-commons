@@ -19,65 +19,11 @@
 	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
 
 
-    <!-- ============================================  -->
-    <!-- init.patternsets                              --> 
-    <!-- ============================================  -->  
-    <target name="init.patternsets">
-        <echo message="init patternset defined in ${phing.file.base}" />
-        
-		<patternset id="fileset.pattern.test.phplint">
-			<include name="**/*.php"     />
-			<include name="**/*.phtml"   />
-			<exclude name="build/**"     />
-			<exclude name="public/**"    />
-			<exclude name="resources/**" />
-			<exclude name="vendor/**"    />
-		</patternset>
-		
-		<patternset id="fileset.pattern.test.jslint">
-			<include name="**/*.js"     />
-			<exclude name="**/*.min.js" />
-			<exclude name="vendor/**"   />
-		</patternset> 
-	
-		<patternset id="fileset.pattern.report.phpcpd">
-			<include name="**/*.php"     />
-			<exclude name="build/**"     />
-			<exclude name="public/**"    />
-			<exclude name="resources/**" />
-			<exclude name="vendor/**"    />
-		</patternset>
-		
-		<patternset id="fileset.pattern.report.phpdepend">
-			<include name="**/*.php"     />
-			<exclude name="build/**"     />
-			<exclude name="public/**"    />
-			<exclude name="resources/**" />
-			<exclude name="vendor/**"    />
-		</patternset>
-		
-		<patternset id="fileset.pattern.report.phpmd">
-			<include name="**/*.php"     />
-			<exclude name="build/**"     />
-			<exclude name="public/**"    />
-			<exclude name="resources/**" />
-			<exclude name="vendor/**"    />
-		</patternset>
-		
-		<patternset id="fileset.pattern.report.codesniffer">
-			<include name="**/*.php"     />
-			<exclude name="build/**"     />
-			<exclude name="public/**"    />
-			<exclude name="resources/**" />
-			<exclude name="vendor/**"    />
-		</patternset>		
-    </target>
-
-
 
     <!-- ============================================  -->
     <!-- import commons                                --> 
     <!-- ============================================  -->
+    <import file="${phing:commons:xml}/init.xml"   />
     <import file="${phing:commons:xml}/help.xml"   />
 	<import file="${phing:commons:xml}/test.xml"   />
 	<import file="${phing:commons:xml}/report.xml" />

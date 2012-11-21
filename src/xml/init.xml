@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- base                                                          --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="init">
+
+
+    <!-- ============================================  -->
+    <!-- init.patternset.test.phplint                  --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.test.phplint">
+        <echo message="init fileset.pattern.test.phplint default" />
+        
+        <patternset id="fileset.pattern.test.phplint">
+            <include name="**/*.php"     />
+            <include name="**/*.phtml"   />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- init.patternset.test.phpunit                  --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.test.phpunit">
+        <echo message="init fileset.pattern.test.phpunit default" />
+        
+        <patternset id="fileset.pattern.test.phpunit">
+            <include name="**/*Test*.php" />
+        </patternset>
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- init.patternset.test.jslint                   --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.test.jslint">
+        <echo message="init fileset.pattern.test.jslint default" />
+        
+        <patternset id="fileset.pattern.test.jslint">
+            <include name="**/*.js"     />
+            <exclude name="**/*.min.js" />
+            <exclude name="vendor/**"   />
+        </patternset> 
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- init.patternset.report.phpcpd                 --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.report.phpcpd">
+        <echo message="init fileset.pattern.report.phpcpd default" />
+        
+        <patternset id="fileset.pattern.report.phpcpd">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>
+    </target>
+    
+    
+    
+    <!-- ============================================  -->
+    <!-- init.patternset.report.phpdepend              --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.report.phpdepend">
+        <echo message="init fileset.pattern.report.phpdepend default" />
+        
+        <patternset id="fileset.pattern.report.phpdepend">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>
+    </target>
+    
+    
+
+    <!-- ============================================  -->
+    <!-- init.patternset.report.phpmd                  --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.report.phpmd">
+        <echo message="init fileset.pattern.report.phpmd default" />
+        
+        <patternset id="fileset.pattern.report.phpmd">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>
+    </target>
+    
+    
+
+    <!-- ============================================  -->
+    <!-- init.patternset.report.codesniffer            --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.report.codesniffer">
+        <echo message="init fileset.pattern.report.codesniffer default" />
+        
+        <patternset id="fileset.pattern.report.codesniffer">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>
+    </target>
+
+    
+
+    <!-- ============================================  -->
+    <!-- init.patternset.bundle.project.collect        --> 
+    <!-- ============================================  -->  
+    <target name="init.patternset.bundle.project.collect">
+        <echo message="init fileset.pattern.bundle.project.collect default" />
+        
+        <patternset id="fileset.pattern.bundle.project.collect">
+            <include name="**/**"                   />
+            <exclude name=".git/**"                 />
+            <exclude name="build/**"                />
+            <exclude name="build.xml"               />
+            <exclude name="build.properties"        />
+            <exclude name="build.properties.apigen" />
+            <exclude name="phplint.cache"           />
+            <exclude name="jslint.cache"            />
+        </patternset>
+    </target>
+    
+    
+        
+</project>

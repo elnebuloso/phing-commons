@@ -23,9 +23,9 @@
         <echo message="phing:commons:basedir   ${phing:commons:basedir}" />
         <echo message="phing:commons:xml       ${phing:commons:xml}"     />
         <echo message="phing:commons:xsl       ${phing:commons:xsl}"     />
-        <echo message="project.name            ${project.name}"         />
-        <echo message="project.path.build      ${project.path.build}"   />
-        <echo message="project.path.reports    ${project.path.reports}" />        
+        <echo message="project.name            ${project.name}"          />
+        <echo message="build.bundle            ${build.bundle}"          />
+        <echo message="build.reports           ${build.reports}"         />        
     </target>
 
     

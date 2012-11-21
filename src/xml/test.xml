@@ -24,10 +24,10 @@
     <!-- ============================================  -->
     <!-- test.phplint                                  --> 
     <!-- ============================================  -->  
-    <target name="test.phplint" depends="init.patternsets">
-        <mkdir dir="${project.path.reports}/phplint" />
+    <target name="test.phplint" depends="init.patternset.test.phplint">
+        <mkdir dir="${build.reports}/phplint" />
         
-        <phplint haltonfailure="true" tofile="${project.path.reports}/phplint/phplint.txt" cachefile="./phplint.cache">
+        <phplint haltonfailure="true" tofile="${build.reports}/phplint/phplint.txt" cachefile="./phplint.cache">
             <fileset dir=".">
                 <patternset refid="fileset.pattern.test.phplint" />
             </fileset>
@@ -39,9 +39,9 @@
     <!-- ============================================  -->
     <!-- test.phpunit                                  --> 
     <!-- ============================================  -->  
-    <target name="test.phpunit" depends="init.patternsets,test.phplint">
-        <mkdir dir="${project.path.reports}/phpunit" />
-        <mkdir dir="${project.path.reports}/phpunit-coverage-report" />
+    <target name="test.phpunit" depends="init.patternset.test.phpunit,test.phplint">
+        <mkdir dir="${build.reports}/phpunit" />
+        <mkdir dir="${build.reports}/phpunit-coverage-report" />
     </target>    
     
     
@@ -49,9 +49,9 @@
     <!-- ============================================  -->
     <!-- test.jslint                                   --> 
     <!-- ============================================  -->  
-    <target name="test.jslint" depends="init.patternsets">
+    <target name="test.jslint" depends="init.patternset.test.jslint">
         <jsllint cachefile="./jslint.cache">
-            <fileset dir="${project.path.js}">
+            <fileset dir="${project.public.js}">
                 <patternset refid="fileset.pattern.test.jslint" />
             </fileset>
         </jsllint>

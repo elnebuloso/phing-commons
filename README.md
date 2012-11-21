@@ -4,45 +4,62 @@ phing-commons
 ## Installation
 * copy build.xml from vendor/elnebuloso/phing-commons to your-project-root
 * copy build.properties from vendor/elnebuloso/phing-commons to your-project-root
-* copy build.apigen.config from vendor/elnebuloso/phing-commons to your-project-root
-* update these build files optional with your settings
-* update the import path in build.xml to /vendor/elnebuloso/phing-commons/src/xml/base.xml
+* copy build.properties.apigen from vendor/elnebuloso/phing-commons to your-project-root
+
+## Settings
+* update build.properties
+* update build.properties.apigen (optional)
+* look at /vendor/elnebuloso/phing-commons/src/xml/init.xml
+ * you can overwrite every init task in your custom build.xml for editing e.g. patternsets
+
+## Running
+- phing
+
+Calling the phing command without any task shows all available tasks.
 
 ## Tests
-  * **test.phplint** - (PHP Validation)
-  * **test.phpunit** - (PHP Unit Testing)
-  * **test.jslint** - (JS Validation)  
- 
+* **test.phplint** (PHP Validation)
+* **test.phpunit** (PHP Unit Testing)
+* **test.jslint** (JS Validation) 
+* **test** (run all)
+
 ## Reports
-  * **report.phpcpd** - (PHP Copy and Paste Detection)
-  * **report.phpdepend** - (PHP Software Metrics)
-  * **report.phpmd** - (PHP Mess Detection)
-  * **report.codesniffer** - (Checkstyle Code Analysis)
-  * **report.apigen** - (API Documentation)
-  * **report.clean** - (Cleans all Reports)
-  * **report.all** - (Generates all active Reports)
+* **report.phpcpd** (PHP Copy and Paste Detection)
+* **report.phpdepend** (PHP Software Metrics)
+* **report.phpmd** (PHP Mess Detection)
+* **report.codesniffer** (PHP Checkstyle Code Analysis)
+* **report.apigen** (PHP API Documentation)
+* **report.clean** (clean all reports)
+* **report.all** (run all)
   
 ## Bundle
-  * **bundle.pack.css** - (CSS Minify / Packing)
-  * **bundle.pack.js** - (JS Minify / Packing)
-  * **bundle** - (Bundle the project)
-  
-## Bundle CSS Strukture
-/path/to/your/css/folder
+* **bundle.pack.css** (CSS Minify / Append)
+* **bundle.pack.js** (JS Minify / Append)
+* **bundle.pack** (Minify / Append)
+* **bundle** (bundle the project)
 
-  * **build.load** filelist with files ignored by bundle
-  * **build.max** filelist with files which are packed but not minified
-  * **build.min** filelist with files which are packed and minified
-  
-These filelists can also be used for outputting the files in development.
-The loading / bundle order ist build.max, build.min
+### Bundle CSS / JS
+update build.properties (examples)
 
-## Bundle JS Strukture
-/path/to/your/js/folder
+**Examples**  
+project.path.css = ./public/css  
+project.path.js = ./public/js
 
-  * **build.load** filelist with files ignored by bundle
-  * **build.max** filelist with files which are packed but not minified
-  * **build.min** filelist with files which are packed and minified
-  
-These filelists can also be used for outputting the files in development.
-The loading / bundle order ist build.max, build.min
+* **./public/css/build.max** - filelist with files which to be appended in order
+* **./public/css/build.min** - filelist with files which to be appended in order and minified
+
+This generates the final combined css file ./project.public.css/min.css in the bundle  
+by appending build.max and build.min to one single file
+
+### Bundle JS
+update build.properties (examples)
+
+**Examples**  
+project.path.css = ./public/css  
+project.path.js = ./public/js
+
+* **./public/js/build.max** - filelist with files which to be appended in order
+* **./public/js/build.min** - filelist with files which to be appended in order and minified
+
+This generates the final combined css file ./project.public.js/min.jsin the bundle  
+by appending build.max and build.min to one single file
