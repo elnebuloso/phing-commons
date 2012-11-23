@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- test.phpunit                                                  --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="test.phpunit">
+
+
+    <!-- ============================================  -->
+    <!-- test.phpunit:init                             --> 
+    <!-- ============================================  -->  
+    <target name="test.phpunit:init">
+        <echo message="test.phpunit:init default" />
+        
+        <patternset id="patternset.test.phpunit">
+            <include name="**/*Test*.php" />
+        </patternset>
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.phpunit:before                           -->
+    <!-- ============================================  -->
+    <target name="test.phpunit:before">
+        <echo message="test.phpunit:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- test.phpunit:main                             --> 
+    <!-- ============================================  -->  
+    <target name="test.phpunit:main">
+        <echo message="test.phpunit:main default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.phpunit:after                            -->
+    <!-- ============================================  -->
+    <target name="test.phpunit:after">
+        <echo message="test.phpunit:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.phpunit                                  -->
+    <!-- ============================================  -->
+    <target name="test.phpunit" depends="test.phpunit:init,test.phpunit:before,test.phpunit:main,test.phpunit:after" />
+ 
+ 
+</project>

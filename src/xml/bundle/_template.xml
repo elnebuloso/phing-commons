@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- bundle.template                                               --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="bundle.template">
+
+
+    <!-- ============================================  -->
+    <!-- bundle.template:init                          --> 
+    <!-- ============================================  -->  
+    <target name="bundle.template:init">
+        <echo message="bundle.template:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.template:before                        -->
+    <!-- ============================================  -->
+    <target name="bundle.template:before">
+        <echo message="bundle.template:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- bundle.template:main                          --> 
+    <!-- ============================================  -->  
+    <target name="bundle.template:main">
+        <echo message="bundle.template:main default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.template:after                         -->
+    <!-- ============================================  -->
+    <target name="bundle.template:after">
+        <echo message="bundle.template:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.template                               -->
+    <!-- ============================================  -->
+    <target name="bundle.template" depends="bundle.template:init,bundle.template:before,bundle.template:main,bundle.template:after" />
+ 
+ 
+</project>

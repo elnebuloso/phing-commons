@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- package                                                       --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="package">
+
+    
+    <!-- ============================================  -->
+    <!-- import                                        --> 
+    <!-- ============================================  -->
+    <import file="${phing:commons:xml}/package/project.xml" />
+    
+    
+    <!-- ============================================  -->
+    <!-- help.package                                  --> 
+    <!-- ============================================  -->
+    <target name="help.package">
+        <echo message="package.project (package the project)" />
+        <echo message="package         (run all)"             />
+    </target>
+    
+
+    <!-- ============================================  -->
+    <!-- package                                       -->
+    <!-- ============================================  -->
+    <target name="package" depends="package.project" />
+    
+                     
+</project>

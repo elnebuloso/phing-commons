@@ -8,7 +8,14 @@
 <project name="test">
 
 
-
+    <!-- ============================================  -->
+    <!-- import                                        --> 
+    <!-- ============================================  -->
+    <import file="${phing:commons:xml}/test/phplint.xml" />
+    <import file="${phing:commons:xml}/test/phpunit.xml" />
+    <import file="${phing:commons:xml}/test/jslint.xml"  />
+    
+    
     <!-- ============================================  -->
     <!-- help.test                                     --> 
     <!-- ============================================  -->	
@@ -18,45 +25,7 @@
 		<echo message="test.jslint  (JS Validation)"    />
 		<echo message="test         (run all)"          />
 	</target>
-
 	
-	
-    <!-- ============================================  -->
-    <!-- test.phplint                                  --> 
-    <!-- ============================================  -->  
-    <target name="test.phplint" depends="init.patternset.test.phplint">
-        <mkdir dir="${build.reports}/phplint" />
-        
-        <phplint haltonfailure="true" tofile="${build.reports}/phplint/phplint.txt" cachefile="./phplint.cache">
-            <fileset dir=".">
-                <patternset refid="fileset.pattern.test.phplint" />
-            </fileset>
-        </phplint>
-    </target>
-    
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phpunit                                  --> 
-    <!-- ============================================  -->  
-    <target name="test.phpunit" depends="init.patternset.test.phpunit,test.phplint">
-        <mkdir dir="${build.reports}/phpunit" />
-        <mkdir dir="${build.reports}/phpunit-coverage-report" />
-    </target>    
-    
-    
- 
-    <!-- ============================================  -->
-    <!-- test.jslint                                   --> 
-    <!-- ============================================  -->  
-    <target name="test.jslint" depends="init.patternset.test.jslint">
-        <jsllint cachefile="./jslint.cache">
-            <fileset dir="${project.public.js}">
-                <patternset refid="fileset.pattern.test.jslint" />
-            </fileset>
-        </jsllint>
-    </target>  
-    
     
     <!-- ============================================  -->
     <!-- test                                          -->
@@ -64,5 +33,4 @@
     <target name="test" depends="test.phplint,test.phpunit,test.jslint" />
     
     
-            
 </project>

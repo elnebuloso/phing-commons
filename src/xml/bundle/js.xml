@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- bundle.js                                                     --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="bundle.js">
+
+
+    <!-- ============================================  -->
+    <!-- bundle.js:init                                --> 
+    <!-- ============================================  -->  
+    <target name="bundle.js:init">
+        <echo message="bundle.js:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.js:before                              -->
+    <!-- ============================================  -->
+    <target name="bundle.js:before">
+        <echo message="bundle.js:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- bundle.js:main                                --> 
+    <!-- ============================================  -->  
+    <target name="bundle.js:main">
+        <delete dir="${build.tmp.js}" />
+        <mkdir  dir="${build.tmp.js}" />
+           
+        <phing-commons-append destFile="${build.tmp.js}/build.tmp.max.js" failonerror="true">
+            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.max" />
+        </phing-commons-append>
+        
+        <phing-commons-append destFile="${build.tmp.js}/build.tmp.min.js" failonerror="true">
+            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.min" />
+        </phing-commons-append>
+                
+        <phing-commons-min-js targetDir="${build.tmp.js}" suffix=".min" failonerror="false" packed="true">
+            <filelist dir="${build.tmp.js}" files="build.tmp.min.js"/>
+        </phing-commons-min-js>   
+              
+        <phing-commons-append destFile="${build.tmp.js}/min.js" failonerror="true">
+            <filelist dir="${build.tmp.js}" files="build.tmp.max.js,build.tmp.min.min.js"/>
+        </phing-commons-append>
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.js:after                               -->
+    <!-- ============================================  -->
+    <target name="bundle.js:after">
+        <echo message="bundle.js:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- bundle.js                                     -->
+    <!-- ============================================  -->
+    <target name="bundle.js" depends="bundle.js:init,bundle.js:before,bundle.js:main,bundle.js:after" />
+ 
+ 
+</project>

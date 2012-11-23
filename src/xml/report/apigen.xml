@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- report.apigen                                                 --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="report.apigen">
+
+
+    <!-- ============================================  -->
+    <!-- report.apigen:init                            --> 
+    <!-- ============================================  -->  
+    <target name="report.apigen:init">
+        <echo message="report.apigen:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.apigen:before                          -->
+    <!-- ============================================  -->
+    <target name="report.apigen:before">
+        <echo message="report.apigen:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- report.apigen:main                            --> 
+    <!-- ============================================  -->  
+    <target name="report.apigen:main" depends="test.phplint">
+        <mkdir dir="${project.reports}/apigen" />
+        <mkdir dir="${project.reports}/apigen-checkstyle" />
+        
+        <apigen 
+        config="./build.properties.apigen" 
+        destination="${project.reports}/apigen" 
+        report="${project.reports}/apigen-checkstyle/checkstyle.apigen.xml" />
+
+        <xslt file="${project.reports}/apigen-checkstyle/checkstyle.apigen.xml" tofile="${project.reports}/apigen-checkstyle/index.html" style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.apigen:after                           -->
+    <!-- ============================================  -->
+    <target name="report.apigen:after">
+        <echo message="report.apigen:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.apigen                                 -->
+    <!-- ============================================  -->
+    <target name="report.apigen" depends="report.apigen:init,report.apigen:before,report.apigen:main,report.apigen:after" />
+ 
+ 
+</project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- report.phpdepend                                              --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="report.phpdepend">
+
+
+    <!-- ============================================  -->
+    <!-- report.phpdepend:init                         --> 
+    <!-- ============================================  -->  
+    <target name="report.phpdepend:init">
+        <echo message="report.phpdepend:init default" />
+        
+        <patternset id="patternset.report.phpdepend">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>        
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpdepend:before                       -->
+    <!-- ============================================  -->
+    <target name="report.phpdepend:before">
+        <echo message="report.phpdepend:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- report.phpdepend:main                         --> 
+    <!-- ============================================  -->  
+    <target name="report.phpdepend:main">
+        <delete dir="${project.reports}/phpdepend" />
+        <mkdir  dir="${project.reports}/phpdepend" />
+        
+        <phpdepend>
+            <fileset dir=".">
+                <patternset refid="patternset.report.phpdepend" />
+            </fileset>
+            
+            <logger type="jdepend-xml"      outfile="${project.reports}/phpdepend/phpdepend.xml"        />
+            <logger type="jdepend-chart"    outfile="${project.reports}/phpdepend/chart.png"            />
+            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.png" />
+            
+            <analyzer type="coderank-mode" value="method" />
+        </phpdepend>
+        
+        <xslt file="${project.reports}/phpdepend/phpdepend.xml" tofile="${project.reports}/phpdepend/index.html" style="${phing:commons:xsl}/phpdepend.xsl" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpdepend:after                        -->
+    <!-- ============================================  -->
+    <target name="report.phpdepend:after">
+        <echo message="report.phpdepend:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpdepend                              -->
+    <!-- ============================================  -->
+    <target name="report.phpdepend" depends="report.phpdepend:init,report.phpdepend:before,report.phpdepend:main,report.phpdepend:after" />
+ 
+ 
+</project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- package.project                                               --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="package.project">
+
+
+    <!-- ============================================  -->
+    <!-- package.project:init                          --> 
+    <!-- ============================================  -->  
+    <target name="package.project:init">
+        <echo message="package.project:init default" />
+        
+        <patternset id="patternset.package.project">
+            <include name="**/**"                   />
+            <exclude name=".git/**"                 />
+            <exclude name="build/**"                />
+            <exclude name="build.xml"               />
+            <exclude name="build.properties"        />
+            <exclude name="build.properties.apigen" />
+            <exclude name="phplint.cache"           />
+            <exclude name="jslint.cache"            />
+        </patternset>        
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.project:before                        -->
+    <!-- ============================================  -->
+    <target name="package.project:before">
+        <echo message="package.project:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- package.project:main                          --> 
+    <!-- ============================================  -->  
+    <target name="package.project:main">
+        <delete dir="${build.bundle}/bundle" />
+        <mkdir  dir="${build.bundle}/bundle" />
+        
+        <copy todir="${build.bundle}/bundle">
+            <fileset dir=".">
+                <patternset refid="patternset.package.project" />
+            </fileset>
+        </copy>
+
+        <copy file="${build.tmp.css}/min.css" tofile="${build.bundle}/bundle/${project.public.css}/min.css" overwrite="true" />
+        <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/bundle/${project.public.js}/min.js"   overwrite="true" />
+
+        <delete file="${build.bundle}/${build.version}.tar.gz" />
+        
+        <tar destfile="${build.bundle}/${build.version}.tar.gz" compression="gzip">
+            <fileset dir="${build.bundle}/bundle">
+                <include name="**/**" />
+            </fileset>
+        </tar>
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.project:after                         -->
+    <!-- ============================================  -->
+    <target name="package.project:after">
+        <echo message="package.project:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.project                               -->
+    <!-- ============================================  -->
+    <target name="package.project" depends="package.project:init,package.project:before,package.project:main,package.project:after" />
+ 
+ 
+</project>

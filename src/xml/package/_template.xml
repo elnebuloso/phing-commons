@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- package.template                                              --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="package.template">
+
+
+    <!-- ============================================  -->
+    <!-- package.template:init                         --> 
+    <!-- ============================================  -->  
+    <target name="package.template:init">
+        <echo message="package.template:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.template:before                       -->
+    <!-- ============================================  -->
+    <target name="package.template:before">
+        <echo message="package.template:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- package.template:main                         --> 
+    <!-- ============================================  -->  
+    <target name="package.template:main">
+        <echo message="package.template:main default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.template:after                        -->
+    <!-- ============================================  -->
+    <target name="package.template:after">
+        <echo message="package.template:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- package.template                              -->
+    <!-- ============================================  -->
+    <target name="package.template" depends="package.template:init,package.template:before,package.template:main,package.template:after" />
+ 
+ 
+</project>

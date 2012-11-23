@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- test.template                                                 --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="test.template">
+
+
+    <!-- ============================================  -->
+    <!-- test.template:init                            --> 
+    <!-- ============================================  -->  
+    <target name="test.template:init">
+        <echo message="test.template:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.template:before                          -->
+    <!-- ============================================  -->
+    <target name="test.template:before">
+        <echo message="test.template:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- test.template:main                            --> 
+    <!-- ============================================  -->  
+    <target name="test.template:main">
+        <echo message="test.template:main default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.template:after                           -->
+    <!-- ============================================  -->
+    <target name="test.template:after">
+        <echo message="test.template:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- test.template                                 -->
+    <!-- ============================================  -->
+    <target name="test.template" depends="test.template:init,test.template:before,test.template:main,test.template:after" />
+ 
+ 
+</project>

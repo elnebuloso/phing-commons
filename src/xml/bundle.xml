@@ -8,7 +8,6 @@
 <project name="bundle">
 
 
-
     <!-- ============================================  -->
     <!-- tasks                                         -->
     <!-- ============================================  -->
@@ -18,115 +17,27 @@
     <taskdef classname="PhingCommonsMinJSTask"  name="phing-commons-min-js" />
     
     
+    <!-- ============================================  -->
+    <!-- import                                        --> 
+    <!-- ============================================  -->
+    <import file="${phing:commons:xml}/bundle/js.xml"  />
+    <import file="${phing:commons:xml}/bundle/css.xml" />
+    
     
     <!-- ============================================  -->
     <!-- help.bundle                                   --> 
     <!-- ============================================  -->
     <target name="help.bundle">
-        <echo message="bundle.pack.css (CSS Minify / Append)"    />
-        <echo message="bundle.pack.js  (JS Minify / Append)"     />
-        <echo message="bundle.pack     (Minify / Append)"        />
-        <echo message="bundle          (bundle the project)"     />
+        <echo message="bundle.js  (JS  minification / appending)"  />
+        <echo message="bundle.css (CSS minification / appending)" />
+        <echo message="bundle     (run all)"                      />
     </target>
     
   
- 
-    <!-- ============================================  -->
-    <!-- bundle.pack.css                               --> 
-    <!-- ============================================  -->  
-    <target name="bundle.pack.css">
-        <delete dir="${build.tmp.css}" />
-        <mkdir  dir="${build.tmp.css}" />
-        
-        <phing-commons-append destFile="${build.tmp.css}/build.tmp.max.css" failonerror="true">
-            <filelist dir="${project.public.css}" listfile="${project.public.css}/build.max" />
-        </phing-commons-append>
-        
-        <phing-commons-append destFile="${build.tmp.css}/build.tmp.min.css" failonerror="true">
-            <filelist dir="${project.public.css}" listfile="${project.public.css}/build.min" />
-        </phing-commons-append>
-        
-        <phing-commons-min-css targetDir="${build.tmp.css}" suffix=".min" failonerror="false">
-            <filelist dir="${build.tmp.css}" files="build.tmp.min.css"/>
-        </phing-commons-min-css>        
-        
-        <phing-commons-append destFile="${build.tmp.css}/min.css" failonerror="true">
-            <filelist dir="${build.tmp.css}" files="build.tmp.max.css,build.tmp.min.min.css"/>
-        </phing-commons-append>
-    </target>
-    
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.pack.js                                --> 
-    <!-- ============================================  -->  
-    <target name="bundle.pack.js" depends="test.jslint">
-        <delete dir="${build.tmp.js}" />
-        <mkdir  dir="${build.tmp.js}" />
-           
-        <phing-commons-append destFile="${build.tmp.js}/build.tmp.max.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.max" />
-        </phing-commons-append>
-        
-        <phing-commons-append destFile="${build.tmp.js}/build.tmp.min.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.min" />
-        </phing-commons-append>
-                
-        <phing-commons-min-js targetDir="${build.tmp.js}" suffix=".min" failonerror="false" packed="true">
-            <filelist dir="${build.tmp.js}" files="build.tmp.min.js"/>
-        </phing-commons-min-js>   
-              
-        <phing-commons-append destFile="${build.tmp.js}/min.js" failonerror="true">
-            <filelist dir="${build.tmp.js}" files="build.tmp.max.js,build.tmp.min.min.js"/>
-        </phing-commons-append>
-    </target>
-    
-    
-
-    <!-- ============================================  -->
-    <!-- bundle.pack                                   --> 
-    <!-- ============================================  -->  
-    <target name="bundle.pack" depends="bundle.pack.css,bundle.pack.js" />
-    
-    
-
     <!-- ============================================  -->
     <!-- bundle                                        -->
     <!-- ============================================  -->
-    <target name="bundle" depends="bundle.pack,init.patternset.bundle">
-        <delete dir="${build.bundle}/bundle" />
-        <mkdir  dir="${build.bundle}/bundle" />
-        
-        <copy todir="${build.bundle}/bundle">
-            <fileset dir=".">
-                <patternset refid="fileset.pattern.bundle" />
-            </fileset>
-        </copy>
-
-        <copy file="${build.tmp.css}/min.css" tofile="${build.bundle}/bundle/${project.public.css}/min.css" overwrite="true" />
-        <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/bundle/${project.public.js}/min.js"   overwrite="true" />
-        
-        <phingcall target="bundle.after" />
-        
-        <delete file="${build.bundle}/${build.version}.tar.gz" />
-        
-        <tar destfile="${build.bundle}/${build.version}.tar.gz" compression="gzip">
-            <fileset dir="${build.bundle}/bundle">
-                <include name="**/**" />
-            </fileset>
-        </tar>
-                
-    </target>
+    <target name="bundle" depends="bundle.js,bundle.css" />
     
-    
-        
-    <!-- ============================================  -->
-    <!-- bundle.after                                  -->
-    <!-- ============================================  -->
-    <target name="bundle.after">
-        <echo message="calling bundle.after default" />
-    </target>
-    
-    
-                
+                     
 </project>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- report.phpmd                                                  --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="report.phpmd">
+
+
+    <!-- ============================================  -->
+    <!-- report.phpmd:init                             --> 
+    <!-- ============================================  -->  
+    <target name="report.phpmd:init">
+        <echo message="report.phpmd:init default" />
+        
+        <patternset id="patternset.report.phpmd">
+            <include name="**/*.php"     />
+            <exclude name="build/**"     />
+            <exclude name="public/**"    />
+            <exclude name="resources/**" />
+            <exclude name="vendor/**"    />
+        </patternset>        
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpmd:before                           -->
+    <!-- ============================================  -->
+    <target name="report.phpmd:before">
+        <echo message="report.phpmd:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- report.phpmd:main                             --> 
+    <!-- ============================================  -->  
+    <target name="report.phpmd:main">
+        <delete dir="${project.reports}/phpmd" />
+        <mkdir  dir="${project.reports}/phpmd" />
+        
+        <phpmd>
+            <fileset dir=".">
+                <patternset refid="patternset.report.phpmd" />
+            </fileset>
+            
+            <formatter type="xml" outfile="${project.reports}/phpmd/phpmd.xml" />
+        </phpmd>
+        
+        <xslt file="${project.reports}/phpmd/phpmd.xml" tofile="${project.reports}/phpmd/index.html" style="${phing:commons:xsl}/phpmd.xsl" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpmd:after                            -->
+    <!-- ============================================  -->
+    <target name="report.phpmd:after">
+        <echo message="report.phpmd:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- report.phpmd                                  -->
+    <!-- ============================================  -->
+    <target name="report.phpmd" depends="report.phpmd:init,report.phpmd:before,report.phpmd:main,report.phpmd:after" />
+ 
+ 
+</project>
