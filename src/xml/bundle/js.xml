@@ -42,11 +42,11 @@
         </phing-commons-append>
                 
         <phing-commons-min-js targetDir="${tmp.js}" suffix=".min" failonerror="false" packed="true">
-            <filelist dir="${tmp.js}" files="bundle.min.tmp.js"/>
+            <filelist dir="${tmp.js}" files="bundle.min.tmp.js" />
         </phing-commons-min-js>   
               
         <phing-commons-append destFile="${project.bundled.js}" failonerror="true">
-            <filelist dir="${tmp.js}" files="bundle.max.tmp.js,bundle.min.tmp.min.js"/>
+            <filelist dir="${tmp.js}" files="bundle.max.tmp.js,bundle.min.tmp.min.js" />
         </phing-commons-append>
     </target>
     

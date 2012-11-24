@@ -99,6 +99,26 @@ The Tasks looks under project.public.js for the following files:
 
 Task Process:
 * appending files from bundle.max to max.tmp file
-* appending files from bundle.max to min.tmp file
+* appending files from bundle.min to min.tmp file
 * minifying min.tmp file
 * appending files max.tmp,min.tmp to project.bundled.js
+
+### Bundle CSS
+
+**properties used from build.properties**
+* project.public.css
+* project.bundle
+ * bundle folder
+ * e.g. ./bundle
+* project.bundled.css
+ * final bundled file
+ * e.g. ./public/css/bundled.css
+ 
+The Tasks looks under project.public.css for the following file:
+* bundle
+ * filelist with files which to be minified and appended in the bundled file
+
+Task Process:
+* appending files from bundle to min.tmp file
+* minifying min.tmp file
+* appending files min.tmp to project.bundled.css

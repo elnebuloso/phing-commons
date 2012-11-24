@@ -28,23 +28,21 @@
     <!-- bundle.css:main                               --> 
     <!-- ============================================  -->  
     <target name="bundle.css:main">
-        <delete dir="${build.tmp.css}" />
-        <mkdir  dir="${build.tmp.css}" />
+        <property name="tmp.css" value="${project.bundle}/tmp/css" override="true" />
         
-        <phing-commons-append destFile="${build.tmp.css}/build.tmp.max.css" failonerror="true">
-            <filelist dir="${project.public.css}" listfile="${project.public.css}/build.max" />
+        <delete dir="${tmp.css}" />
+        <mkdir  dir="${tmp.css}" />
+        
+        <phing-commons-append destFile="${tmp.css}/bundle.min.tmp.css" failonerror="true">
+            <filelist dir="${project.public.css}" listfile="${project.public.css}/bundle" />
         </phing-commons-append>
         
-        <phing-commons-append destFile="${build.tmp.css}/build.tmp.min.css" failonerror="true">
-            <filelist dir="${project.public.css}" listfile="${project.public.css}/build.min" />
-        </phing-commons-append>
-        
-        <phing-commons-min-css targetDir="${build.tmp.css}" suffix=".min" failonerror="false">
-            <filelist dir="${build.tmp.css}" files="build.tmp.min.css"/>
+        <phing-commons-min-css targetDir="${tmp.css}" suffix=".min" failonerror="false">
+            <filelist dir="${tmp.css}" files="bundle.min.tmp.css" />
         </phing-commons-min-css>        
         
-        <phing-commons-append destFile="${build.tmp.css}/min.css" failonerror="true">
-            <filelist dir="${build.tmp.css}" files="build.tmp.max.css,build.tmp.min.min.css"/>
+        <phing-commons-append destFile="${project.bundled.css}" failonerror="true">
+            <filelist dir="${tmp.css}" files="bundle.min.tmp.min.css" />
         </phing-commons-append>
     </target>
     
