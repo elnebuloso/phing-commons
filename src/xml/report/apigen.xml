@@ -28,8 +28,11 @@
     <!-- report.apigen:main                            --> 
     <!-- ============================================  -->  
     <target name="report.apigen:main" depends="test.phplint">
-        <mkdir dir="${project.reports}/apigen" />
-        <mkdir dir="${project.reports}/apigen-checkstyle" />
+        <delete dir="${project.reports}/apigen" />
+        <mkdir  dir="${project.reports}/apigen" />
+        
+        <delete dir="${project.reports}/apigen-checkstyle" />
+        <mkdir  dir="${project.reports}/apigen-checkstyle" />
         
         <apigen 
         config="./build.properties.apigen" 

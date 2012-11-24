@@ -2,7 +2,7 @@
 # online parser for this file format
 
 title: My Project
-source: application/library
+source: library
 internal: No
 php: No
 todo: Yes

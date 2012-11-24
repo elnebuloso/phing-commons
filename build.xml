@@ -3,19 +3,16 @@
 <project name="phing-commons" basedir="." default="help">
 
 
-
     <!-- ============================================  -->
     <!-- properties                                    -->
     <!-- ============================================  -->
 	<property file="./build.properties" />
 
-
-    	
+	
     <!-- ============================================  -->
     <!-- import commons base                           -->
     <!-- ============================================  -->
     <import file="src/xml/base.xml" />
-	
 	
 	
 </project>

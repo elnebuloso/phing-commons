@@ -32,7 +32,23 @@
     <!-- test.phpunit:main                             --> 
     <!-- ============================================  -->  
     <target name="test.phpunit:main">
-        <echo message="test.phpunit:main default" />
+        <delete dir="${project.reports}/phpunit" />
+        <mkdir  dir="${project.reports}/phpunit" />
+        <delete dir="${project.reports}/phpunit-coverage-report" />
+        <mkdir  dir="${project.reports}/phpunit-coverage-report" />
+        
+        <phpunit bootstrap="./tests/bootstrap.php" codecoverage="false" haltonfailure="true" haltonerror="true">
+            <formatter todir="${project.reports}/phpunit" type="xml" />
+            <batchtest>
+                <fileset dir="./tests">
+                    <patternset refid="patternset.test.phpunit" />
+                </fileset>
+            </batchtest>
+        </phpunit>
+        
+        <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" format="frames" todir="${project.reports}/phpunit" />
+        
+        <exec command="phpunit --coverage-html ${project.reports}/phpunit-coverage-report --bootstrap ./tests/bootstrap.php tests" />
     </target>
     
     
