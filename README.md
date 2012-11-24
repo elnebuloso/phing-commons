@@ -80,34 +80,25 @@ phing-commons
  * :after
 * **package** (run all)
 
-
-
-
-
-
-
-### Bundle CSS / JS
-update build.properties (examples)
-
-**Examples**  
-project.path.css = ./public/css  
-project.path.js = ./public/js
-
-* **./public/css/build.max** - filelist with files which to be appended in order
-* **./public/css/build.min** - filelist with files which to be appended in order and minified
-
-This generates the final combined css file ./project.public.css/min.css in the bundle  
-by appending build.max and build.min to one single file
-
 ### Bundle JS
-update build.properties (examples)
 
-**Examples**  
-project.path.css = ./public/css  
-project.path.js = ./public/js
+**properties used from build.properties**
+* project.public.js
+* project.bundle
+ * bundle folder
+ * e.g. ./bundle
+* project.bundled.js
+ * final bundled file
+ * e.g. ./public/js/bundled.js
+ 
+The Tasks looks under project.public.js for the following files:
+* bundle.max
+ * filelist with files which to be appended in the bundled file
+* bundle.min
+ * filelist with files which to be minified and appended in the bundled file
 
-* **./public/js/build.max** - filelist with files which to be appended in order
-* **./public/js/build.min** - filelist with files which to be appended in order and minified
-
-This generates the final combined css file ./project.public.js/min.jsin the bundle  
-by appending build.max and build.min to one single file
+Task Process:
+* appending files from bundle.max to max.tmp file
+* appending files from bundle.max to min.tmp file
+* minifying min.tmp file
+* appending files max.tmp,min.tmp to project.bundled.js

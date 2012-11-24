@@ -28,23 +28,25 @@
     <!-- bundle.js:main                                --> 
     <!-- ============================================  -->  
     <target name="bundle.js:main">
-        <delete dir="${build.tmp.js}" />
-        <mkdir  dir="${build.tmp.js}" />
+        <property name="tmp.js" value="${project.bundle}/tmp/js" override="true" />
+        
+        <delete dir="${tmp.js}" />
+        <mkdir  dir="${tmp.js}" />
            
-        <phing-commons-append destFile="${build.tmp.js}/build.tmp.max.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.max" />
+        <phing-commons-append destFile="${tmp.js}/bundle.max.tmp.js" failonerror="true">
+            <filelist dir="${project.public.js}" listfile="${project.public.js}/bundle.max" />
         </phing-commons-append>
         
-        <phing-commons-append destFile="${build.tmp.js}/build.tmp.min.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/build.min" />
+        <phing-commons-append destFile="${tmp.js}/bundle.min.tmp.js" failonerror="true">
+            <filelist dir="${project.public.js}" listfile="${project.public.js}/bundle.min" />
         </phing-commons-append>
                 
-        <phing-commons-min-js targetDir="${build.tmp.js}" suffix=".min" failonerror="false" packed="true">
-            <filelist dir="${build.tmp.js}" files="build.tmp.min.js"/>
+        <phing-commons-min-js targetDir="${tmp.js}" suffix=".min" failonerror="false" packed="true">
+            <filelist dir="${tmp.js}" files="bundle.min.tmp.js"/>
         </phing-commons-min-js>   
               
-        <phing-commons-append destFile="${build.tmp.js}/min.js" failonerror="true">
-            <filelist dir="${build.tmp.js}" files="build.tmp.max.js,build.tmp.min.min.js"/>
+        <phing-commons-append destFile="${project.bundled.js}" failonerror="true">
+            <filelist dir="${tmp.js}" files="bundle.max.tmp.js,bundle.min.tmp.min.js"/>
         </phing-commons-append>
     </target>
     
