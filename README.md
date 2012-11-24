@@ -9,34 +9,82 @@ phing-commons
 ## Settings
 * update build.properties
 * update build.properties.apigen (optional)
-* look at /vendor/elnebuloso/phing-commons/src/xml/init.xml
- * you can overwrite every init task in your custom build.xml for editing e.g. patternsets
+* [target]:after, [target]:before
+ * overwrite in your build.xml to use these hooks
+* [target]:init
+ * used to set default patternsets
+ * overwrite to use your patternsets
+ * naming: patternset.[target] e.g. patternset.test.phplint
 
 ## Running
-- phing
-
-Calling the phing command without any task shows all available tasks.
+* phing
+ * running phing without a target outputs a help
 
 ## Tests
 * **test.phplint** (PHP Validation)
+ * :init
+ * :before
+ * :after
 * **test.phpunit** (PHP Unit Testing)
+ * :init
+ * :before
+ * :after
 * **test.jslint** (JS Validation) 
+ * :init
+ * :before
+ * :after
 * **test** (run all)
 
 ## Reports
 * **report.phpcpd** (PHP Copy and Paste Detection)
+ * :init
+ * :before
+ * :after
 * **report.phpdepend** (PHP Software Metrics)
+ * :init
+ * :before
+ * :after
 * **report.phpmd** (PHP Mess Detection)
+ * :init
+ * :before
+ * :after
 * **report.codesniffer** (PHP Checkstyle Code Analysis)
+ * :init
+ * :before
+ * :after
 * **report.apigen** (PHP API Documentation)
+ * :init
+ * :before
+ * :after
 * **report.clean** (clean all reports)
-* **report.all** (run all)
+ * :init
+ * :before
+ * :after
+* **report** (run all)
   
 ## Bundle
-* **bundle.pack.css** (CSS Minify / Append)
-* **bundle.pack.js** (JS Minify / Append)
-* **bundle.pack** (Minify / Append)
-* **bundle** (bundle the project)
+* **bundle.js** (JS minification / appending)
+ * :init
+ * :before
+ * :after
+* **bundle.css** (CSS minification / appending)
+ * :init
+ * :before
+ * :after
+* **bundle** (run all)
+
+## Package
+* **package.project** (package the project)
+ * :init
+ * :before
+ * :after
+* **package** (run all)
+
+
+
+
+
+
 
 ### Bundle CSS / JS
 update build.properties (examples)
