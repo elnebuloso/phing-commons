@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- init                                                          --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="test">
+
+
+    <!-- ============================================  -->
+    <!-- import                                        --> 
+    <!-- ============================================  -->
+    <import file="${phing:commons:xml}/init/project.xml" />
+    
+    
+    <!-- ============================================  -->
+    <!-- help.init                                     --> 
+    <!-- ============================================  -->	
+	<target name="help.init">
+		<echo message="init.project (Project Initialization)" />
+		<echo message="init         (run all)"                />
+	</target>
+	
+    
+    <!-- ============================================  -->
+    <!-- init                                          -->
+    <!-- ============================================  -->
+    <target name="init" depends="init.project" />
+    
+    
+</project>

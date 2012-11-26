@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================  -->
+<!-- init.project                                                 --> 
+<!--                                                               --> 
+<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
+<!-- ============================================================  -->
+<project name="init.project">
+
+
+    <!-- ============================================  -->
+    <!-- init.project:init                            --> 
+    <!-- ============================================  -->  
+    <target name="init.project:init">
+        <echo message="init.project:init default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- init.project:before                          -->
+    <!-- ============================================  -->
+    <target name="init.project:before">
+        <echo message="init.project:before default" />
+    </target>
+        
+        
+    <!-- ============================================  -->
+    <!-- init.project:main                            --> 
+    <!-- ============================================  -->  
+    <target name="init.project:main">
+        <echo message="init.project:main default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- init.project:after                           -->
+    <!-- ============================================  -->
+    <target name="init.project:after">
+        <echo message="init.project:after default" />
+    </target>
+    
+    
+    <!-- ============================================  -->
+    <!-- init.project                                 -->
+    <!-- ============================================  -->
+    <target name="init.project" depends="init.project:init,init.project:before,init.project:main,init.project:after" />
+ 
+ 
+</project>

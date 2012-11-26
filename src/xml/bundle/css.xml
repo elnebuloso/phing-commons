@@ -41,7 +41,7 @@
             <filelist dir="${tmp.css}" files="bundle.min.tmp.css" />
         </phing-commons-min-css>        
         
-        <phing-commons-append destFile="${project.bundled.css}" failonerror="true">
+        <phing-commons-append destFile="${project.public.js}/${project.bundle.css.filename}" failonerror="true">
             <filelist dir="${tmp.css}" files="bundle.min.tmp.min.css" />
         </phing-commons-append>
     </target>

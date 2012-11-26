@@ -20,6 +20,13 @@ phing-commons
 * phing
  * running phing without a target outputs a help
 
+## Initialization
+* **init.project** (Project Initialization)
+ * :init
+ * :before
+ * :after
+* **init** (run all)
+
 ## Tests
 * **test.phplint** (PHP Validation)
  * :init
@@ -81,16 +88,6 @@ phing-commons
 * **package** (run all)
 
 ### Bundle JS
-
-**properties used from build.properties**
-* project.public.js
-* project.bundle
- * bundle folder
- * e.g. ./bundle
-* project.bundled.js
- * final bundled file
- * e.g. ./public/js/bundled.js
- 
 The Tasks looks under project.public.js for the following files:
 * bundle.max
  * filelist with files which to be appended in the bundled file
@@ -101,19 +98,9 @@ Task Process:
 * appending files from bundle.max to max.tmp file
 * appending files from bundle.min to min.tmp file
 * minifying min.tmp file
-* appending files max.tmp,min.tmp to project.bundled.js
+* appending files max.tmp,min.tmp to project.bundle.js.filename
 
 ### Bundle CSS
-
-**properties used from build.properties**
-* project.public.css
-* project.bundle
- * bundle folder
- * e.g. ./bundle
-* project.bundled.css
- * final bundled file
- * e.g. ./public/css/bundled.css
- 
 The Tasks looks under project.public.css for the following file:
 * bundle
  * filelist with files which to be minified and appended in the bundled file
@@ -121,4 +108,4 @@ The Tasks looks under project.public.css for the following file:
 Task Process:
 * appending files from bundle to min.tmp file
 * minifying min.tmp file
-* appending files min.tmp to project.bundled.css
+* appending files min.tmp to project.bundle.css.filename

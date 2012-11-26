@@ -16,12 +16,13 @@
 	<property name="phing:commons:basedir" value="${phing:commons:basedir}/.."  override="true" />
 	<property name="phing:commons:xml"     value="${phing:commons:basedir}/xml" override="true" />
 	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
-    <loadfile property="build.version"     file="./VERSION"/>
+    <loadfile property="project.version"   file="./VERSION"/>
 
 
     <!-- ============================================  -->
     <!-- import commons                                --> 
     <!-- ============================================  -->
+    <import file="${phing:commons:xml}/init.xml"    />
     <import file="${phing:commons:xml}/test.xml"    />
 	<import file="${phing:commons:xml}/report.xml"  />
 	<import file="${phing:commons:xml}/bundle.xml"  />
@@ -32,23 +33,19 @@
     <!-- help.properties                               --> 
     <!-- ============================================  -->  
     <target name="help.properties">
-        <echo message="phing:commons:basedir   ${phing:commons:basedir}" />
-        <echo message="phing:commons:xml       ${phing:commons:xml}"     />
-        <echo message="phing:commons:xsl       ${phing:commons:xsl}"     />
-        <echo message=""                                                 />
-        <echo message="project.name            ${project.name}"          />
-        <echo message="project.reports         ${project.reports}"       />
-        <echo message=""                                                 />
-        <echo message="build.version           ${build.version}"         />
-        <echo message="build.bundle            ${build.bundle}"          />
+        <echo message="project.name     ${project.name}"    />
+        <echo message="project.version  ${project.version}" />
         
+        <!-- <echo message="phing:commons:basedir   ${phing:commons:basedir}" /> -->
+        <!-- <echo message="phing:commons:xml       ${phing:commons:xml}"     /> -->
+        <!-- <echo message="phing:commons:xsl       ${phing:commons:xsl}"     /> -->
     </target>
     
     
     <!-- ============================================  -->
     <!-- help                                          --> 
     <!-- ============================================  -->
-    <target name="help" depends="help.properties,help.test,help.report,help.bundle,help.package" />
+    <target name="help" depends="help.properties,help.init,help.test,help.report,help.bundle,help.package" />
     
         	
 </project>

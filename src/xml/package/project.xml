@@ -39,22 +39,19 @@
     <!-- package.project:main                          --> 
     <!-- ============================================  -->  
     <target name="package.project:main">
-        <delete dir="${build.bundle}/bundle" />
-        <mkdir  dir="${build.bundle}/bundle" />
+        <delete dir="${project.build}/package" />
+        <mkdir  dir="${project.build}/package" />
         
-        <copy todir="${build.bundle}/bundle">
+        <copy todir="${project.build}/package">
             <fileset dir=".">
                 <patternset refid="patternset.package.project" />
             </fileset>
         </copy>
 
-        <copy file="${build.tmp.css}/min.css" tofile="${build.bundle}/bundle/${project.public.css}/min.css" overwrite="true" />
-        <copy file="${build.tmp.js}/min.js"   tofile="${build.bundle}/bundle/${project.public.js}/min.js"   overwrite="true" />
-
-        <delete file="${build.bundle}/${build.version}.tar.gz" />
+        <delete file="${project.build}/${project.build.package.name}" />
         
-        <tar destfile="${build.bundle}/${build.version}.tar.gz" compression="gzip">
-            <fileset dir="${build.bundle}/bundle">
+        <tar destfile="${project.build}/${project.build.package.name}" compression="gzip">
+            <fileset dir="${project.build}/package">
                 <include name="**/**" />
             </fileset>
         </tar>
