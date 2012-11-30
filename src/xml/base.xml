@@ -20,32 +20,23 @@
 
 
     <!-- ============================================  -->
+    <!-- tasks                                         -->
+    <!-- ============================================  -->
+    <includepath classpath="${phing:commons:basedir}/tasks" />
+    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append"  />
+    <taskdef classname="PhingCommonsMinCSSTask" name="phing-commons-min-css" />
+    <taskdef classname="PhingCommonsMinJSTask"  name="phing-commons-min-js"  />
+
+	
+    <!-- ============================================  -->
     <!-- import commons                                --> 
     <!-- ============================================  -->
+	<import file="${phing:commons:xml}/help.xml"    />
     <import file="${phing:commons:xml}/init.xml"    />
     <import file="${phing:commons:xml}/test.xml"    />
 	<import file="${phing:commons:xml}/report.xml"  />
 	<import file="${phing:commons:xml}/bundle.xml"  />
 	<import file="${phing:commons:xml}/package.xml" />
-	
-
-    <!-- ============================================  -->
-    <!-- help.properties                               --> 
-    <!-- ============================================  -->  
-    <target name="help.properties">
-        <echo message="project.name     ${project.name}"    />
-        <echo message="project.version  ${project.version}" />
-        
-        <!-- <echo message="phing:commons:basedir   ${phing:commons:basedir}" /> -->
-        <!-- <echo message="phing:commons:xml       ${phing:commons:xml}"     /> -->
-        <!-- <echo message="phing:commons:xsl       ${phing:commons:xsl}"     /> -->
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- help                                          --> 
-    <!-- ============================================  -->
-    <target name="help" depends="help.properties,help.init,help.test,help.report,help.bundle,help.package" />
     
         	
 </project>

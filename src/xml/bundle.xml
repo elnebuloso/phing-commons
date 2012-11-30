@@ -9,15 +9,6 @@
 
 
     <!-- ============================================  -->
-    <!-- tasks                                         -->
-    <!-- ============================================  -->
-    <includepath classpath="${phing:commons:basedir}/tasks" />
-    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append"  />
-    <taskdef classname="PhingCommonsMinCSSTask" name="phing-commons-min-css" />
-    <taskdef classname="PhingCommonsMinJSTask"  name="phing-commons-min-js" />
-    
-    
-    <!-- ============================================  -->
     <!-- import                                        --> 
     <!-- ============================================  -->
     <import file="${phing:commons:xml}/bundle/js.xml"  />
