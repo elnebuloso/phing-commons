@@ -7,8 +7,8 @@
     <!-- ============================================ -->
     <!-- properties                                   -->
     <!-- ============================================ -->
-    <property name="project.name" value="phing-commons" />
-    <property name="project.vendor" value="elnebuloso" />
+    <property name="project.name" value="your-project-name" />
+    <property name="project.vendor" value="your-vendor-name" />
 
 
     <!-- ============================================ -->
