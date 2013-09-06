@@ -1,64 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- bundle.css                                                    --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="bundle.css">
 
 
-    <!-- ============================================  -->
-    <!-- bundle.css:init                               --> 
-    <!-- ============================================  -->  
-    <target name="bundle.css:init">
-        <echo message="bundle.css:init default" />
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.css:before                             -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- bundle.css:before                            -->
+    <!-- ============================================ -->
     <target name="bundle.css:before">
-        <echo message="bundle.css:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- bundle.css:main                               --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- bundle.css:main                              -->
+    <!-- ============================================ -->
     <target name="bundle.css:main">
-        <property name="tmp.css" value="${project.bundle}/tmp/css" override="true" />
-        
-        <delete dir="${tmp.css}" />
-        <mkdir  dir="${tmp.css}" />
-        
-        <phing-commons-append destFile="${tmp.css}/bundle.min.tmp.css" failonerror="true">
-            <filelist dir="${project.public.css}" listfile="${project.public.css}/bundle" />
-        </phing-commons-append>
-        
-        <phing-commons-min-css targetDir="${tmp.css}" suffix=".min" failonerror="false">
-            <filelist dir="${tmp.css}" files="bundle.min.tmp.css" />
-        </phing-commons-min-css>        
-        
-        <phing-commons-append destFile="${project.public.js}/${project.bundle.css.filename}" failonerror="true">
-            <filelist dir="${tmp.css}" files="bundle.min.tmp.min.css" />
-        </phing-commons-append>
+        <phing-commons-css-bundle
+                file="${manifest.css}"
+                public="${project.public}"
+                targetDir="${project.public}" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.css:after                              -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- bundle.css:after                             -->
+    <!-- ============================================ -->
     <target name="bundle.css:after">
-        <echo message="bundle.css:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.css                                    -->
-    <!-- ============================================  -->
-    <target name="bundle.css" depends="bundle.css:init,bundle.css:before,bundle.css:main,bundle.css:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- bundle.css                                   -->
+    <!-- ============================================ -->
+    <target name="bundle.css" depends="bundle.css:before, bundle.css:main, bundle.css:after" />
+
+
 </project>

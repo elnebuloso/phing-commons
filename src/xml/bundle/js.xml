@@ -1,68 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- bundle.js                                                     --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="bundle.js">
 
 
-    <!-- ============================================  -->
-    <!-- bundle.js:init                                --> 
-    <!-- ============================================  -->  
-    <target name="bundle.js:init">
-        <echo message="bundle.js:init default" />
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.js:before                              -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- bundle.js:before                             -->
+    <!-- ============================================ -->
     <target name="bundle.js:before">
-        <echo message="bundle.js:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- bundle.js:main                                --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- bundle.js:main                               -->
+    <!-- ============================================ -->
     <target name="bundle.js:main">
-        <property name="tmp.js" value="${project.bundle}/tmp/js" override="true" />
-        
-        <delete dir="${tmp.js}" />
-        <mkdir  dir="${tmp.js}" />
-           
-        <phing-commons-append destFile="${tmp.js}/bundle.max.tmp.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/bundle.max" />
-        </phing-commons-append>
-        
-        <phing-commons-append destFile="${tmp.js}/bundle.min.tmp.js" failonerror="true">
-            <filelist dir="${project.public.js}" listfile="${project.public.js}/bundle.min" />
-        </phing-commons-append>
-                
-        <phing-commons-min-js targetDir="${tmp.js}" suffix=".min" failonerror="false" packed="true">
-            <filelist dir="${tmp.js}" files="bundle.min.tmp.js" />
-        </phing-commons-min-js>   
-              
-        <phing-commons-append destFile="${project.public.js}/${project.bundle.js.filename}" failonerror="true">
-            <filelist dir="${tmp.js}" files="bundle.max.tmp.js,bundle.min.tmp.min.js" />
-        </phing-commons-append>
+        <phing-commons-js-bundle
+                file="${manifest.js}"
+                public="${project.public}"
+                targetDir="${project.public}"
+                compileLevel="${bundle.js.compile.level}"
+                compileWarningLevel="${bundle.js.compile.warning.level}" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.js:after                               -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- bundle.js:after                              -->
+    <!-- ============================================ -->
     <target name="bundle.js:after">
-        <echo message="bundle.js:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- bundle.js                                     -->
-    <!-- ============================================  -->
-    <target name="bundle.js" depends="bundle.js:init,bundle.js:before,bundle.js:main,bundle.js:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- bundle.js                                    -->
+    <!-- ============================================ -->
+    <target name="bundle.js" depends="bundle.js:before, bundle.js:main, bundle.js:after" />
+
+
 </project>

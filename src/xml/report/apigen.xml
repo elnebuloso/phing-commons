@@ -1,60 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- report.apigen                                                 --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="report.apigen">
 
 
-    <!-- ============================================  -->
-    <!-- report.apigen:init                            --> 
-    <!-- ============================================  -->  
-    <target name="report.apigen:init">
-        <echo message="report.apigen:init default" />
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.apigen:before                          -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- report.apigen:before                         -->
+    <!-- ============================================ -->
     <target name="report.apigen:before">
-        <echo message="report.apigen:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- report.apigen:main                            --> 
-    <!-- ============================================  -->  
-    <target name="report.apigen:main" depends="test.phplint">
-        <delete dir="${project.reports}/apigen" />
-        <mkdir  dir="${project.reports}/apigen" />
-        
-        <delete dir="${project.reports}/apigen-checkstyle" />
-        <mkdir  dir="${project.reports}/apigen-checkstyle" />
-        
-        <apigen 
-        config="./build.properties.apigen" 
-        destination="${project.reports}/apigen" 
-        report="${project.reports}/apigen-checkstyle/checkstyle.apigen.xml" />
 
-        <xslt file="${project.reports}/apigen-checkstyle/checkstyle.apigen.xml" tofile="${project.reports}/apigen-checkstyle/index.html" style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
+
+    <!-- ============================================ -->
+    <!-- report.apigen:main                           -->
+    <!-- ============================================ -->
+    <target name="report.apigen:main">
+        <if>
+            <available file="${project.root}/${report.apigen.source}" />
+            <then>
+                <delete dir="${build.reports}/apigen" />
+                <mkdir dir="${build.reports}/apigen" />
+
+                <delete dir="${build.reports}/apigen-checkstyle" />
+                <mkdir dir="${build.reports}/apigen-checkstyle" />
+
+                <apigen
+                        destination="${build.reports}/apigen"
+                        report="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml"
+                        source="${project.root}/${report.apigen.source}"
+                        exclude="${report.apigen.exclude}"
+                        internal="No"
+                        php="No"
+                        todo="Yes"
+                        deprecated="Yes"
+                        wipeout="Yes" />
+
+                <xslt file="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml"
+                      tofile="${build.reports}/apigen-checkstyle/index.html"
+                      style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
+            </then>
+            <else>
+                <echo message="missing ${project.root}/${report.apigen.source}" level="warning" />
+                <echo message="skipped" level="warning" />
+            </else>
+        </if>
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.apigen:after                           -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen:after                          -->
+    <!-- ============================================ -->
     <target name="report.apigen:after">
-        <echo message="report.apigen:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.apigen                                 -->
-    <!-- ============================================  -->
-    <target name="report.apigen" depends="report.apigen:init,report.apigen:before,report.apigen:main,report.apigen:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen                                -->
+    <!-- ============================================ -->
+    <target name="report.apigen" depends="report.apigen:before, report.apigen:main, report.apigen:after" />
+
+
 </project>

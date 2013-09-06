@@ -1,68 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- report.phpcpd                                                 --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="report.phpcpd">
 
 
-    <!-- ============================================  -->
-    <!-- report.phpcpd:init                            --> 
-    <!-- ============================================  -->  
-    <target name="report.phpcpd:init">
-        <echo message="report.phpcpd:init default" />
-        
-        <patternset id="patternset.report.phpcpd">
-            <include name="**/*.php"     />
-            <exclude name="build/**"     />
-            <exclude name="public/**"    />
-            <exclude name="resources/**" />
-            <exclude name="vendor/**"    />
-        </patternset>        
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.phpcpd:before                          -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- report.phpcpd:before                         -->
+    <!-- ============================================ -->
     <target name="report.phpcpd:before">
-        <echo message="report.phpcpd:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- report.phpcpd:main                            --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- report.phpcpd:main                           -->
+    <!-- ============================================ -->
     <target name="report.phpcpd:main">
-        <delete dir="${project.reports}/phpcpd" />
-        <mkdir  dir="${project.reports}/phpcpd" />
-        
+        <delete dir="${build.reports}/phpcpd" />
+        <mkdir dir="${build.reports}/phpcpd" />
+
         <phpcpd>
-            <fileset dir=".">
-                <patternset refid="patternset.report.phpcpd" />
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phpcpd.patternset}" />
             </fileset>
-            
-            <formatter type="pmd" outfile="${project.reports}/phpcpd/phpcpd.xml" />
+
+            <formatter type="pmd" outfile="${build.reports}/phpcpd/phpcpd.xml" />
         </phpcpd>
-        
-        <xslt file="${project.reports}/phpcpd/phpcpd.xml" tofile="${project.reports}/phpcpd/index.html" style="${phing:commons:xsl}/phpcpd.xsl" />
+
+        <xslt file="${build.reports}/phpcpd/phpcpd.xml" tofile="${build.reports}/phpcpd/index.html"
+              style="${phing:commons:xsl}/phpcpd.xsl" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.phpcpd:after                           -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- report.phpcpd:after                          -->
+    <!-- ============================================ -->
     <target name="report.phpcpd:after">
-        <echo message="report.phpcpd:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.phpcpd                                 -->
-    <!-- ============================================  -->
-    <target name="report.phpcpd" depends="report.phpcpd:init,report.phpcpd:before,report.phpcpd:main,report.phpcpd:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- report.phpcpd                                -->
+    <!-- ============================================ -->
+    <target name="report.phpcpd" depends="report.phpcpd:before, report.phpcpd:main, report.phpcpd:after" />
+
+
 </project>

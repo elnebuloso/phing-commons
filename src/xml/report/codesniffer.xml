@@ -1,71 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- report.codesniffer                                            --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="report.codesniffer">
 
 
-    <!-- ============================================  -->
-    <!-- report.codesniffer:init                       --> 
-    <!-- ============================================  -->  
-    <target name="report.codesniffer:init">
-        <echo message="report.codesniffer:init default" />
-        
-        <patternset id="patternset.report.codesniffer">
-            <include name="**/*.php"     />
-            <exclude name="build/**"     />
-            <exclude name="public/**"    />
-            <exclude name="resources/**" />
-            <exclude name="vendor/**"    />
-        </patternset>        
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.codesniffer:before                     -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- report.codesniffer:before                    -->
+    <!-- ============================================ -->
     <target name="report.codesniffer:before">
-        <echo message="report.codesniffer:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- report.codesniffer:main                       --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer:main                      -->
+    <!-- ============================================ -->
     <target name="report.codesniffer:main">
-        <delete dir="${project.reports}/codesniffer" />
-        <mkdir  dir="${project.reports}/codesniffer" />
-        
-        <delete dir="${project.reports}/codesniffer-overview" />
-        <mkdir  dir="${project.reports}/codesniffer-overview" />
-        
-        <phpcodesniffer standard="Zend" showSniffs="true" showWarnings="true" docGenerator="HTML" docFile="${project.reports}/codesniffer-overview/index.html">
-            <fileset dir=".">
-                <patternset refid="patternset.report.codesniffer" />
+        <delete dir="${build.reports}/codesniffer" />
+        <mkdir dir="${build.reports}/codesniffer" />
+
+        <delete dir="${build.reports}/codesniffer-overview" />
+        <mkdir dir="${build.reports}/codesniffer-overview" />
+
+        <phpcodesniffer standard="${report.codesniffer.ruleset}" showSniffs="true" showWarnings="true"
+                        docGenerator="HTML" docFile="${build.reports}/codesniffer-overview/index.html">
+            <fileset dir="${project.root}">
+                <patternset refid="${report.codesniffer.patternset}" />
             </fileset>
-            
-            <formatter type="checkstyle" outfile="${project.reports}/codesniffer/checkstyle.codesniffer.xml" />
+
+            <formatter type="checkstyle" outfile="${build.reports}/codesniffer/checkstyle.codesniffer.xml" />
         </phpcodesniffer>
-        
-        <xslt file="${project.reports}/codesniffer/checkstyle.codesniffer.xml" tofile="${project.reports}/codesniffer/index.html" style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
+
+        <xslt file="${build.reports}/codesniffer/checkstyle.codesniffer.xml"
+              tofile="${build.reports}/codesniffer/index.html"
+              style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.codesniffer:after                      -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer:after                     -->
+    <!-- ============================================ -->
     <target name="report.codesniffer:after">
-        <echo message="report.codesniffer:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.codesniffer                            -->
-    <!-- ============================================  -->
-    <target name="report.codesniffer" depends="report.codesniffer:init,report.codesniffer:before,report.codesniffer:main,report.codesniffer:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer                           -->
+    <!-- ============================================ -->
+    <target name="report.codesniffer"
+            depends="report.codesniffer:before, report.codesniffer:main, report.codesniffer:after" />
+
+
 </project>

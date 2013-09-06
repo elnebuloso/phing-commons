@@ -1,63 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- test.phplint                                                  --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="test.phplint">
 
 
-    <!-- ============================================  -->
-    <!-- test.phplint:init                             --> 
-    <!-- ============================================  -->  
-    <target name="test.phplint:init">
-        <echo message="test.phplint:init default" />
-        
-        <patternset id="patternset.test.phplint">
-            <include name="**/*.php"     />
-            <include name="**/*.phtml"   />
-            <exclude name="build/**"     />
-            <exclude name="public/**"    />
-            <exclude name="resources/**" />
-            <exclude name="vendor/**"    />
-        </patternset>
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phplint:before                           -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- test.phplint:before                          -->
+    <!-- ============================================ -->
     <target name="test.phplint:before">
-        <echo message="test.phplint:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- test.phplint:main                             --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- test.phplint:main                            -->
+    <!-- ============================================ -->
     <target name="test.phplint:main">
-        <mkdir dir="${project.reports}/phplint" />
-        
-        <phplint haltonfailure="true" tofile="${project.reports}/phplint/phplint.txt" cachefile="./phplint.cache" level="info">
-            <fileset dir=".">
-                <patternset refid="patternset.test.phplint" />
+        <mkdir dir="${build.reports}/phplint" />
+
+        <phplint haltonfailure="true" tofile="${build.reports}/phplint/phplint.txt"
+                 cachefile="${build.reports}/phplint/phplint.cache" level="info">
+            <fileset dir="${project.root}">
+                <patternset refid="${test.phplint.patternset}" />
             </fileset>
         </phplint>
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phplint:after                            -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- test.phplint:after                           -->
+    <!-- ============================================ -->
     <target name="test.phplint:after">
-        <echo message="test.phplint:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phplint                                  -->
-    <!-- ============================================  -->
-    <target name="test.phplint" depends="test.phplint:init,test.phplint:before,test.phplint:main,test.phplint:after" />
- 
+
+
+    <!-- ============================================ -->
+    <!-- test.phplint                                 -->
+    <!-- ============================================ -->
+    <target name="test.phplint" depends="test.phplint:before,test.phplint:main,test.phplint:after" />
+
+
 </project>

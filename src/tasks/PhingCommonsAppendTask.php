@@ -1,103 +1,69 @@
 <?php
-/**
- * @see phing/Task.php
- */
 require_once 'phing/Task.php';
-
-/**
- * @see phing/types/FileList.php
- */
 require_once 'phing/types/FileList.php';
-
-/**
- * @see phing/types/FileSet.php
- */
 require_once 'phing/types/FileSet.php';
 
 /**
- * Append (with external from url)
- *
- * @author Jan Thoennessen <jan.thoennessen@goolemail.com>
+ * Class PhingCommonsAppendTask
  */
 class PhingCommonsAppendTask extends Task {
 
     /**
-     * the source files
-     *
-     * @var FileList
+     * @var array
      */
     protected $filelists = array();
 
     /**
-     * the source files
-     *
-     * @var FileSet
+     * @var array
      */
     protected $filesets = array();
 
     /**
-     * Whether the build should fail, if errors occured
-     *
-     * @var boolean
-     */
-    protected $failonerror = false;
-
-    /**
-     * the path to the destination file
-     *
-     * @var string
+     * @var null
      */
     protected $destFile = null;
 
     /**
-     * Supports embedded <filelist> element.
-     * @return FileList
+     * @var bool
+     */
+    protected $failonerror = false;
+
+    /**
+     * @return mixed
      */
     public function createFileList() {
         $num = array_push($this->filelists, new FileList());
+
         return $this->filelists[$num - 1];
     }
 
     /**
-     * Nested creator, adds a set of files (nested <fileset> attribute).
-     * This is for when you don't care what order files get appended.
-     * @return FileSet
+     * @return mixed
      */
     public function createFileSet() {
         $num = array_push($this->filesets, new FileSet());
+
         return $this->filesets[$num - 1];
     }
 
     /**
-     * Whether the build should fail, if an error occured.
-     *
-     * @param boolean $value
-     */
-    public function setFailonerror($value) {
-        $this->failonerror = $value;
-    }
-
-    /**
-     * the path to the destination file
-     *
-     * @param string $value
+     * @param $value
      */
     public function setDestFile($value) {
         $this->destFile = $value;
     }
 
     /**
-     * The init method: Do init steps.
+     * @param $value
      */
-    public function init() {
-        return true;
+    public function setFailonerror($value) {
+        $this->failonerror = $value;
     }
 
     /**
-     * The main entry point method.
+     * @throws BuildException|Exception
      */
     public function main() {
-        // append any files in filelists
         foreach($this->filelists as $fl) {
             try {
                 $files = $fl->getFiles($this->project);
@@ -137,7 +103,6 @@ class PhingCommonsAppendTask extends Task {
                 }
             }
             catch(BuildException $be) {
-                // directory doesn't exist or is not readable
                 if($this->failonerror) {
                     throw $be;
                 }
@@ -147,7 +112,6 @@ class PhingCommonsAppendTask extends Task {
             }
         }
 
-        // append any files in filesets
         foreach($this->filesets as $fs) {
             try {
                 $files = $fs->getDirectoryScanner($this->project)->getIncludedFiles();
@@ -187,7 +151,6 @@ class PhingCommonsAppendTask extends Task {
                 }
             }
             catch(BuildException $be) {
-                // directory doesn't exist or is not readable
                 if($this->failonerror) {
                     throw $be;
                 }

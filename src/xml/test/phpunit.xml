@@ -1,69 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- test.phpunit                                                  --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="test.phpunit">
 
 
-    <!-- ============================================  -->
-    <!-- test.phpunit:init                             --> 
-    <!-- ============================================  -->  
-    <target name="test.phpunit:init">
-        <echo message="test.phpunit:init default" />
-        
-        <patternset id="patternset.test.phpunit">
-            <include name="**/*Test*.php" />
-        </patternset>
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phpunit:before                           -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- test.phpunit:before                          -->
+    <!-- ============================================ -->
     <target name="test.phpunit:before">
-        <echo message="test.phpunit:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- test.phpunit:main                             --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- test.phpunit:main                            -->
+    <!-- ============================================ -->
     <target name="test.phpunit:main">
-        <delete dir="${project.reports}/phpunit" />
-        <mkdir  dir="${project.reports}/phpunit" />
-        <delete dir="${project.reports}/phpunit-coverage-report" />
-        <mkdir  dir="${project.reports}/phpunit-coverage-report" />
-        
-        <phpunit bootstrap="./tests/bootstrap.php" codecoverage="false" haltonfailure="true" haltonerror="true">
-            <formatter todir="${project.reports}/phpunit" type="xml" />
-            <batchtest>
-                <fileset dir="./tests">
-                    <patternset refid="patternset.test.phpunit" />
-                </fileset>
-            </batchtest>
-        </phpunit>
-        
-        <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" format="frames" todir="${project.reports}/phpunit" />
-        
-        <exec command="phpunit --coverage-html ${project.reports}/phpunit-coverage-report --bootstrap ./tests/bootstrap.php tests" />
+        <if>
+            <available file="${project.root}/tests/bootstrap.php" />
+            <then>
+                <delete dir="${build.reports}/phpunit" />
+                <mkdir dir="${build.reports}/phpunit" />
+
+                <delete dir="${build.reports}/phpunit-coverage" />
+                <mkdir dir="${build.reports}/phpunit-coverage" />
+
+                <phpunit bootstrap="${project.root}/tests/bootstrap.php" codecoverage="false" haltonfailure="false"
+                         haltonerror="true" printsummary="true">
+                    <formatter todir="${build.reports}/phpunit" type="xml" />
+                    <batchtest>
+                        <fileset dir="${project.root}">
+                            <patternset refid="${test.phpunit.patternset}" />
+                        </fileset>
+                    </batchtest>
+                </phpunit>
+
+                <phpunitreport
+                        infile="${build.reports}/phpunit/testsuites.xml"
+                        format="noframes"
+                        todir="${build.reports}/phpunit" />
+
+                <copy file="${build.reports}/phpunit/phpunit-noframes.html" tofile="${build.reports}/phpunit/index.html" overwrite="true"/>
+
+                <exec command="phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
+            </then>
+            <else>
+                <echo message="missing ${project.root}/tests/bootstrap.php" level="warning" />
+                <echo message="skipped" level="warning" />
+            </else>
+        </if>
+
+
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phpunit:after                            -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- test.phpunit:after                           -->
+    <!-- ============================================ -->
     <target name="test.phpunit:after">
-        <echo message="test.phpunit:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- test.phpunit                                  -->
-    <!-- ============================================  -->
-    <target name="test.phpunit" depends="test.phpunit:init,test.phpunit:before,test.phpunit:main,test.phpunit:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- test.phpunit                                 -->
+    <!-- ============================================ -->
+    <target name="test.phpunit" depends="test.phplint, test.phpunit:before, test.phpunit:main, test.phpunit:after" />
+
+
 </project>

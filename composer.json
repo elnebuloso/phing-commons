@@ -1,12 +1,3 @@
 {
-    "name": "elnebuloso/phing-commons",
-    "description": "Phing Build Management Commons",
-    "license": "BSD-2-Clause",
-    "keywords": [
-        "phing",
-        "build management"
-    ],
-    "require": {
-		"php": ">=5.3.3"
-    }
+    "name": "elnebuloso/phing-commons"
 }

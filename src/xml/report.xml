@@ -1,40 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- report                                                        --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="report">
 
 
-    <!-- ============================================  -->
-    <!-- import                                        --> 
-    <!-- ============================================  -->
-    <import file="${phing:commons:xml}/report/phpcpd.xml"      />
-    <import file="${phing:commons:xml}/report/phpdepend.xml"   />
-    <import file="${phing:commons:xml}/report/phpmd.xml"       />
+    <!-- ============================================ -->
+    <!-- properties                                   -->
+    <!-- ============================================ -->
+    <property name="report.apigen.source" value="src" />
+    <property name="report.apigen.exclude" value="**/resources/**,**/vendor/**" />
+    <property name="report.codesniffer.ruleset" value="${phing:commons:basedir}/codesniffer/PhingCommons" />
+    <property name="report.codesniffer.patternset" value="report.codesniffer.patternset" />
+    <property name="report.phpcpd.patternset" value="report.phpcpd.patternset" />
+    <property name="report.phpdepend.patternset" value="report.phpdepend.patternset" />
+    <property name="report.phpmd.patternset" value="report.phpmd.patternset" />
+
+
+    <!-- ============================================ -->
+    <!-- patternsets                                  -->
+    <!-- ============================================ -->
+    <patternset id="report.codesniffer.patternset">
+        <include name="application/**/*.php" />
+        <include name="src/**/*.php" />
+        <exclude name="tests/**" />
+        <exclude name="**/resources/**" />
+        <exclude name="**/vendor/**" />
+    </patternset>
+    <patternset id="report.phpcpd.patternset">
+        <include name="**/*.php" />
+        <include name="**/*.phtml" />
+        <exclude name="build/**" />
+        <exclude name="tests/**" />
+        <exclude name="**/resources/**" />
+        <exclude name="**/vendor/**" />
+    </patternset>
+    <patternset id="report.phpdepend.patternset">
+        <include name="application/**/*.php" />
+        <include name="src/**/*.php" />
+        <exclude name="**/resources/**" />
+        <exclude name="**/vendor/**" />
+    </patternset>
+    <patternset id="report.phpmd.patternset">
+        <include name="**/*.php" />
+        <include name="**/*.phtml" />
+        <exclude name="build/**" />
+        <exclude name="tests/**" />
+        <exclude name="**/resources/**" />
+        <exclude name="**/vendor/**" />
+    </patternset>
+
+
+    <!-- ============================================ -->
+    <!-- import                                       -->
+    <!-- ============================================ -->
+    <import file="${phing:commons:xml}/report/phpcpd.xml" />
+    <import file="${phing:commons:xml}/report/phpdepend.xml" />
+    <import file="${phing:commons:xml}/report/phpmd.xml" />
     <import file="${phing:commons:xml}/report/codesniffer.xml" />
-    <import file="${phing:commons:xml}/report/apigen.xml"      />
-    
-    
-    <!-- ============================================  -->
-    <!-- help.report                                   --> 
-    <!-- ============================================  -->	
-	<target name="help.report">
-		<echo message="report.phpcpd      (PHP Copy and Paste Detection)" />
-		<echo message="report.phpdepend   (PHP Software Metrics)"         />
-		<echo message="report.phpmd       (PHP Mess Detection)"           />
-		<echo message="report.codesniffer (PHP Checkstyle Code Analysis)" />
-		<echo message="report.apigen      (PHP API Documentation)"        />
-		<echo message="report             (run all)"                      />
-	</target>
-		
-		
-    <!-- ============================================  -->
-    <!-- report                                        -->
-    <!-- ============================================  -->
-    <target name="report" depends="report.phpcpd,report.phpdepend,report.phpmd,report.codesniffer,report.apigen" />	
-    
-    
+    <import file="${phing:commons:xml}/report/apigen.xml" />
+
+
+    <!-- ============================================ -->
+    <!-- help.report                                  -->
+    <!-- ============================================ -->
+    <target name="help.report">
+        <echo message="target                                  description" />
+        <echo message="================================================================================" />
+        <echo message="report.apigen                           PHP API Documentation" />
+        <echo message="report.codesniffer                      PHP Checkstyle Code Analysis" />
+        <echo message="report.phpcpd                           PHP Copy and Paste Detection" />
+        <echo message="report.phpdepend                        PHP Software Metrics" />
+        <echo message="report.phpmd                            PHP Mess Detection" />
+        <echo message="report                                  execute all" />
+        <echo message="" />
+        <echo message="property                                value" />
+        <echo message="================================================================================" />
+        <echo message="report.apigen.source                    ${report.apigen.source}" />
+        <echo message="report.apigen.exclude                   ${report.apigen.exclude}" />
+        <echo message="report.codesniffer.ruleset              ${report.codesniffer.ruleset}" />
+        <echo message="report.codesniffer.patternset           ${report.codesniffer.patternset}" />
+        <echo message="report.phpcpd.patternset                ${report.phpcpd.patternset}" />
+        <echo message="report.phpdepend.patternset             ${report.phpdepend.patternset}" />
+        <echo message="report.phpmd.patternset                 ${report.phpdepend.patternset}" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report                                       -->
+    <!-- ============================================ -->
+    <target name="report" depends="report.apigen, report.codesniffer, report.phpcpd, report.phpdepend, report.phpmd" />
+
 </project>

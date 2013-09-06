@@ -1,49 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- report.template                                               --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="report.template">
 
 
-    <!-- ============================================  -->
-    <!-- report.template:init                          --> 
-    <!-- ============================================  -->  
-    <target name="report.template:init">
-        <echo message="report.template:init default" />
-    </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.template:before                        -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- report.template:before                       -->
+    <!-- ============================================ -->
     <target name="report.template:before">
-        <echo message="report.template:before default" />
+        <echo message="no actions defined" />
     </target>
-        
-        
-    <!-- ============================================  -->
-    <!-- report.template:main                          --> 
-    <!-- ============================================  -->  
+
+
+    <!-- ============================================ -->
+    <!-- report.template:main                         -->
+    <!-- ============================================ -->
     <target name="report.template:main">
-        <echo message="report.template:main default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.template:after                         -->
-    <!-- ============================================  -->
+
+
+    <!-- ============================================ -->
+    <!-- report.template:after                        -->
+    <!-- ============================================ -->
     <target name="report.template:after">
-        <echo message="report.template:after default" />
+        <echo message="no actions defined" />
     </target>
-    
-    
-    <!-- ============================================  -->
-    <!-- report.template                               -->
-    <!-- ============================================  -->
-    <target name="report.template" depends="report.template:init,report.template:before,report.template:main,report.template:after" />
- 
- 
+
+
+    <!-- ============================================ -->
+    <!-- report.template                              -->
+    <!-- ============================================ -->
+    <target name="report.template" depends="report.template:before, report.template:main, report.template:after" />
+
+
 </project>

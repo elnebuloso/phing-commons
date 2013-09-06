@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <project name="phing-commons" basedir="." default="help">
 
 
-    <!-- ============================================  -->
-    <!-- properties                                    -->
-    <!-- ============================================  -->
-	<property file="./build.properties" />
+    <!-- ============================================ -->
+    <!-- properties                                   -->
+    <!-- ============================================ -->
+    <property name="project.name" value="phing-commons" />
+    <property name="project.vendor" value="elnebuloso" />
 
-	
-    <!-- ============================================  -->
-    <!-- import commons base                           -->
-    <!-- ============================================  -->
-    <import file="src/xml/base.xml" />
-	
-	
+
+    <!-- ============================================ -->
+    <!-- import commons base                          -->
+    <!-- ============================================ -->
+    <import file="vendor/elnebuloso/phing-commons/src/xml/base.xml" />
+
+
 </project>

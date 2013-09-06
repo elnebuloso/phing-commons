@@ -1,42 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- base                                                          --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="base">
 
-    <!-- ============================================  -->
-    <!-- set properties                                --> 
-    <!-- ============================================  -->
-	<php function="dirname" returnProperty="phing:commons:basedir">
-		<param value="${phing.file.base}" />
-	</php>
-	<property name="phing:commons:basedir" value="${phing:commons:basedir}/.."  override="true" />
-	<property name="phing:commons:xml"     value="${phing:commons:basedir}/xml" override="true" />
-	<property name="phing:commons:xsl"     value="${phing:commons:basedir}/xsl" override="true" />
-    <loadfile property="project.version"   file="./VERSION"/>
+
+    <!-- ============================================ -->
+    <!-- properties                                   -->
+    <!-- ============================================ -->
+    <php function="dirname" returnProperty="phing:commons:basedir">
+        <param value="${phing.file.base}" />
+    </php>
 
 
-    <!-- ============================================  -->
-    <!-- tasks                                         -->
-    <!-- ============================================  -->
+    <php function="dirname" returnProperty="project.root">
+        <param value="${phing.file}" />
+    </php>
+
+
+    <!-- ============================================ -->
+    <!-- phing commons                                -->
+    <!-- ============================================ -->
+    <property name="phing:commons:basedir" value="${phing:commons:basedir}/.." override="true" />
+    <property name="phing:commons:root" value="${phing:commons:basedir}/.." override="true" />
+    <property name="phing:commons:xml" value="${phing:commons:basedir}/xml" override="true" />
+    <property name="phing:commons:xsl" value="${phing:commons:basedir}/xsl" override="true" />
+
+
+    <resolvepath propertyName="phing:commons:basedir" file="${phing:commons:basedir}" />
+    <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}" />
+    <resolvepath propertyName="phing:commons:xml" file="${phing:commons:xml}" />
+    <resolvepath propertyName="phing:commons:xsl" file="${phing:commons:xsl}" />
+    <resolvepath propertyName="project.root" file="${project.root}" />
+    <resolvepath propertyName="composer.properties" file="${phing:commons:basedir}/composer.properties" />
+
+
+    <!-- ============================================ -->
+    <!-- project properties                           -->
+    <!-- ============================================ -->
+    <property file="./build.properties" />
+    <property file="${composer.properties}" />
+
+
+    <fail unless="project.name" message="missing project.name" />
+    <fail unless="project.vendor" message="missing project.vendor" />
+
+
+    <loadfile property="project.version" file="${project.root}/VERSION" />
+
+
+    <php function="trim" returnProperty="project.version">
+        <param value="${project.version}" />
+    </php>
+
+
+    <property name="project.public" value="public" />
+    <property name="manifest.project" value="manifest/project.json" />
+    <property name="manifest.css" value="manifest/css.json" />
+    <property name="manifest.js" value="manifest/js.json" />
+    <property name="build.project" value="build/project" />
+    <property name="build.reports" value="build/reports" />
+    <property name="build.tmp" value="build/tmp" />
+
+
+    <resolvepath propertyName="project.public" file="${project.public}" />
+    <resolvepath propertyName="manifest.project" file="${manifest.project}" />
+    <resolvepath propertyName="manifest.css" file="${manifest.css}" />
+    <resolvepath propertyName="manifest.js" file="${manifest.js}" />
+    <resolvepath propertyName="build.project" file="${build.project}" />
+    <resolvepath propertyName="build.reports" file="${build.reports}" />
+    <resolvepath propertyName="build.tmp" file="${build.tmp}" />
+
+
+    <!-- ============================================ -->
+    <!-- tasks definitions                            -->
+    <!-- ============================================ -->
     <includepath classpath="${phing:commons:basedir}/tasks" />
-    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append"  />
-    <taskdef classname="PhingCommonsMinCSSTask" name="phing-commons-min-css" />
-    <taskdef classname="PhingCommonsMinJSTask"  name="phing-commons-min-js"  />
+    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append" />
+    <taskdef classname="PhingCommonsCSSMinTask" name="phing-commons-css-min" />
+    <taskdef classname="PhingCommonsCSSBundleTask" name="phing-commons-css-bundle" />
+    <taskdef classname="PhingCommonsJSMinTask" name="phing-commons-js-min" />
+    <taskdef classname="PhingCommonsJSBundleTask" name="phing-commons-js-bundle" />
+    <taskdef classname="PhingCommonsProjectBundleTask" name="phing-commons-project-bundle" />
 
-	
-    <!-- ============================================  -->
-    <!-- import commons                                --> 
-    <!-- ============================================  -->
-	<import file="${phing:commons:xml}/help.xml"    />
-    <import file="${phing:commons:xml}/init.xml"    />
-    <import file="${phing:commons:xml}/test.xml"    />
-	<import file="${phing:commons:xml}/report.xml"  />
-	<import file="${phing:commons:xml}/bundle.xml"  />
-	<import file="${phing:commons:xml}/package.xml" />
-    
-        	
+
+    <!-- ============================================ -->
+    <!-- import commons                               -->
+    <!-- ============================================ -->
+    <import file="${phing:commons:xml}/bundle.xml" />
+    <import file="${phing:commons:xml}/clean.xml" />
+    <import file="${phing:commons:xml}/composer.xml" />
+    <import file="${phing:commons:xml}/project.xml" />
+    <import file="${phing:commons:xml}/report.xml" />
+    <import file="${phing:commons:xml}/test.xml" />
+
+
+    <!-- ============================================ -->
+    <!-- help.properties                              -->
+    <!-- ============================================ -->
+    <target name="help.properties">
+        <echo message="property                                value" />
+        <echo message="================================================================================" />
+        <echo message="project.name                            ${project.name}" level="warning" />
+        <echo message="project.vendor                          ${project.vendor}" level="warning" />
+        <echo message="project.version                         ${project.version}" level="warning" />
+        <echo message="project.root                            ${project.root}" level="error" />
+        <echo message="project.public                          ${project.public}" />
+        <echo message="================================================================================" />
+        <echo message="build.project                           ${build.project}" />
+        <echo message="build.reports                           ${build.reports}" />
+        <echo message="build.tmp                               ${build.tmp}" />
+        <echo message="================================================================================" />
+        <echo message="manifest.project                        ${manifest.project}" />
+        <echo message="manifest.css                            ${manifest.css}" />
+        <echo message="manifest.js                             ${manifest.js}" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- help                                         -->
+    <!-- ============================================ -->
+    <target name="help"
+            depends="help.properties, help.bundle, help.clean, help.composer, help.project, help.report, help.test" />
+
+
 </project>

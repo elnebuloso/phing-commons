@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- test                                                          --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="test">
 
 
-    <!-- ============================================  -->
-    <!-- import                                        --> 
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- properties                                   -->
+    <!-- ============================================ -->
+    <property name="test.phplint.patternset" value="test.phplint.patternset" />
+    <property name="test.phpunit.patternset" value="test.phpunit.patternset" />
+
+    <!-- ============================================ -->
+    <!-- patternsets                                  -->
+    <!-- ============================================ -->
+    <patternset id="test.phplint.patternset">
+        <include name="**/*.php" />
+        <include name="**/*.phtml" />
+        <exclude name="build/**" />
+        <exclude name="vendor/**" />
+    </patternset>
+    <patternset id="test.phpunit.patternset">
+        <include name="tests/**/*Test*.php" />
+    </patternset>
+
+
+    <!-- ============================================ -->
+    <!-- import                                       -->
+    <!-- ============================================ -->
     <import file="${phing:commons:xml}/test/phplint.xml" />
     <import file="${phing:commons:xml}/test/phpunit.xml" />
-    <import file="${phing:commons:xml}/test/jslint.xml"  />
-    
-    
-    <!-- ============================================  -->
-    <!-- help.test                                     --> 
-    <!-- ============================================  -->	
-	<target name="help.test">
-		<echo message="test.phplint (PHP Validation)"   />
-		<echo message="test.phpunit (PHP Unit Testing)" />
-		<echo message="test.jslint  (JS Validation)"    />
-		<echo message="test         (run all)"          />
-	</target>
-	
-    
-    <!-- ============================================  -->
-    <!-- test                                          -->
-    <!-- ============================================  -->
-    <target name="test" depends="test.phplint,test.phpunit,test.jslint" />
-    
-    
+
+
+    <!-- ============================================ -->
+    <!-- help.test                                    -->
+    <!-- ============================================ -->
+    <target name="help.test">
+        <echo message="target                                  description" />
+        <echo message="================================================================================" />
+        <echo message="test.phplint                            PHP Validation" />
+        <echo message="test.phpunit                            PHP Unit Testing" />
+        <echo message="test                                    execute all" />
+        <echo message="" />
+        <echo message="property                                value" />
+        <echo message="================================================================================" />
+        <echo message="test.phplint.patternset                 ${test.phplint.patternset}" />
+        <echo message="test.phpunit.patternset                 ${test.phpunit.patternset}" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- test                                         -->
+    <!-- ============================================ -->
+    <target name="test" depends="test.phplint, test.phpunit" />
+
+
 </project>

@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ============================================================  -->
-<!-- bundle                                                        --> 
-<!--                                                               --> 
-<!-- @author Jan Thoennessen <jan.thoennessen@googlemail.com>      --> 
-<!-- ============================================================  -->
+
 <project name="bundle">
 
 
-    <!-- ============================================  -->
-    <!-- import                                        --> 
-    <!-- ============================================  -->
-    <import file="${phing:commons:xml}/bundle/js.xml"  />
+    <!-- ============================================ -->
+    <!-- properties                                   -->
+    <!-- ============================================ -->
+    <property name="bundle.js.compile.level" value="SIMPLE_OPTIMIZATIONS" />
+    <property name="bundle.js.compile.warning.level" value="DEFAULT" />
+
+
+    <!-- ============================================ -->
+    <!-- import                                       -->
+    <!-- ============================================ -->
     <import file="${phing:commons:xml}/bundle/css.xml" />
-    
-    
-    <!-- ============================================  -->
-    <!-- help.bundle                                   --> 
-    <!-- ============================================  -->
+    <import file="${phing:commons:xml}/bundle/js.xml" />
+
+
+    <!-- ============================================ -->
+    <!-- help.bundle                                  -->
+    <!-- ============================================ -->
     <target name="help.bundle">
-        <echo message="bundle.js  (JS  minification / appending)"  />
-        <echo message="bundle.css (CSS minification / appending)" />
-        <echo message="bundle     (run all)"                      />
+        <echo message="target                                  description" />
+        <echo message="================================================================================" />
+        <echo message="bundle.css                              bundle, minify css" />
+        <echo message="bundle.js                               bundle, minify js" />
+        <echo message="" />
+        <echo message="property                                value" />
+        <echo message="================================================================================" />
+        <echo message="bundle.js.compile.level                 ${bundle.js.compile.level}" />
+        <echo message="bundle.js.compile.warning.level         ${bundle.js.compile.warning.level}" />
     </target>
-    
-  
-    <!-- ============================================  -->
-    <!-- bundle                                        -->
-    <!-- ============================================  -->
-    <target name="bundle" depends="bundle.js,bundle.css" />
-    
-                     
+
+
 </project>
