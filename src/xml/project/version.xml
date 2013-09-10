@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.version">
+
+
+    <!-- ============================================ -->
+    <!-- project.version                              -->
+    <!-- ============================================ -->
+    <target name="project.version">
+        <input propertyname="release" validargs="Major,Minor,Bugfix" defaultValue="Bugfix">release</input>
+        <version releasetype="${release}" file="${project.root}/VERSION" property="project.version" />
+        <echo message="version update: ${release}, ${project.version}" />
+    </target>
+
+
+</project>

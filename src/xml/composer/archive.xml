@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="composer.archive">
+
+
+    <!-- ============================================ -->
+    <!-- composer.archive:before                      -->
+    <!-- ============================================ -->
+    <target name="composer.archive:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.archive:main                        -->
+    <!-- ============================================ -->
+    <target name="composer.archive:main">
+        <mkdir dir="${build.tmp}" />
+        <version releasetype="Bugfix" file="${project.root}/VERSION" property="project.version" />
+
+        <zip destfile="${build.tmp}/${project.version}.zip">
+            <fileset dir="${project.root}">
+                <patternset refid="${composer.archive.patternset}" />
+            </fileset>
+        </zip>
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.archive:after                       -->
+    <!-- ============================================ -->
+    <target name="composer.archive:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.archive                             -->
+    <!-- ============================================ -->
+    <target name="composer.archive" depends="composer.archive:before, composer.archive:main, composer.archive:after" />
+
+
+</project>

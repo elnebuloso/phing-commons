@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.package">
+
+
+    <!-- ============================================ -->
+    <!-- project.package:before                       -->
+    <!-- ============================================ -->
+    <target name="project.package:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.package:main                         -->
+    <!-- ============================================ -->
+    <target name="project.package:main">
+        <tar destfile="${build.project}/${project.version}.tar.gz" compression="gzip">
+            <fileset dir="${build.project}">
+                <include name="**/**" />
+            </fileset>
+        </tar>
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.package:after                        -->
+    <!-- ============================================ -->
+    <target name="project.package:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.package                              -->
+    <!-- ============================================ -->
+    <target name="project.package" depends="project.package:before, project.package:main, project.package:after" />
+
+
+</project>

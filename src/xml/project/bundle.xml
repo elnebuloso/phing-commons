@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.bundle">
+
+
+    <!-- ============================================ -->
+    <!-- project.bundle:before                        -->
+    <!-- ============================================ -->
+    <target name="project.bundle:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.bundle:main                          -->
+    <!-- ============================================ -->
+    <target name="project.bundle:main">
+        <delete dir="${build.project}" />
+        <mkdir dir="${build.project}" />
+
+        <phing-commons-project-bundle
+                manifest="${manifest.project}"
+                projectRoot="${project.root}"
+                buildProject="${build.project}"
+                verbose="${project.bundle.verbose}" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.bundle:after                         -->
+    <!-- ============================================ -->
+    <target name="project.bundle:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.bundle                               -->
+    <!-- ============================================ -->
+    <target name="project.bundle" depends="project.bundle:before, project.bundle:main, project.bundle:after" />
+
+
+</project>

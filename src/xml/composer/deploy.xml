@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="composer.deploy">
+
+
+    <!-- ============================================ -->
+    <!-- composer.deploy:before                       -->
+    <!-- ============================================ -->
+    <target name="composer.deploy:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.deploy:main                         -->
+    <!-- ============================================ -->
+    <target name="composer.deploy:main">
+        <fail unless="${composer.deploy.username}" message="missing property composer.deploy.username" />
+        <fail unless="${composer.deploy.password}" message="missing property composer.deploy.password" />
+        <fail unless="${composer.deploy.host}" message="missing property composer.deploy.host" />
+        <fail unless="${composer.deploy.path}" message="missing property composer.deploy.path" />
+
+        <scp username="${composer.deploy.username}"
+             password="${composer.deploy.password}"
+             host="${composer.deploy.host}"
+             todir="${composer.deploy.path}"
+             file="${build.tmp}/${project.version}.zip" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.deploy:after                        -->
+    <!-- ============================================ -->
+    <target name="composer.deploy:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- composer.deploy                              -->
+    <!-- ============================================ -->
+    <target name="composer.deploy" depends="composer.deploy:before, composer.deploy:main, composer.deploy:after" />
+
+
+</project>
