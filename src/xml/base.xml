@@ -31,14 +31,12 @@
     <resolvepath propertyName="phing:commons:xml" file="${phing:commons:xml}" />
     <resolvepath propertyName="phing:commons:xsl" file="${phing:commons:xsl}" />
     <resolvepath propertyName="project.root" file="${project.root}" />
-    <resolvepath propertyName="composer.properties" file="${phing:commons:basedir}/composer.properties" />
 
 
     <!-- ============================================ -->
     <!-- project properties                           -->
     <!-- ============================================ -->
     <property file="./build.properties" />
-    <property file="${composer.properties}" />
 
 
     <fail unless="project.name" message="missing project.name" />
@@ -88,7 +86,6 @@
     <!-- ============================================ -->
     <import file="${phing:commons:xml}/bundle.xml" />
     <import file="${phing:commons:xml}/clean.xml" />
-    <import file="${phing:commons:xml}/composer.xml" />
     <import file="${phing:commons:xml}/project.xml" />
     <import file="${phing:commons:xml}/report.xml" />
     <import file="${phing:commons:xml}/test.xml" />
@@ -113,14 +110,21 @@
         <echo message="manifest.project                        ${manifest.project}" />
         <echo message="manifest.css                            ${manifest.css}" />
         <echo message="manifest.js                             ${manifest.js}" />
+        <echo message="" />
+        <echo message="target                                  description" />
+        <echo message="================================================================================" />
+        <echo message="help.report                             Overview of Reporting Targets" />
+        <echo message="help.test                               Overview of Testing Targets" />
+        <echo message="help.bundle                             Overview of Project Bundling Targets" />
+        <echo message="help.project                            Overview of Project Targets" />
+        <echo message="help.clean                              Overview of Cleaning Targets" />
     </target>
 
 
     <!-- ============================================ -->
     <!-- help                                         -->
     <!-- ============================================ -->
-    <target name="help"
-            depends="help.properties, help.bundle, help.clean, help.composer, help.project, help.report, help.test" />
+    <target name="help" depends="help.properties" />
 
 
 </project>

@@ -78,104 +78,121 @@ class PhingCommonsProjectBundleTask extends Task {
 
         $definition = json_decode(file_get_contents($this->manifest), true);
 
+        // patterns to include
         $includes = array();
 
         if(array_key_exists('include', $definition) && is_array($definition['include'])) {
             $includes = $definition['include'];
         }
 
+        // patterns to exclude
         $excludes = array();
 
         if(array_key_exists('exclude', $definition) && is_array($definition['exclude'])) {
             $excludes = $definition['exclude'];
         }
 
-        $files = array();
-        $includes = $this->_getFiles($includes, 'includes');
-        $excludes = $this->_getFiles($excludes, 'excludes');
+        // files to include
+        $includeFiles = array();
 
-        $files = array_diff($includes, $excludes);
+        foreach($includes as $pattern) {
+            $files = $this->_searchFiles($projectRoot, '`' . $pattern . '`');
+            $files = $this->_updateFiles($files);
 
-        $this->log('');
-        $this->log('copying');
-        $this->log('- includes: ' . count($includes));
-        $this->log('- excludes: ' . count($excludes));
+            $includeFiles = array_merge($includeFiles, $files);
+        }
 
-        foreach($files as $file) {
-            $sourceFile = $file;
-            $destinationFile = $buildProject . '/' . str_replace($projectRoot . '/', '', $file);
-            $directory = dirname($destinationFile);
+        // files to exclude
+        $excludeFiles = array();
 
-            if(!file_exists($directory)) {
-                if(!mkdir($directory, 0755, true)) {
-                    throw new BuildException("Unable to create {$directory}");
-                }
-            }
+        foreach($excludes as $pattern) {
+            $files = $this->_searchFiles($projectRoot, '`' . $pattern . '`');
+            $files = $this->_updateFiles($files);
 
-            if(!copy($sourceFile, $destinationFile)) {
-                throw new BuildException("Unable to create {$destinationFile}");
-            }
+            $excludeFiles = array_merge($excludeFiles, $files);
+        }
 
-            if($this->verbose) {
-                $this->log('- ' . $destinationFile);
+        if($this->verbose) {
+            $this->log('');
+
+            foreach($includeFiles as $file) {
+                $this->log('- include: ' . $file);
             }
         }
 
-        $this->log('- copied  : ' . count($files));
-    }
+        if($this->verbose) {
+            $this->log('');
 
-    /**
-     * @param array $patternsets
-     * @param $type
-     * @return array
-     */
-    private function _getFiles(array $patternsets, $type) {
-        $return = array();
-
-        foreach($patternsets as $patternset) {
-            $pattern = $this->projectRoot . '/' . $patternset;
-
-            if($this->verbose) {
-                $this->log('');
-                $this->log("{$type}: {$pattern}");
+            foreach($excludeFiles as $file) {
+                $this->log('- exclude: ' . $file);
             }
+        }
 
-            if(strpos($pattern, '**') !== false) {
-                $files = array_merge($this->_globRecursive($pattern));
-            }
-            elseif(strpos($pattern, '*') !== false) {
-                $files = array_merge(glob($pattern));
-            }
-            else {
-                $files[] = $pattern;
-            }
+        $filesToCopy = array_diff($includeFiles, $excludeFiles);
 
-            foreach($files as $file) {
-                if(!is_dir($file) && !in_array($file, $return)) {
-                    $return[] = $file;
+        if($this->verbose) {
+            $this->log('');
 
-                    if($this->verbose) {
-                        $this->log('- ' . $file);
+            foreach($filesToCopy as $file) {
+                $this->log('- copy: ' . $file);
+
+                $sourceFile = $file;
+                $destinationFile = $buildProject . '/' . str_replace($projectRoot . '/', '', $file);
+                $directory = dirname($destinationFile);
+
+                if(!file_exists($directory)) {
+                    if(!mkdir($directory, 0755, true)) {
+                        throw new BuildException("Unable to create {$directory}");
                     }
                 }
+
+                if(!copy($sourceFile, $destinationFile)) {
+                    throw new BuildException("Unable to create {$destinationFile}");
+                }
             }
         }
 
-        return $return;
+        $this->log('');
+        $this->log('include Files: ' . count($includeFiles));
+        $this->log('exclude Files: ' . count($excludeFiles));
+        $this->log('copied Files:  ' . count($filesToCopy));
     }
 
     /**
-     * @param $pattern
-     * @param int $flags
+     * @param string $folder
+     * @param string $pattern
      * @return array
      */
-    private function _globRecursive($pattern, $flags = 0) {
-        $files = glob($pattern, $flags);
+    private function _searchFiles($folder, $pattern) {
+        $dir = new RecursiveDirectoryIterator($folder);
+        $ite = new RecursiveIteratorIterator($dir);
+        $files = new RegexIterator($ite, $pattern, RegexIterator::GET_MATCH);
+        $fileList = array();
 
-        foreach(glob(dirname($pattern) . '/*', GLOB_ONLYDIR | GLOB_NOSORT) as $dir) {
-            $files = array_merge($files, $this->_globRecursive($dir . '/' . basename($pattern), $flags));
+        foreach($files as $file) {
+            $fileList = array_merge($fileList, $file);
         }
 
-        return $files;
+        return $fileList;
+    }
+
+    /**
+     * @param array $fileList
+     * @return array
+     */
+    private function _updateFiles(array $fileList) {
+        $returnFiles = array();
+
+        foreach($fileList as $currentFile) {
+            $currentFile = realpath($currentFile);
+
+            if(empty($currentFile) || is_dir($currentFile)) {
+                continue;
+            }
+
+            $returnFiles[$currentFile] = $currentFile;
+        }
+
+        return $returnFiles;
     }
 }

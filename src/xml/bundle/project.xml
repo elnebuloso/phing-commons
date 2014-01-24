@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project name="project.bundle">
+<project name="bundle.project">
 
 
     <!-- ============================================ -->
-    <!-- project.bundle:before                        -->
+    <!-- bundle.project:before                        -->
     <!-- ============================================ -->
-    <target name="project.bundle:before">
+    <target name="bundle.project:before">
         <echo message="no actions defined" />
     </target>
 
 
     <!-- ============================================ -->
-    <!-- project.bundle:main                          -->
+    <!-- bundle.project:main                          -->
     <!-- ============================================ -->
-    <target name="project.bundle:main">
+    <target name="bundle.project:main">
         <delete dir="${build.project}" />
         <mkdir dir="${build.project}" />
 
@@ -23,22 +23,22 @@
                 manifest="${manifest.project}"
                 projectRoot="${project.root}"
                 buildProject="${build.project}"
-                verbose="${project.bundle.verbose}" />
+                verbose="${bundle.project.verbose}" />
     </target>
 
 
     <!-- ============================================ -->
-    <!-- project.bundle:after                         -->
+    <!-- bundle.project:after                         -->
     <!-- ============================================ -->
-    <target name="project.bundle:after">
+    <target name="bundle.project:after">
         <echo message="no actions defined" />
     </target>
 
 
     <!-- ============================================ -->
-    <!-- project.bundle                               -->
+    <!-- bundle.project                               -->
     <!-- ============================================ -->
-    <target name="project.bundle" depends="project.bundle:before, project.bundle:main, project.bundle:after" />
+    <target name="bundle.project" depends="bundle.project:before, bundle.project:main, bundle.project:after" />
 
 
 </project>

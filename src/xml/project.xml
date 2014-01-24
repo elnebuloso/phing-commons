@@ -7,7 +7,6 @@
     <!-- ============================================ -->
     <!-- properties                                   -->
     <!-- ============================================ -->
-    <property name="project.bundle.verbose" value="0" />
     <property name="project.deploy.staging.host" value="" />
     <property name="project.deploy.staging.user" value="" />
     <property name="project.deploy.staging.pass" value="" />
@@ -24,7 +23,6 @@
     <!-- import                                       -->
     <!-- ============================================ -->
     <import file="${phing:commons:xml}/project/version.xml" />
-    <import file="${phing:commons:xml}/project/bundle.xml" />
     <import file="${phing:commons:xml}/project/package.xml" />
     <import file="${phing:commons:xml}/project/deploy.xml" />
     <import file="${phing:commons:xml}/project/activate.xml" />
@@ -37,14 +35,12 @@
         <echo message="target                                  description" />
         <echo message="================================================================================" />
         <echo message="project.version                         version update" />
-        <echo message="project.bundle                          bundle the project" />
         <echo message="project.package                         package the project" />
         <echo message="project.deploy                          deploy the project" />
         <echo message="project.activate                        activate the project" />
         <echo message="" />
         <echo message="property                                value" />
         <echo message="================================================================================" />
-        <echo message="project.bundle.verbose                  ${project.bundle.verbose}" />
         <echo message="project.deploy.staging.host             ${project.deploy.staging.host}" />
         <echo message="project.deploy.staging.user             ${project.deploy.staging.user}" />
         <echo message="project.deploy.staging.pass             ${project.deploy.staging.pass}" />

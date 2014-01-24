@@ -9,6 +9,7 @@
     <!-- ============================================ -->
     <property name="bundle.js.compile.level" value="SIMPLE_OPTIMIZATIONS" />
     <property name="bundle.js.compile.warning.level" value="DEFAULT" />
+    <property name="bundle.project.verbose" value="1" />
 
 
     <!-- ============================================ -->
@@ -16,6 +17,7 @@
     <!-- ============================================ -->
     <import file="${phing:commons:xml}/bundle/css.xml" />
     <import file="${phing:commons:xml}/bundle/js.xml" />
+    <import file="${phing:commons:xml}/bundle/project.xml" />
 
 
     <!-- ============================================ -->
@@ -26,11 +28,13 @@
         <echo message="================================================================================" />
         <echo message="bundle.css                              bundle, minify css" />
         <echo message="bundle.js                               bundle, minify js" />
+        <echo message="bundle.project                          bundle the project" />
         <echo message="" />
         <echo message="property                                value" />
         <echo message="================================================================================" />
         <echo message="bundle.js.compile.level                 ${bundle.js.compile.level}" />
         <echo message="bundle.js.compile.warning.level         ${bundle.js.compile.warning.level}" />
+        <echo message="bundle.project.verbose                  ${bundle.project.verbose}" />
     </target>
 
 
