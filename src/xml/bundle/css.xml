@@ -16,10 +16,11 @@
     <!-- bundle.css:main                              -->
     <!-- ============================================ -->
     <target name="bundle.css:main">
-        <phing-commons-css-bundle
-                file="${manifest.css}"
+        <phing-commons-bundle-css
+                verbose="${bundle.css.verbose}"
+                manifest="${manifest.css}"
                 public="${project.public}"
-                targetDir="${project.public}" />
+                targetDir="${project.public.css}" />
     </target>
 
 

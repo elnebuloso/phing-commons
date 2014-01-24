@@ -52,6 +52,8 @@
 
 
     <property name="project.public" value="public" />
+    <property name="project.public.css" value="css" />
+    <property name="project.public.js" value="js" />
     <property name="manifest.project" value="manifest/project.json" />
     <property name="manifest.css" value="manifest/css.json" />
     <property name="manifest.js" value="manifest/js.json" />
@@ -61,6 +63,8 @@
 
 
     <resolvepath propertyName="project.public" file="${project.public}" />
+    <resolvepath propertyName="project.public.css" file="${project.public}/${project.public.css}" />
+    <resolvepath propertyName="project.public.js" file="${project.public}/${project.public.js}" />
     <resolvepath propertyName="manifest.project" file="${manifest.project}" />
     <resolvepath propertyName="manifest.css" file="${manifest.css}" />
     <resolvepath propertyName="manifest.js" file="${manifest.js}" />
@@ -73,12 +77,9 @@
     <!-- tasks definitions                            -->
     <!-- ============================================ -->
     <includepath classpath="${phing:commons:basedir}/tasks" />
-    <taskdef classname="PhingCommonsAppendTask" name="phing-commons-append" />
-    <taskdef classname="PhingCommonsCSSMinTask" name="phing-commons-css-min" />
-    <taskdef classname="PhingCommonsCSSBundleTask" name="phing-commons-css-bundle" />
-    <taskdef classname="PhingCommonsJSMinTask" name="phing-commons-js-min" />
-    <taskdef classname="PhingCommonsJSBundleTask" name="phing-commons-js-bundle" />
-    <taskdef classname="PhingCommonsProjectBundleTask" name="phing-commons-project-bundle" />
+    <taskdef classname="PhingCommonsBundleProjectTask" name="phing-commons-bundle-project" />
+    <taskdef classname="PhingCommonsBundleCSSTask" name="phing-commons-bundle-css" />
+    <taskdef classname="PhingCommonsBundleJSTask" name="phing-commons-bundle-js" />
 
 
     <!-- ============================================ -->
@@ -102,6 +103,8 @@
         <echo message="project.version                         ${project.version}" level="warning" />
         <echo message="project.root                            ${project.root}" level="error" />
         <echo message="project.public                          ${project.public}" />
+        <echo message="project.public.css                      ${project.public.css}" />
+        <echo message="project.public.js                       ${project.public.js}" />
         <echo message="================================================================================" />
         <echo message="build.project                           ${build.project}" />
         <echo message="build.reports                           ${build.reports}" />

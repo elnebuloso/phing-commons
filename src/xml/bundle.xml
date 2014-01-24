@@ -10,6 +10,8 @@
     <property name="bundle.js.compile.level" value="SIMPLE_OPTIMIZATIONS" />
     <property name="bundle.js.compile.warning.level" value="DEFAULT" />
     <property name="bundle.project.verbose" value="1" />
+    <property name="bundle.css.verbose" value="1" />
+    <property name="bundle.js.verbose" value="1" />
 
 
     <!-- ============================================ -->
@@ -35,6 +37,8 @@
         <echo message="bundle.js.compile.level                 ${bundle.js.compile.level}" />
         <echo message="bundle.js.compile.warning.level         ${bundle.js.compile.warning.level}" />
         <echo message="bundle.project.verbose                  ${bundle.project.verbose}" />
+        <echo message="bundle.css.verbose                      ${bundle.css.verbose}" />
+        <echo message="bundle.js.verbose                       ${bundle.js.verbose}" />
     </target>
 
 

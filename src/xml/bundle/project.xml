@@ -19,11 +19,11 @@
         <delete dir="${build.project}" />
         <mkdir dir="${build.project}" />
 
-        <phing-commons-project-bundle
+        <phing-commons-bundle-project
+                verbose="${bundle.project.verbose}"
                 manifest="${manifest.project}"
                 projectRoot="${project.root}"
-                buildProject="${build.project}"
-                verbose="${bundle.project.verbose}" />
+                buildProject="${build.project}" />
     </target>
 
 

@@ -16,12 +16,11 @@
     <!-- bundle.js:main                               -->
     <!-- ============================================ -->
     <target name="bundle.js:main">
-        <phing-commons-js-bundle
+        <phing-commons-bundle-js
                 file="${manifest.js}"
                 public="${project.public}"
-                targetDir="${project.public}"
-                compileLevel="${bundle.js.compile.level}"
-                compileWarningLevel="${bundle.js.compile.warning.level}" />
+                targetDir="${project.public.js}"
+                verbose="${bundle.js.verbose}" />
     </target>
 
 
