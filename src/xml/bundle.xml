@@ -11,7 +11,9 @@
     <property name="bundle.js.compile.warning.level" value="DEFAULT" />
     <property name="bundle.project.verbose" value="1" />
     <property name="bundle.css.verbose" value="1" />
+    <property name="bundle.css.compiler" value="yuicompressor" />
     <property name="bundle.js.verbose" value="1" />
+    <property name="bundle.js.compiler" value="google" />
 
 
     <!-- ============================================ -->
@@ -38,7 +40,9 @@
         <echo message="bundle.js.compile.warning.level         ${bundle.js.compile.warning.level}" />
         <echo message="bundle.project.verbose                  ${bundle.project.verbose}" />
         <echo message="bundle.css.verbose                      ${bundle.css.verbose}" />
+        <echo message="bundle.css.compiler                     ${bundle.css.compiler} (yuicompressor)" />
         <echo message="bundle.js.verbose                       ${bundle.js.verbose}" />
+        <echo message="bundle.js.compiler                      ${bundle.js.compiler} (google|yuicompressor)" />
     </target>
 
 

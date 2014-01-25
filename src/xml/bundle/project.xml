@@ -22,7 +22,7 @@
         <phing-commons-bundle-project
                 verbose="${bundle.project.verbose}"
                 manifest="${manifest.project}"
-                projectRoot="${project.root}"
+                folder="${project.root}"
                 buildProject="${build.project}" />
     </target>
 
