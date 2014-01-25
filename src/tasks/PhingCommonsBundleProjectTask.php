@@ -47,9 +47,9 @@ class PhingCommonsBundleProjectTask extends AbstractBundleTask {
             throw new BuildException("Directory {$this->_buildProject} not found.");
         }
 
-        $this->log('');
-        $this->log('projectRoot:   ' . $this->_projectRoot);
-        $this->log('buildProject:  ' . $this->_buildProject);
+        $this->log("");
+        $this->log("projectRoot:   {$this->_projectRoot}");
+        $this->log("buildProject:  {$this->_buildProject}");
 
         foreach($this->_manifestDefinition as $package => $definition) {
             $includes = array();
@@ -80,7 +80,7 @@ class PhingCommonsBundleProjectTask extends AbstractBundleTask {
 
             if($this->_verbose) {
                 $this->log("");
-                $this->log('package: ' . $package);
+                $this->log("package: {$package}");
 
                 foreach($includeFiles as $file) {
                     $this->log("include: {$file}");
@@ -89,7 +89,7 @@ class PhingCommonsBundleProjectTask extends AbstractBundleTask {
 
             if($this->_verbose) {
                 $this->log("");
-                $this->log('package: ' . $package);
+                $this->log("package: {$package}");
 
                 foreach($excludeFiles as $file) {
                     $this->log("exclude: {$file}");
@@ -100,10 +100,10 @@ class PhingCommonsBundleProjectTask extends AbstractBundleTask {
 
             if($this->_verbose) {
                 $this->log("");
-                $this->log('package: ' . $package);
+                $this->log("package: {$package}");
 
                 foreach($filesToUse as $file) {
-                    $this->log('copy:   ' . $file);
+                    $this->log("copy:   {$file}");
 
                     $destination = $this->_buildProject . '/' . $package . '/' . str_replace($this->_projectRoot . '/', '', $file);
                     $directory = dirname($destination);
@@ -121,10 +121,10 @@ class PhingCommonsBundleProjectTask extends AbstractBundleTask {
             }
 
             $this->log("");
-            $this->log('package: ' . $package);
-            $this->log('include: ' . count($includeFiles));
-            $this->log('exclude: ' . count($excludeFiles));
-            $this->log('copy:    ' . count($filesToUse));
+            $this->log("package: {$package}");
+            $this->log("include: " . count($includeFiles));
+            $this->log("exclude: " . count($excludeFiles));
+            $this->log("copy:    " . count($filesToUse));
         }
 
         return;

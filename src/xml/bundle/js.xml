@@ -17,10 +17,11 @@
     <!-- ============================================ -->
     <target name="bundle.js:main">
         <phing-commons-bundle-js
-                file="${manifest.js}"
+                verbose="${bundle.js.verbose}"
+                manifest="${manifest.js}"
+                java="${java}"
                 public="${project.public}"
-                targetDir="${project.public.js}"
-                verbose="${bundle.js.verbose}" />
+                targetDir="${project.public.js}" />
     </target>
 
 

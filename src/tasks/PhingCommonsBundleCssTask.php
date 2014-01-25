@@ -1,58 +1,10 @@
 <?php
-require_once 'AbstractBundleTask.php';
+require_once 'AbstractBundlePublicTask.php';
 
 /**
  * Class PhingCommonsBundleCSSTask
  */
-class PhingCommonsBundleCSSTask extends AbstractBundleTask {
-
-    /**
-     * @var
-     */
-    protected $file;
-
-    /**
-     * @var
-     */
-    protected $public;
-
-    /**
-     * @var
-     */
-    protected $targetDir;
-
-    /**
-     * @var string
-     */
-    protected $java = 'java';
-
-    /**
-     * @param $file
-     */
-    public function setFile($file) {
-        $this->file = $file;
-    }
-
-    /**
-     * @param $public
-     */
-    public function setPublic($public) {
-        $this->public = $public;
-    }
-
-    /**
-     * @param $targetDir
-     */
-    public function setTargetDir($targetDir) {
-        $this->targetDir = $targetDir;
-    }
-
-    /**
-     * @param $java
-     */
-    public function setJava($java) {
-        $this->java = $java;
-    }
+class PhingCommonsBundleCSSTask extends AbstractBundlePublicTask {
 
     /**
      * @throws BuildException

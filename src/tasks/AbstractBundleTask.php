@@ -56,7 +56,7 @@ abstract class AbstractBundleTask extends Task {
         if($this->_verbose) {
             foreach($this->_manifestDefinition as $package => $definition) {
                 $this->log("");
-                $this->log('package: ' . $package);
+                $this->log("package: {$package}");
 
                 foreach($definition as $type => $patternset) {
                     foreach($patternset as $pattern) {

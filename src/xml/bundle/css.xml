@@ -19,6 +19,7 @@
         <phing-commons-bundle-css
                 verbose="${bundle.css.verbose}"
                 manifest="${manifest.css}"
+                java="${java}"
                 public="${project.public}"
                 targetDir="${project.public.css}" />
     </target>

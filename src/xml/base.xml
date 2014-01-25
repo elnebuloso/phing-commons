@@ -52,19 +52,20 @@
 
 
     <property name="project.public" value="public" />
-    <property name="project.public.css" value="css" />
-    <property name="project.public.js" value="js" />
+    <property name="project.public.css" value="public/css" />
+    <property name="project.public.js" value="public/js" />
     <property name="manifest.project" value="manifest/project.json" />
     <property name="manifest.css" value="manifest/css.json" />
     <property name="manifest.js" value="manifest/js.json" />
     <property name="build.project" value="build/project" />
     <property name="build.reports" value="build/reports" />
     <property name="build.tmp" value="build/tmp" />
+    <property name="java" value="java" />
 
 
     <resolvepath propertyName="project.public" file="${project.public}" />
-    <resolvepath propertyName="project.public.css" file="${project.public}/${project.public.css}" />
-    <resolvepath propertyName="project.public.js" file="${project.public}/${project.public.js}" />
+    <resolvepath propertyName="project.public.css" file="${project.public.css}" />
+    <resolvepath propertyName="project.public.js" file="${project.public.js}" />
     <resolvepath propertyName="manifest.project" file="${manifest.project}" />
     <resolvepath propertyName="manifest.css" file="${manifest.css}" />
     <resolvepath propertyName="manifest.js" file="${manifest.js}" />
@@ -113,6 +114,8 @@
         <echo message="manifest.project                        ${manifest.project}" />
         <echo message="manifest.css                            ${manifest.css}" />
         <echo message="manifest.js                             ${manifest.js}" />
+        <echo message="================================================================================" />
+        <echo message="java                                    ${java}" />
         <echo message="" />
         <echo message="target                                  description" />
         <echo message="================================================================================" />
