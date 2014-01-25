@@ -21,8 +21,7 @@
                 compiler="${bundle.js.compiler}"
                 verbose="${bundle.js.verbose}"
                 manifest="${manifest.js}"
-                folder="${project.public}"
-                targetDir="${project.public.js}" />
+                folder="${project.public}" />
     </target>
 
 

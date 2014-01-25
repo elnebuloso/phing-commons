@@ -18,11 +18,10 @@
     <target name="bundle.css:main">
         <phing-commons-bundle-css
                 java="${java}"
-                compiler="${bundle.js.compiler}"
+                compiler="${bundle.css.compiler}"
                 verbose="${bundle.css.verbose}"
                 manifest="${manifest.css}"
-                folder="${project.public}"
-                targetDir="${project.public.css}" />
+                folder="${project.public}" />
     </target>
 
 

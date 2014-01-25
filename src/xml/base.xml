@@ -52,8 +52,6 @@
 
 
     <property name="project.public" value="public" />
-    <property name="project.public.css" value="public/css" />
-    <property name="project.public.js" value="public/js" />
     <property name="manifest.project" value="manifest/project.json" />
     <property name="manifest.css" value="manifest/css.json" />
     <property name="manifest.js" value="manifest/js.json" />
@@ -64,8 +62,6 @@
 
 
     <resolvepath propertyName="project.public" file="${project.public}" />
-    <resolvepath propertyName="project.public.css" file="${project.public.css}" />
-    <resolvepath propertyName="project.public.js" file="${project.public.js}" />
     <resolvepath propertyName="manifest.project" file="${manifest.project}" />
     <resolvepath propertyName="manifest.css" file="${manifest.css}" />
     <resolvepath propertyName="manifest.js" file="${manifest.js}" />
@@ -104,8 +100,6 @@
         <echo message="project.version                         ${project.version}" level="warning" />
         <echo message="project.root                            ${project.root}" level="error" />
         <echo message="project.public                          ${project.public}" />
-        <echo message="project.public.css                      ${project.public.css}" />
-        <echo message="project.public.js                       ${project.public.js}" />
         <echo message="================================================================================" />
         <echo message="build.project                           ${build.project}" />
         <echo message="build.reports                           ${build.reports}" />

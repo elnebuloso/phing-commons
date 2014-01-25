@@ -19,7 +19,17 @@ abstract class AbstractBundlePublicTask extends AbstractBundleTask {
     /**
      * @var string
      */
-    protected $_targetDir;
+    protected $_content;
+
+    /**
+     * @var string
+     */
+    protected $_destinationMax;
+
+    /**
+     * @var string
+     */
+    protected $_destinationMin;
 
     /**
      * @param $java
@@ -36,25 +46,9 @@ abstract class AbstractBundlePublicTask extends AbstractBundleTask {
     }
 
     /**
-     * @param $targetDir
-     */
-    public function setTargetDir($targetDir) {
-        $this->_targetDir = $targetDir;
-    }
-
-    /**
      * @throws BuildException
      */
     public function main() {
         parent::main();
-
-        $this->_targetDir = realpath($this->_targetDir);
-
-        if($this->_targetDir === false) {
-            throw new BuildException("Directory {$this->_targetDir} not found.");
-        }
-
-        $this->log("");
-        $this->log("targetDir:  {$this->_targetDir}");
     }
 } 
