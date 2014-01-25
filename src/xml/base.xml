@@ -127,4 +127,36 @@
     <target name="help" depends="help.properties" />
 
 
+    <!-- ============================================ -->
+    <!-- test                                         -->
+    <!-- ============================================ -->
+    <target name="test">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report                                       -->
+    <!-- ============================================ -->
+    <target name="report">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- build                                        -->
+    <!-- ============================================ -->
+    <target name="build">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- deploy                                       -->
+    <!-- ============================================ -->
+    <target name="deploy">
+        <echo message="no actions defined" />
+    </target>
+
+
 </project>
