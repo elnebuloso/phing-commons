@@ -17,6 +17,7 @@
     <!-- ============================================ -->
     <target name="bundle.css:main">
         <phing-commons-bundle-css
+                target="${project.public.css}"
                 java="${java}"
                 compiler="${bundle.css.compiler}"
                 verbose="${bundle.css.verbose}"

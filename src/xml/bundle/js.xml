@@ -17,6 +17,7 @@
     <!-- ============================================ -->
     <target name="bundle.js:main">
         <phing-commons-bundle-js
+                target="${project.public.js}"
                 java="${java}"
                 compiler="${bundle.js.compiler}"
                 verbose="${bundle.js.verbose}"

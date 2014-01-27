@@ -98,13 +98,13 @@ abstract class AbstractBundleTask extends Task {
 
             foreach($includes as $pattern) {
                 $files = $this->_selectFiles($this->_folder, '`' . $pattern . '`');
-                $files = $this->_updateFiles($files);
+                $files = $this->_updateFiles($this->_folder, $files);
                 $includeFiles = array_merge($includeFiles, $files);
             }
 
             foreach($excludes as $pattern) {
                 $files = $this->_selectFiles($this->_folder, '`' . $pattern . '`');
-                $files = $this->_updateFiles($files);
+                $files = $this->_updateFiles($this->_folder, $files);
                 $excludeFiles = array_merge($excludeFiles, $files);
             }
 
@@ -147,20 +147,21 @@ abstract class AbstractBundleTask extends Task {
     }
 
     /**
+     * @param string $folder
      * @param array $fileList
      * @return array
      */
-    protected function _updateFiles(array $fileList) {
+    protected function _updateFiles($folder, array $fileList) {
         $returnFiles = array();
 
         foreach($fileList as $currentFile) {
-            $currentFile = realpath($currentFile);
+            $currentFile = realpath($folder . '/' . $currentFile);
 
             if(empty($currentFile) || is_dir($currentFile)) {
                 continue;
             }
 
-            $returnFiles[$currentFile] = $currentFile;
+            $returnFiles[md5($currentFile)] = $currentFile;
         }
 
         return $returnFiles;
