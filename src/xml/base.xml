@@ -52,11 +52,11 @@
 
 
     <property name="project.public" value="public" />
-    <property name="project.public.css" value="public/css" />
-    <property name="project.public.js" value="public/js" />
+    <property name="project.public.stylesheet" value="public/css" />
+    <property name="project.public.javascript" value="public/js" />
     <property name="manifest.project" value="manifest/project.php" />
-    <property name="manifest.css" value="manifest/css.php" />
-    <property name="manifest.js" value="manifest/js.php" />
+    <property name="manifest.stylesheet" value="manifest/stylesheet.php" />
+    <property name="manifest.javascript" value="manifest/javascript.php" />
     <property name="build.project" value="build/project" />
     <property name="build.reports" value="build/reports" />
     <property name="build.tmp" value="build/tmp" />
@@ -64,11 +64,11 @@
 
 
     <resolvepath propertyName="project.public" file="${project.public}" />
-    <resolvepath propertyName="project.public.css" file="${project.public.css}" />
-    <resolvepath propertyName="project.public.js" file="${project.public.js}" />
+    <resolvepath propertyName="project.public.stylesheet" file="${project.public.stylesheet}" />
+    <resolvepath propertyName="project.public.javascript" file="${project.public.javascript}" />
     <resolvepath propertyName="manifest.project" file="${manifest.project}" />
-    <resolvepath propertyName="manifest.css" file="${manifest.css}" />
-    <resolvepath propertyName="manifest.js" file="${manifest.js}" />
+    <resolvepath propertyName="manifest.stylesheet" file="${manifest.stylesheet}" />
+    <resolvepath propertyName="manifest.javascript" file="${manifest.javascript}" />
     <resolvepath propertyName="build.project" file="${build.project}" />
     <resolvepath propertyName="build.reports" file="${build.reports}" />
     <resolvepath propertyName="build.tmp" file="${build.tmp}" />
@@ -79,8 +79,8 @@
     <!-- ============================================ -->
     <includepath classpath="${phing:commons:basedir}/tasks" />
     <taskdef classname="PhingCommonsBundleProjectTask" name="phing-commons-bundle-project" />
-    <taskdef classname="PhingCommonsBundleCSSTask" name="phing-commons-bundle-css" />
-    <taskdef classname="PhingCommonsBundleJSTask" name="phing-commons-bundle-js" />
+    <taskdef classname="PhingCommonsBundleStylesheetTask" name="phing-commons-bundle-stylesheet" />
+    <taskdef classname="PhingCommonsBundleJavascriptTask" name="phing-commons-bundle-javascript" />
 
 
     <!-- ============================================ -->
@@ -104,16 +104,16 @@
         <echo message="project.version                         ${project.version}" level="warning" />
         <echo message="project.root                            ${project.root}" level="error" />
         <echo message="project.public                          ${project.public}" />
-        <echo message="project.public.css                      ${project.public.css}" />
-        <echo message="project.public.js                       ${project.public.js}" />
+        <echo message="project.public.stylesheet               ${project.public.stylesheet}" />
+        <echo message="project.public.javascript               ${project.public.javascript}" />
         <echo message="================================================================================" />
         <echo message="build.project                           ${build.project}" />
         <echo message="build.reports                           ${build.reports}" />
         <echo message="build.tmp                               ${build.tmp}" />
         <echo message="================================================================================" />
         <echo message="manifest.project                        ${manifest.project}" />
-        <echo message="manifest.css                            ${manifest.css}" />
-        <echo message="manifest.js                             ${manifest.js}" />
+        <echo message="manifest.stylesheet                     ${manifest.stylesheet}" />
+        <echo message="manifest.javascript                     ${manifest.javascript}" />
         <echo message="================================================================================" />
         <echo message="java                                    ${java}" />
         <echo message="" />

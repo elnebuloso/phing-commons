@@ -2,9 +2,9 @@
 require_once 'AbstractBundlePublicTask.php';
 
 /**
- * Class PhingCommonsBundleJSTask
+ * Class PhingCommonsBundleJavascriptTask
  */
-class PhingCommonsBundleJSTask extends AbstractBundlePublicTask {
+class PhingCommonsBundleJavascriptTask extends AbstractBundlePublicTask {
 
     /**
      * @throws BuildException
