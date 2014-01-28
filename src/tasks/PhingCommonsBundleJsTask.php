@@ -18,8 +18,8 @@ class PhingCommonsBundleJSTask extends AbstractBundlePublicTask {
                 $this->log("package: {$package}");
 
                 $this->_content = array();
-                $this->_destinationMax = "{$this->_folder}/{$package}.bundle.js";
-                $this->_destinationMin = "{$this->_folder}/{$package}.bundle.min.js";
+                $this->_destinationMax = "{$this->_target}/{$package}.bundle.js";
+                $this->_destinationMin = "{$this->_target}/{$package}.bundle.min.js";
 
                 foreach($data['files'] as $file) {
                     $this->_content[] = file_get_contents($file);

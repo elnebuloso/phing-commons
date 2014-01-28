@@ -18,11 +18,13 @@ class PhingCommonsBundleCSSTask extends AbstractBundlePublicTask {
                 $this->log("package: {$package}");
 
                 $this->_content = array();
-                $this->_destinationMax = "{$this->_folder}/{$package}.bundle.css";
-                $this->_destinationMin = "{$this->_folder}/{$package}.bundle.min.css";
+                $this->_destinationMax = "{$this->_target}/{$package}.bundle.css";
+                $this->_destinationMin = "{$this->_target}/{$package}.bundle.min.css";
 
                 foreach($data['files'] as $file) {
-                    $path = str_replace($this->_folder . '/', '', $file);
+                    $path = pathinfo($file);
+                    $path = $this->_getRelativePath($path['dirname'], $this->_target);
+
                     $css = file_get_contents($file);
                     $css = $this->_changeUrlPath($path, $css);
 
