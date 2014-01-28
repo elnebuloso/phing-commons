@@ -54,9 +54,9 @@
     <property name="project.public" value="public" />
     <property name="project.public.css" value="public/css" />
     <property name="project.public.js" value="public/js" />
-    <property name="manifest.project" value="manifest/project.json" />
-    <property name="manifest.css" value="manifest/css.json" />
-    <property name="manifest.js" value="manifest/js.json" />
+    <property name="manifest.project" value="manifest/project.php" />
+    <property name="manifest.css" value="manifest/css.php" />
+    <property name="manifest.js" value="manifest/js.php" />
     <property name="build.project" value="build/project" />
     <property name="build.reports" value="build/reports" />
     <property name="build.tmp" value="build/tmp" />

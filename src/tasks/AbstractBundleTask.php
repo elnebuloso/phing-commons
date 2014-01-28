@@ -76,7 +76,7 @@ abstract class AbstractBundleTask extends Task {
      * @return void
      */
     protected function _readManifest() {
-        $this->_manifestDefinition = json_decode(file_get_contents($this->_manifest), true);
+        $this->_manifestDefinition = require_once($this->_manifest);
 
         foreach($this->_manifestDefinition as $package => $definition) {
             $this->log("");
