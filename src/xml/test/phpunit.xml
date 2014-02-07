@@ -38,7 +38,8 @@
                 <phpunitreport
                         infile="${build.reports}/phpunit/testsuites.xml"
                         format="noframes"
-                        todir="${build.reports}/phpunit" />
+                        todir="${build.reports}/phpunit"
+                        styledir="${phing:commons:xsl}" />
 
                 <copy file="${build.reports}/phpunit/phpunit-noframes.html" tofile="${build.reports}/phpunit/index.html" overwrite="true"/>
 
