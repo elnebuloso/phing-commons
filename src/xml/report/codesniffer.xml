@@ -19,11 +19,7 @@
         <delete dir="${build.reports}/codesniffer" />
         <mkdir dir="${build.reports}/codesniffer" />
 
-        <delete dir="${build.reports}/codesniffer-overview" />
-        <mkdir dir="${build.reports}/codesniffer-overview" />
-
-        <phpcodesniffer standard="${report.codesniffer.ruleset}" showSniffs="true" showWarnings="true"
-                        docGenerator="HTML" docFile="${build.reports}/codesniffer-overview/index.html">
+        <phpcodesniffer standard="${report.codesniffer.ruleset}" showSniffs="true" showWarnings="true">
             <fileset dir="${project.root}">
                 <patternset refid="${report.codesniffer.patternset}" />
             </fileset>

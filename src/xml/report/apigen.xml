@@ -22,12 +22,7 @@
                 <delete dir="${build.reports}/apigen" />
                 <mkdir dir="${build.reports}/apigen" />
 
-                <delete dir="${build.reports}/apigen-checkstyle" />
-                <mkdir dir="${build.reports}/apigen-checkstyle" />
-
-                <apigen
-                        destination="${build.reports}/apigen"
-                        report="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml"
+                <apigen destination="${build.reports}/apigen"
                         source="${project.root}/${report.apigen.source}"
                         exclude="${report.apigen.exclude}"
                         internal="No"
@@ -35,10 +30,6 @@
                         todo="Yes"
                         deprecated="Yes"
                         wipeout="Yes" />
-
-                <xslt file="${build.reports}/apigen-checkstyle/checkstyle.apigen.xml"
-                      tofile="${build.reports}/apigen-checkstyle/index.html"
-                      style="${phing:commons:xsl}/checkstyle.apigen.xsl" />
             </then>
             <else>
                 <echo message="missing ${project.root}/${report.apigen.source}" level="warning" />
