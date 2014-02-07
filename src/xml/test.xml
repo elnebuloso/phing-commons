@@ -9,6 +9,10 @@
     <!-- ============================================ -->
     <property name="test.phplint.patternset" value="test.phplint.patternset" />
     <property name="test.phpunit.patternset" value="test.phpunit.patternset" />
+    <property name="test.phpunit.coverage.patternset" value="test.phpunit.coverage.patternset" />
+    <property name="test.phpunit.coverage.phpunit" value="1" />
+    <property name="test.phpunit.coverage.xdebug" value="1" />
+
 
     <!-- ============================================ -->
     <!-- patternsets                                  -->
@@ -22,7 +26,12 @@
     <patternset id="test.phpunit.patternset">
         <include name="tests/**/*Test*.php" />
     </patternset>
-
+    <patternset id="test.phpunit.coverage.patternset">
+        <include name="src/Flex/Convert/**/*.php" />
+        <exclude name="build/**" />
+        <exclude name="tests/**" />
+        <exclude name="vendor/**" />
+    </patternset>
 
     <!-- ============================================ -->
     <!-- import                                       -->
@@ -45,6 +54,9 @@
         <echo message="================================================================================" />
         <echo message="test.phplint.patternset                 ${test.phplint.patternset}" />
         <echo message="test.phpunit.patternset                 ${test.phpunit.patternset}" />
+        <echo message="test.phpunit.coverage.patternset        ${test.phpunit.coverage.patternset}" />
+        <echo message="test.phpunit.coverage.phpunit           ${test.phpunit.coverage.phpunit}" />
+        <echo message="test.phpunit.coverage.xdebug            ${test.phpunit.coverage.xdebug}" />
     </target>
 
 
