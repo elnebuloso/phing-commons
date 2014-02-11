@@ -20,12 +20,29 @@
             <available file="${project.root}/tests/bootstrap.php" />
             <then>
                 <delete dir="${build.reports}/phpunit" />
+                <delete dir="${build.reports}/phpunit-coverage" />
+                <delete dir="${build.reports}/phpunit-coverage-xdebug" />
                 <mkdir dir="${build.reports}/phpunit" />
 
-                <delete dir="${build.reports}/phpunit-coverage" />
-                <mkdir dir="${build.reports}/phpunit-coverage" />
+                <!-- xdebug coverage -->
+                <if>
+                    <equals arg1="${test.phpunit.coverage.xdebug}" arg2="1" />
+                    <then>
+                        <mkdir dir="${build.reports}/phpunit-coverage-xdebug" />
 
-                <phpunit bootstrap="${project.root}/tests/bootstrap.php" codecoverage="false" haltonfailure="false"
+                        <coverage-setup database="${build.reports}/phpunit-coverage-xdebug/coverage.db">
+                            <fileset dir="${project.root}">
+                                <patternset refid="${test.phpunit.coverage.patternset}" />
+                            </fileset>
+                        </coverage-setup>
+                        <property name="test.phpunit.coverage.xdebug.database" value="true" />
+                    </then>
+                    <else>
+                        <property name="test.phpunit.coverage.xdebug.database" value="false" />
+                    </else>
+                </if>
+
+                <phpunit bootstrap="${project.root}/tests/bootstrap.php" codecoverage="${test.phpunit.coverage.xdebug.database}" haltonfailure="false"
                          haltonerror="true" printsummary="true">
                     <formatter todir="${build.reports}/phpunit" type="xml" />
                     <batchtest>
@@ -37,13 +54,30 @@
 
                 <phpunitreport
                         infile="${build.reports}/phpunit/testsuites.xml"
-                        format="noframes"
+                        format="frames"
                         todir="${build.reports}/phpunit"
                         styledir="${phing:commons:xsl}" />
 
-                <copy file="${build.reports}/phpunit/phpunit-noframes.html" tofile="${build.reports}/phpunit/index.html" overwrite="true"/>
+                <!-- <copy file="${build.reports}/phpunit/phpunit-frames.html" tofile="${build.reports}/phpunit/index.html" overwrite="true" /> -->
 
-                <exec command="phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
+                <!-- phpunit coverage -->
+                <if>
+                    <equals arg1="${test.phpunit.coverage.xdebug}" arg2="1" />
+                    <then>
+                        <mkdir dir="${build.reports}/phpunit-coverage" />
+                        <exec command="phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
+                    </then>
+                </if>
+
+                <!-- xdebug coverage -->
+                <if>
+                    <equals arg1="${test.phpunit.coverage.xdebug}" arg2="1" />
+                    <then>
+                        <coverage-report outfile="${build.reports}/phpunit/testsuites.xml">
+                            <report todir="${build.reports}/phpunit-coverage-xdebug" styledir="${phing:commons:xsl}" />
+                        </coverage-report>
+                    </then>
+                </if>
             </then>
             <else>
                 <echo message="missing ${project.root}/tests/bootstrap.php" level="warning" />

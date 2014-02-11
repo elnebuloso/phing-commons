@@ -27,7 +27,7 @@
         <include name="tests/**/*Test*.php" />
     </patternset>
     <patternset id="test.phpunit.coverage.patternset">
-        <include name="src/Flex/Convert/**/*.php" />
+        <include name="src/**/*.php" />
         <exclude name="build/**" />
         <exclude name="tests/**" />
         <exclude name="vendor/**" />
