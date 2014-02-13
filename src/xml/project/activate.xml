@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.activate">
+
+
+    <!-- ============================================ -->
+    <!-- project.activate:before                      -->
+    <!-- ============================================ -->
+    <target name="project.activate:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.activate:main                        -->
+    <!-- ============================================ -->
+    <target name="project.activate:main">
+        <input propertyname="activate.version" defaultValue="${project.version}">version</input>
+
+        <fail unless="activate.version" message="missing activate.version" />
+        <fail unless="destination.user" message="missing destination.user" />
+        <fail unless="destination.pass" message="missing destination.pass" />
+        <fail unless="destination.host" message="missing destination.host" />
+        <fail unless="destination.path" message="missing destination.path" />
+
+        <echo message="" />
+        <echo message="activate project" />
+        <echo message="- ${activate.version}" />
+        <echo message="- ${destination.user}" />
+        <echo message="- ${destination.pass}" />
+        <echo message="- ${destination.host}" />
+        <echo message="- ${destination.path}" />
+        <echo message="" />
+
+        <ssh username="${destination.user}"
+             password="${destination.pass}"
+             host="${destination.host}"
+             command="cd ${destination.path}; ln -s ${activate.version} latest_tmp &amp;&amp; mv -Tf latest_tmp latest; chown -R ${destination.cown} *;" />
+    </target>
+
+    <!-- ============================================ -->
+    <!-- project.activate:after                       -->
+    <!-- ============================================ -->
+    <target name="project.activate:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.activate                             -->
+    <!-- ============================================ -->
+    <target name="project.activate" depends="project.activate:before, project.activate:main, project.activate:after" />
+
+
+</project>

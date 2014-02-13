@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="report.codesniffer">
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer:before                    -->
+    <!-- ============================================ -->
+    <target name="report.codesniffer:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer:main                      -->
+    <!-- ============================================ -->
+    <target name="report.codesniffer:main">
+        <delete dir="${build.reports}/codesniffer" />
+        <mkdir dir="${build.reports}/codesniffer" />
+
+        <phpcodesniffer standard="${report.codesniffer.ruleset}" showSniffs="true" showWarnings="true">
+            <fileset dir="${project.root}">
+                <patternset refid="${report.codesniffer.patternset}" />
+            </fileset>
+
+            <formatter type="checkstyle" outfile="${build.reports}/codesniffer/checkstyle.codesniffer.xml" />
+        </phpcodesniffer>
+
+        <xslt file="${build.reports}/codesniffer/checkstyle.codesniffer.xml"
+              tofile="${build.reports}/codesniffer/index.html"
+              style="${phing:commons:xsl}/checkstyle.codesniffer.xsl" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer:after                     -->
+    <!-- ============================================ -->
+    <target name="report.codesniffer:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.codesniffer                           -->
+    <!-- ============================================ -->
+    <target name="report.codesniffer"
+            depends="report.codesniffer:before, report.codesniffer:main, report.codesniffer:after" />
+
+
+</project>

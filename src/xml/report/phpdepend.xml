@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="report.phpdepend">
+
+
+    <!-- ============================================ -->
+    <!-- report.phpdepend:before                      -->
+    <!-- ============================================ -->
+    <target name="report.phpdepend:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpdepend:main                        -->
+    <!-- ============================================ -->
+    <target name="report.phpdepend:main">
+        <delete dir="${build.reports}/phpdepend" />
+        <mkdir dir="${build.reports}/phpdepend" />
+
+        <phpdepend>
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phpdepend.patternset}" />
+            </fileset>
+
+            <logger type="jdepend-xml" outfile="${build.reports}/phpdepend/phpdepend.xml" />
+            <logger type="jdepend-chart" outfile="${build.reports}/phpdepend/chart.png" />
+            <logger type="overview-pyramid" outfile="${build.reports}/phpdepend/overview-pyramid.png" />
+
+            <analyzer type="coderank-mode" value="method" />
+        </phpdepend>
+
+        <xslt file="${build.reports}/phpdepend/phpdepend.xml" tofile="${build.reports}/phpdepend/index.html"
+              style="${phing:commons:xsl}/phpdepend.xsl" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpdepend:after                       -->
+    <!-- ============================================ -->
+    <target name="report.phpdepend:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpdepend                             -->
+    <!-- ============================================ -->
+    <target name="report.phpdepend" depends="report.phpdepend:before, report.phpdepend:main, report.phpdepend:after" />
+
+
+</project>

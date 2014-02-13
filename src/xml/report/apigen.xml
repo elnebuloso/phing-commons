@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="report.apigen">
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen:before                         -->
+    <!-- ============================================ -->
+    <target name="report.apigen:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen:main                           -->
+    <!-- ============================================ -->
+    <target name="report.apigen:main">
+        <if>
+            <available file="${project.root}/${report.apigen.source}" />
+            <then>
+                <delete dir="${build.reports}/apigen" />
+                <mkdir dir="${build.reports}/apigen" />
+
+                <apigen destination="${build.reports}/apigen"
+                        source="${project.root}/${report.apigen.source}"
+                        exclude="${report.apigen.exclude}"
+                        internal="No"
+                        php="No"
+                        todo="Yes"
+                        deprecated="Yes"
+                        wipeout="Yes" />
+            </then>
+            <else>
+                <echo message="missing ${project.root}/${report.apigen.source}" level="warning" />
+                <echo message="skipped" level="warning" />
+            </else>
+        </if>
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen:after                          -->
+    <!-- ============================================ -->
+    <target name="report.apigen:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.apigen                                -->
+    <!-- ============================================ -->
+    <target name="report.apigen" depends="report.apigen:before, report.apigen:main, report.apigen:after" />
+
+
+</project>

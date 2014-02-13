@@ -1,0 +1,6 @@
+{
+    "name": "elnebuloso/phing-commons",
+    "require": {
+        "php": ">=5.3.3"
+    }
+}

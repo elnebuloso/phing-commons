@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="clean.template">
+
+
+    <!-- ============================================ -->
+    <!-- clean.template:before                        -->
+    <!-- ============================================ -->
+    <target name="clean.template:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.template:main                          -->
+    <!-- ============================================ -->
+    <target name="clean.template:main">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.template:after                         -->
+    <!-- ============================================ -->
+    <target name="clean.template:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.template                               -->
+    <!-- ============================================ -->
+    <target name="clean.template" depends="clean.template:before, clean.template:main, clean.template:after" />
+
+
+</project>

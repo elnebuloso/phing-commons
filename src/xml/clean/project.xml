@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="clean.project">
+
+
+    <!-- ============================================ -->
+    <!-- clean.project:before                         -->
+    <!-- ============================================ -->
+    <target name="clean.project:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.project:main                           -->
+    <!-- ============================================ -->
+    <target name="clean.project:main">
+        <delete dir="${build.project}" />
+        <mkdir dir="${build.project}" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.project:after                          -->
+    <!-- ============================================ -->
+    <target name="clean.project:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- clean.project                                -->
+    <!-- ============================================ -->
+    <target name="clean.project" depends="clean.project:before, clean.project:main, clean.project:after" />
+
+
+</project>

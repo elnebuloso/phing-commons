@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="report.phpmd">
+
+
+    <!-- ============================================ -->
+    <!-- report.phpmd:before                          -->
+    <!-- ============================================ -->
+    <target name="report.phpmd:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpmd:main                            -->
+    <!-- ============================================ -->
+    <target name="report.phpmd:main">
+        <delete dir="${build.reports}/phpmd" />
+        <mkdir dir="${build.reports}/phpmd" />
+
+        <phpmd>
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phpmd.patternset}" />
+            </fileset>
+
+            <formatter type="xml" outfile="${build.reports}/phpmd/phpmd.xml" />
+        </phpmd>
+
+        <xslt file="${build.reports}/phpmd/phpmd.xml" tofile="${build.reports}/phpmd/index.html"
+              style="${phing:commons:xsl}/phpmd.xsl" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpmd:after                           -->
+    <!-- ============================================ -->
+    <target name="report.phpmd:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- report.phpmd                                 -->
+    <!-- ============================================ -->
+    <target name="report.phpmd" depends="report.phpmd:before, report.phpmd:main, report.phpmd:after" />
+
+
+</project>

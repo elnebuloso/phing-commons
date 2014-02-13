@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.template">
+
+
+    <!-- ============================================ -->
+    <!-- project.template:before                      -->
+    <!-- ============================================ -->
+    <target name="project.template:before">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.template:main                        -->
+    <!-- ============================================ -->
+    <target name="project.template:main">
+        <echo message="no actions defined" />
+    </target>
+
+    <!-- ============================================ -->
+    <!-- project.template:after                       -->
+    <!-- ============================================ -->
+    <target name="project.template:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.template                             -->
+    <!-- ============================================ -->
+    <target name="project.template" depends="project.template:before, project.template:main, project.template:after" />
+
+
+</project>

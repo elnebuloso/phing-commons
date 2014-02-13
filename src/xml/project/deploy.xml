@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="project.deploy">
+
+
+    <!-- ============================================ -->
+    <!-- project.deploy:before                        -->
+    <!-- ============================================ -->
+    <target name="project.deploy:before">
+        <input propertyname="environment" validargs="staging, production" defaultValue="staging">environment</input>
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.deploy:main                          -->
+    <!-- ============================================ -->
+    <target name="project.deploy:main">
+        <property name="destination.host" value="${project.deploy.${environment}.host}" />
+        <property name="destination.user" value="${project.deploy.${environment}.user}" />
+        <property name="destination.pass" value="${project.deploy.${environment}.pass}" />
+        <property name="destination.path" value="${project.deploy.${environment}.path}" />
+        <property name="destination.cown" value="${project.deploy.${environment}.cown}" />
+
+        <if>
+            <equals arg1="${destination.host}" arg2="" />
+            <then>
+                <fail message="Missing ${environment} Deployment Configuration" />
+            </then>
+        </if>
+
+        <echo message="" />
+        <echo message="deploy project" />
+        <echo message="- ${project.version}" />
+        <echo message="- ${destination.user}" />
+        <echo message="- ${destination.pass}" />
+        <echo message="- ${destination.host}" />
+        <echo message="- ${destination.path}" />
+        <echo message="" />
+
+        <echo msg="deploy upload" />
+        <scp username="${destination.user}"
+             password="${destination.pass}"
+             host="${destination.host}"
+             todir="${destination.path}"
+             file="${build.project}/${project.version}.tar.gz" />
+
+        <echo msg="deploy install" />
+        <ssh username="${destination.user}"
+             password="${destination.pass}"
+             host="${destination.host}"
+             command="cd ${destination.path}; mkdir ${project.version}; tar -xvzf ${project.version}.tar.gz -C ${project.version}; chown -R ${destination.cown} ${project.version};" />
+
+        <phingcall target="project.activate">
+            <property name="activate.version" value="${project.version}" />
+            <property name="destination.host" value="${project.deploy.${environment}.host}" />
+            <property name="destination.user" value="${project.deploy.${environment}.user}" />
+            <property name="destination.pass" value="${project.deploy.${environment}.pass}" />
+            <property name="destination.path" value="${project.deploy.${environment}.path}" />
+            <property name="destination.cown" value="${project.deploy.${environment}.cown}" />
+        </phingcall>
+    </target>
+
+    <!-- ============================================ -->
+    <!-- project.deploy:after                         -->
+    <!-- ============================================ -->
+    <target name="project.deploy:after">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <!-- ============================================ -->
+    <!-- project.deploy                               -->
+    <!-- ============================================ -->
+    <target name="project.deploy" depends="project.deploy:before, project.deploy:main, project.deploy:after" />
+
+
+</project>
