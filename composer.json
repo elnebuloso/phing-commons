@@ -1,5 +1,14 @@
 {
     "name": "elnebuloso/phing-commons",
+    "description": "phing commons build stack",
+    "type": "library",
+    "keywords":
+        [
+            "phing",
+            "build management",
+            "continuous integration"
+        ],
+    "license": "MIT",
     "require": {
         "php": ">=5.3.3"
     }
