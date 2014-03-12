@@ -36,8 +36,8 @@
     <!-- ============================================ -->
     <!-- import                                       -->
     <!-- ============================================ -->
-    <import file="${phing:commons:xml}/test/phplint.xml" />
-    <import file="${phing:commons:xml}/test/phpunit.xml" />
+    <!-- <import file="${phing:commons:xml}/test/phplint.xml" />-->
+    <!-- <import file="${phing:commons:xml}/test/phpunit.xml" />-->
 
 
     <!-- ============================================ -->
@@ -63,7 +63,7 @@
     <!-- ============================================ -->
     <!-- test                                         -->
     <!-- ============================================ -->
-    <target name="test" depends="test.phplint, test.phpunit" />
+    <!-- <target name="test" depends="test.phplint, test.phpunit" /> -->
 
 
 </project>

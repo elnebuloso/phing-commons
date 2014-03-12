@@ -11,6 +11,12 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3.3",
-        "phing/phing": "2.6.1"
+        "phing/phing": "2.7.0",
+        "apigen/apigen": "2.8.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "PhingCommons\\": "classes/"
+        }
     }
 }
