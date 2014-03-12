@@ -58,14 +58,12 @@
                         todir="${build.reports}/phpunit"
                         styledir="${phing:commons:xsl}" />
 
-                <!-- <copy file="${build.reports}/phpunit/phpunit-frames.html" tofile="${build.reports}/phpunit/index.html" overwrite="true" /> -->
-
                 <!-- phpunit coverage -->
                 <if>
-                    <equals arg1="${test.phpunit.coverage.xdebug}" arg2="1" />
+                    <equals arg1="${test.phpunit.coverage.phpunit}" arg2="1" />
                     <then>
                         <mkdir dir="${build.reports}/phpunit-coverage" />
-                        <exec command="phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
+                        <exec command="${project.root}/vendor/bin/phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
                     </then>
                 </if>
 

@@ -53,7 +53,7 @@
     <!-- ============================================ -->
     <!-- import                                       -->
     <!-- ============================================ -->
-    <!-- <import file="${phing:commons:xml}/report/phpcpd.xml" /> -->
+    <import file="${phing:commons:xml}/report/phpcpd.xml" />
     <!-- <import file="${phing:commons:xml}/report/phpdepend.xml" /> -->
     <!-- <import file="${phing:commons:xml}/report/phpmd.xml" /> -->
     <!-- <import file="${phing:commons:xml}/report/codesniffer.xml" /> -->
