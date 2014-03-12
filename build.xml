@@ -14,7 +14,7 @@
     <!-- ============================================ -->
     <!-- import commons base                          -->
     <!-- ============================================ -->
-    <import file="src/xml/base.xml" />
+    <import file="commons/xml/base.xml" />
 
 
 </project>

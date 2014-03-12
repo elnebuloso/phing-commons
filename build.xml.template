@@ -14,7 +14,7 @@
     <!-- ============================================ -->
     <!-- import commons base                          -->
     <!-- ============================================ -->
-    <import file="vendor/elnebuloso/phing-commons/src/xml/base.xml" />
+    <import file="vendor/elnebuloso/phing-commons/commons/xml/base.xml" />
 
 
 </project>
