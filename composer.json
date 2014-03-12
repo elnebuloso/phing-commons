@@ -14,7 +14,8 @@
         "phing/phing": "2.7.0",
         "apigen/apigen": "2.8.0",
         "sebastian/phpcpd": "2.0.0",
-        "phpunit/phpunit": "3.7.32"
+        "phpunit/phpunit": "3.7.32",
+        "squizlabs/php_codesniffer": "1.5.2"
     },
     "autoload": {
         "psr-0": {
