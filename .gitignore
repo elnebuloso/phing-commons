@@ -1,5 +1,5 @@
 .idea
 .svn
-build
-vendor
+/build
+/vendor
 composer.lock
