@@ -1,20 +1,29 @@
 {
     "name": "elnebuloso/phing-commons",
-    "description": "phing commons build stack",
     "type": "library",
+    "license": "MIT",
+    "description": "phing commons build stack",
     "keywords":
         [
             "phing",
             "build management",
             "continuous integration"
         ],
-    "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/elnebuloso/phing"
-        }
-    ],
+    "authors":
+        [
+            {
+                "name": "Jeff Tunessen",
+                "email": "jeff.tunessen@gmail.com",
+                "role": "Maintainer"
+            }
+        ],
+    "repositories":
+        [
+            {
+                "type": "vcs",
+                "url": "https://github.com/elnebuloso/phing"
+            }
+        ],
     "require": {
         "php": ">=5.3.3",
         "phing/phing": "dev-master",

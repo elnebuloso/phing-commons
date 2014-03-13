@@ -7,7 +7,7 @@ use PhingCommons\Version;
  * Class VersionTest
  *
  * @package PhingCommonsTest
- * @author Jan Thönneßen <jeff.tunessen@gmail.com>
+ * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
 class VersionTest extends \PHPUnit_Framework_TestCase {
 
