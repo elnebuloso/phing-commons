@@ -51,12 +51,10 @@
     </php>
 
 
-    <property name="build.project" value="build/project" />
     <property name="build.reports" value="build/reports" />
     <property name="build.tmp" value="build/tmp" />
 
 
-    <resolvepath propertyName="build.project" file="${build.project}" />
     <resolvepath propertyName="build.reports" file="${build.reports}" />
     <resolvepath propertyName="build.tmp" file="${build.tmp}" />
 
@@ -80,7 +78,6 @@
         <echo message="project.version                         ${project.version}" level="warning" />
         <echo message="project.root                            ${project.root}" level="error" />
         <echo message="================================================================================" />
-        <echo message="build.project                           ${build.project}" />
         <echo message="build.reports                           ${build.reports}" />
         <echo message="build.tmp                               ${build.tmp}" />
         <echo message="================================================================================" />

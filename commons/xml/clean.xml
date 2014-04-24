@@ -7,7 +7,6 @@
     <!-- ============================================ -->
     <!-- import                                       -->
     <!-- ============================================ -->
-    <import file="${phing:commons:xml}/clean/project.xml" />
     <import file="${phing:commons:xml}/clean/reports.xml" />
     <import file="${phing:commons:xml}/clean/tmp.xml" />
 
@@ -18,7 +17,6 @@
     <target name="help.clean">
         <echo message="target                                  description" />
         <echo message="================================================================================" />
-        <echo message="clean.project                           clean ${build.project}" />
         <echo message="clean.reports                           clean ${build.reports}" />
         <echo message="clean.tmp                               clean ${build.tmp}" />
         <echo message="clean                                   execute all" />
@@ -28,7 +26,7 @@
     <!-- ============================================ -->
     <!-- clean                                        -->
     <!-- ============================================ -->
-    <target name="clean" depends="clean.project, clean.reports, clean.tmp" />
+    <target name="clean" depends="clean.reports, clean.tmp" />
 
 
 </project>
