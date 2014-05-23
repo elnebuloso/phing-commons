@@ -20,16 +20,18 @@
             <available file="${project.root}/tests/bootstrap.php" />
             <then>
                 <delete dir="${build.reports}/phpunit" />
-                <delete dir="${build.reports}/phpunit-coverage" />
-                <delete dir="${build.reports}/phpunit-coverage-xdebug" />
                 <mkdir dir="${build.reports}/phpunit" />
+
+                <delete dir="${build.reports}/phpunit-coverage" />
+                <mkdir dir="${build.reports}/phpunit-coverage" />
+
+                <delete dir="${build.reports}/phpunit-coverage-xdebug" />
+                <mkdir dir="${build.reports}/phpunit-coverage-xdebug" />
 
                 <!-- xdebug coverage -->
                 <if>
                     <equals arg1="${test.phpunit.coverage.xdebug}" arg2="1" />
                     <then>
-                        <mkdir dir="${build.reports}/phpunit-coverage-xdebug" />
-
                         <coverage-setup database="${build.reports}/phpunit-coverage-xdebug/coverage.db">
                             <fileset dir="${project.root}">
                                 <patternset refid="${test.phpunit.coverage.patternset}" />
@@ -54,15 +56,16 @@
 
                 <phpunitreport
                         infile="${build.reports}/phpunit/testsuites.xml"
-                        format="frames"
+                        format="noframes"
                         todir="${build.reports}/phpunit"
                         styledir="${phing:commons:xsl}" />
+
+                <copy file="${build.reports}/phpunit/phpunit-noframes.html" tofile="${build.reports}/phpunit/index.html" overwrite="true" />
 
                 <!-- phpunit coverage -->
                 <if>
                     <equals arg1="${test.phpunit.coverage.phpunit}" arg2="1" />
                     <then>
-                        <mkdir dir="${build.reports}/phpunit-coverage" />
                         <exec command="${project.root}/vendor/bin/phpunit --coverage-html ${build.reports}/phpunit-coverage --bootstrap ${project.root}/tests/bootstrap.php tests" />
                     </then>
                 </if>

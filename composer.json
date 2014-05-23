@@ -21,5 +21,45 @@
         "psr-0": {
             "PhingCommons\\": "src/"
         }
+    },
+    "repositories":
+        [
+            {
+                "type": "pear",
+                "url": "http://pear.php.net"
+            },
+            {
+                "type": "pear",
+                "url": "http://pear.phpunit.de"
+            },
+            {
+                "type": "pear",
+                "url": "http://pear.symfony.com"
+            },
+            {
+                "type": "pear",
+                "url": "http://pear.netpirates.net"
+            },
+            {
+                "type": "pear",
+                "url": "http://pear.pdepend.org"
+            },
+            {
+                "type": "pear",
+                "url": "http://pear.phpmd.org"
+            }
+        ],
+    "require": {
+        "phing/phing": "2.7.0",
+        "phpunit/phpunit": "3.7.21",
+        "phpunit/phpunit-mock-objects": "1.2.3",
+        "phpunit/php-code-coverage": "1.2.11",
+        "phpunit/php-invoker": ">=1.1.0,<1.2.0",
+        "pear-pear.phpunit.de/phpcpd": "2.0.0",
+        "pear-pear.pdepend.org/PHP_Depend": "1.1.4",
+        "pear-pear.phpmd.org/PHP_PMD": "1.5.0"
+    },
+    "config": {
+        "bin-dir": "bin"
     }
 }

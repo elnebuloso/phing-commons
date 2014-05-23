@@ -9,4 +9,4 @@ ini_set('display_errors', 'on');
 chdir(dirname(__DIR__));
 
 // autoloading
-include 'autoload.php';
+include 'vendor/autoload.php';

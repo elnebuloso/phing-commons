@@ -22,7 +22,7 @@
                 <delete dir="${build.reports}/apigen" />
                 <mkdir dir="${build.reports}/apigen" />
 
-                <apigen executable="${project.root}/vendor/bin/apigen.php"
+                <apigen executable="${project.root}/bin/apigen.php"
                         destination="${build.reports}/apigen"
                         source="${project.root}/${report.apigen.source}"
                         exclude="${report.apigen.exclude}"
