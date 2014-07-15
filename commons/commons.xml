@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project name="commons" default="help">
+<project default="help">
 
 
     <!-- ============================================ -->
     <!-- phing commons setup                          -->
     <!-- ============================================ -->
-    <php function="dirname" returnProperty="phing:commons:commons" level="debug">
-        <param value="${phing.file.commons}" />
-    </php>
-
-    <property name="phing:commons:commons" value="${phing:commons:commons}" override="true" />
+    <property name="phing:commons:commons" value="${phing.home}/../../../commons" override="true" />
     <property name="phing:commons:root" value="${phing:commons:commons}/.." override="true" />
 
     <resolvepath propertyName="phing:commons:commons" file="${phing:commons:commons}" />
