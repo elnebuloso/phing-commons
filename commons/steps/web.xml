@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project>
+
+
+    <echo message="setting up commons steps: web" />
+
+
+    <target name="clean:main" hidden="true" depends="clean.tmp" />
+
+
+</project>

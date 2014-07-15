@@ -4,6 +4,20 @@
 <project default="test.phpunit">
 
 
+    <target name="test.phpunit:help" depends="test.phpunit:init">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="test.phpunit.dir                                  ${test.phpunit.dir}" />
+        <echo message="test.phpunit.bootstrap                            ${test.phpunit.bootstrap}" />
+        <echo message="test.phpunit.coverage                             ${test.phpunit.coverage} (yes, no)" />
+        <echo message="test.phpunit.php.display_errors                   ${test.phpunit.php.display_errors}" />
+        <echo message="test.phpunit.php.error_reporting                  ${test.phpunit.php.error_reporting}" />
+        <echo message="test.phpunit.php.default_timezone                 ${test.phpunit.php.default_timezone}" />
+        <echo message="test.phpunit.haltonfailure                        ${test.phpunit.haltonfailure}" />
+        <echo message="test.phpunit.haltonerror                          ${test.phpunit.haltonerror}" />
+    </target>
+
+
     <target name="test.phpunit:init" hidden="true">
         <property name="test.phpunit.dir" value="tests" />
         <property name="test.phpunit.bootstrap" value="${test.phpunit.dir}/bootstrap.php" />
@@ -17,7 +31,7 @@
 
 
     <target name="test.phpunit:before" hidden="true">
-        <echo message="no actions defined" />
+        <echo message="no actions defined" level="debug" />
     </target>
 
 
@@ -103,24 +117,12 @@
 
 
     <target name="test.phpunit:after" hidden="true">
-        <echo message="no actions defined" />
+        <echo message="no actions defined" level="debug" />
     </target>
 
 
-    <target name="test.phpunit" depends="test.phpunit:init, test.phpunit:before, test.phpunit:main, test.phpunit:after" />
-
-
-    <target name="test.phpunit:help" depends="test.phpunit:init">
-        <echo message="PROPERTY                                          VALUE" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phpunit.dir                                  ${test.phpunit.dir}" />
-        <echo message="test.phpunit.bootstrap                            ${test.phpunit.bootstrap}" />
-        <echo message="test.phpunit.coverage                             ${test.phpunit.coverage} (yes, no)" />
-        <echo message="test.phpunit.php.display_errors                   ${test.phpunit.php.display_errors}" />
-        <echo message="test.phpunit.php.error_reporting                  ${test.phpunit.php.error_reporting}" />
-        <echo message="test.phpunit.php.default_timezone                 ${test.phpunit.php.default_timezone}" />
-        <echo message="test.phpunit.haltonfailure                        ${test.phpunit.haltonfailure}" />
-        <echo message="test.phpunit.haltonerror                          ${test.phpunit.haltonerror}" />
+    <target name="test.phpunit" depends="test.phpunit:init, test.phpunit:before, test.phpunit:main, test.phpunit:after">
+        <echo message="successful" />
     </target>
 
 

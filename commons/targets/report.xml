@@ -7,7 +7,7 @@
     <import file="${phing:commons:commons}/targets/report/apigen.xml" />
 
 
-    <target name="test:help" depends="report.apigen:help">
+    <target name="report:help" depends="report.apigen:help">
         <echo message="TARGET                                            DESCRIPTION" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.apigen                                     PHP Code Documentation" />

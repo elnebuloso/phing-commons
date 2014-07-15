@@ -1,96 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="help">
+<project>
 
 
-    <!-- ============================================ -->
-    <!-- phing commons setup                          -->
-    <!-- ============================================ -->
-    <property name="phing:commons:root" value="${phing.home}/../../.." override="true" />
-
-    <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}" />
-    <resolvepath propertyName="phing:commons:commons" file="${phing:commons:root}/commons" />
+    <echo message="setting up commons steps: default" />
 
 
-    <!-- ============================================ -->
-    <!-- phing commons properties                     -->
-    <!-- ============================================ -->
-    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION" />
-
-    <php function="trim" returnProperty="phing:commons:version" level="debug">
-        <param value="${phing:commons:version}" />
-    </php>
-
-
-    <!-- ============================================ -->
-    <!-- project properties                           -->
-    <!-- ============================================ -->
-    <php function="dirname" returnProperty="project.root" level="debug">
-        <param value="${phing.file}" />
-    </php>
-
-    <resolvepath propertyName="project.root" file="${project.root}" />
-
-    <property file="${project.root}/build.properties" />
-    <property file="${project.root}/build.properties.local" />
-
-    <loadfile property="project.version" file="${project.root}/VERSION" />
-
-    <php function="trim" returnProperty="project.version" level="debug">
-        <param value="${project.version}" />
-    </php>
-
-    <fail unless="project.vendor" message="missing project.vendor" />
-    <fail unless="project.name" message="missing project.name" />
-    <fail unless="project.version" message="missing project.version" />
-
-    <property name="project.tmp" value="${project.root}/build/tmp" />
-    <property name="project.reports" value="${project.root}/build/reports" />
-
-    <resolvepath propertyName="project.tmp" file="${project.tmp}" />
-    <resolvepath propertyName="project.reports" file="${project.reports}" />
-
-
-    <!-- ============================================ -->
-    <!-- phing commons targets                        -->
-    <!-- ============================================ -->
-    <import file="${phing:commons:commons}/targets/clean.xml" />
-    <import file="${phing:commons:commons}/targets/report.xml" />
-    <import file="${phing:commons:commons}/targets/test.xml" />
-
-
-    <!-- ============================================ -->
-    <!-- help.commons                                 -->
-    <!-- ============================================ -->
-    <target name="help.commons" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="phing:commons:version                             ${phing:commons:version}" />
-        <echo message="phing:commons:commons                             ${phing:commons:commons}" />
-        <echo message="phing:commons:root                                ${phing:commons:root}" />
-    </target>
-
-    <!-- ============================================ -->
-    <!-- help.project                                 -->
-    <!-- ============================================ -->
-    <target name="help.project" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version                                   ${project.version}" />
-        <echo message="project.vendor                                    ${project.vendor}" />
-        <echo message="project.name                                      ${project.name}" />
-        <echo message="project.root                                      ${project.root}" />
-        <echo message="project.tmp                                       ${project.tmp}" />
-        <echo message="project.reports                                   ${project.reports}" />
-    </target>
-
-    <target name="help" depends="help.commons, help.project" hidden="true" />
-
-
-    <!-- ============================================ -->
-    <!-- default steps                                -->
-    <!-- ============================================ -->
     <!-- ============================================ -->
     <!-- clean                                        -->
     <!-- ============================================ -->
@@ -274,7 +190,5 @@
         <echo message="successful" />
     </target>
 
-
-    <import file="${phing:commons:commons}/steps/web.xml" />
 
 </project>

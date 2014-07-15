@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="clean.tmp">
+
+
+    <target name="clean.tmp:help" depends="clean.tmp:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="clean.tmp:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="clean.tmp:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="clean.tmp:main" hidden="true">
+        <delete dir="${project.tmp}" />
+        <mkdir dir="${project.tmp}" />
+    </target>
+
+
+    <target name="clean.tmp:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="clean.tmp" depends="clean.tmp:init, clean.tmp:before, clean.tmp:main, clean.tmp:after">
+        <echo message="successful" />
+    </target>
+
+
+</project>
