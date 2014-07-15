@@ -56,6 +56,7 @@
     <!-- phing commons targets                        -->
     <!-- ============================================ -->
     <import file="${phing:commons:commons}/targets/test.xml" />
+    <import file="${phing:commons:commons}/targets/report.xml" />
 
 
     <!-- ============================================ -->

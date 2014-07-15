@@ -29,7 +29,8 @@
     "require": {
         "php": ">=5.3.3",
         "phing/phing": "2.7.0",
-        "phpunit/phpunit": "3.7.37"
+        "phpunit/phpunit": "3.7.37",
+        "apigen/apigen": "2.8.0"
     },
     "config": {
         "bin-dir": "bin"

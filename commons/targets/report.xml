@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="report:help">
+
+
+    <import file="${phing:commons:commons}/targets/report/apigen.xml" />
+
+
+    <target name="test:help" depends="report.apigen:help">
+        <echo message="TARGET                                            DESCRIPTION" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.apigen                                     PHP Code Documentation" />
+    </target>
+
+
+</project>
