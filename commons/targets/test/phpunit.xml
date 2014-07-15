@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="test.phpunit">
+
+
+    <target name="test.phpunit:init" hidden="true">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <target name="test.phpunit:before" hidden="true">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <target name="test.phpunit:main" hidden="true">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <target name="test.phpunit:after" hidden="true">
+        <echo message="no actions defined" />
+    </target>
+
+
+    <target name="test.phpunit" depends="test.phpunit:init, test.phpunit:before, test.phpunit:main, test.phpunit:after" />
+
+
+    <target name="test.phpunit:help" depends="test.phpunit:init">
+        <echo message="no actions defined" />
+    </target>
+
+
+</project>

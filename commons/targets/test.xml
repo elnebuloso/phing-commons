@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="test:help">
+
+
+    <import file="${phing:commons:commons}/targets/test/phplint.xml" />
+    <import file="${phing:commons:commons}/targets/test/phpunit.xml" />
+
+
+    <target name="test:help" depends="test.phplint:help, test.phpunit:help">
+        <echo message="TARGET                                            DESCRIPTION" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="test.phplint                                      PHP Code Validation / Linting" />
+        <echo message="test.phpunit                                      PHP Unit Testing" />
+    </target>
+
+
+</project>
