@@ -25,7 +25,6 @@
 
     <target name="test.phplint:main" hidden="true">
         <mkdir dir="${project.reports}/phplint" />
-        <touch file="${project.reports}/phplint/index.html" />
 
         <phplint haltonfailure="${test.phplint.haltonfailure}" tofile="${project.reports}/phplint/phplint.txt" cachefile="${project.reports}/phplint/phplint.cache" level="info">
             <fileset dir="${project.root}">
