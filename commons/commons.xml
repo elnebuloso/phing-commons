@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="commons" default="help">
+
+
+    <!-- ============================================ -->
+    <!-- phing commons setup                          -->
+    <!-- ============================================ -->
+    <php function="dirname" returnProperty="phing:commons:commons" level="debug">
+        <param value="${phing.file.commons}" />
+    </php>
+
+    <property name="phing:commons:commons" value="${phing:commons:commons}" override="true" />
+    <property name="phing:commons:root" value="${phing:commons:commons}/.." override="true" />
+
+    <resolvepath propertyName="phing:commons:commons" file="${phing:commons:commons}" />
+    <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}" />
+
+
+    <!-- ============================================ -->
+    <!-- phing commons properties                     -->
+    <!-- ============================================ -->
+    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION" />
+
+    <php function="trim" returnProperty="phing:commons:version" level="debug">
+        <param value="${phing:commons:version}" />
+    </php>
+
+
+    <!-- ============================================ -->
+    <!-- project properties                           -->
+    <!-- ============================================ -->
+    <php function="dirname" returnProperty="project.root" level="debug">
+        <param value="${phing.file}" />
+    </php>
+
+    <resolvepath propertyName="project.root" file="${project.root}" />
+
+    <property file="${project.root}/build.properties" />
+    <property file="${project.root}/build.properties.local" />
+
+    <loadfile property="project.version" file="${project.root}/VERSION" />
+
+    <php function="trim" returnProperty="project.version" level="debug">
+        <param value="${project.version}" />
+    </php>
+
+    <fail unless="project.vendor" message="missing project.vendor" />
+    <fail unless="project.name" message="missing project.name" />
+    <fail unless="project.version" message="missing project.version" />
+
+    <property name="project.tmp" value="${project.root}/build/tmp" />
+
+
+    <!-- ============================================ -->
+    <!-- phing commons targets                        -->
+    <!-- ============================================ -->
+
+
+    <!-- ============================================ -->
+    <!-- help.commons                                 -->
+    <!-- ============================================ -->
+    <target name="help.commons">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="phing:commons:version                             ${phing:commons:version}" />
+        <echo message="phing:commons:commons                             ${phing:commons:commons}" />
+        <echo message="phing:commons:root                                ${phing:commons:root}" />
+    </target>
+
+    <!-- ============================================ -->
+    <!-- help.project                                 -->
+    <!-- ============================================ -->
+    <target name="help.project">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.version                                   ${project.version}" />
+        <echo message="project.vendor                                    ${project.vendor}" />
+        <echo message="project.name                                      ${project.name}" />
+        <echo message="project.root                                      ${project.root}" />
+        <echo message="project.tmp                                       ${project.tmp}" />
+    </target>
+
+    <target name="help" depends="help.commons, help.project" />
+
+
+</project>
