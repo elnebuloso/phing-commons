@@ -78,7 +78,7 @@
         <echo message="project.tmp                                       ${project.tmp}" />
     </target>
 
-    <target name="help" depends="help.commons, help.project" />
+    <target name="help" depends="help.commons, help.project" hidden="true" />
 
 
 </project>
