@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="report.phpmd">
+
+
+    <patternset id="report.phpmd.patternset.default">
+        <include name="src/**/*.php" />
+    </patternset>
+
+
+    <target name="report.phpmd:init" hidden="true">
+        <property name="report.phpmd.out" value="${project.reports}/phpmd" />
+        <property name="report.phpmd.xsl" value="${phing:commons:root}/resources/phpmd/phpmd.xsl" />
+        <property name="report.phpmd.patternset" value="report.phpmd.patternset.default" />
+    </target>
+
+
+    <target name="report.phpmd:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phpmd:main" hidden="true">
+        <delete dir="${report.phpmd.out}" />
+        <mkdir dir="${report.phpmd.out}" />
+
+        <phpmd allowedFileExtensions="php,phtml">
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phpmd.patternset}" />
+            </fileset>
+            <formatter type="xml" outfile="${project.reports}/phpmd/phpmd.xml" />
+        </phpmd>
+
+        <xslt file="${report.phpmd.out}/phpmd.xml" tofile="${report.phpmd.out}/index.html" style="${report.phpmd.xsl}" />
+    </target>
+
+
+    <target name="report.phpmd:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phpmd" depends="report.phpmd:init, report.phpmd:before, report.phpmd:main, report.phpmd:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="report.phpmd:help" depends="report.phpmd:init" hidden="true">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phpmd.out                                 ${report.phpmd.out}" />
+        <echo message="report.phpmd.xsl                                 ${report.phpmd.xsl}" />
+        <echo message="report.phpmd.patternset                          ${report.phpmd.patternset}" />
+    </target>
+
+
+</project>

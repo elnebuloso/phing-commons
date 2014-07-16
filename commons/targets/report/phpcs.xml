@@ -11,9 +11,9 @@
 
     <target name="report.phpcs:init" hidden="true">
         <property name="report.phpcs.out" value="${project.reports}/phpcs" />
+        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/phpcs.xsl" />
         <property name="report.phpcs.patternset" value="report.phpcs.patternset.default" />
         <property name="report.phpcs.ruleset" value="${phing:commons:root}/resources/phpcs/ruleset" />
-        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/phpcs.xsl" />
         <property name="report.phpcs.haltonerror" value="false" />
         <property name="report.phpcs.haltonwarning" value="false" />
     </target>
@@ -53,9 +53,9 @@
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpcs.out                                  ${report.phpcs.out}" />
+        <echo message="report.phpcs.xsl                                  ${report.phpcs.xsl}" />
         <echo message="report.phpcs.patternset                           ${report.phpcs.patternset}" />
         <echo message="report.phpcs.ruleset                              ${report.phpcs.ruleset}" />
-        <echo message="report.phpcs.xsl                                  ${report.phpcs.xsl}" />
         <echo message="report.phpcs.haltonerror                          ${report.phpcs.haltonerror}" />
         <echo message="report.phpcs.haltonwarning                        ${report.phpcs.haltonwarning}" />
     </target>

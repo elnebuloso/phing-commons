@@ -11,8 +11,8 @@
 
     <target name="report.phpcpd:init" hidden="true">
         <property name="report.phpcpd.out" value="${project.reports}/phpcpd" />
-        <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default" />
         <property name="report.phpcpd.xsl" value="${phing:commons:root}/resources/phpcpd/phpcpd.xsl" />
+        <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default" />
     </target>
 
 
@@ -50,8 +50,8 @@
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpcpd.out                                 ${report.phpcpd.out}" />
-        <echo message="report.phpcpd.patternset                          ${report.phpcpd.patternset}" />
         <echo message="report.phpcpd.xsl                                 ${report.phpcpd.xsl}" />
+        <echo message="report.phpcpd.patternset                          ${report.phpcpd.patternset}" />
     </target>
 
 

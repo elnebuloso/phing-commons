@@ -11,8 +11,8 @@
 
     <target name="report.phploc:init" hidden="true">
         <property name="report.phploc.out" value="${project.reports}/phploc" />
-        <property name="report.phploc.patternset" value="report.phploc.patternset.default" />
         <property name="report.phploc.xsl" value="${phing:commons:root}/resources/phploc/phploc.xsl" />
+        <property name="report.phploc.patternset" value="report.phploc.patternset.default" />
     </target>
 
 
@@ -49,11 +49,8 @@
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phploc.out                                 ${report.phploc.out}" />
-        <echo message="report.phploc.patternset                          ${report.phploc.patternset}" />
-        <echo message="report.phploc.ruleset                             ${report.phploc.ruleset}" />
         <echo message="report.phploc.xsl                                 ${report.phploc.xsl}" />
-        <echo message="report.phploc.haltonerror                         ${report.phploc.haltonerror}" />
-        <echo message="report.phploc.haltonwarning                       ${report.phploc.haltonwarning}" />
+        <echo message="report.phploc.patternset                          ${report.phploc.patternset}" />
     </target>
 
 
