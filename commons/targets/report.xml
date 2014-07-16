@@ -7,14 +7,16 @@
     <import file="${phing:commons:commons}/targets/report/apigen.xml" />
     <import file="${phing:commons:commons}/targets/report/phpcpd.xml" />
     <import file="${phing:commons:commons}/targets/report/phpcs.xml" />
+    <import file="${phing:commons:commons}/targets/report/phploc.xml" />
 
 
-    <target name="report:help" depends="report.apigen:help, report.phpcpd:help, report.phpcs:help">
+    <target name="report:help" depends="report.apigen:help, report.phpcpd:help, report.phpcs:help, report.phploc:help">
         <echo message="TARGET                                            DESCRIPTION" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.apigen                                     PHP Code Documentation" />
         <echo message="report.phpcpd                                     Copy/Paste Detector (CPD) for PHP Code" />
         <echo message="report.phpcs                                      Analysis of Coding Conventions" />
+        <echo message="report.phploc                                     A tool for quickly measuring the size of a PHP project" />
     </target>
 
 

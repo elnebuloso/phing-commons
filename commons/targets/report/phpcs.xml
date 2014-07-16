@@ -13,7 +13,7 @@
         <property name="report.phpcs.out" value="${project.reports}/phpcs" />
         <property name="report.phpcs.patternset" value="report.phpcs.patternset.default" />
         <property name="report.phpcs.ruleset" value="${phing:commons:root}/resources/phpcs/ruleset" />
-        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/checkstyle.xsl" />
+        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/phpcs.xsl" />
         <property name="report.phpcs.haltonerror" value="false" />
         <property name="report.phpcs.haltonwarning" value="false" />
     </target>
@@ -32,10 +32,10 @@
             <fileset dir="${project.root}">
                 <patternset refid="${report.phpcs.patternset}" />
             </fileset>
-            <formatter type="checkstyle" outfile="${report.phpcs.out}/checkstyle.phpcs.xml" />
+            <formatter type="checkstyle" outfile="${report.phpcs.out}/phpcs.xml" />
         </phpcodesniffer>
 
-        <xslt file="${report.phpcs.out}/checkstyle.phpcs.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
+        <xslt file="${report.phpcs.out}/phpcs.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
     </target>
 
 

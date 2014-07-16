@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="report.phploc">
+
+
+    <patternset id="report.phploc.patternset.default">
+        <include name="src/**/*.php" />
+    </patternset>
+
+
+    <target name="report.phploc:init" hidden="true">
+        <property name="report.phploc.out" value="${project.reports}/phploc" />
+        <property name="report.phploc.patternset" value="report.phploc.patternset.default" />
+        <property name="report.phploc.xsl" value="${phing:commons:root}/resources/phploc/phploc.xsl" />
+    </target>
+
+
+    <target name="report.phploc:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phploc:main" hidden="true">
+        <delete dir="${report.phploc.out}" />
+        <mkdir dir="${report.phploc.out}" />
+
+        <phploc reportType="xml" reportName="phploc" reportDirectory="${report.phploc.out}">
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phploc.patternset}" />
+            </fileset>
+        </phploc>
+
+        <xslt file="${report.phploc.out}/phploc.xml" tofile="${report.phploc.out}/index.html" style="${report.phploc.xsl}" />
+    </target>
+
+
+    <target name="report.phploc:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phploc" depends="report.phploc:init, report.phploc:before, report.phploc:main, report.phploc:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="report.phploc:help" depends="report.phploc:init" hidden="true">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phploc.out                                 ${report.phploc.out}" />
+        <echo message="report.phploc.patternset                          ${report.phploc.patternset}" />
+        <echo message="report.phploc.ruleset                             ${report.phploc.ruleset}" />
+        <echo message="report.phploc.xsl                                 ${report.phploc.xsl}" />
+        <echo message="report.phploc.haltonerror                         ${report.phploc.haltonerror}" />
+        <echo message="report.phploc.haltonwarning                       ${report.phploc.haltonwarning}" />
+    </target>
+
+
+</project>

@@ -44,7 +44,8 @@
         "apigen/apigen": "2.8.0",
         "nette/nette": "~2.1.3",
         "squizlabs/php_codesniffer": "1.5.3",
-        "pear-pear.phpunit.de/phpcpd": "2.0.0"
+        "pear-pear.phpunit.de/phpcpd": "2.0.0",
+        "phploc/phploc": "2.0.6"
     },
     "config": {
         "bin-dir": "bin"
