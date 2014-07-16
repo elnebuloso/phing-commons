@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="report.phpdepend">
+
+
+    <patternset id="report.phpdepend.patternset.default">
+        <include name="src/**/*.php" />
+    </patternset>
+
+
+    <target name="report.phpdepend:init" hidden="true">
+        <property name="report.phpdepend.out" value="${project.reports}/phpdepend" />
+        <property name="report.phpdepend.xsl" value="${phing:commons:root}/resources/phpdepend/phpdepend.xsl" />
+        <property name="report.phpdepend.patternset" value="report.phpdepend.patternset.default" />
+    </target>
+
+
+    <target name="report.phpdepend:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phpdepend:main" hidden="true">
+        <delete dir="${report.phpdepend.out}" />
+        <mkdir dir="${report.phpdepend.out}" />
+
+        <phpdepend>
+            <fileset dir="${project.root}">
+                <patternset refid="${report.phpdepend.patternset}" />
+            </fileset>
+            <logger type="jdepend-xml" outfile="${project.reports}/phpdepend/phpdepend.xml" />
+            <logger type="jdepend-chart" outfile="${project.reports}/phpdepend/chart.png" />
+            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.png" />
+            <analyzer type="coderank-mode" value="method" />
+        </phpdepend>
+
+        <xslt file="${report.phpdepend.out}/phpdepend.xml" tofile="${report.phpdepend.out}/index.html" style="${report.phpdepend.xsl}" />
+    </target>
+
+
+    <target name="report.phpdepend:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="report.phpdepend" depends="report.phpdepend:init, report.phpdepend:before, report.phpdepend:main, report.phpdepend:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phpdepend.out                                 ${report.phpdepend.out}" />
+        <echo message="report.phpdepend.xsl                                 ${report.phpdepend.xsl}" />
+        <echo message="report.phpdepend.patternset                          ${report.phpdepend.patternset}" />
+    </target>
+
+
+</project>
