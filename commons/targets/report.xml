@@ -5,12 +5,14 @@
 
 
     <import file="${phing:commons:commons}/targets/report/apigen.xml" />
+    <import file="${phing:commons:commons}/targets/report/phpcs.xml" />
 
 
-    <target name="report:help" depends="report.apigen:help">
+    <target name="report:help" depends="report.apigen:help, report.phpcs:help">
         <echo message="TARGET                                            DESCRIPTION" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.apigen                                     PHP Code Documentation" />
+        <echo message="report.phpcs                                      Analysis of Coding Conventions" />
     </target>
 
 

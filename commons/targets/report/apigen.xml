@@ -5,6 +5,7 @@
 
 
     <target name="report.apigen:init" hidden="true">
+        <property name="report.apigen.out" value="${project.reports}/apigen" />
         <property name="report.apigen.title" value="API Documentation" />
         <property name="report.apigen.source" value="src" />
         <property name="report.apigen.exclude" value="" />
@@ -17,8 +18,8 @@
 
 
     <target name="report.apigen:main" hidden="true">
-        <delete dir="${project.reports}/apigen" />
-        <mkdir dir="${project.reports}/apigen" />
+        <delete dir="${report.apigen.out}" />
+        <mkdir dir="${report.apigen.out}" />
 
         <apigen executable="${phing:commons:root}/bin/apigen.php"
                 title="${report.apigen.title}"
@@ -29,7 +30,7 @@
                 todo="Yes"
                 deprecated="Yes"
                 wipeout="Yes"
-                destination="${project.reports}/apigen" />
+                destination="${report.apigen.out}" />
     </target>
 
 
@@ -46,6 +47,7 @@
     <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.apigen.out                                 ${report.apigen.out}" />
         <echo message="report.apigen.title                               ${report.apigen.title}" />
         <echo message="report.apigen.source                              ${report.apigen.source}" />
         <echo message="report.apigen.exclude                             ${report.apigen.exclude}" />
