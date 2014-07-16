@@ -60,7 +60,6 @@
     <!-- Zend Sniffs                                   -->
     <!-- ============================================  -->
     <rule ref="Zend.Files.ClosingTag" />
-    <rule ref="Zend.NamingConventions.ValidVariableName" />
 
 
     <!-- ============================================  -->
