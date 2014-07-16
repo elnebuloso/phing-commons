@@ -12,14 +12,6 @@
     </patternset>
 
 
-    <target name="test.phplint:help" depends="test.phplint:init">
-        <echo message="PROPERTY                                          VALUE" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phplint.haltonfailure                        ${test.phplint.haltonfailure}" />
-        <echo message="test.phplint.patternset                           ${test.phplint.patternset}" />
-    </target>
-
-
     <target name="test.phplint:init" hidden="true">
         <property name="test.phplint.haltonfailure" value="true" />
         <property name="test.phplint.patternset" value="test.phplint.patternset.default" />
@@ -49,6 +41,14 @@
 
     <target name="test.phplint" depends="test.phplint:init, test.phplint:before, test.phplint:main, test.phplint:after">
         <echo message="successful" />
+    </target>
+
+
+    <target name="test.phplint:help" depends="test.phplint:init">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="test.phplint.haltonfailure                        ${test.phplint.haltonfailure}" />
+        <echo message="test.phplint.patternset                           ${test.phplint.patternset}" />
     </target>
 
 

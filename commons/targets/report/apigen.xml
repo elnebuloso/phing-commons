@@ -4,15 +4,6 @@
 <project default="report.apigen">
 
 
-    <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.apigen.title                               ${report.apigen.title}" />
-        <echo message="report.apigen.source                              ${report.apigen.source}" />
-        <echo message="report.apigen.exclude                             ${report.apigen.exclude}" />
-    </target>
-
-
     <target name="report.apigen:init" hidden="true">
         <property name="report.apigen.title" value="API Documentation" />
         <property name="report.apigen.source" value="src" />
@@ -49,6 +40,15 @@
 
     <target name="report.apigen" depends="report.apigen:init, report.apigen:before, report.apigen:main, report.apigen:after">
         <echo message="successful" />
+    </target>
+
+
+    <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.apigen.title                               ${report.apigen.title}" />
+        <echo message="report.apigen.source                              ${report.apigen.source}" />
+        <echo message="report.apigen.exclude                             ${report.apigen.exclude}" />
     </target>
 
 
