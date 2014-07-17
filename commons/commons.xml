@@ -53,9 +53,16 @@
 
 
     <!-- ============================================ -->
+    <!-- commons tasks                                -->
+    <!-- ============================================ -->
+    <taskdef classname="Commons_Phing_Task_Project_UpdateVersion" name="commons-project-update-version" />
+
+
+    <!-- ============================================ -->
     <!-- phing commons targets                        -->
     <!-- ============================================ -->
     <import file="${phing:commons:commons}/targets/clean.xml" />
+    <import file="${phing:commons:commons}/targets/project.xml" />
     <import file="${phing:commons:commons}/targets/report.xml" />
     <import file="${phing:commons:commons}/targets/test.xml" />
 
@@ -85,6 +92,7 @@
         <echo message="project.tmp                                       ${project.tmp}" />
         <echo message="project.reports                                   ${project.reports}" />
     </target>
+
 
     <target name="help" depends="help.commons, help.project" hidden="true" />
 

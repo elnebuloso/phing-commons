@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="foo">
+
+
+    <target name="foo:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="foo:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="foo:main" hidden="true">
+    </target>
+
+
+    <target name="foo:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="foo" depends="foo:init, foo:before, foo:main, foo:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="foo:help" depends="foo:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>

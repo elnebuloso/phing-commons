@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project:help">
+
+
+    <import file="${phing:commons:commons}/targets/project/update/version.xml" />
+
+
+    <target name="project:help" depends="project.update.version:help">
+        <echo message="TARGET                                            DESCRIPTION" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.update.version                            Updates Files Project Files with new Version" />
+    </target>
+
+
+</project>

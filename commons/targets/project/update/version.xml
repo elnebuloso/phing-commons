@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project.update.version">
+
+
+    <target name="project.update.version:init" hidden="true">
+        <property name="project.update.version.releasetype.default" value="Bugfix" />
+    </target>
+
+
+    <target name="project.update.version:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.update.version:main" hidden="true">
+        <propertyprompt propertyName="project.update.version.releasetype" defaultValue="${project.update.version.releasetype.default}" promptText="Major.Minor.Bugfix" />
+    </target>
+
+
+    <target name="project.update.version:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.update.version" depends="project.update.version:init, project.update.version:before, project.update.version:main, project.update.version:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="project.update.version:help" depends="project.update.version:init">
+        <echo message="PROPERTY                                          VALUE" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.update.version.releasetype.default        ${project.update.version.releasetype.default}" />
+    </target>
+
+
+</project>
