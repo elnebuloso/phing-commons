@@ -10,35 +10,12 @@ class Commons_Phing_Task_Project_UpdateVersion extends Task {
     /**
      * @var string
      */
-    private $composerJson;
+    private $version;
 
     /**
      * @var string
      */
-    private $version;
-
-    /**
-     * @param string $composerJson
-     * @throws \BuildException
-     */
-    public function setComposerJson($composerJson) {
-        $this->composerJson = trim($composerJson);
-
-        if(empty($this->composerJson)) {
-            throw new \BuildException('missing path to composer.json');
-        }
-
-        if(realpath($this->composerJson) === false) {
-            throw new \BuildException('missing composer.json');
-        }
-    }
-
-    /**
-     * @return string
-     */
-    public function getComposerJson() {
-        return $this->composerJson;
-    }
+    private $composerJson;
 
     /**
      * @param string $version
@@ -59,6 +36,41 @@ class Commons_Phing_Task_Project_UpdateVersion extends Task {
         return $this->version;
     }
 
+    /**
+     * @param string $composerJson
+     */
+    public function setComposerJson($composerJson) {
+        $this->composerJson = trim($composerJson);
+    }
+
+    /**
+     * @return string
+     */
+    public function getComposerJson() {
+        return $this->composerJson;
+    }
+
     public function main() {
+        if(realpath($this->composerJson) !== false) {
+            $this->updateComposerJson();
+        }
+    }
+
+    private function updateComposerJson() {
+        $data = json_decode(file_get_contents($this->composerJson), true);
+        $edit = array(
+            'version' => $this->version
+        );
+
+        if(!array_key_exists('version', $data)) {
+            $data = array_merge($edit, $data);
+        }
+        else {
+            $data = array_merge($data, $edit);
+        }
+
+        file_put_contents($this->composerJson, json_encode($data, JSON_PRETTY_PRINT));
+
+        $this->log("updated {$this->composerJson}");
     }
 }

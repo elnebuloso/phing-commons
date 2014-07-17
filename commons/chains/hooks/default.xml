@@ -74,6 +74,16 @@
     </target>
 
 
+    <target name="release:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="release:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
     <target name="report:before" hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>

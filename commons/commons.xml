@@ -139,6 +139,11 @@
     </target>
 
 
+    <target name="release" depends="chain.release:before, chain.release:main, chain.release:after">
+        <echo message="successful" />
+    </target>
+
+
     <target name="report" depends="chain.report:before, chain.report:main, chain.report:after">
         <echo message="successful" />
     </target>

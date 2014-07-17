@@ -15,7 +15,15 @@
 
 
     <target name="project.update.version:main" hidden="true">
+        <echo message="version: ${project.version}" />
+
         <propertyprompt propertyName="project.update.version.releasetype" defaultValue="${project.update.version.releasetype.default}" promptText="Major.Minor.Bugfix" />
+        <version releasetype="${project.update.version.releasetype}" file="${project.root}/VERSION" property="project.version" />
+
+        <echo message="" />
+        <echo message="version: ${project.version}" />
+
+        <commons-project-update-version version="${project.version}" composerJson="${project.root}/composer.json" />
     </target>
 
 

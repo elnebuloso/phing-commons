@@ -22,6 +22,7 @@
     <!-- ============================================ -->
     <!-- additional targets                           -->
     <!-- ============================================ -->
+    <target name="release:main" hidden="true" depends="test, project.update.version" />
     <target name="report:main" hidden="true" depends="clean.reports, report.apigen, report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd" />
 
 
