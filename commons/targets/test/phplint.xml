@@ -5,10 +5,9 @@
 
 
     <patternset id="test.phplint.patternset.default">
-        <include name="**/*.php" />
-        <include name="**/*.phtml" />
-        <exclude name="build/**" />
-        <exclude name="vendor/**" />
+        <include name="application/**/*.php" />
+        <include name="library/**/*.php" />
+        <include name="src/**/*.php" />
     </patternset>
 
 

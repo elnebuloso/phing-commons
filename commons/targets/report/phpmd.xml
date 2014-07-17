@@ -5,6 +5,8 @@
 
 
     <patternset id="report.phpmd.patternset.default">
+        <include name="application/**/*.php" />
+        <include name="library/**/*.php" />
         <include name="src/**/*.php" />
     </patternset>
 

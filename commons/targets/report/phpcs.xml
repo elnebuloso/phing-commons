@@ -5,6 +5,8 @@
 
 
     <patternset id="report.phpcs.patternset.default">
+        <include name="application/**/*.php" />
+        <include name="library/**/*.php" />
         <include name="src/**/*.php" />
     </patternset>
 
