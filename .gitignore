@@ -3,4 +3,5 @@
 /bin
 /build
 /vendor
+build.properties.local
 composer.lock
