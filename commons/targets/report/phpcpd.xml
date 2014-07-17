@@ -24,7 +24,6 @@
 
 
     <target name="report.phpcpd:main" hidden="true">
-        <delete dir="${report.phpcpd.out}" />
         <mkdir dir="${report.phpcpd.out}" />
 
         <phpcpd>

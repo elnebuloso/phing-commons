@@ -22,10 +22,7 @@
 
 
     <target name="test.phpunit:main" hidden="true">
-        <delete dir="${project.reports}/phpunit" />
         <mkdir dir="${project.reports}/phpunit" />
-
-        <delete dir="${project.reports}/phpunit-coverage-report" />
         <mkdir dir="${project.reports}/phpunit-coverage-report" />
 
         <if>

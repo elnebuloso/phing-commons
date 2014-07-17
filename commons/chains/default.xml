@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="chain" default="clean:main">
+
+
+    <echo message="loading chain: default" />
+
+
+    <!-- ============================================ -->
+    <!-- standard chain                               -->
+    <!-- ============================================ -->
+    <target name="clean:main" hidden="true" depends="clean.tmp" />
+    <target name="init:main" hidden="true" depends="clean" />
+    <target name="test:main" hidden="true" depends="init, test.phplint, test.phpunit" />
+    <target name="bundle:main" hidden="true" depends="test" />
+    <target name="package:main" hidden="true" depends="bundle" />
+    <target name="deploy:main" hidden="true" depends="package" />
+    <target name="build:main" hidden="true" depends="deploy" />
+
+
+    <!-- ============================================ -->
+    <!-- additional targets                           -->
+    <!-- ============================================ -->
+    <target name="report:main" hidden="true" depends="clean.reports, report.apigen, report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd" />
+
+
+</project>

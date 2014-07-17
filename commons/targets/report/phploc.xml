@@ -24,7 +24,6 @@
 
 
     <target name="report.phploc:main" hidden="true">
-        <delete dir="${report.phploc.out}" />
         <mkdir dir="${report.phploc.out}" />
 
         <phploc reportType="xml" reportName="phploc" reportDirectory="${report.phploc.out}">

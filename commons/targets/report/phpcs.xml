@@ -27,7 +27,6 @@
 
 
     <target name="report.phpcs:main" hidden="true">
-        <delete dir="${report.phpcs.out}" />
         <mkdir dir="${report.phpcs.out}" />
 
         <phpcodesniffer standard="${report.phpcs.ruleset}" showSniffs="true" showWarnings="true" verbosity="0" haltonerror="${report.phpcs.haltonerror}" haltonwarning="${report.phpcs.haltonwarning}">

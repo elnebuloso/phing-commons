@@ -24,7 +24,6 @@
 
 
     <target name="report.phpmd:main" hidden="true">
-        <delete dir="${report.phpmd.out}" />
         <mkdir dir="${report.phpmd.out}" />
 
         <phpmd allowedFileExtensions="php,phtml">
