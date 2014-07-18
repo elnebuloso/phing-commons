@@ -62,6 +62,7 @@
     <!-- phing commons targets                        -->
     <!-- ============================================ -->
     <import file="${phing:commons:commons}/targets/clean.xml" />
+    <import file="${phing:commons:commons}/targets/composer.xml" />
     <import file="${phing:commons:commons}/targets/project.xml" />
     <import file="${phing:commons:commons}/targets/report.xml" />
     <import file="${phing:commons:commons}/targets/test.xml" />

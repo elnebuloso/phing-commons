@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="composer:help">
+
+
+    <property name="composer.executable" value="composer" />
+    <property name="composer.args" value="" />
+
+
+    <import file="${phing:commons:commons}/targets/composer/install.xml" />
+    <import file="${phing:commons:commons}/targets/composer/update.xml" />
+
+
+    <target name="composer:help" depends="composer.install:help, composer.update:help">
+        <echo message="TARGET                                            DESCRIPTION" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="composer.install                                  Install dependencies, if composer.lock available, keep exact versions" />
+        <echo message="composer.update                                   Install latest versions of the dependencies and update the composer.lock" />
+    </target>
+
+
+</project>
