@@ -14,17 +14,21 @@
     <target name="init:main" hidden="true" depends="composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
 
+
     <target name="bundle:main"  hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>
+
 
     <target name="package:main"  hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>
 
+
     <target name="deploy:main"  hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>
+
 
     <target name="build:main"  hidden="true">
         <echo message="no actions defined" level="debug" />
