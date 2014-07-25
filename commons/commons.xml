@@ -110,42 +110,42 @@
     </target>
 
 
-    <target name="init" depends="chain.init:before, chain.init:main, chain.init:after">
+    <target name="init" depends="clean, chain.init:before, chain.init:main, chain.init:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="test" depends="chain.test:before, chain.test:main, chain.test:after">
+    <target name="test" depends="init, chain.test:before, chain.test:main, chain.test:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="bundle" depends="chain.bundle:before, chain.bundle:main, chain.bundle:after">
+    <target name="bundle" depends="test, chain.bundle:before, chain.bundle:main, chain.bundle:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="package" depends="chain.package:before, chain.package:main, chain.package:after">
+    <target name="package" depends="bundle, chain.package:before, chain.package:main, chain.package:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="deploy" depends="chain.deploy:before, chain.deploy:main, chain.deploy:after">
+    <target name="deploy" depends="package, chain.deploy:before, chain.deploy:main, chain.deploy:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="build" depends="chain.build:before, chain.build:main, chain.build:after">
+    <target name="build" depends="deploy, chain.build:before, chain.build:main, chain.build:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="release" depends="chain.release:before, chain.release:main, chain.release:after">
+    <target name="release" depends="test, chain.release:before, chain.release:main, chain.release:after">
         <echo message="successful" />
     </target>
 
 
-    <target name="report" depends="chain.report:before, chain.report:main, chain.report:after">
+    <target name="report" depends="clean.reports, test, chain.report:before, chain.report:main, chain.report:after">
         <echo message="successful" />
     </target>
 
