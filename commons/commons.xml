@@ -102,52 +102,7 @@
     <!-- setup the chains                             -->
     <!-- ============================================ -->
     <import file="${phing:commons:commons}/chains/default.xml" />
-    <import file="${phing:commons:commons}/chains/hooks/default.xml" />
-
-
-    <target name="clean" depends="chain.clean:before, chain.clean:main, chain.clean:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="init" depends="clean, chain.init:before, chain.init:main, chain.init:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="test" depends="init, chain.test:before, chain.test:main, chain.test:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="bundle" depends="test, chain.bundle:before, chain.bundle:main, chain.bundle:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="package" depends="bundle, chain.package:before, chain.package:main, chain.package:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="deploy" depends="package, chain.deploy:before, chain.deploy:main, chain.deploy:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="build" depends="deploy, chain.build:before, chain.build:main, chain.build:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="release" depends="test, chain.release:before, chain.release:main, chain.release:after">
-        <echo message="successful" />
-    </target>
-
-
-    <target name="report" depends="clean.reports, test, chain.report:before, chain.report:main, chain.report:after">
-        <echo message="successful" />
-    </target>
+    <import file="${phing:commons:commons}/chains/hooks.xml" />
 
 
 </project>

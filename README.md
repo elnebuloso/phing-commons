@@ -77,29 +77,34 @@ To manipulate the steps, you have the possibility to overwrite each step, just l
 
 In the default chain, **chain.clean:main** calls:
 
- * clean.tmp:init:
- * clean.tmp:before:
- * clean.tmp:main:
- * clean.tmp:after:
+ * clean.tmp:init
+ * clean.tmp:before
+ * clean.tmp:main
+ * clean.tmp:after
  * clean.tmp
 
 In the default chain, **chain.init:main** calls:
 
- * composer.update:init:
- * composer.update:before:
- * composer.update:main:
- * composer.update:after:
- * composer.update:
+ * composer.validate:init
+ * composer.validate:before
+ * composer.validate:main
+ * composer.validate:after
+ * composer.validate
+ * composer.update:init
+ * composer.update:before
+ * composer.update:main
+ * composer.update:after
+ * composer.update
 
 In the default chain, **chain.test:main** calls:
 
- * test.phplint:init:
- * test.phplint:before:
- * test.phplint:main:
- * test.phplint:after:
- * test.phplint:
- * test.phpunit:init:
- * test.phpunit:before:
- * test.phpunit:main:
- * test.phpunit:after:
- * test.phpunit:
+ * test.phplint:init
+ * test.phplint:before
+ * test.phplint:main
+ * test.phplint:after
+ * test.phplint
+ * test.phpunit:init
+ * test.phpunit:before
+ * test.phpunit:main
+ * test.phpunit:after
+ * test.phpunit
