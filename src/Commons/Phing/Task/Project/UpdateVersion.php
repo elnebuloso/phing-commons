@@ -88,7 +88,9 @@ class Commons_Phing_Task_Project_UpdateVersion extends Task {
             $data['version'] = $this->version;
         }
         else {
-            unset($data['version']);
+            if(array_key_exists('version', $data)) {
+                unset($data['version']);
+            }
         }
 
         file_put_contents($this->composerJson, json_encode($data, JSON_PRETTY_PRINT));

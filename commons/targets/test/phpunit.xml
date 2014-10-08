@@ -53,28 +53,41 @@
             </else>
         </if>
 
-        <exec executable="${phing:commons:root}/bin/phpunit" logoutput="false" passthru="true" level="info" checkreturn="yes">
-            <arg line="${coverage}" />
-            <arg value="--log-junit" />
-            <arg file="${project.reports}/phpunit/testsuites.xml" />
-            <arg line="-d error_reporting=${test.phpunit.php.error_reporting}" />
-            <arg line="-d display_errors=${test.phpunit.php.display_errors}" />
-            <arg line="-d date.timezone=${test.phpunit.php.default_timezone}" />
-            <arg line="${haltonfailure}" />
-            <arg line="${haltonerror}" />
-        </exec>
-
-        <exec command="grep &quot;&lt;testsuites/&gt;&quot; ${project.reports}/phpunit/testsuites.xml" returnProperty="test.phpunit.fix.testsuites" />
-
         <if>
-            <equals arg1="${test.phpunit.fix.testsuites}" arg2="0" />
+            <or>
+                <available file="${project.root}/phpunit.xml" type="file" />
+                <available file="${project.root}/phpunit.xml.dist" type="file" />
+            </or>
             <then>
-                <copy file="${phing:commons:root}/resources/phpunit/testsuites.xml" tofile="${project.reports}/phpunit/testsuites.xml" overwrite="true" />
-            </then>
-        </if>
+                <exec executable="${phing:commons:root}/bin/phpunit" logoutput="false" passthru="true" level="info" checkreturn="yes">
+                    <arg line="${coverage}" />
+                    <arg value="--log-junit" />
+                    <arg file="${project.reports}/phpunit/testsuites.xml" />
+                    <arg line="-d error_reporting=${test.phpunit.php.error_reporting}" />
+                    <arg line="-d display_errors=${test.phpunit.php.display_errors}" />
+                    <arg line="-d date.timezone=${test.phpunit.php.default_timezone}" />
+                    <arg line="${haltonfailure}" />
+                    <arg line="${haltonerror}" />
+                </exec>
 
-        <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" todir="${project.reports}/phpunit" format="noframes" />
-        <copy file="${project.reports}/phpunit/phpunit-noframes.html" tofile="${project.reports}/phpunit/index.html" />
+                <exec command="grep &quot;&lt;testsuites/&gt;&quot; ${project.reports}/phpunit/testsuites.xml" returnProperty="test.phpunit.fix.testsuites" />
+
+                <if>
+                    <equals arg1="${test.phpunit.fix.testsuites}" arg2="0" />
+                    <then>
+                        <copy file="${phing:commons:root}/resources/phpunit/testsuites.xml" tofile="${project.reports}/phpunit/testsuites.xml" overwrite="true" />
+                    </then>
+                </if>
+
+                <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" todir="${project.reports}/phpunit" format="noframes" />
+                <copy file="${project.reports}/phpunit/phpunit-noframes.html" tofile="${project.reports}/phpunit/index.html" />
+            </then>
+            <else>
+                <echo message="skipped phpunit" />
+                <echo message="missing ${project.root}/phpunit.xml" />
+                <echo message="missing ${project.root}/phpunit.xml.dist" />
+            </else>
+        </if>
     </target>
 
 
