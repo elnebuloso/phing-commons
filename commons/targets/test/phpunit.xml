@@ -5,8 +5,6 @@
 
 
     <target name="test.phpunit:init" hidden="true">
-        <property name="test.phpunit.dir" value="tests" />
-        <property name="test.phpunit.bootstrap" value="${test.phpunit.dir}/bootstrap.php" />
         <property name="test.phpunit.coverage" value="true" />
         <property name="test.phpunit.php.display_errors" value="on" />
         <property name="test.phpunit.php.error_reporting" value="32767" />
@@ -55,26 +53,7 @@
             </else>
         </if>
 
-        <property name="test.phpunit.bootstrap.usage" value="" override="true" />
-        <if>
-            <available file="${project.root}/${test.phpunit.bootstrap}" />
-            <then>
-                <property name="test.phpunit.bootstrap.usage" value="--bootstrap ${project.root}/${test.phpunit.bootstrap}" override="true" />
-            </then>
-            <elseif>
-                <available file="${project.root}/vendor/autoload.php" />
-                <then>
-                    <property name="test.phpunit.bootstrap.usage" value="--bootstrap ${project.root}/vendor/autoload.php" override="true" />
-                </then>
-            </elseif>
-        </if>
-
-        <mkdir dir="${project.root}/${test.phpunit.dir}" />
-        <copy file="${phing:commons:root}/resources/phpunit/phpunit.xml" tofile="${project.root}/${test.phpunit.dir}/phpunit.xml" overwrite="false" />
-
         <exec executable="${phing:commons:root}/bin/phpunit" logoutput="false" passthru="true" level="info" checkreturn="yes">
-            <arg line="--configuration ${test.phpunit.dir}/phpunit.xml" />
-            <arg line="${test.phpunit.bootstrap.usage}" />
             <arg line="${coverage}" />
             <arg value="--log-junit" />
             <arg file="${project.reports}/phpunit/testsuites.xml" />
@@ -112,8 +91,6 @@
     <target name="test.phpunit:help" depends="test.phpunit:init">
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phpunit.dir                                  ${test.phpunit.dir}" />
-        <echo message="test.phpunit.bootstrap                            ${test.phpunit.bootstrap}" />
         <echo message="test.phpunit.coverage                             ${test.phpunit.coverage} (yes, no)" />
         <echo message="test.phpunit.php.display_errors                   ${test.phpunit.php.display_errors}" />
         <echo message="test.phpunit.php.error_reporting                  ${test.phpunit.php.error_reporting}" />
