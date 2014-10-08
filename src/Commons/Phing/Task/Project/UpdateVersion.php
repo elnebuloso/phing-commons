@@ -18,6 +18,11 @@ class Commons_Phing_Task_Project_UpdateVersion extends Task {
     private $composerJson;
 
     /**
+     * @var boolean
+     */
+    private $composerJsonVersion;
+
+    /**
      * @param string $version
      * @throws \BuildException
      */
@@ -50,23 +55,40 @@ class Commons_Phing_Task_Project_UpdateVersion extends Task {
         return $this->composerJson;
     }
 
+    /**
+     * @param boolean $composerJsonVersion
+     */
+    public function setComposerJsonVersion($composerJsonVersion) {
+        $this->composerJsonVersion = $composerJsonVersion;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getComposerJsonVersion() {
+        return $this->composerJsonVersion;
+    }
+
+    /**
+     * @return void
+     */
     public function main() {
         if(realpath($this->composerJson) !== false) {
             $this->updateComposerJson();
         }
     }
 
+    /**
+     * @return void
+     */
     private function updateComposerJson() {
         $data = json_decode(file_get_contents($this->composerJson), true);
-        $edit = array(
-            'version' => $this->version
-        );
 
-        if(!array_key_exists('version', $data)) {
-            $data = array_merge($edit, $data);
+        if($this->getComposerJsonVersion()) {
+            $data['version'] = $this->version;
         }
         else {
-            $data = array_merge($data, $edit);
+            unset($data['version']);
         }
 
         file_put_contents($this->composerJson, json_encode($data, JSON_PRETTY_PRINT));

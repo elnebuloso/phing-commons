@@ -6,6 +6,7 @@
 
     <target name="project.update.version:init" hidden="true">
         <property name="project.update.version.releasetype.default" value="Bugfix" />
+        <property name="project.update.version.composer.json" value="false" />
     </target>
 
 
@@ -23,7 +24,7 @@
         <echo message="" />
         <echo message="version: ${project.version}" />
 
-        <commons-project-update-version version="${project.version}" composerJson="${project.root}/composer.json" />
+        <commons-project-update-version version="${project.version}" composerJson="${project.root}/composer.json" composerJsonVersion="${project.update.version.composer.json}" />
     </target>
 
 
@@ -41,6 +42,7 @@
         <echo message="PROPERTY                                          VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.update.version.releasetype.default        ${project.update.version.releasetype.default}" />
+        <echo message="project.update.version.composer.json              ${project.update.version.composer.json}" />
     </target>
 
 
