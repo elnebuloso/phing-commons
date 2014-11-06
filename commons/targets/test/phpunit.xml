@@ -26,7 +26,7 @@
         <if>
             <istrue value="${test.phpunit.coverage}" />
             <then>
-                <property name="coverage" value="--coverage-html ${project.reports}/phpunit-coverage-report" />
+                <property name="coverage" value="--coverage-html ${project.reports}/phpunit-coverage-report --coverage-clover ${project.reports}/phpunit-coverage-report/clover.xml" />
             </then>
             <else>
                 <property name="coverage" value="" />
