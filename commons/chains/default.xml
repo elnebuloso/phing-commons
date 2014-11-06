@@ -4,19 +4,20 @@
 <project>
 
 
-    <echo message="loading chain: default" />
-
-
     <target name="clean" depends="clean:before, clean:main, clean:after" />
     <target name="clean:main" hidden="true" depends="clean.tmp" />
 
 
     <target name="init" depends="clean, init:before, init:main, init:after" />
-    <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
+    <target name="init:main" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
 
 
     <target name="test" depends="init, test:before, test:main, test:after" />
-    <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
+    <target name="test:main" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
 
 
     <target name="bundle" depends="test, bundle:before, bundle:main, bundle:after" />
@@ -37,17 +38,13 @@
     </target>
 
 
-    <target name="build" depends="deploy, build:before, build:main, build:after" />
+    <target name="build" depends="build:before, deploy, build:main, build:after" />
     <target name="build:main" hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>
 
 
-    <target name="release" depends="test, release:before, release:main, release:after" />
-    <target name="release:main" hidden="true" depends="project.update.version" />
-
-
-    <target name="report" depends="clean.reports, test, report:before, report:main, report:after" />
+    <target name="report" depends="clean.reports, report:before, report:main, report:after" />
     <target name="report:main" hidden="true" depends="report.apigen, report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd" />
 
 

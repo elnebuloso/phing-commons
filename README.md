@@ -14,7 +14,7 @@ composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-ins
 Create build.xml file in your project root with the following content.
 To use the Phing Commons, just call /path/to/your/phing-commons-installation/**bin/phing**
 
-```
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 
@@ -30,52 +30,66 @@ To use the Phing Commons, just call /path/to/your/phing-commons-installation/**b
 </project>
 ```
 
+## Configuration
+
+If you want to configure the common targets, use a build.properties file to your project root.
+For local additions or local behaviors add a build.properties.local file. This is an optional file.
+But don't commit build.properties.local to your VCS.
+
+The build.properties and the build.properties are optional files and are loaded when available.
+
 ## Build Chain
 
 Each called step calls the previous defined step.
 If running **phing init**, init calls the clean before.
 If running **phing build**, build calls the complete chain.
 
- * chain.clean:before
- * chain.clean:main
- * chain.clean:after
+ * build:before
+ * clean:before
+ * clean:main
+ * clean:after
  * clean
- * chain.init:before
- * chain.init:main
- * chain.init:after
+ * init:before
+ * init:main
+ * init:after
  * init
- * chain.test:before
- * chain.test:main
- * chain.test:after
+ * test:before
+ * test:main
+ * test:after
  * test
- * chain.bundle:before
- * chain.bundle:main
- * chain.bundle:after
+ * bundle:before
+ * bundle:main
+ * bundle:after
  * bundle
- * chain.package:before
- * chain.package:main
- * chain.package:after
+ * package:before
+ * package:main
+ * package:after
  * package
- * chain.deploy:before
- * chain.deploy:main
- * chain.deploy:after
+ * deploy:before
+ * deploy:main
+ * deploy:after
  * deploy
- * chain.build:before
- * chain.build:main
- * chain.build:after
+ * build:main
+ * build:after
  * build
 
 ### Manipulate the Chain
 
-To manipulate the steps, you have the possibility to overwrite each step, just like this, where depends are your or phing common targets.
+To manipulate the steps, you have the possibility to overwrite each step in your xml, just like this.
 
-```
+``` xml
 <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
 ```
 
-### Default Chain
+If you want to use predefined chains by phing-commons you can add this as a list to the property: project.chains
+Separate the chains by ","
 
-In the default chain, **chain.clean:main** calls:
+ * project.chains = php-composer-package
+ * project.chains = foo,bar,baz
+
+### default Chain
+
+In chain, **clean:main** calls:
 
  * clean.tmp:init
  * clean.tmp:before
@@ -83,7 +97,9 @@ In the default chain, **chain.clean:main** calls:
  * clean.tmp:after
  * clean.tmp
 
-In the default chain, **chain.init:main** calls:
+### php-composer-package Chain
+
+In chain, **init:main** calls:
 
  * composer.validate:init
  * composer.validate:before
@@ -96,7 +112,7 @@ In the default chain, **chain.init:main** calls:
  * composer.update:after
  * composer.update
 
-In the default chain, **chain.test:main** calls:
+In the default chain, **test:main** calls:
 
  * test.phplint:init
  * test.phplint:before

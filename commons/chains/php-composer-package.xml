@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project>
+
+
+    <echo message="loading chain: php-composer-package" />
+
+    <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
+    <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
+
+
+</project>
