@@ -14,7 +14,7 @@ composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-ins
 Create build.xml file in your project root with the following content.
 To use the Phing Commons, just call /path/to/your/phing-commons-installation/**bin/phing**
 
-```
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 
