@@ -4,6 +4,9 @@
 <project>
 
 
+    <echo message="loading chain: default" />
+
+
     <target name="clean" depends="clean:before, clean:main, clean:after" />
     <target name="clean:main" hidden="true" depends="clean.tmp" />
 
@@ -44,7 +47,7 @@
     </target>
 
 
-    <target name="report" depends="clean.reports, report:before, report:main, report:after" />
+    <target name="report" depends="report:before, report:main, report:after" />
     <target name="report:main" hidden="true" depends="report.apigen, report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd" />
 
 

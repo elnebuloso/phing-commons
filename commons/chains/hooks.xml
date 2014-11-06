@@ -4,6 +4,9 @@
 <project>
 
 
+    <echo message="loading chain: hooks" />
+
+
     <target name="clean:before" hidden="true">
         <echo message="no actions defined" level="debug" />
     </target>

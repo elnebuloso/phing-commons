@@ -2,7 +2,6 @@
 /**
  * Class UpdateVersion
  *
- * @package Commons\Phing\Task\Project
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
 class Commons_Phing_Task_Project_UpdateVersion extends Task {

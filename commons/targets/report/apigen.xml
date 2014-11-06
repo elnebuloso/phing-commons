@@ -18,6 +18,7 @@
 
 
     <target name="report.apigen:main" hidden="true">
+        <delete dir="${report.apigen.out}" />
         <mkdir dir="${report.apigen.out}" />
 
         <apigen executable="${phing:commons:root}/bin/apigen.php"

@@ -100,8 +100,16 @@
 
 
     <!-- ============================================ -->
-    <!-- setup the chains                             -->
+    <!-- running commons                              -->
     <!-- ============================================ -->
+    <echo message="" />
+    <echo message="****************************************************************************************************" />
+    <echo message="* Phing Commons ${phing:commons:version}" />
+    <echo message="*" />
+    <echo message="* elnebuloso/phing-commons" />
+    <echo message="****************************************************************************************************" />
+    <echo message="" />
+
     <if>
         <isset property="project.chains" />
         <then>

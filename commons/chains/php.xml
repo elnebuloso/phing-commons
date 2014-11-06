@@ -3,9 +3,8 @@
 
 <project>
 
-    <echo message="loading chain: php-composer-package" />
+    <echo message="loading chain: php" />
 
-    <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
     <target name="build:after" hidden="true" depends="report" />
 

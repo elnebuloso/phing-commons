@@ -24,6 +24,7 @@
 
 
     <target name="report.phpdepend:main" hidden="true">
+        <delete dir="${report.phpdepend.out}" />
         <mkdir dir="${report.phpdepend.out}" />
 
         <phpdepend>
