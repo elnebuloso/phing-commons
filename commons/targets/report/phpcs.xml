@@ -34,10 +34,10 @@
             <fileset dir="${project.root}">
                 <patternset refid="${report.phpcs.patternset}" />
             </fileset>
-            <formatter type="checkstyle" outfile="${report.phpcs.out}/phpcs.xml" />
+            <formatter type="checkstyle" outfile="${report.phpcs.out}/phpcs-checkstyle.xml" />
         </phpcodesniffer>
 
-        <xslt file="${report.phpcs.out}/phpcs.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
+        <xslt file="${report.phpcs.out}/phpcs-checkstyle.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
     </target>
 
 

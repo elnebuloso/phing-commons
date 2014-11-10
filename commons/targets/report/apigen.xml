@@ -30,7 +30,8 @@
                 todo="Yes"
                 deprecated="Yes"
                 wipeout="Yes"
-                destination="${report.apigen.out}" />
+                destination="${report.apigen.out}"
+                report="${report.apigen.out}/apigen-checkstyle.xml" />
     </target>
 
 
