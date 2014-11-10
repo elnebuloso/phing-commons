@@ -9,6 +9,8 @@
         <property name="report.apigen.title" value="API Documentation" />
         <property name="report.apigen.source" value="src" />
         <property name="report.apigen.exclude" value="" />
+        <property name="report.apigen.checkstyle.path" value="${report.apigen.out}/apigen-checkstyle.xml" />
+        <property name="report.apigen.checkstyle" value="false" />
     </target>
 
 
@@ -21,6 +23,16 @@
         <delete dir="${report.apigen.out}" />
         <mkdir dir="${report.apigen.out}" />
 
+        <if>
+            <istrue value="${report.apigen.checkstyle}" />
+            <then>
+                <property name="report.apigen.checkstyle.path" value="${report.apigen.checkstyle.path}" override="true" />
+            </then>
+            <else>
+                <property name="report.apigen.checkstyle.path" value="" override="true" />
+            </else>
+        </if>
+
         <apigen executable="${phing:commons:root}/bin/apigen.php"
                 title="${report.apigen.title}"
                 source="${report.apigen.source}"
@@ -31,7 +43,7 @@
                 deprecated="Yes"
                 wipeout="Yes"
                 destination="${report.apigen.out}"
-                report="${report.apigen.out}/apigen-checkstyle.xml" />
+                report="${report.apigen.checkstyle.path}" />
     </target>
 
 
@@ -52,6 +64,8 @@
         <echo message="report.apigen.title                               ${report.apigen.title}" />
         <echo message="report.apigen.source                              ${report.apigen.source}" />
         <echo message="report.apigen.exclude                             ${report.apigen.exclude}" />
+        <echo message="report.apigen.checkstyle.path                     ${report.apigen.checkstyle.path}" />
+        <echo message="report.apigen.checkstyle                          ${report.apigen.checkstyle}" />
     </target>
 
 
