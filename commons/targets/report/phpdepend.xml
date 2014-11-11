@@ -32,8 +32,8 @@
                 <patternset refid="${report.phpdepend.patternset}" />
             </fileset>
             <logger type="jdepend-xml" outfile="${project.reports}/phpdepend/phpdepend.xml" />
-            <logger type="jdepend-chart" outfile="${project.reports}/phpdepend/chart.png" />
-            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.png" />
+            <logger type="jdepend-chart" outfile="${project.reports}/phpdepend/chart.svg" />
+            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.svg" />
             <analyzer type="coderank-mode" value="method" />
         </phpdepend>
 

@@ -92,8 +92,8 @@
     <p align="right">Designed for use with <a href="http://pdepend.org/">PHPDepend</a> and <a href="http://www.phing.info">Phing</a>.</p>
     <hr size="2" />
 
-    <p><img src="chart.png" /></p>
-    <p><img src="overview-pyramid.png" /></p>
+    <p><img src="chart.svg" /></p>
+    <p><img src="overview-pyramid.svg" /></p>
 
     <table width="100%"><tr><td>
     <a name="NVsummary"><h2>Summary</h2></a>
