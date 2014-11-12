@@ -4,13 +4,13 @@
 <project default="project:help">
 
 
-    <import file="${phing:commons:commons}/targets/project/update/version.xml" />
+    <import file="${phing:commons:commons}/targets/project/version/update.xml" />
 
 
-    <target name="project:help" depends="project.update.version:help">
+    <target name="project:help" depends="project.version.update:help">
         <echo message="TARGET                                            DESCRIPTION" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.update.version                            Updates Files Project Files with new Version" />
+        <echo message="project.version.update                            Updates Files Project Files with new Version" />
     </target>
 
 
