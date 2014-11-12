@@ -4,8 +4,8 @@
 
 ## About
 
-This is a full delivered build stack using PHING as Build Tool.
-The Phing Commons Build Stack gives you pre-defined Targets which you can configure through a build.properties file.
+This is a full delivered build stack using PHING as Build Tool. The Phing Commons Build Stack gives you pre-defined Targets which you can configure
+through a build.properties file.
 
 ## Installation
 
