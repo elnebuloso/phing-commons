@@ -2,7 +2,10 @@
 
 [![Software License](https://img.shields.io/packagist/l/elnebuloso/flex-view.svg?style=flat-square)](LICENSE)
 
-phing commons build stack
+## About
+
+This is a full delivered build stack using PHING as Build Tool.
+The Phing Commons Build Stack gives you pre-defined Targets which you can configure through a build.properties file.
 
 ## Installation
 
