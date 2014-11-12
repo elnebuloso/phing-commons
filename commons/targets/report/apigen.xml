@@ -10,7 +10,7 @@
         <property name="report.apigen.source" value="src" />
         <property name="report.apigen.exclude" value="" />
         <property name="report.apigen.checkstyle.path" value="${report.apigen.out}/apigen-checkstyle.xml" />
-        <property name="report.apigen.checkstyle" value="true" />
+        <property name="report.apigen.checkstyle" value="false" />
     </target>
 
 
