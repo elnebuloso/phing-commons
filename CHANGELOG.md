@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.7.1
+
+- testing jenkins github publisher
+
 ## 6.7.0
 
 - changed project.update.version to project.version update
