@@ -1,5 +1,6 @@
-phing-commons
-=============
+# phing-commons
+
+[![Software License](https://img.shields.io/packagist/l/elnebuloso/flex-view.svg?style=flat-square)](LICENSE)
 
 phing commons build stack
 
