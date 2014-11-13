@@ -1,9 +1,13 @@
 # CHANGELOG
 
+## 6.8.1
+
+- bugfix, project.version.update writes build.properties.jenkins new
+
 ## 6.8.0
 
 - new target: project.jenkins.init
-- project.jenkins.init writes jenkins build.properties
+- project.jenkins.init writes build.properties.jenkins
 - project.jenkins.init added in chain php on build:before
 - project.jenkins.init added in chain php-composer-package on build:before
 

@@ -22,6 +22,8 @@
 
         <echo message="" />
         <echo message="version: ${project.version}" />
+
+        <commons-project-jenkins-init version="${project.version}" propertiesFile="${project.root}/build.properties" />
     </target>
 
 
