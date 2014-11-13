@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project.jenkins.init">
+
+
+    <target name="project.jenkins.init:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.init:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.init:main" hidden="true">
+        <commons-project-jenkins-init version="${project.version}" propertiesFile="${project.root}/build.properties" />
+    </target>
+
+
+    <target name="project.jenkins.init:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.init" depends="project.jenkins.init:init, project.jenkins.init:before, project.jenkins.init:main, project.jenkins.init:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="project.jenkins.init:help" depends="project.jenkins.init:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>

@@ -1,8 +1,11 @@
 # CHANGELOG
 
-## 6.7.1
+## 6.8.0
 
-- testing jenkins github publisher
+- new target: project.jenkins.init
+- project.jenkins.init writes jenkins build.properties
+- project.jenkins.init added in chain php on build:before
+- project.jenkins.init added in chain php-composer-package on build:before
 
 ## 6.7.0
 

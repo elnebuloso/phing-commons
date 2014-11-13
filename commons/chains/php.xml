@@ -6,6 +6,7 @@
     <echo message="loading chain: php" />
 
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
+    <target name="build:before" hidden="true" depends="project.jenkins.init" />
     <target name="build:after" hidden="true" depends="report" />
 
 </project>

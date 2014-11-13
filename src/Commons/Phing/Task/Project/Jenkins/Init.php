@@ -4,7 +4,7 @@
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class Commons_Phing_Task_Version_Update extends Task {
+class Commons_Phing_Task_Project_Jenkins_Init extends Task {
 
     /**
      * @var string
@@ -15,6 +15,11 @@ class Commons_Phing_Task_Version_Update extends Task {
      * @var string
      */
     private $propertiesFile;
+
+    /**
+     * @var array
+     */
+    private $properties;
 
     /**
      * @param string $version
@@ -43,32 +48,20 @@ class Commons_Phing_Task_Version_Update extends Task {
      * @return void
      */
     public function main() {
-        $properties = parse_ini_file($this->propertiesFile);
+        $this->properties = parse_ini_file($this->propertiesFile);
 
-        if($properties === false) {
+        if($this->properties === false) {
             throw new \BuildException('unable to parse properties file');
         }
 
-        // remove properties that were updated
-        $this->unsetProperty($properties, 'project.version');
-        $this->unsetProperty($properties, 'PBC_PROJECT_VERSION');
-
-        $fp = fopen($this->propertiesFile, "r+");
+        $fp = fopen(dirname($this->propertiesFile) . '/build.properties.jenkins', "w+");
 
         if(flock($fp, LOCK_EX)) {
             ftruncate($fp, 0); // write new file content
 
-            foreach($properties as $key => $value) {
-                fwrite($fp, $this->getIniSetting($key, $value));
-            }
-
-            fwrite($fp, PHP_EOL);
-            fwrite($fp, ';JENKINS ENVIRONMENT VARIABLES' . PHP_EOL);
-            fwrite($fp, $this->getIniSetting('PBC_PROJECT_VERSION', $this->version));
-
-            fwrite($fp, PHP_EOL);
-            fwrite($fp, '[JENKINS]' . PHP_EOL);
-            fwrite($fp, $this->getIniSetting('PBC_PROJECT_VERSION_JENKINS', $this->version));
+            $this->writeIniSetting($fp, 'PBC_PROJECT_VERSION_JENKINS', $this->version);
+            $this->writeIniSettingFromBuildProperty($fp, 'project.vendor');
+            $this->writeIniSettingFromBuildProperty($fp, 'project.name');
 
             flock($fp, LOCK_UN); // release lock
         }
@@ -80,19 +73,22 @@ class Commons_Phing_Task_Version_Update extends Task {
     }
 
     /**
+     * @param resource $fp
      * @param string $key
      * @param string $value
      * @return string
      */
-    private function getIniSetting($key, $value) {
-        return "$key = $value" . PHP_EOL;
+    private function writeIniSetting($fp, $key, $value) {
+        fwrite($fp, "$key = $value" . PHP_EOL);
     }
 
     /**
-     * @param array $properties
+     * @param resource $fp
      * @param string $key
      */
-    private function unsetProperty(array &$properties, $key) {
-        unset($properties[$key]);
+    private function writeIniSettingFromBuildProperty($fp, $key) {
+        if(array_key_exists($key, $this->properties)) {
+            $this->writeIniSetting($fp, 'PBC_' . strtoupper(str_replace('.', '_', $key)), $this->properties[$key]);
+        }
     }
 }

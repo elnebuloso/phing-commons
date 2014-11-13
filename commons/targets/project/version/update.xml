@@ -22,8 +22,6 @@
 
         <echo message="" />
         <echo message="version: ${project.version}" />
-
-        <commons-project-version-update version="${project.version}" propertiesFile="${project.root}/build.properties" />
     </target>
 
 

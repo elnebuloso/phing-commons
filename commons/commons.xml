@@ -55,7 +55,7 @@
     <!-- ============================================ -->
     <!-- commons tasks                                -->
     <!-- ============================================ -->
-    <taskdef classname="Commons_Phing_Task_Version_Update" name="commons-project-version-update" />
+    <taskdef classname="Commons_Phing_Task_Project_Jenkins_Init" name="commons-project-jenkins-init" />
     <taskdef classname="Commons_Phing_Task_System_ImportChains" name="commons-system-import-chains" />
 
 
