@@ -59,7 +59,7 @@ class Commons_Phing_Task_Project_Jenkins_Init extends Task {
         if(flock($fp, LOCK_EX)) {
             ftruncate($fp, 0); // write new file content
 
-            $this->writeIniSetting($fp, 'PBC_PROJECT_VERSION_JENKINS', $this->version);
+            $this->writeIniSetting($fp, 'PBC_PROJECT_VERSION', $this->version);
             $this->writeIniSettingFromBuildProperty($fp, 'project.vendor');
             $this->writeIniSettingFromBuildProperty($fp, 'project.name');
 

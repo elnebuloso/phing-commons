@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.8.2
+
+- bugfix, PBC_PROJECT_VERSION_JENKINS -> PBC_PROJECT_VERSION
+
 ## 6.8.1
 
 - bugfix, project.version.update writes build.properties.jenkins new
