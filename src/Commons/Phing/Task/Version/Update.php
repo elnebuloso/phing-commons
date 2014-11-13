@@ -49,18 +49,26 @@ class Commons_Phing_Task_Version_Update extends Task {
             throw new \BuildException('unable to parse properties file');
         }
 
-        // remove project.version
-        unset($properties['project.version']);
+        // remove properties that were updated
+        $this->unsetProperty($properties, 'project.version');
+        $this->unsetProperty($properties, 'PBC_PROJECT_VERSION');
 
         $fp = fopen($this->propertiesFile, "r+");
 
         if(flock($fp, LOCK_EX)) {
             ftruncate($fp, 0); // write new file content
-            fwrite($fp, $this->getIniSetting('project.version', $this->version));
 
             foreach($properties as $key => $value) {
                 fwrite($fp, $this->getIniSetting($key, $value));
             }
+
+            fwrite($fp, PHP_EOL);
+            fwrite($fp, ';JENKINS ENVIRONMENT VARIABLES' . PHP_EOL);
+            fwrite($fp, $this->getIniSetting('PBC_PROJECT_VERSION', $this->version));
+
+            fwrite($fp, PHP_EOL);
+            fwrite($fp, '[JENKINS]' . PHP_EOL);
+            fwrite($fp, $this->getIniSetting('PBC_PROJECT_VERSION_JENKINS', $this->version));
 
             flock($fp, LOCK_UN); // release lock
         }
@@ -78,5 +86,13 @@ class Commons_Phing_Task_Version_Update extends Task {
      */
     private function getIniSetting($key, $value) {
         return "$key = $value" . PHP_EOL;
+    }
+
+    /**
+     * @param array $properties
+     * @param string $key
+     */
+    private function unsetProperty(array &$properties, $key) {
+        unset($properties[$key]);
     }
 }
