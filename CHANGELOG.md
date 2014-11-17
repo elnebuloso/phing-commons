@@ -4,7 +4,6 @@
 
 - phpmd 2.1.3 from packagist, new configuration, new reporting possibilities
 
-
 ## 6.8.2
 
 - bugfix, PBC_PROJECT_VERSION_JENKINS -> PBC_PROJECT_VERSION
