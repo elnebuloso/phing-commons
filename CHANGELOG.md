@@ -1,8 +1,7 @@
 # CHANGELOG
 
-## 6.9.0
-
 - phpmd 2.1.3 from packagist, new configuration, new reporting possibilities
+- pdepend 2.0.3 from packagist, new configuration, new reporting possibilities
 
 ## 6.8.2
 
