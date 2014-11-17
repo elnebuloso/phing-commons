@@ -4,17 +4,13 @@
 <project default="report.phpdepend">
 
 
-    <patternset id="report.phpdepend.patternset.default">
-        <include name="application/**/*.php" />
-        <include name="library/**/*.php" />
-        <include name="src/**/*.php" />
-    </patternset>
-
-
     <target name="report.phpdepend:init" hidden="true">
+        <property name="report.phpdepend.sources" value="${project.root}/src" />
+        <property name="report.phpdepend.coderank.modes" value="inheritance" />
+        <property name="report.phpdepend.suffixes" value="php" />
+        <property name="report.phpdepend.argline" value="" />
         <property name="report.phpdepend.out" value="${project.reports}/phpdepend" />
         <property name="report.phpdepend.xsl" value="${phing:commons:root}/resources/phpdepend/phpdepend.xsl" />
-        <property name="report.phpdepend.patternset" value="report.phpdepend.patternset.default" />
     </target>
 
 
@@ -27,15 +23,16 @@
         <delete dir="${report.phpdepend.out}" />
         <mkdir dir="${report.phpdepend.out}" />
 
-        <phpdepend>
-            <fileset dir="${project.root}">
-                <patternset refid="${report.phpdepend.patternset}" />
-            </fileset>
-            <logger type="jdepend-xml" outfile="${project.reports}/phpdepend/phpdepend.xml" />
-            <logger type="jdepend-chart" outfile="${project.reports}/phpdepend/chart.svg" />
-            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.svg" />
-            <analyzer type="coderank-mode" value="method" />
-        </phpdepend>
+        <exec executable="${phing:commons:root}/bin/pdepend" logoutput="false" passthru="true" level="info" checkreturn="yes">
+            <arg line="--jdepend-xml=${report.phpdepend.out}/phpdepend.xml" />
+            <arg line="--jdepend-chart=${report.phpdepend.out}/chart.svg" />
+            <arg line="--overview-pyramid=${report.phpdepend.out}/overview-pyramid.svg" />
+            <arg line="--summary-xml=${report.phpdepend.out}/summary.xml" />
+            <arg line="--coderank-mode=${report.phpdepend.coderank.modes}" />
+            <arg line="--suffix=${report.phpdepend.suffixes}" />
+            <arg line="${report.phpdepend.argline}" />
+            <arg line="${report.phpdepend.sources}" />
+        </exec>
 
         <xslt file="${report.phpdepend.out}/phpdepend.xml" tofile="${report.phpdepend.out}/index.html" style="${report.phpdepend.xsl}" />
     </target>

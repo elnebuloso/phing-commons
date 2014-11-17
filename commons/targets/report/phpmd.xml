@@ -29,7 +29,7 @@
             <arg line="${report.phpmd.rulesets}" />
             <arg line="--suffixes ${report.phpmd.suffixes}" />
             <arg line="--reportfile ${report.phpmd.out}/phpmd.xml" />
-            <arg line="${argline}" />
+            <arg line="${report.phpmd.argline}" />
         </exec>
 
         <if>
