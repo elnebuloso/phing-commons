@@ -22,8 +22,6 @@
 
         <echo message="" />
         <echo message="version: ${project.version}" />
-
-        <commons-project-jenkins-init version="${project.version}" propertiesFile="${project.root}/build.properties" />
     </target>
 
 
@@ -38,9 +36,9 @@
 
 
     <target name="project.version.update:help" depends="project.version.update:init">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="PROPERTY                                      VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version.update.releasetype.default        ${project.version.update.releasetype.default}" />
+        <echo message="project.version.update.releasetype.default    ${project.version.update.releasetype.default}" />
     </target>
 
 

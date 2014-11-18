@@ -8,11 +8,11 @@
     <import file="${phing:commons:commons}/targets/clean/tmp.xml" />
 
 
-    <target name="clean:help" depends="clean.reports:help, clean.tmp:help">
-        <echo message="TARGET                                            DESCRIPTION" />
+    <target name="clean:help">
+        <echo message="Clean Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="clean.reports                                     cleanup reports directory" />
-        <echo message="clean.tmp                                         cleanup tmp directory" />
+        <echo message="clean.reports    Cleanup reports directory" />
+        <echo message="clean.tmp        Cleanup tmp directory" />
     </target>
 
 

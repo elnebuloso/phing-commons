@@ -1,10 +1,12 @@
 <?php
+namespace Commons\Phing\Task\Project\Jenkins;
+
 /**
- * Class Update
+ * Class UpdateTask
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class Commons_Phing_Task_Project_Jenkins_Init extends Task {
+class UpdateTask extends \Task {
 
     /**
      * @var string
@@ -35,6 +37,7 @@ class Commons_Phing_Task_Project_Jenkins_Init extends Task {
 
     /**
      * @param string $propertiesFile
+     * @throws \BuildException
      */
     public function setPropertiesFile($propertiesFile) {
         $this->propertiesFile = trim($propertiesFile);
@@ -45,6 +48,7 @@ class Commons_Phing_Task_Project_Jenkins_Init extends Task {
     }
 
     /**
+     * @throws \BuildException
      * @return void
      */
     public function main() {

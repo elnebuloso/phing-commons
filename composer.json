@@ -17,17 +17,13 @@
     ],
     "autoload": {
         "psr-0": {
-            "Commons_": "src\/"
+            "Commons\\": "src\/"
         }
     },
-    "repositories": [
-    ],
+    "repositories": [],
     "require": {
         "php": "~5.3",
-        "phing\/phing": "2.8.2",
-        "phpmd\/phpmd": "2.1.3",
-        "pdepend\/pdepend": "2.0.3",
-        "apigen/apigen": "4.0.0-RC4"
+        "phing\/phing": "2.8.2"
     },
     "config": {
         "bin-dir": "bin"

@@ -41,10 +41,10 @@
 
 
     <target name="composer.update:help" depends="composer.update:init">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="PROPERTY               VALUE" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.executable                               ${composer.executable}" />
-        <echo message="composer.args                                     ${composer.args}" />
+        <echo message="composer.executable    ${composer.executable}" />
+        <echo message="composer.args          ${composer.args}" />
     </target>
 
 

@@ -55,8 +55,9 @@
     <!-- ============================================ -->
     <!-- commons tasks                                -->
     <!-- ============================================ -->
-    <taskdef classname="Commons_Phing_Task_Project_Jenkins_Init" name="commons-project-jenkins-init" />
-    <taskdef classname="Commons_Phing_Task_System_ImportChains" name="commons-system-import-chains" />
+    <taskdef classname="Commons\Phing\Task\Project\Jenkins\UpdateTask" name="commons-project-jenkins-update" />
+    <taskdef classname="Commons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains" />
+    <taskdef classname="Commons\Phing\Task\Composer\FormatTask" name="commons-composer-format" />
 
 
     <!-- ============================================ -->
@@ -73,11 +74,11 @@
     <!-- help.commons                                 -->
     <!-- ============================================ -->
     <target name="help.commons" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Phing Commons Settings" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="phing:commons:version                             ${phing:commons:version}" />
-        <echo message="phing:commons:commons                             ${phing:commons:commons}" />
-        <echo message="phing:commons:root                                ${phing:commons:root}" />
+        <echo message="phing:commons:version    ${phing:commons:version}" />
+        <echo message="phing:commons:commons    ${phing:commons:commons}" />
+        <echo message="phing:commons:root       ${phing:commons:root}" />
     </target>
 
 
@@ -85,18 +86,31 @@
     <!-- help.project                                 -->
     <!-- ============================================ -->
     <target name="help.project" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Project Settings" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version                                   ${project.version}" />
-        <echo message="project.vendor                                    ${project.vendor}" />
-        <echo message="project.name                                      ${project.name}" />
-        <echo message="project.root                                      ${project.root}" />
-        <echo message="project.tmp                                       ${project.tmp}" />
-        <echo message="project.reports                                   ${project.reports}" />
+        <echo message="project.version    ${project.version}" />
+        <echo message="project.vendor     ${project.vendor}" />
+        <echo message="project.name       ${project.name}" />
+        <echo message="project.root       ${project.root}" />
+        <echo message="project.tmp        ${project.tmp}" />
+        <echo message="project.reports    ${project.reports}" />
     </target>
 
 
-    <target name="help" depends="help.commons, help.project" hidden="true" />
+    <!-- ============================================ -->
+    <!-- help.targets                                 -->
+    <!-- ============================================ -->
+    <target name="help.targets" hidden="true">
+        <echo message="Module Help" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="clean:help       Overview of all Clean Targets" />
+        <echo message="composer:help    Overview of all Composer Targets" />
+        <echo message="project:help     Overview of all Project Targets" />
+        <echo message="report:help      Overview of all Report Targets" />
+    </target>
+
+
+    <target name="help" depends="help.commons, help.project, help.targets" hidden="true" />
 
 
     <!-- ============================================ -->

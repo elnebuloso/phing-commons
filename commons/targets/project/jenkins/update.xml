@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project.jenkins.update">
+
+
+    <target name="project.jenkins.update:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.update:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.update:main" hidden="true">
+        <commons-project-jenkins-update version="${project.version}" propertiesFile="${project.root}/build.properties" />
+    </target>
+
+
+    <target name="project.jenkins.update:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.jenkins.update" depends="project.jenkins.update:init, project.jenkins.update:before, project.jenkins.update:main, project.jenkins.update:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="project.jenkins.update:help" depends="project.jenkins.update:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>

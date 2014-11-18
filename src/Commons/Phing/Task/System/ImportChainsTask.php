@@ -1,10 +1,12 @@
 <?php
+namespace Commons\Phing\Task\System;
+
 /**
- * Class UpdateVersion
+ * Class ImportChainsTask
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class Commons_Phing_Task_System_ImportChains extends Task {
+class ImportChainsTask extends \Task {
 
     /**
      * @var string
@@ -39,15 +41,15 @@ class Commons_Phing_Task_System_ImportChains extends Task {
 
     /**
      * @return void
-     * @throws BuildException
+     * @throws \BuildException
      */
     public function main() {
         if(realpath($this->pathToChainFolder) === false) {
-            throw new BuildException('invalid path to chain folder');
+            throw new \BuildException('invalid path to chain folder');
         }
 
         foreach($this->chains as $chain) {
-            $import = new ImportTask();
+            $import = new \ImportTask();
             $import->setProject($this->project);
             $import->setFile($this->pathToChainFolder . '/' . $chain . '.xml');
             $import->init();

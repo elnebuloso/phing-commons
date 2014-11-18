@@ -4,15 +4,19 @@
 <project default="project:help">
 
 
-    <import file="${phing:commons:commons}/targets/project/jenkins/init.xml" />
+    <import file="${phing:commons:commons}/targets/project/jenkins/update.xml" />
     <import file="${phing:commons:commons}/targets/project/version/update.xml" />
 
 
-    <target name="project:help" depends="project.version.update:help">
-        <echo message="TARGET                                            DESCRIPTION" />
+    <target name="project:help">
+        <echo message="Project Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.jenkins.init                              Init Jenkins, write Jenkins Properties File" />
-        <echo message="project.version.update                            Updates Files Project Files with new Version" />
+        <echo message="project.jenkins.update    Write or Update Jenkins Properties File" />
+        <echo message="project.version.update    Updates Files Project Files with new Version" />
+        <echo message="" />
+        <echo message="Project Targets Help" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.version.update:help" />
     </target>
 
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="composer.format">
+
+
+    <target name="composer.format:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="composer.format:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="composer.format:main" hidden="true">
+        <available file="${project.root}/composer.json" type="file" property="composer.json.exists" />
+
+        <if>
+            <isset property="composer.json.exists" />
+            <then>
+                <commons-composer-format composerFile="${project.root}/composer.json" />
+            </then>
+        </if>
+    </target>
+
+
+    <target name="composer.format:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="composer.format" depends="composer.format:init, composer.format:before, composer.format:main, composer.format:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="composer.format:help" depends="composer.format:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>
