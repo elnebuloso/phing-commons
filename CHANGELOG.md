@@ -5,19 +5,22 @@
 - new help guidelines
 - namespaced tasks
 
-- "phpmd/phpmd": "2.1.3" (packagist)
+- phpmd/phpmd: 2.1.3 (packagist)
 - report.phpmd updated target and configuration
 - report.phpmd target not using phing phpmd task, phpmd called over exec task, new phpmd not compatible with phing until now
 
-- "phploc/phploc": "2.0.6" (packagist)
+- phploc/phploc: 2.0.6 (packagist)
 - report.phploc
 
-- "pdepend/pdepend": "2.0.3" (packagist)
+- pdepend/pdepend: 2.0.3 (packagist)
 - report.phpdepend updated report.phpdepend target and configuration
 - report.phpdepend target not using phing pdepend task, pdepend called over exec task, new pdepend not compatible with phing until now
 
-- "squizlabs/php_codesniffer": "2.0.0RC4" (packagist)
+- squizlabs/php_codesniffer: 2.0.0RC4 (packagist)
 - report.phpcs
+
+- sebastian/phpcpd: 2.0.1 (packagist)
+- report.phpcpd
 
 ## 6.8.2
 
