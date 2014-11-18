@@ -11,7 +11,7 @@
 
     <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}" />
     <resolvepath propertyName="phing:commons:commons" file="${phing:commons:root}/commons" />
-
+    <!-- <autoloader autoloaderpath="${phing:commons:root}/vendor/autoload.php" /> -->
 
     <!-- ============================================ -->
     <!-- phing commons properties                     -->

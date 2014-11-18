@@ -4,17 +4,13 @@
 <project default="report.phpdepend">
 
 
-    <patternset id="report.phpdepend.patternset.default">
-        <include name="application/**/*.php" />
-        <include name="library/**/*.php" />
-        <include name="src/**/*.php" />
-    </patternset>
-
-
     <target name="report.phpdepend:init" hidden="true">
+        <property name="report.phpdepend.sources" value="${project.root}/src" />
+        <property name="report.phpdepend.coderank" value="inheritance" />
+        <property name="report.phpdepend.suffixes" value="php" />
+        <property name="report.phpdepend.arguments" value="" />
         <property name="report.phpdepend.out" value="${project.reports}/phpdepend" />
         <property name="report.phpdepend.xsl" value="${phing:commons:root}/resources/phpdepend/phpdepend.xsl" />
-        <property name="report.phpdepend.patternset" value="report.phpdepend.patternset.default" />
     </target>
 
 
@@ -27,15 +23,16 @@
         <delete dir="${report.phpdepend.out}" />
         <mkdir dir="${report.phpdepend.out}" />
 
-        <phpdepend>
-            <fileset dir="${project.root}">
-                <patternset refid="${report.phpdepend.patternset}" />
-            </fileset>
-            <logger type="jdepend-xml" outfile="${project.reports}/phpdepend/phpdepend.xml" />
-            <logger type="jdepend-chart" outfile="${project.reports}/phpdepend/chart.svg" />
-            <logger type="overview-pyramid" outfile="${project.reports}/phpdepend/overview-pyramid.svg" />
-            <analyzer type="coderank-mode" value="method" />
-        </phpdepend>
+        <exec executable="${phing:commons:root}/bin/pdepend" logoutput="false" passthru="true" level="info" checkreturn="yes">
+            <arg line="--suffix=${report.phpdepend.suffixes}" />
+            <arg line="--coderank-mode=${report.phpdepend.coderank}" />
+            <arg line="--summary-xml=${report.phpdepend.out}/summary.xml" />
+            <arg line="--jdepend-xml=${report.phpdepend.out}/phpdepend.xml" />
+            <arg line="--jdepend-chart=${report.phpdepend.out}/chart.svg" />
+            <arg line="--overview-pyramid=${report.phpdepend.out}/overview-pyramid.svg" />
+            <arg line="${report.phpdepend.arguments}" />
+            <arg line="${report.phpdepend.sources}" />
+        </exec>
 
         <xslt file="${report.phpdepend.out}/phpdepend.xml" tofile="${report.phpdepend.out}/index.html" style="${report.phpdepend.xsl}" />
     </target>
@@ -52,11 +49,21 @@
 
 
     <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
-        <echo message="Property                                          Value" />
+        <echo message="Property                     Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpdepend.out                                 ${report.phpdepend.out}" />
-        <echo message="report.phpdepend.xsl                                 ${report.phpdepend.xsl}" />
-        <echo message="report.phpdepend.patternset                          ${report.phpdepend.patternset}" />
+        <echo message="report.phpdepend.sources      ${report.phpdepend.sources}" />
+        <echo message="report.phpdepend.coderank     ${report.phpdepend.coderank}" />
+        <echo message="report.phpdepend.suffixes     ${report.phpdepend.suffixes}" />
+        <echo message="report.phpdepend.arguments    ${report.phpdepend.arguments}" />
+        <echo message="report.phpdepend.out          ${report.phpdepend.out}" />
+        <echo message="report.phpdepend.xsl          ${report.phpdepend.xsl}" />
+        <echo message="" />
+        <echo message="Property Help" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phpdepend.sources      can be a comma-separated string" />
+        <echo message="report.phpdepend.coderank     Used CodeRank strategies. Comma separated list of inheritance, property, method" />
+        <echo message="report.phpdepend.suffixes     comma-separated string of valid source code filename extensions" />
+        <echo message="report.phpdepend.arguments    optional arguments that may be put after the mandatory arguments" />
     </target>
 
 

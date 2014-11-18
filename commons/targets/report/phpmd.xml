@@ -66,10 +66,10 @@
         <echo message="" />
         <echo message="Property Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpmd.sources     can be a comma-separated string" />
-        <echo message="report.phpmd.rulesets    can be a comma-separated string" />
-        <echo message="report.phpmd.suffixes    comma-separated string of valid source code filename extensions" />
-        <echo message="report.phpmd.arguments   optional arguments that may be put after the mandatory arguments" />
+        <echo message="report.phpmd.sources      can be a comma-separated string" />
+        <echo message="report.phpmd.rulesets     can be a comma-separated string" />
+        <echo message="report.phpmd.suffixes     comma-separated string of valid source code filename extensions" />
+        <echo message="report.phpmd.arguments    optional arguments that may be put after the mandatory arguments" />
     </target>
 
 

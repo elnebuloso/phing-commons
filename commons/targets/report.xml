@@ -24,6 +24,7 @@
         <echo message="" />
         <echo message="Report Targets Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phpdepend:help" />
         <echo message="report.phploc:help" />
         <echo message="report.phpmd:help" />
     </target>

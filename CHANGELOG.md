@@ -12,6 +12,10 @@
 - phploc 2.0.6
 - phploc over packagist
 
+- phpdepend (pdepend) 2.0.3
+- phpdepend over packagist, updated report.phpmd target and configuration
+- phpdepend target not using phing phpmd task, phpmd called over exec task, new phpmd not compatible with phing until now
+
 ## 6.8.2
 
 - bugfix, PBC_PROJECT_VERSION_JENKINS -> PBC_PROJECT_VERSION
