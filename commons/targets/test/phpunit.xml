@@ -5,12 +5,12 @@
 
 
     <target name="test.phpunit:init" hidden="true">
-        <property name="test.phpunit.coverage" value="true" />
+        <property name="test.phpunit.coverage" value="yes" />
         <property name="test.phpunit.php.display_errors" value="on" />
         <property name="test.phpunit.php.error_reporting" value="32767" />
         <property name="test.phpunit.php.default_timezone" value="Europe/Berlin" />
-        <property name="test.phpunit.haltonfailure" value="true" />
-        <property name="test.phpunit.haltonerror" value="true" />
+        <property name="test.phpunit.haltonfailure" value="yes" />
+        <property name="test.phpunit.haltonerror" value="yes" />
     </target>
 
 
@@ -104,12 +104,12 @@
     <target name="test.phpunit:help" depends="test.phpunit:init">
         <echo message="Property                             Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phpunit.coverage                ${test.phpunit.coverage} (yes, no)" />
+        <echo message="test.phpunit.coverage                yes|no: ${test.phpunit.coverage} (yes, no)" />
         <echo message="test.phpunit.php.display_errors      ${test.phpunit.php.display_errors}" />
         <echo message="test.phpunit.php.error_reporting     ${test.phpunit.php.error_reporting}" />
         <echo message="test.phpunit.php.default_timezone    ${test.phpunit.php.default_timezone}" />
-        <echo message="test.phpunit.haltonfailure           ${test.phpunit.haltonfailure}" />
-        <echo message="test.phpunit.haltonerror             ${test.phpunit.haltonerror}" />
+        <echo message="test.phpunit.haltonfailure           yes|no: ${test.phpunit.haltonfailure}" />
+        <echo message="test.phpunit.haltonerror             yes|no: ${test.phpunit.haltonerror}" />
     </target>
 
 

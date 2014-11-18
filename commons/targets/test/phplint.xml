@@ -12,7 +12,7 @@
 
     <target name="test.phplint:init" hidden="true">
         <property name="test.phplint.patternset" value="test.phplint.patternset.default" />
-        <property name="test.phplint.haltonfailure" value="true" />
+        <property name="test.phplint.haltonfailure" value="yes" />
     </target>
 
 
@@ -46,7 +46,7 @@
         <echo message="Property                      Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="test.phplint.patternset       ${test.phplint.patternset}" />
-        <echo message="test.phplint.haltonfailure    ${test.phplint.haltonfailure}" />
+        <echo message="test.phplint.haltonfailure    yes|no: ${test.phplint.haltonfailure}" />
     </target>
 
 

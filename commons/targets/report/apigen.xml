@@ -5,7 +5,7 @@
 
 
     <target name="report.apigen:init" hidden="true">
-        <property name="report.apigen.neon.use" value="false" />
+        <property name="report.apigen.neon.use" value="no" />
         <property name="report.apigen.sources" value="src" />
         <property name="report.apigen.out" value="${project.reports}/apigen" />
     </target>
@@ -62,7 +62,7 @@
     <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
         <echo message="Property                  Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.apigen.neon.use    ${report.apigen.neon.use}" />
+        <echo message="report.apigen.neon.use    yes|no: ${report.apigen.neon.use}" />
         <echo message="report.apigen.sources     ${report.apigen.sources}" />
         <echo message="report.apigen.out         ${report.apigen.out}" />
     </target>
