@@ -27,6 +27,9 @@
 - report.apigen updated target and configuration
 - report.apigen target not using phing apigen task, apigen called over exec task, new apigen not compatible with phing until now
 
+- phpunit/phpunit: 4.3.5
+- test.phpunit
+
 ## 6.8.2
 
 - bugfix, PBC_PROJECT_VERSION_JENKINS -> PBC_PROJECT_VERSION

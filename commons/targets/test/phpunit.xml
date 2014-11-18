@@ -102,14 +102,14 @@
 
 
     <target name="test.phpunit:help" depends="test.phpunit:init">
-        <echo message="Property                                          Value" />
+        <echo message="Property                             Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phpunit.coverage                             ${test.phpunit.coverage} (yes, no)" />
-        <echo message="test.phpunit.php.display_errors                   ${test.phpunit.php.display_errors}" />
-        <echo message="test.phpunit.php.error_reporting                  ${test.phpunit.php.error_reporting}" />
-        <echo message="test.phpunit.php.default_timezone                 ${test.phpunit.php.default_timezone}" />
-        <echo message="test.phpunit.haltonfailure                        ${test.phpunit.haltonfailure}" />
-        <echo message="test.phpunit.haltonerror                          ${test.phpunit.haltonerror}" />
+        <echo message="test.phpunit.coverage                ${test.phpunit.coverage} (yes, no)" />
+        <echo message="test.phpunit.php.display_errors      ${test.phpunit.php.display_errors}" />
+        <echo message="test.phpunit.php.error_reporting     ${test.phpunit.php.error_reporting}" />
+        <echo message="test.phpunit.php.default_timezone    ${test.phpunit.php.default_timezone}" />
+        <echo message="test.phpunit.haltonfailure           ${test.phpunit.haltonfailure}" />
+        <echo message="test.phpunit.haltonerror             ${test.phpunit.haltonerror}" />
     </target>
 
 
