@@ -13,7 +13,7 @@
 - report.phploc
 
 - pdepend/pdepend: 2.0.3 (packagist)
-- report.phpdepend updated report.phpdepend target and configuration
+- report.phpdepend updated target and configuration
 - report.phpdepend target not using phing pdepend task, pdepend called over exec task, new pdepend not compatible with phing until now
 
 - squizlabs/php_codesniffer: 2.0.0RC4 (packagist)
@@ -21,6 +21,11 @@
 
 - sebastian/phpcpd: 2.0.1 (packagist)
 - report.phpcpd
+
+- apigen/apigen: 4.0.0-RC4
+- report.apigen
+- report.apigen updated target and configuration
+- report.apigen target not using phing apigen task, apigen called over exec task, new apigen not compatible with phing until now
 
 ## 6.8.2
 

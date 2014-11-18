@@ -3,6 +3,7 @@
 /bin
 /build
 /vendor
+apigen.neon
 build.properties.jenkins
 build.properties.local
 composer.lock

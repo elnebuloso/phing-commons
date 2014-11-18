@@ -5,12 +5,9 @@
 
 
     <target name="report.apigen:init" hidden="true">
+        <property name="report.apigen.neon.use" value="false" />
+        <property name="report.apigen.sources" value="src" />
         <property name="report.apigen.out" value="${project.reports}/apigen" />
-        <property name="report.apigen.title" value="API Documentation" />
-        <property name="report.apigen.source" value="src" />
-        <property name="report.apigen.exclude" value="" />
-        <property name="report.apigen.checkstyle.path" value="${report.apigen.out}/apigen-checkstyle.xml" />
-        <property name="report.apigen.checkstyle" value="false" />
     </target>
 
 
@@ -23,27 +20,32 @@
         <delete dir="${report.apigen.out}" />
         <mkdir dir="${report.apigen.out}" />
 
+        <available file="${project.root}/apigen.neon" type="file" property="report.apigen.neon.exists" />
+
         <if>
-            <istrue value="${report.apigen.checkstyle}" />
+            <and>
+                <istrue value="${report.apigen.neon.use}" />
+                <isset property="report.apigen.neon.exists" />
+            </and>
             <then>
-                <property name="report.apigen.checkstyle.path" value="${report.apigen.checkstyle.path}" override="true" />
+                <echo message="" />
+                <echo message="forced usage of apigen.neon and apigen.neon exists" />
+                <echo message="" />
+                <property name="report.apigen.arguments" value="" />
             </then>
             <else>
-                <property name="report.apigen.checkstyle.path" value="" override="true" />
+                <echo message="" />
+                <echo message="ignoring apigen.neon (does not exist or usage of apigen.neon is not forced)" />
+                <echo message="" />
+                <property name="report.apigen.arguments" value="${project.reports}/apigen ${report.apigen.sources}" />
             </else>
         </if>
 
-        <apigen executable="${phing:commons:root}/bin/apigen.php"
-                title="${report.apigen.title}"
-                source="${report.apigen.source}"
-                exclude="${report.apigen.exclude}"
-                internal="No"
-                php="No"
-                todo="Yes"
-                deprecated="Yes"
-                wipeout="Yes"
-                destination="${report.apigen.out}"
-                report="${report.apigen.checkstyle.path}" />
+
+        <exec executable="${phing:commons:root}/bin/apigen" logoutput="false" passthru="true" level="info" checkreturn="yes">
+            <arg line="generate" />
+            <arg line="${report.apigen.arguments}" />
+        </exec>
     </target>
 
 
@@ -58,14 +60,11 @@
 
 
     <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
-        <echo message="Property                                          Value" />
+        <echo message="Property                  Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.apigen.out                                 ${report.apigen.out}" />
-        <echo message="report.apigen.title                               ${report.apigen.title}" />
-        <echo message="report.apigen.source                              ${report.apigen.source}" />
-        <echo message="report.apigen.exclude                             ${report.apigen.exclude}" />
-        <echo message="report.apigen.checkstyle.path                     ${report.apigen.checkstyle.path}" />
-        <echo message="report.apigen.checkstyle                          ${report.apigen.checkstyle}" />
+        <echo message="report.apigen.neon.use    ${report.apigen.neon.use}" />
+        <echo message="report.apigen.sources     ${report.apigen.sources}" />
+        <echo message="report.apigen.out         ${report.apigen.out}" />
     </target>
 
 
