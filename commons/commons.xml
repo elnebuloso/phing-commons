@@ -107,6 +107,7 @@
         <echo message="composer:help    Overview of all Composer Targets" />
         <echo message="project:help     Overview of all Project Targets" />
         <echo message="report:help      Overview of all Report Targets" />
+        <echo message="test:help        Overview of all Test Targets" />
     </target>
 
 
