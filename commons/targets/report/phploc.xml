@@ -6,7 +6,6 @@
 
     <patternset id="report.phploc.patternset.default">
         <include name="application/**/*.php" />
-        <include name="library/**/*.php" />
         <include name="src/**/*.php" />
     </patternset>
 
@@ -48,11 +47,11 @@
 
 
     <target name="report.phploc:help" depends="report.phploc:init" hidden="true">
-        <echo message="Property                                          Value" />
+        <echo message="Property                    Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phploc.out                                 ${report.phploc.out}" />
-        <echo message="report.phploc.xsl                                 ${report.phploc.xsl}" />
-        <echo message="report.phploc.patternset                          ${report.phploc.patternset}" />
+        <echo message="report.phploc.out           ${report.phploc.out}" />
+        <echo message="report.phploc.xsl           ${report.phploc.xsl}" />
+        <echo message="report.phploc.patternset    ${report.phploc.patternset}" />
     </target>
 
 

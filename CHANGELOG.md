@@ -4,8 +4,13 @@
 
 - new help guidelines
 - namespaced tasks
+
 - phpmd 2.1.3
 - phpmd over packagist, updated report.phpmd target and configuration
+- phpmd target not using phing phpmd task, phpmd called over exec task, new phpmd not compatible with phing until now
+
+- phploc 2.0.6
+- phploc over packagist
 
 ## 6.8.2
 
