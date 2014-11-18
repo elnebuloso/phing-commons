@@ -13,7 +13,7 @@
 - phploc over packagist
 
 - phpdepend (pdepend) 2.0.3
-- phpdepend over packagist, updated report.phpmd target and configuration
+- phpdepend over packagist, updated report.phpdepend target and configuration
 - phpdepend target not using phing phpmd task, phpmd called over exec task, new phpmd not compatible with phing until now
 
 ## 6.8.2
