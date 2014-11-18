@@ -6,7 +6,6 @@
 
     <patternset id="report.phpcs.patternset.default">
         <include name="application/**/*.php" />
-        <include name="library/**/*.php" />
         <include name="src/**/*.php" />
     </patternset>
 
@@ -34,10 +33,10 @@
             <fileset dir="${project.root}">
                 <patternset refid="${report.phpcs.patternset}" />
             </fileset>
-            <formatter type="checkstyle" outfile="${report.phpcs.out}/phpcs-checkstyle.xml" />
+            <formatter type="checkstyle" outfile="${report.phpcs.out}/checkstyle.xml" />
         </phpcodesniffer>
 
-        <xslt file="${report.phpcs.out}/phpcs-checkstyle.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
+        <xslt file="${report.phpcs.out}/checkstyle.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
     </target>
 
 
@@ -52,14 +51,14 @@
 
 
     <target name="report.phpcs:help" depends="report.phpcs:init" hidden="true">
-        <echo message="Property                                          Value" />
+        <echo message="Property                      Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpcs.out                                  ${report.phpcs.out}" />
-        <echo message="report.phpcs.xsl                                  ${report.phpcs.xsl}" />
-        <echo message="report.phpcs.patternset                           ${report.phpcs.patternset}" />
-        <echo message="report.phpcs.ruleset                              ${report.phpcs.ruleset}" />
-        <echo message="report.phpcs.haltonerror                          ${report.phpcs.haltonerror}" />
-        <echo message="report.phpcs.haltonwarning                        ${report.phpcs.haltonwarning}" />
+        <echo message="report.phpcs.patternset       ${report.phpcs.patternset}" />
+        <echo message="report.phpcs.ruleset          ${report.phpcs.ruleset}" />
+        <echo message="report.phpcs.haltonerror      ${report.phpcs.haltonerror}" />
+        <echo message="report.phpcs.haltonwarning    ${report.phpcs.haltonwarning}" />
+        <echo message="report.phpcs.out              ${report.phpcs.out}" />
+        <echo message="report.phpcs.xsl              ${report.phpcs.xsl}" />
     </target>
 
 
