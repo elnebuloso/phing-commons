@@ -13,7 +13,7 @@
 
 
     <target name="report:help">
-        <echo message="Project Targets" />
+        <echo message="Report Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.apigen       PHP Code Documentation" />
         <echo message="report.phpcpd       Copy/Paste Detector (CPD) for PHP Code" />
@@ -21,6 +21,10 @@
         <echo message="report.phpdepend    A software analyzer and metric tool for PHP Code" />
         <echo message="report.phploc       A tool for quickly measuring the size of a PHP project" />
         <echo message="report.phpmd        Project Mess Detector (PMD) for PHP Code" />
+        <echo message="" />
+        <echo message="Report Targets Help" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="report.phpmd:help" />
     </target>
 
 

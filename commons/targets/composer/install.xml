@@ -41,7 +41,7 @@
 
 
     <target name="composer.install:help" depends="composer.install:init">
-        <echo message="PROPERTY               VALUE" />
+        <echo message="Property               Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="composer.executable    ${composer.executable}" />
         <echo message="composer.args          ${composer.args}" />

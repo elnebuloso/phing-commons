@@ -58,7 +58,7 @@
 
 
     <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.apigen.out                                 ${report.apigen.out}" />
         <echo message="report.apigen.title                               ${report.apigen.title}" />

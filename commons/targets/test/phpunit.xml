@@ -102,7 +102,7 @@
 
 
     <target name="test.phpunit:help" depends="test.phpunit:init">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="test.phpunit.coverage                             ${test.phpunit.coverage} (yes, no)" />
         <echo message="test.phpunit.php.display_errors                   ${test.phpunit.php.display_errors}" />

@@ -1,7 +1,11 @@
 # CHANGELOG
 
-- phpmd 2.1.3 from packagist, new configuration, new reporting possibilities
-- pdepend 2.0.3 from packagist, new configuration, new reporting possibilities
+## 7.0.0
+
+- new help guidelines
+- namespaced tasks
+- phpmd 2.1.3
+- phpmd over packagist, updated report.phpmd target and configuration
 
 ## 6.8.2
 

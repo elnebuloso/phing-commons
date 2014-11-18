@@ -52,7 +52,7 @@
 
 
     <target name="report.phpcs:help" depends="report.phpcs:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpcs.out                                  ${report.phpcs.out}" />
         <echo message="report.phpcs.xsl                                  ${report.phpcs.xsl}" />

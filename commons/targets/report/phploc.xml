@@ -48,7 +48,7 @@
 
 
     <target name="report.phploc:help" depends="report.phploc:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phploc.out                                 ${report.phploc.out}" />
         <echo message="report.phploc.xsl                                 ${report.phploc.xsl}" />

@@ -52,7 +52,7 @@
 
 
     <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpdepend.out                                 ${report.phpdepend.out}" />
         <echo message="report.phpdepend.xsl                                 ${report.phpdepend.xsl}" />

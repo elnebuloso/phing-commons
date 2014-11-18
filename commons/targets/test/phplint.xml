@@ -44,7 +44,7 @@
 
 
     <target name="test.phplint:help" depends="test.phplint:init">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="test.phplint.haltonfailure                        ${test.phplint.haltonfailure}" />
         <echo message="test.phplint.patternset                           ${test.phplint.patternset}" />

@@ -49,7 +49,7 @@
 
 
     <target name="report.phpcpd:help" depends="report.phpcpd:init" hidden="true">
-        <echo message="PROPERTY                                          VALUE" />
+        <echo message="Property                                          Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpcpd.out                                 ${report.phpcpd.out}" />
         <echo message="report.phpcpd.xsl                                 ${report.phpcpd.xsl}" />
