@@ -6,7 +6,7 @@
 
     <target name="composer.update:init" hidden="true">
         <property name="composer.executable" value="composer" />
-        <property name="composer.args" value="" />
+        <property name="composer.update.args" value="" />
     </target>
 
 
@@ -23,7 +23,7 @@
             <then>
                 <exec executable="${composer.executable}" logoutput="true" passthru="true" level="info" checkreturn="yes">
                     <arg line="update" />
-                    <arg line="${composer.args}" />
+                    <arg line="${composer.update.args}" />
                 </exec>
             </then>
         </if>
@@ -43,8 +43,8 @@
     <target name="composer.update:help" depends="composer.update:init">
         <echo message="Property               Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.executable    ${composer.executable}" />
-        <echo message="composer.args          ${composer.args}" />
+        <echo message="composer.executable     ${composer.executable}" />
+        <echo message="composer.update.args    ${composer.update.args}" />
     </target>
 
 

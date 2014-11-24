@@ -6,7 +6,7 @@
 
     <target name="composer.validate:init" hidden="true">
         <property name="composer.executable" value="composer" />
-        <property name="composer.args" value="" />
+        <property name="composer.validate.args" value="" />
     </target>
 
 
@@ -23,7 +23,7 @@
             <then>
                 <exec executable="${composer.executable}" logoutput="true" passthru="true" level="info" checkreturn="yes">
                     <arg line="validate" />
-                    <arg line="${composer.args}" />
+                    <arg line="${composer.validate.args}" />
                 </exec>
             </then>
         </if>
@@ -43,8 +43,8 @@
     <target name="composer.validate:help" depends="composer.validate:init">
         <echo message="Property               Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.executable    ${composer.executable}" />
-        <echo message="composer.args          ${composer.args}" />
+        <echo message="composer.executable       ${composer.executable}" />
+        <echo message="composer.validate.args    ${composer.validate.args}" />
     </target>
 
 

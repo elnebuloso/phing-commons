@@ -6,7 +6,7 @@
 
     <target name="composer.install:init" hidden="true">
         <property name="composer.executable" value="composer" />
-        <property name="composer.args" value="" />
+        <property name="composer.install.args" value="" />
     </target>
 
 
@@ -23,7 +23,7 @@
             <then>
                 <exec executable="${composer.executable}" logoutput="true" passthru="true" level="info" checkreturn="yes">
                     <arg line="install" />
-                    <arg line="${composer.args}" />
+                    <arg line="${composer.install.args}" />
                 </exec>
             </then>
         </if>
@@ -43,8 +43,8 @@
     <target name="composer.install:help" depends="composer.install:init">
         <echo message="Property               Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.executable    ${composer.executable}" />
-        <echo message="composer.args          ${composer.args}" />
+        <echo message="composer.executable      ${composer.executable}" />
+        <echo message="composer.install.args    ${composer.install.args}" />
     </target>
 
 
