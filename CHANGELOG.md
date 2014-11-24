@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 7.0.1
+
+- updated composer tasks
+- updated php chain
+
 ## 7.0.0
 
 - new help guidelines
