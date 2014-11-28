@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 7.0.2
+
+- removed report target from chain(s) build:after
+
 ## 7.0.1
 
 - updated composer tasks
