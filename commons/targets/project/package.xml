@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project.package">
+
+
+    <target name="project.package:init" hidden="true">
+        <property name="project.package.patternset.id" value="project_package_patternset_default" />
+
+        <patternset id="project_package_patternset_default">
+            <include name="**/**" />
+            <exclude name=".idea/**" />
+            <exclude name="tests/**" />
+            <exclude name="build.properties" />
+            <exclude name="build.properties.local" />
+            <exclude name="build.properties.jenkins" />
+            <exclude name="build.xml" />
+            <exclude name="phpunit.xml" />
+        </patternset>
+    </target>
+
+
+    <target name="project.package:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.package:main" hidden="true">
+        <mkdir dir="${project.tmp}" />
+        <delete file="${project.tmp}/${project.version}.tar" />
+
+        <tar destfile="${project.tmp}/${project.version}.tar">
+            <fileset dir=".">
+                <patternset refid="${project.package.patternset.id}" />
+            </fileset>
+        </tar>
+    </target>
+
+
+    <target name="project.package:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.package" depends="project.package:init, project.package:before, project.package:main, project.package:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="project.package:help" depends="project.package:init">
+        <echo message="Property                         Value" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.package.patternset.id    ${project.package.patternset.id}" />
+    </target>
+
+
+</project>

@@ -39,7 +39,7 @@
 
 
     <target name="composer.optimize:help" depends="composer.optimize:init">
-        <echo message="Property               Value" />
+        <echo message="Property                 Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="composer.executable      ${composer.executable}" />
     </target>

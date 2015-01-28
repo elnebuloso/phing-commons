@@ -5,16 +5,19 @@
 
 
     <import file="${phing:commons:commons}/targets/project/version/update.xml" />
+    <import file="${phing:commons:commons}/targets/project/package.xml" />
 
 
     <target name="project:help">
         <echo message="Project Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version.update    Updates Files Project Files with new Version" />
+        <echo message="project.version.update    Updates Project Files with new Version" />
+        <echo message="project.package           Create TAR from Project identified by Version Number" />
         <echo message="" />
         <echo message="Project Targets Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.version.update:help" />
+        <echo message="project.package:help" />
     </target>
 
 

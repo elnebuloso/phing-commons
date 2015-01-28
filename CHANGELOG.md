@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.0.2
+
+- added project.package target
+- added chain php-website that uses project.package and composer.optimize
+
 ## 8.0.1
 
 - added composer.optimize target

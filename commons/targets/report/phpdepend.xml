@@ -49,7 +49,7 @@
 
 
     <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
-        <echo message="Property                     Value" />
+        <echo message="Property                      Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="report.phpdepend.sources      ${report.phpdepend.sources}" />
         <echo message="report.phpdepend.coderank     ${report.phpdepend.coderank}" />
