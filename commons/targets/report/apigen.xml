@@ -37,12 +37,12 @@
                 <echo message="" />
                 <echo message="ignoring apigen.neon (does not exist or usage of apigen.neon is not forced)" />
                 <echo message="" />
-                <property name="report.apigen.arguments" value="${project.reports}/apigen ${report.apigen.sources}" />
+                <property name="report.apigen.arguments" value="--destination=${project.reports}/apigen --source=${report.apigen.sources}" />
             </else>
         </if>
 
 
-        <exec executable="${phing:commons:root}/bin/apigen" logoutput="false" passthru="true" level="info" checkreturn="yes">
+        <exec executable="${phing:commons:root}/bin/apigen" logoutput="true" passthru="true" level="info" checkreturn="yes">
             <arg line="generate" />
             <arg line="${report.apigen.arguments}" />
         </exec>
