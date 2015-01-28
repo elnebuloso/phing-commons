@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="jenkins.environment">
+
+
+    <target name="jenkins.environment:init" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="jenkins.environment:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="jenkins.environment:main" hidden="true">
+        <commons-jenkins-environment version="${project.version}" propertiesFile="${project.root}/build.properties" />
+    </target>
+
+
+    <target name="jenkins.environment:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="jenkins.environment" depends="jenkins.environment:init, jenkins.environment:before, jenkins.environment:main, jenkins.environment:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="jenkins.environment:help" depends="jenkins.environment:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>

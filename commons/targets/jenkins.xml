@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="project:help">
+<project default="jenkins:help">
 
 
-    <import file="${phing:commons:commons}/targets/project/version/update.xml" />
+    <import file="${phing:commons:commons}/targets/jenkins/environment.xml" />
 
 
-    <target name="project:help">
+    <target name="jenkins:help">
         <echo message="Project Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version.update    Updates Files Project Files with new Version" />
+        <echo message="jenkins.environment    Prepare or Update Jenkins CI Environment" />
         <echo message="" />
         <echo message="Project Targets Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version.update:help" />
+        <echo message="jenkins.environment:help" />
     </target>
 
 

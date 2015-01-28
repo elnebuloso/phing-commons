@@ -1,12 +1,12 @@
 <?php
-namespace Commons\Phing\Task\Project\Jenkins;
+namespace Commons\Phing\Task\Jenkins;
 
 /**
- * Class UpdateTask
+ * Class EnvironmentTask
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class UpdateTask extends \Task {
+class EnvironmentTask extends \Task {
 
     /**
      * @var string

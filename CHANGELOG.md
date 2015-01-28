@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.0.0
+
+- updated chains
+- moved jenkins environment target to own target area
+
 ## 7.0.2
 
 - removed report target from chain(s) build:after
