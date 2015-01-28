@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.0.1
+
+- added composer.optimize target
+
 ## 8.0.0
 
 - updated chains
