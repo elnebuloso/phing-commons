@@ -10,12 +10,16 @@
         <patternset id="project_package_patternset_default">
             <include name="**/**" />
             <exclude name=".idea/**" />
+            <exclude name=".svn/**" />
             <exclude name="tests/**" />
+            <exclude name="build/**" />
             <exclude name="build.properties" />
             <exclude name="build.properties.local" />
             <exclude name="build.properties.jenkins" />
             <exclude name="build.xml" />
             <exclude name="phpunit.xml" />
+            <exclude name="${project.reports}/**" />
+            <exclude name="${project.tmp}/**" />
         </patternset>
     </target>
 

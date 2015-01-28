@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.0.3
+
+- bugfix project.package patternset
+
 ## 8.0.2
 
 - added project.package target
