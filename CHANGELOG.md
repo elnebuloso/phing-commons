@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 8.1.0
+
+- elnebuloso/bundler integration
+- bundle.javascript added
+- bundle.stylesheet added
+
 ## 8.0.3
 
 - bugfix project.package patternset

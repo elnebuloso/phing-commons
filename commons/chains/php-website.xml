@@ -7,6 +7,7 @@
 
     <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
+    <target name="bundle:main" hidden="true" depends="bundle.javascript, bundle.stylesheet" />
     <target name="package:main" hidden="true" depends="composer.optimize, project.package" />
     <target name="build:before" hidden="true" depends="jenkins.environment" />
     <target name="build:after" hidden="true" depends="jenkins.environment" />

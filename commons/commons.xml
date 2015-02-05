@@ -55,6 +55,8 @@
     <!-- ============================================ -->
     <!-- commons tasks                                -->
     <!-- ============================================ -->
+    <taskdef classname="Commons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript" />
+    <taskdef classname="Commons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet" />
     <taskdef classname="Commons\Phing\Task\Jenkins\EnvironmentTask" name="commons-jenkins-environment" />
     <taskdef classname="Commons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains" />
     <taskdef classname="Commons\Phing\Task\Composer\FormatTask" name="commons-composer-format" />
@@ -63,6 +65,7 @@
     <!-- ============================================ -->
     <!-- phing commons targets                        -->
     <!-- ============================================ -->
+    <import file="${phing:commons:commons}/targets/bundle.xml" />
     <import file="${phing:commons:commons}/targets/clean.xml" />
     <import file="${phing:commons:commons}/targets/composer.xml" />
     <import file="${phing:commons:commons}/targets/jenkins.xml" />
@@ -104,6 +107,7 @@
     <target name="help.targets" hidden="true">
         <echo message="Module Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="bundle:help      Overview of all Bundle Targets" />
         <echo message="clean:help       Overview of all Clean Targets" />
         <echo message="composer:help    Overview of all Composer Targets" />
         <echo message="jenkins:help     Overview of all Jenkins Targets" />

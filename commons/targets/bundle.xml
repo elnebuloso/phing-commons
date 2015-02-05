@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="bundle:help">
+
+
+    <import file="${phing:commons:commons}/targets/bundle/javascript.xml" />
+    <import file="${phing:commons:commons}/targets/bundle/stylesheet.xml" />
+
+
+    <target name="bundle:help">
+        <echo message="Bundle Targets" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="bundle.javascript    Bundle your Javascript Files" />
+        <echo message="bundle.stylesheet    Bundle your Stylesheet Files" />
+    </target>
+
+
+</project>

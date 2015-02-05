@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="bundle.javascript">
+
+
+    <target name="bundle.javascript:init" hidden="true">
+        <property name="bundle.javascript.enabled" value="no" />
+    </target>
+
+
+    <target name="bundle.javascript:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="bundle.javascript:main" hidden="true">
+        <if>
+            <istrue value="${bundle.javascript.enabled}" />
+            <then>
+                <commons-bundle-javascript file="${project.root}/.bundler/javascript.php" />
+            </then>
+            <else>
+                <echo message="bundling of javascript disabled. enable by property bundle.javascript.enabled set to yes" />
+            </else>
+        </if>
+    </target>
+
+
+    <target name="bundle.javascript:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="bundle.javascript" depends="bundle.javascript:init, bundle.javascript:before, bundle.javascript:main, bundle.javascript:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="bundle.javascript:help" depends="bundle.javascript:init">
+        <echo message="Property                     Value" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="bundle.javascript.enabled    yes|no: ${bundle.javascript.enabled}" />
+    </target>
+
+
+</project>
