@@ -6,6 +6,7 @@
 
     <target name="project.package:init" hidden="true">
         <property name="project.package.patternset.id" value="project_package_patternset_default" />
+        <property name="project.package.deploy.path" value="" />
 
         <patternset id="project_package_patternset_default">
             <include name="**/**" />
@@ -38,6 +39,19 @@
                 <patternset refid="${project.package.patternset.id}" />
             </fileset>
         </tar>
+
+        <if>
+            <not>
+            <equals arg1="${project.package.deploy.path}" arg2="" />
+            </not>
+            <then>
+                <echo message="deploy source:      ${project.tmp}/${project.version}.tar" />
+                <echo message="deploy destination: ${project.package.deploy.path}/${project.version}.tar" />
+
+                <mkdir dir="${project.package.deploy.path}" />
+                <copy file="${project.tmp}/${project.version}.tar" tofile="${project.package.deploy.path}/${project.version}.tar" overwrite="true" />
+            </then>
+        </if>
     </target>
 
 
@@ -55,6 +69,7 @@
         <echo message="Property                         Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.package.patternset.id    ${project.package.patternset.id}" />
+        <echo message="project.package.deploy.path      ${project.package.deploy.path}" />
     </target>
 
 

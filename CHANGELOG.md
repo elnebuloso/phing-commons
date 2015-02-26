@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.2.0
+
+- project packaging
+
 ## 8.1.0
 
 - elnebuloso/bundler integration
