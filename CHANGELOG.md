@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.3.0
+
+- project packaging
+- removed jenkins target from chains
+
 ## 8.2.0
 
 - project packaging

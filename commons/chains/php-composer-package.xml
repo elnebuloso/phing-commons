@@ -7,8 +7,6 @@
 
     <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
-    <target name="build:before" hidden="true" depends="jenkins.environment" />
-    <target name="build:after" hidden="true" depends="jenkins.environment" />
 
     <!-- additional targets -->
     <target name="release" hidden="true" depends="test, composer.format, project.version.update" />

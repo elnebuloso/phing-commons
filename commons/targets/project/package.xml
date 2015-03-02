@@ -6,7 +6,7 @@
 
     <target name="project.package:init" hidden="true">
         <property name="project.package.patternset.id" value="project_package_patternset_default" />
-        <property name="project.package.deploy.path" value="" />
+        <property name="project.package.copy.path" value="" />
 
         <patternset id="project_package_patternset_default">
             <include name="**/**" />
@@ -42,14 +42,17 @@
 
         <if>
             <not>
-            <equals arg1="${project.package.deploy.path}" arg2="" />
+                <equals arg1="${project.package.copy.path}" arg2="" />
             </not>
             <then>
-                <echo message="deploy source:      ${project.tmp}/${project.version}.tar" />
-                <echo message="deploy destination: ${project.package.deploy.path}/${project.version}.tar" />
+                <tstamp />
+                <property name="project.package.copy.destination" value="${project.package.copy.path}/${project.version}_${DSTAMP}${TSTAMP}.tar" />
 
-                <mkdir dir="${project.package.deploy.path}" />
-                <copy file="${project.tmp}/${project.version}.tar" tofile="${project.package.deploy.path}/${project.version}.tar" overwrite="true" />
+                <echo message="copy source:      ${project.tmp}/${project.version}.tar" />
+                <echo message="copy destination: ${project.package.copy.destination}" />
+
+                <mkdir dir="${project.package.copy.path}" />
+                <copy file="${project.tmp}/${project.version}.tar" tofile="${project.package.copy.destination}" overwrite="true" />
             </then>
         </if>
     </target>
@@ -69,7 +72,7 @@
         <echo message="Property                         Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.package.patternset.id    ${project.package.patternset.id}" />
-        <echo message="project.package.deploy.path      ${project.package.deploy.path}" />
+        <echo message="project.package.copy.path        ${project.package.copy.path}" />
     </target>
 
 
