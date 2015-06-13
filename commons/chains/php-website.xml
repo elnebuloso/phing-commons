@@ -5,7 +5,7 @@
 
     <echo message="loading chain: php-website" />
 
-    <target name="init:main" hidden="true" depends="composer.validate, composer.update" />
+    <target name="init:main" hidden="true" depends="clean.tmp, composer.validate, composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
     <target name="bundle:main" hidden="true" depends="bundle.javascript, bundle.stylesheet" />
     <target name="package:main" hidden="true" depends="composer.optimize, project.package" />
