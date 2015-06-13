@@ -52,7 +52,7 @@
                 <echo message="copy destination: ${project.package.copy.destination}" />
 
                 <mkdir dir="${project.package.copy.path}" />
-                <copy file="${project.tmp}/${project.version}.tar" tofile="${project.package.copy.destination}" overwrite="true" />
+                <move file="${project.tmp}/${project.version}.tar" tofile="${project.package.copy.destination}" overwrite="true" />
             </then>
         </if>
     </target>
