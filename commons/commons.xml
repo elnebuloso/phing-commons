@@ -45,10 +45,12 @@
     <fail unless="project.name" message="missing project.name" />
     <fail unless="project.version" message="missing project.version" />
 
-    <property name="project.tmp" value="${project.root}/build/tmp" />
-    <property name="project.reports" value="${project.root}/build/reports" />
+    <property name="project.tmp" value="${project.root}/.build/tmp" />
+    <property name="project.bundle" value="${project.root}/.build/bundle" />
+    <property name="project.reports" value="${project.root}/.build/reports" />
 
     <resolvepath propertyName="project.tmp" file="${project.tmp}" />
+    <resolvepath propertyName="project.bundle" file="${project.bundle}" />
     <resolvepath propertyName="project.reports" file="${project.reports}" />
 
 
@@ -97,6 +99,7 @@
         <echo message="project.name       ${project.name}" />
         <echo message="project.root       ${project.root}" />
         <echo message="project.tmp        ${project.tmp}" />
+        <echo message="project.bundle     ${project.bundle}" />
         <echo message="project.reports    ${project.reports}" />
     </target>
 

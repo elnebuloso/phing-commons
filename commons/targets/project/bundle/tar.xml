@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="project.bundle.tar">
+
+
+    <target name="project.bundle.tar:init" hidden="true">
+        <property name="project.bundle.tar.compression" value="gzip" />
+    </target>
+
+
+    <target name="project.bundle.tar:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.bundle.tar:main" hidden="true">
+        <delete file="${project.tmp}/${project.version}.tar" />
+
+        <tar destfile="${project.tmp}/${project.version}.tar" compression="gzip">
+            <fileset dir="${project.bundle}">
+                <include name="**/**" />
+            </fileset>
+        </tar>
+    </target>
+
+
+    <target name="project.bundle.tar:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="project.bundle.tar" depends="project.bundle.tar:init, project.bundle.tar:before, project.bundle.tar:main, project.bundle.tar:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="project.bundle.tar:help" depends="project.bundle.tar:init">
+        <echo message="Property                         Value" />
+        <echo message="----------------------------------------------------------------------------------------------------" />
+        <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}" />
+    </target>
+
+
+</project>

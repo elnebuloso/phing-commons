@@ -4,9 +4,29 @@
 <ruleset name="PhingCommons">
 
 
-    <description>Phing Commons Default Ruleset</description>
+    <description>Flex Components Ruleset</description>
+    <arg name="tab-width" value="4" />
 
 
+    <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\n" />
+        </properties>
+    </rule>
+
+    <!-- The soft limit on line length MUST be 160 characters; automated style checkers MUST warn but MUST NOT error at the soft limit. -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="160" />
+            <property name="absoluteLineLimit" value="0" />
+        </properties>
+    </rule>
+
+
+    <!-- ============================================ -->
+    <!-- Generic Sniffs                               -->
+    <!-- ============================================ -->
     <rule ref="Generic.Classes.DuplicateClassName" />
     <rule ref="Generic.CodeAnalysis.EmptyStatement" />
     <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
@@ -18,26 +38,11 @@
     <rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
     <rule ref="Generic.Commenting.Fixme" />
     <rule ref="Generic.Commenting.Todo" />
-    <rule ref="Generic.ControlStructures.InlineControlStructure">
-        <properties>
-            <property name="error" value="true" />
-        </properties>
-    </rule>
+    <rule ref="Generic.ControlStructures.InlineControlStructure" />
     <rule ref="Generic.Files.ByteOrderMark" />
     <rule ref="Generic.Files.EndFileNoNewline" />
     <rule ref="Generic.PHP.DisallowShortOpenTag" />
     <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="160" />
-            <property name="absoluteLineLimit" value="320" />
-        </properties>
-    </rule>
-    <rule ref="Generic.Files.LineEndings">
-        <properties>
-            <property name="eolChar" value="\n" />
-        </properties>
-    </rule>
     <rule ref="Generic.Files.OneClassPerFile" />
     <rule ref="Generic.Files.OneInterfacePerFile" />
     <rule ref="Generic.Formatting.DisallowMultipleStatements" />
@@ -56,24 +61,24 @@
     <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
 
 
-    <!-- ============================================  -->
-    <!-- PEAR Sniffs                                   -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- PEAR Sniffs                                  -->
+    <!-- ============================================ -->
     <rule ref="PEAR.Functions.ValidDefaultValue" />
     <rule ref="PEAR.NamingConventions.ValidClassName" />
     <rule ref="PEAR.WhiteSpace.ScopeClosingBrace" />
 
 
-    <!-- ============================================  -->
-    <!-- Squiz Sniffs                                  -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- Squiz Sniffs                                 -->
+    <!-- ============================================ -->
     <rule ref="Squiz.PHP.GlobalKeyword" />
     <rule ref="Squiz.PHP.NonExecutableCode" />
 
 
-    <!-- ============================================  -->
-    <!-- Zend Sniffs                                   -->
-    <!-- ============================================  -->
+    <!-- ============================================ -->
+    <!-- Zend Sniffs                                  -->
+    <!-- ============================================ -->
     <rule ref="Zend.Files.ClosingTag" />
 
 

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 8.4.0
+
+- updated chains
+- added project.bundle
+- added project.bundle.tar
+- added clean.bundle
+- update codesniffs
+
 ## 8.3.0
 
 - project packaging
