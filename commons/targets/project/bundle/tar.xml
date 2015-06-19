@@ -6,6 +6,7 @@
 
     <target name="project.bundle.tar:init" hidden="true">
         <property name="project.bundle.tar.compression" value="gzip" />
+        <property name="project.bundle.tar.timestamped" value="no" />
     </target>
 
 
@@ -15,9 +16,24 @@
 
 
     <target name="project.bundle.tar:main" hidden="true">
-        <delete file="${project.tmp}/${project.version}.tar" />
+        <delete>
+            <fileset dir="${project.tmp}">
+                <include name="*.tar" />
+            </fileset>
+        </delete>
 
-        <tar destfile="${project.tmp}/${project.version}.tar" compression="gzip">
+        <if>
+            <istrue value="${project.bundle.tar.timestamped}" />
+            <then>
+                <tstamp />
+                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.tar" />
+            </then>
+            <else>
+                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.tar" />
+            </else>
+        </if>
+
+        <tar destfile="${project.bundle.tar.filename}" compression="gzip">
             <fileset dir="${project.bundle}">
                 <include name="**/**" />
             </fileset>
@@ -36,9 +52,12 @@
 
 
     <target name="project.bundle.tar:help" depends="project.bundle.tar:init">
+        <echo message="Creating TAR file with filename set to property project.bundle.tar.filename" />
+        <echo message="" />
         <echo message="Property                         Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}" />
+        <echo message="project.bundle.tar.timestamped   ${project.bundle.tar.timestamped}" />
     </target>
 
 

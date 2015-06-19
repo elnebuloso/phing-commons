@@ -8,7 +8,4 @@
     <target name="init:main" hidden="true" depends="clean.tmp, composer.validate, composer.update" />
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
 
-    <!-- additional targets -->
-    <target name="release" hidden="true" depends="test, project.version.update, composer.format" />
-
 </project>

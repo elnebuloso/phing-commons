@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 8.5.0
+
+- updated project.bundle.tar
+- added project.bundle.zip
+- updated chain/php
+- updated chain/php-composer-package
+- updated chain/php-website
+
 ## 8.4.0
 
 - updated chains
