@@ -12,7 +12,7 @@
 
     <target name="report.phpcs:init" hidden="true">
         <property name="report.phpcs.patternset" value="report.phpcs.patternset.default" />
-        <property name="report.phpcs.ruleset" value="${phing:commons:root}/resources/phpcs/flex" />
+        <property name="report.phpcs.ruleset" value="PSR1,PSR2" />
         <property name="report.phpcs.haltonerror" value="no" />
         <property name="report.phpcs.haltonwarning" value="no" />
         <property name="report.phpcs.out" value="${project.reports}/phpcs" />

@@ -49,11 +49,8 @@ class ImportChainsTask extends \Task {
         }
 
         foreach($this->chains as $chain) {
-            $import = new \ImportTask();
-            $import->setProject($this->project);
-            $import->setFile($this->pathToChainFolder . '/' . $chain . '.xml');
-            $import->init();
-            $import->main();
+            $file = new \PhingFile($this->pathToChainFolder . '/' . $chain . '.xml');
+            \ProjectConfigurator::configureProject($this->project, $file);
         }
     }
 }

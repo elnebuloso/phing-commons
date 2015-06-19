@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 8.6.0
+
+- updated dependencies
+- "phing\/phing": "2.11.0",
+- "phpmd\/phpmd": "2.2.3",
+- "pdepend\/pdepend": "2.1.0",
+- "phploc\/phploc": "2.1.3",
+- "sebastian\/phpcpd": "2.0.2",
+- "squizlabs\/php_codesniffer": "2.3.2",
+- "apigen\/apigen": "4.1.1",
+- "phpunit\/phpunit": "4.7.4"
+- report.phpcs now using PSR1,PSR2 as codesniffer standards
+- report.phpcs removed flex coding standards
+- report.apigen no need for neon configuration file
+- removed jenkins targets
+
 ## 8.5.0
 
 - updated project.bundle.tar
