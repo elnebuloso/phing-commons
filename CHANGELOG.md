@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.6.1
+
+-  added composer.lock for tested dependencies on installing phing commons
+
 ## 8.6.0
 
 - updated dependencies
