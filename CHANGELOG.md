@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.6.2
+
+. added tests/**/*.php to whitelist patternset phpcs
+
 ## 8.6.1
 
 -  added composer.lock for tested dependencies on installing phing commons
