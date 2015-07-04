@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 8.7.0
+
+- updated project.bundle.tar
+  - timestamped yes as default
+  - new config project.bundle.tar.copy.todir (copy file to additional directory)
+- updated project.bundle.zip
+  - timestamped yes as default
+  - new config project.bundle.zip.copy.todir (copy file to additional directory)
+
 ## 8.6.2
 
 . added tests/**/*.php to whitelist patternset phpcs

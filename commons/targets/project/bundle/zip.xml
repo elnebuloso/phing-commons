@@ -5,7 +5,8 @@
 
 
     <target name="project.bundle.zip:init" hidden="true">
-        <property name="project.bundle.zip.timestamped" value="no" />
+        <property name="project.bundle.zip.timestamped" value="yes" />
+        <property name="project.bundle.zip.copy.todir" value="" />
     </target>
 
 
@@ -37,6 +38,15 @@
                 <include name="**/**" />
             </fileset>
         </zip>
+
+        <if>
+            <not>
+                <equals arg1="${project.bundle.zip.copy.todir}" arg2="" />
+            </not>
+            <then>
+                <copy file="${project.bundle.zip.filename}" todir="${project.bundle.zip.copy.todir}" overwrite="true" />
+            </then>
+        </if>
     </target>
 
 
@@ -56,6 +66,7 @@
         <echo message="Property                         Value" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.bundle.zip.timestamped   ${project.bundle.zip.timestamped}" />
+        <echo message="project.bundle.zip.copy.todir    ${project.bundle.zip.copy.todir}" />
     </target>
 
 

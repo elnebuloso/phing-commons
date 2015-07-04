@@ -6,7 +6,8 @@
 
     <target name="project.bundle.tar:init" hidden="true">
         <property name="project.bundle.tar.compression" value="gzip" />
-        <property name="project.bundle.tar.timestamped" value="no" />
+        <property name="project.bundle.tar.timestamped" value="yes" />
+        <property name="project.bundle.tar.copy.todir" value="" />
     </target>
 
 
@@ -38,6 +39,15 @@
                 <include name="**/**" />
             </fileset>
         </tar>
+
+        <if>
+            <not>
+                <equals arg1="${project.bundle.tar.copy.todir}" arg2="" />
+            </not>
+            <then>
+                <copy file="${project.bundle.tar.filename}" todir="${project.bundle.tar.copy.todir}" overwrite="true" />
+            </then>
+        </if>
     </target>
 
 
@@ -58,6 +68,7 @@
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}" />
         <echo message="project.bundle.tar.timestamped   ${project.bundle.tar.timestamped}" />
+        <echo message="project.bundle.tar.copy.todir    ${project.bundle.tar.copy.todir}" />
     </target>
 
 
