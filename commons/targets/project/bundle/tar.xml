@@ -19,7 +19,7 @@
     <target name="project.bundle.tar:main" hidden="true">
         <delete>
             <fileset dir="${project.tmp}">
-                <include name="*.tar" />
+                <include name="*.tar*" />
             </fileset>
         </delete>
 
@@ -32,6 +32,20 @@
             <else>
                 <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.tar" />
             </else>
+        </if>
+
+        <if>
+            <equals arg1="${project.bundle.tar.compression}" arg2="gzip" />
+            <then>
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" />
+            </then>
+        </if>
+
+        <if>
+            <equals arg1="${project.bundle.tar.compression}" arg2="bzip2" />
+            <then>
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" />
+            </then>
         </if>
 
         <tar destfile="${project.bundle.tar.filename}" compression="gzip">

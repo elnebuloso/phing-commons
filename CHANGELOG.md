@@ -1,10 +1,20 @@
 # CHANGELOG
 
+## 8.8.0
+
+- updated project.bundle.tar
+  - suffix .gz for files compressed with gzip
+  - suffix .bz2 for files compressed with bzip2
+
+- project.bundle
+  - exclude docs folder as default
+
 ## 8.7.0
 
 - updated project.bundle.tar
   - timestamped yes as default
   - new config project.bundle.tar.copy.todir (copy file to additional directory)
+
 - updated project.bundle.zip
   - timestamped yes as default
   - new config project.bundle.zip.copy.todir (copy file to additional directory)

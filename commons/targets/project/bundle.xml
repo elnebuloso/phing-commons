@@ -13,6 +13,7 @@
             <exclude name=".idea/**" />
             <exclude name=".git/**" />
             <exclude name=".svn/**" />
+            <exclude name="docs/**" />
             <exclude name="tests/**" />
             <exclude name="build.properties" />
             <exclude name="build.properties.local" />
