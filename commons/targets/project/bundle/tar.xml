@@ -37,14 +37,14 @@
         <if>
             <equals arg1="${project.bundle.tar.compression}" arg2="gzip" />
             <then>
-                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" />
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" override="true" />
             </then>
         </if>
 
         <if>
             <equals arg1="${project.bundle.tar.compression}" arg2="bzip2" />
             <then>
-                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" />
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" override="true" />
             </then>
         </if>
 

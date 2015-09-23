@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 8.8.0
+## 8.8.0, 8.8.1
 
 - updated project.bundle.tar
   - suffix .gz for files compressed with gzip
