@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.8.2
+
+- global configuration over user home directory, optional
+
 ## 8.8.0, 8.8.1
 
 - updated project.bundle.tar

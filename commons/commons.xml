@@ -32,6 +32,7 @@
 
     <resolvepath propertyName="project.root" file="${project.root}" />
 
+    <property file="${user.home}/phing-commons/build.properties" />
     <property file="${project.root}/build.properties" />
     <property file="${project.root}/build.properties.local" />
 
