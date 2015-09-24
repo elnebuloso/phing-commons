@@ -4,11 +4,10 @@
     "license": "MIT",
     "description": "phing commons build stack",
     "keywords": [
+        "php",
         "phing",
         "build management",
-        "continuous integration",
-        "jenkins",
-        "ant"
+        "continuous integration"
     ],
     "authors": [
         {

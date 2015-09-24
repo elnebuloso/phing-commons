@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 8.9.0
+## 8.9.0, 8.9.1
 
 - updated composer packages to newest versions
 - tested composer packages with build targets, updated composer.lock for tested installation
+- twitter tweet task to tweet the current package
 
 ## 8.8.2
 

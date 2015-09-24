@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="twitter.tweet.package">
+
+
+    <target name="twitter.tweet.package:init" hidden="true">
+        <property name="project.url" value="" />
+        <property name="project.tags" value="" />
+    </target>
+
+
+    <target name="twitter.tweet.package:before" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="twitter.tweet.package:main" hidden="true">
+        <commons-twitter-tweet-package projectUrl="${project.url}" projectTags="${project.tags}" />
+    </target>
+
+
+    <target name="twitter.tweet.package:after" hidden="true">
+        <echo message="no actions defined" level="debug" />
+    </target>
+
+
+    <target name="twitter.tweet.package" depends="twitter.tweet.package:init, twitter.tweet.package:before, twitter.tweet.package:main, twitter.tweet.package:after">
+        <echo message="successful" />
+    </target>
+
+
+    <target name="twitter.tweet.package:help" depends="twitter.tweet.package:init">
+        <echo message="no help defined" />
+    </target>
+
+
+</project>
