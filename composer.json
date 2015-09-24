@@ -6,8 +6,8 @@
     "keywords": [
         "php",
         "phing",
-        "build management",
-        "continuous integration"
+        "build-management",
+        "continuous-integration"
     ],
     "authors": [
         {
