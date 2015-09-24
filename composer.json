@@ -22,7 +22,9 @@
             "Commons\\": "src\/"
         }
     },
-    "repositories": [],
+    "repositories": [
+
+    ],
     "require": {
         "php": "~5.3",
         "phing\/phing": "2.11.0",
