@@ -36,9 +36,10 @@ To use the Phing Commons, just call /path/to/your/phing-commons-installation/**b
 
 If you want to configure the common targets, use a build.properties file to your project root.
 For local additions or local behaviors add a build.properties.local file. This is an optional file.
+For global additions add /[home]/phing-commons/build.properties file. This is an optional file.
 But don't commit build.properties.local to your VCS.
 
-The build.properties and the build.properties are optional files and are loaded when available.
+The build.properties files are optional and are loaded when available.
 
 ## Build Chain
 

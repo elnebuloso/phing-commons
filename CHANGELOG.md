@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 8.9.0
+
+- updated composer packages to newest versions
+- tested composer packages with build targets, updated composer.lock for tested installation
+
 ## 8.8.2
 
 - global configuration over user home directory, optional
