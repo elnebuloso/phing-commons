@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 8.11.0
+
+- build chain php changed composer.update to composer.install
+- build chain php-composer-package changed composer.update to composer.install
+- build chain php-website changed composer.update to composer.install
+
 ## 8.10.0
 
 - composer.format changed to JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT 
