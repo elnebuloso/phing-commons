@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.10.0
+
+- composer.format changed to JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT 
+
 ## 8.9.0, 8.9.1
 
 - updated composer packages to newest versions

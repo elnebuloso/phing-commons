@@ -37,7 +37,7 @@ class FormatTask extends \Task {
             throw new \BuildException('unable to decode content from composer file: ' . $this->composerFile);
         }
 
-        if(file_put_contents($this->composerFile, json_encode($content, JSON_PRETTY_PRINT)) === false) {
+        if(file_put_contents($this->composerFile, json_encode($content, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT)) === false) {
             throw new \BuildException('unable to write formatted composer file: ' . $this->composerFile);
         }
     }
