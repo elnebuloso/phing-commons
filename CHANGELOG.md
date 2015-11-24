@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.0.0
+
+- no support for php 5.3
+- updated bundler to 9.0.0
+
 ## 8.11.0
 
 - build chain php changed composer.update to composer.install

@@ -25,7 +25,7 @@
 
     ],
     "require": {
-        "php": "~5.3",
+        "php": ">=5.4.0",
         "phing/phing": "2.11.0",
         "phpmd/phpmd": "2.3.2",
         "pdepend/pdepend": "2.2.1",
@@ -35,7 +35,7 @@
         "apigen/apigen": "4.1.1",
         "phpunit/phpunit": "4.8.9",
         "abraham/twitteroauth": "0.6.0",
-        "elnebuloso/bundler": "~8.1"
+        "elnebuloso/bundler": "~9.0"
     },
     "config": {
         "bin-dir": "bin"
