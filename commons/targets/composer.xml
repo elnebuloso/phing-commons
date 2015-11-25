@@ -6,26 +6,32 @@
 
     <import file="${phing:commons:commons}/targets/composer/format.xml" />
     <import file="${phing:commons:commons}/targets/composer/install.xml" />
+    <import file="${phing:commons:commons}/targets/composer/install/nodev.xml" />
     <import file="${phing:commons:commons}/targets/composer/optimize.xml" />
     <import file="${phing:commons:commons}/targets/composer/update.xml" />
+    <import file="${phing:commons:commons}/targets/composer/update/nodev.xml" />
     <import file="${phing:commons:commons}/targets/composer/validate.xml" />
 
 
     <target name="composer:help">
         <echo message="Composer Targets" />
         <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.format      Format the composer.json using JSON_PRETTY_PRINT" />
-        <echo message="composer.install     Install dependencies, if composer.lock available, keep exact versions" />
-        <echo message="composer.optimize    Optimizing Composer" />
-        <echo message="composer.update      Install latest versions of the dependencies and update the composer.lock" />
-        <echo message="composer.validate    Validates the composer.json in your project root" />
+        <echo message="composer.format           Format the composer.json using JSON_PRETTY_PRINT" />
+        <echo message="composer.install          Install dependencies, if composer.lock available, keep exact versions" />
+        <echo message="composer.install.nodev    Install dependencies, if composer.lock available, keep exact versions, nodev dependencies" />
+        <echo message="composer.optimize         Optimizing Composer" />
+        <echo message="composer.update           Install latest versions of the dependencies and update the composer.lock" />
+        <echo message="composer.update.nodev     Install latest versions of the dependencies and update the composer.lock, nodev dependencies" />
+        <echo message="composer.validate         Validates the composer.json in your project root" />
         <echo message="" />
         <echo message="Composer Targets Help" />
         <echo message="----------------------------------------------------------------------------------------------------" />
         <echo message="composer.format:help" />
         <echo message="composer.install:help" />
+        <echo message="composer.install.nodev:help" />
         <echo message="composer.optimize:help" />
         <echo message="composer.update:help" />
+        <echo message="composer.update.nodev:help" />
         <echo message="composer.validate:help" />
     </target>
 

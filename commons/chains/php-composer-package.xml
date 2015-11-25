@@ -9,7 +9,7 @@
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit" />
 
     <!-- additional targets -->
-    <target name="release" hidden="true" depends="project.version.update, composer.format" />
+    <target name="release" hidden="true" depends="project.version.update, composer.validate, composer.format" />
     <target name="metrics" hidden="true" depends="clean.tmp, clean.reports, test, report" />
 
 </project>

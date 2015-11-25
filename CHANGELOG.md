@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 9.1.0
+
+- added composer.install.nodev
+- added composer.update.nodev
+- updated chain php
+- updated chain php-composer-package
+- updated chain php-website
+- changed in chain php-website composer.install to composer.install.nodev
+
 ## 9.0.0
 
 - no support for php 5.3
