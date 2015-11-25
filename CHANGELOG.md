@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 9.2.0
+
+- added pear/archive_tar composer dependency, missing by target project.bundle.tar
+
 ## 9.1.0
 
 - added composer.install.nodev

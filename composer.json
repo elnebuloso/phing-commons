@@ -21,9 +21,7 @@
             "Commons\\": "src/"
         }
     },
-    "repositories": [
-
-    ],
+    "repositories": [],
     "require": {
         "php": ">=5.4.0",
         "phing/phing": "2.11.0",
@@ -34,6 +32,7 @@
         "squizlabs/php_codesniffer": "2.3.4",
         "apigen/apigen": "4.1.1",
         "phpunit/phpunit": "4.8.9",
+        "pear/archive_tar": "1.4.1",
         "abraham/twitteroauth": "0.6.0",
         "elnebuloso/bundler": "~9.0"
     },
