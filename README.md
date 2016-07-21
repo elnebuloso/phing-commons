@@ -127,3 +127,10 @@ In the default chain, **test:main** calls:
  * test.phpunit:main
  * test.phpunit:after
  * test.phpunit
+
+## links
+
+- https://github.com/escapestudios/Symfony2-coding-standard
+- https://github.com/mayflower/mo4-coding-standard
+- https://github.com/dotblue/codesniffer-ruleset
+- https://github.com/cakephp/cakephp-codesniffer
