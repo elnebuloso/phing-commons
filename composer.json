@@ -23,20 +23,29 @@
     },
     "repositories": [],
     "require": {
-        "php": ">=5.4.0",
-        "phing/phing": "2.11.0",
-        "phpmd/phpmd": "2.3.2",
-        "pdepend/pdepend": "2.2.1",
-        "phploc/phploc": "2.1.4",
-        "sebastian/phpcpd": "2.0.2",
-        "squizlabs/php_codesniffer": "2.3.4",
-        "apigen/apigen": "4.1.1",
-        "phpunit/phpunit": "4.8.9",
-        "pear/archive_tar": "1.4.1",
-        "abraham/twitteroauth": "0.6.0",
-        "elnebuloso/bundler": "~9.0"
+        "php": "~5.6|~7.0",
+        "phing/phing": "2.14.0",
+        "phpmd/phpmd": "2.4.3",
+        "pdepend/pdepend": "2.2.4",
+        "phploc/phploc": "2.1.5",
+        "sebastian/phpcpd": "2.0.4",
+        "squizlabs/php_codesniffer": "2.6.2",
+        "apigen/apigen": "4.1.2",
+        "phpunit/phpunit": "4.8.27",
+        "pear/archive_tar": "1.4.2",
+        "abraham/twitteroauth": "0.6.4",
+        "elnebuloso/bundler": "~9.0",
+        "cakephp/cakephp-codesniffer": "2.1.0"
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer"
+        ],
+        "post-install-cmd": [
+            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer"
+        ]
     }
 }
