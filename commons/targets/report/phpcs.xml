@@ -13,7 +13,7 @@
 
     <target name="report.phpcs:init" hidden="true">
         <property name="report.phpcs.patternset" value="report.phpcs.patternset.default" />
-        <property name="report.phpcs.ruleset" value="elnebuloso" />
+        <property name="report.phpcs.ruleset" value="Flex1" />
         <property name="report.phpcs.haltonerror" value="no" />
         <property name="report.phpcs.haltonwarning" value="no" />
         <property name="report.phpcs.out" value="${project.reports}/phpcs" />

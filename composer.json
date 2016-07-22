@@ -35,17 +35,18 @@
         "pear/archive_tar": "1.4.2",
         "abraham/twitteroauth": "0.6.4",
         "elnebuloso/bundler": "~9.0",
-        "cakephp/cakephp-codesniffer": "2.1.0"
+        "cakephp/cakephp-codesniffer": "2.1.0",
+        "escapestudios/symfony2-coding-standard": "2.9.1"
     },
     "config": {
         "bin-dir": "bin"
     },
     "scripts": {
         "post-update-cmd": [
-            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer"
+            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer,../../../vendor/escapestudios/symfony2-coding-standard"
         ],
         "post-install-cmd": [
-            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer"
+            "bin/phpcs --config-set installed_paths ../../../resources/codesniffer,../../../vendor/cakephp/cakephp-codesniffer,../../../vendor/escapestudios/symfony2-coding-standard"
         ]
     }
 }
