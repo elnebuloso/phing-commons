@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.3.0
+
+- codesniffer Flex1
+- updated composer.format
+
 ## 9.2.0
 
 - added pear/archive_tar composer dependency, missing by target project.bundle.tar
