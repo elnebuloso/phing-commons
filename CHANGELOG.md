@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 9.3.1
+
+- updated composer.lock
+
 ## 9.3.0
 
 - added codesniffer Flex1 coding standard (version 1)
