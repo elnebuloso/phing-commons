@@ -1,5 +1,8 @@
 # phing-commons
 
+[![License](https://poser.pugx.org/elnebuloso/phing-commons/license)](https://packagist.org/packages/elnebuloso/phing-commons)
+[![composer.lock](https://poser.pugx.org/elnebuloso/phing-commons/composerlock)](https://packagist.org/packages/elnebuloso/phing-commons)
+
 ## About
 
 This is a full delivered build stack using PHING as Build Tool. The Phing Commons Build Stack gives you pre-defined Targets which you can configure

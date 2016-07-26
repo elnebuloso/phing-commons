@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.3.2
+
+- reverted phing to 2.11.0, reflection error on phpunit reporting
+- updated composer.lock
+
 ## 9.3.1
 
 - updated composer.lock
