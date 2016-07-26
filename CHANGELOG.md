@@ -2,7 +2,7 @@
 
 ## 9.3.0
 
-- added codesniffer Flex1
+- added codesniffer Flex1 coding standard (version 1)
 - updated composer.format
 
 ## 9.2.0
