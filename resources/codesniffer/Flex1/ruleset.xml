@@ -71,7 +71,7 @@
     <rule ref="MyCakePHP.PHP.IsInt"/>
     <rule ref="MyCakePHP.PHP.IsNull"/>
     <rule ref="MyCakePHP.PHP.IsWritable"/>
-    <rule ref="MyCakePHP.Whitespace.TernarySpacing"/>
+    <rule ref="MyCakePHP.WhiteSpace.TernarySpacing"/>
 
 
 </ruleset>
