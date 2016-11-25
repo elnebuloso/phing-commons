@@ -13,6 +13,8 @@ PHING_COMMONS_VERSION_FILENAME=phing-commons-$PHING_COMMONS_VERSION.tar.gz
 
 ################################################################################################
 
-tar cfzv /var/releases/phing-commons/$PHING_COMMONS_VERSION_FILENAME -C /tmp/phing-commons .
+rm /var/releases/$PHING_COMMONS_VERSION_FILENAME
+tar cfzv /var/releases/$PHING_COMMONS_VERSION_FILENAME -C /tmp/phing-commons .
+rm -rf /tmp/phing-commons
 
 ################################################################################################
