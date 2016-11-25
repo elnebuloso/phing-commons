@@ -25,17 +25,17 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "phing/phing": "2.11.0",
-        "phpmd/phpmd": "2.4.3",
-        "pdepend/pdepend": "2.2.4",
-        "phploc/phploc": "2.1.5",
+        "phpmd/phpmd": "2.5.0",
+        "pdepend/pdepend": "2.3.2",
+        "phploc/phploc": "3.0.1",
         "sebastian/phpcpd": "2.0.4",
-        "squizlabs/php_codesniffer": "2.6.2",
+        "squizlabs/php_codesniffer": "2.7.0",
         "apigen/apigen": "4.1.2",
         "phpunit/phpunit": "4.8.27",
         "pear/archive_tar": "1.4.2",
-        "abraham/twitteroauth": "0.6.4",
+        "abraham/twitteroauth": "0.7.1",
         "elnebuloso/bundler": "~9.0",
-        "cakephp/cakephp-codesniffer": "2.1.0",
+        "cakephp/cakephp-codesniffer": "2.1.5",
         "escapestudios/symfony2-coding-standard": "2.9.1"
     },
     "config": {

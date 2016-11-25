@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 9.4.0
+
+- formatted commons xmls
+- updated dependencies to newer versions
+- updated project.bundle project_bundle_patternset_default
+
 ## 9.3.3
 
 - bugfix codesniffer referenced sniff MyCakePHP.Whitespace.TernarySpacing -> MyCakePHP.WhiteSpace.TernarySpacing

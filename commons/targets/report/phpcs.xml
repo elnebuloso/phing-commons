@@ -5,61 +5,61 @@
 
 
     <patternset id="report.phpcs.patternset.default">
-        <include name="application/**/*.php" />
-        <include name="src/**/*.php" />
-        <include name="tests/**/*.php" />
+        <include name="application/**/*.php"/>
+        <include name="src/**/*.php"/>
+        <include name="tests/**/*.php"/>
     </patternset>
 
 
     <target name="report.phpcs:init" hidden="true">
-        <property name="report.phpcs.patternset" value="report.phpcs.patternset.default" />
-        <property name="report.phpcs.ruleset" value="Flex1" />
-        <property name="report.phpcs.haltonerror" value="no" />
-        <property name="report.phpcs.haltonwarning" value="no" />
-        <property name="report.phpcs.out" value="${project.reports}/phpcs" />
-        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/phpcs.xsl" />
+        <property name="report.phpcs.patternset" value="report.phpcs.patternset.default"/>
+        <property name="report.phpcs.ruleset" value="Flex1"/>
+        <property name="report.phpcs.haltonerror" value="no"/>
+        <property name="report.phpcs.haltonwarning" value="no"/>
+        <property name="report.phpcs.out" value="${project.reports}/phpcs"/>
+        <property name="report.phpcs.xsl" value="${phing:commons:root}/resources/phpcs/phpcs.xsl"/>
     </target>
 
 
     <target name="report.phpcs:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.phpcs:main" hidden="true">
-        <delete dir="${report.phpcs.out}" />
-        <mkdir dir="${report.phpcs.out}" />
+        <delete dir="${report.phpcs.out}"/>
+        <mkdir dir="${report.phpcs.out}"/>
 
         <phpcodesniffer standard="${report.phpcs.ruleset}" showSniffs="true" showWarnings="true" verbosity="0" haltonerror="${report.phpcs.haltonerror}" haltonwarning="${report.phpcs.haltonwarning}">
             <fileset dir="${project.root}">
-                <patternset refid="${report.phpcs.patternset}" />
+                <patternset refid="${report.phpcs.patternset}"/>
             </fileset>
-            <formatter type="checkstyle" outfile="${report.phpcs.out}/checkstyle.xml" />
+            <formatter type="checkstyle" outfile="${report.phpcs.out}/checkstyle.xml"/>
         </phpcodesniffer>
 
-        <xslt file="${report.phpcs.out}/checkstyle.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}" />
+        <xslt file="${report.phpcs.out}/checkstyle.xml" tofile="${report.phpcs.out}/index.html" style="${report.phpcs.xsl}"/>
     </target>
 
 
     <target name="report.phpcs:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.phpcs" depends="report.phpcs:init, report.phpcs:before, report.phpcs:main, report.phpcs:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="report.phpcs:help" depends="report.phpcs:init" hidden="true">
-        <echo message="Property                      Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpcs.patternset       ${report.phpcs.patternset}" />
-        <echo message="report.phpcs.ruleset          ${report.phpcs.ruleset}" />
-        <echo message="report.phpcs.haltonerror      yes|no: ${report.phpcs.haltonerror}" />
-        <echo message="report.phpcs.haltonwarning    yes|no: ${report.phpcs.haltonwarning}" />
-        <echo message="report.phpcs.out              ${report.phpcs.out}" />
-        <echo message="report.phpcs.xsl              ${report.phpcs.xsl}" />
+        <echo message="Property                      Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpcs.patternset       ${report.phpcs.patternset}"/>
+        <echo message="report.phpcs.ruleset          ${report.phpcs.ruleset}"/>
+        <echo message="report.phpcs.haltonerror      yes|no: ${report.phpcs.haltonerror}"/>
+        <echo message="report.phpcs.haltonwarning    yes|no: ${report.phpcs.haltonwarning}"/>
+        <echo message="report.phpcs.out              ${report.phpcs.out}"/>
+        <echo message="report.phpcs.xsl              ${report.phpcs.xsl}"/>
     </target>
 
 

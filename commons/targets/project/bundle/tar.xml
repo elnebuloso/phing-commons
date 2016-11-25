@@ -5,84 +5,84 @@
 
 
     <target name="project.bundle.tar:init" hidden="true">
-        <property name="project.bundle.tar.compression" value="gzip" />
-        <property name="project.bundle.tar.timestamped" value="yes" />
-        <property name="project.bundle.tar.copy.todir" value="" />
+        <property name="project.bundle.tar.compression" value="gzip"/>
+        <property name="project.bundle.tar.timestamped" value="yes"/>
+        <property name="project.bundle.tar.copy.todir" value=""/>
     </target>
 
 
     <target name="project.bundle.tar:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle.tar:main" hidden="true">
         <delete>
             <fileset dir="${project.tmp}">
-                <include name="*.tar*" />
+                <include name="*.tar*"/>
             </fileset>
         </delete>
 
         <if>
-            <istrue value="${project.bundle.tar.timestamped}" />
+            <istrue value="${project.bundle.tar.timestamped}"/>
             <then>
-                <tstamp />
-                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.tar" />
+                <tstamp/>
+                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.tar"/>
             </then>
             <else>
-                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.tar" />
+                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.tar"/>
             </else>
         </if>
 
         <if>
-            <equals arg1="${project.bundle.tar.compression}" arg2="gzip" />
+            <equals arg1="${project.bundle.tar.compression}" arg2="gzip"/>
             <then>
-                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" override="true" />
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" override="true"/>
             </then>
         </if>
 
         <if>
-            <equals arg1="${project.bundle.tar.compression}" arg2="bzip2" />
+            <equals arg1="${project.bundle.tar.compression}" arg2="bzip2"/>
             <then>
-                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" override="true" />
+                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" override="true"/>
             </then>
         </if>
 
         <tar destfile="${project.bundle.tar.filename}" compression="gzip">
             <fileset dir="${project.bundle}">
-                <include name="**/**" />
+                <include name="**/**"/>
             </fileset>
         </tar>
 
         <if>
             <not>
-                <equals arg1="${project.bundle.tar.copy.todir}" arg2="" />
+                <equals arg1="${project.bundle.tar.copy.todir}" arg2=""/>
             </not>
             <then>
-                <copy file="${project.bundle.tar.filename}" todir="${project.bundle.tar.copy.todir}" overwrite="true" />
+                <copy file="${project.bundle.tar.filename}" todir="${project.bundle.tar.copy.todir}" overwrite="true"/>
             </then>
         </if>
     </target>
 
 
     <target name="project.bundle.tar:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle.tar" depends="project.bundle.tar:init, project.bundle.tar:before, project.bundle.tar:main, project.bundle.tar:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="project.bundle.tar:help" depends="project.bundle.tar:init">
-        <echo message="Creating TAR file with filename set to property project.bundle.tar.filename" />
-        <echo message="" />
-        <echo message="Property                         Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}" />
-        <echo message="project.bundle.tar.timestamped   ${project.bundle.tar.timestamped}" />
-        <echo message="project.bundle.tar.copy.todir    ${project.bundle.tar.copy.todir}" />
+        <echo message="Creating TAR file with filename set to property project.bundle.tar.filename"/>
+        <echo message=""/>
+        <echo message="Property                         Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}"/>
+        <echo message="project.bundle.tar.timestamped   ${project.bundle.tar.timestamped}"/>
+        <echo message="project.bundle.tar.copy.todir    ${project.bundle.tar.copy.todir}"/>
     </target>
 
 

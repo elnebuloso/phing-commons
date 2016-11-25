@@ -5,46 +5,46 @@
 
 
     <target name="report.apigen:init" hidden="true">
-        <property name="report.apigen.out" value="${project.reports}/apigen" />
-        <property name="report.apigen.theme" value="bootstrap" />
-        <property name="report.apigen.sources" value="src" />
+        <property name="report.apigen.out" value="${project.reports}/apigen"/>
+        <property name="report.apigen.theme" value="bootstrap"/>
+        <property name="report.apigen.sources" value="src"/>
     </target>
 
 
     <target name="report.apigen:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.apigen:main" hidden="true">
-        <delete dir="${report.apigen.out}" />
-        <mkdir dir="${report.apigen.out}" />
+        <delete dir="${report.apigen.out}"/>
+        <mkdir dir="${report.apigen.out}"/>
 
         <exec executable="${phing:commons:root}/bin/apigen" logoutput="true" passthru="true" level="info" checkreturn="yes">
-            <arg line="generate" />
-            <arg line="--source ${report.apigen.sources}" />
-            <arg line="--destination ${project.reports}/apigen" />
-            <arg line="--template-theme=${report.apigen.theme}" />
+            <arg line="generate"/>
+            <arg line="--source ${report.apigen.sources}"/>
+            <arg line="--destination ${project.reports}/apigen"/>
+            <arg line="--template-theme=${report.apigen.theme}"/>
         </exec>
     </target>
 
 
     <target name="report.apigen:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.apigen" depends="report.apigen:init, report.apigen:before, report.apigen:main, report.apigen:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="report.apigen:help" depends="report.apigen:init" hidden="true">
-        <echo message="Property                  Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.apigen.out         ${report.apigen.out}" />
-        <echo message="report.apigen.theme       ${report.apigen.theme}" />
-        <echo message="report.apigen.sources     ${report.apigen.sources}" />
+        <echo message="Property                  Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.apigen.out         ${report.apigen.out}"/>
+        <echo message="report.apigen.theme       ${report.apigen.theme}"/>
+        <echo message="report.apigen.sources     ${report.apigen.sources}"/>
     </target>
 
 

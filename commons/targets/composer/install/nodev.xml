@@ -5,26 +5,26 @@
 
 
     <target name="composer.install.nodev:init" hidden="true">
-        <property name="composer.executable" value="composer" />
-        <property name="composer.install.nodev.args" value="" />
+        <property name="composer.executable" value="composer"/>
+        <property name="composer.install.nodev.args" value=""/>
     </target>
 
 
     <target name="composer.install.nodev:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="composer.install.nodev:main" hidden="true">
-        <available file="${project.root}/composer.json" type="file" property="composer.json.exists" />
+        <available file="${project.root}/composer.json" type="file" property="composer.json.exists"/>
 
         <if>
-            <isset property="composer.json.exists" />
+            <isset property="composer.json.exists"/>
             <then>
                 <exec executable="${composer.executable}" logoutput="true" passthru="true" level="info" checkreturn="yes">
-                    <arg line="install" />
-                    <arg line="--no-dev" />
-                    <arg line="${composer.install.nodev.args}" />
+                    <arg line="install"/>
+                    <arg line="--no-dev"/>
+                    <arg line="${composer.install.nodev.args}"/>
                 </exec>
             </then>
         </if>
@@ -32,20 +32,20 @@
 
 
     <target name="composer.install.nodev:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="composer.install.nodev" depends="composer.install.nodev:init, composer.install.nodev:before, composer.install.nodev:main, composer.install.nodev:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="composer.install.nodev:help" depends="composer.install.nodev:init">
-        <echo message="Property                       Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="composer.executable            ${composer.executable}" />
-        <echo message="composer.install.nodev.args    ${composer.install.nodev.args}" />
+        <echo message="Property                       Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="composer.executable            ${composer.executable}"/>
+        <echo message="composer.install.nodev.args    ${composer.install.nodev.args}"/>
     </target>
 
 

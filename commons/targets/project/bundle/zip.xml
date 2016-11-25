@@ -5,68 +5,68 @@
 
 
     <target name="project.bundle.zip:init" hidden="true">
-        <property name="project.bundle.zip.timestamped" value="yes" />
-        <property name="project.bundle.zip.copy.todir" value="" />
+        <property name="project.bundle.zip.timestamped" value="yes"/>
+        <property name="project.bundle.zip.copy.todir" value=""/>
     </target>
 
 
     <target name="project.bundle.zip:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle.zip:main" hidden="true">
         <delete>
             <fileset dir="${project.tmp}">
-                <include name="*.zip" />
+                <include name="*.zip"/>
             </fileset>
         </delete>
 
         <if>
-            <istrue value="${project.bundle.zip.timestamped}" />
+            <istrue value="${project.bundle.zip.timestamped}"/>
             <then>
-                <tstamp />
-                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.zip" />
+                <tstamp/>
+                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.zip"/>
             </then>
             <else>
-                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.zip" />
+                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.zip"/>
             </else>
         </if>
 
         <zip destfile="${project.bundle.zip.filename}">
             <fileset dir="${project.bundle}">
-                <include name="**/**" />
+                <include name="**/**"/>
             </fileset>
         </zip>
 
         <if>
             <not>
-                <equals arg1="${project.bundle.zip.copy.todir}" arg2="" />
+                <equals arg1="${project.bundle.zip.copy.todir}" arg2=""/>
             </not>
             <then>
-                <copy file="${project.bundle.zip.filename}" todir="${project.bundle.zip.copy.todir}" overwrite="true" />
+                <copy file="${project.bundle.zip.filename}" todir="${project.bundle.zip.copy.todir}" overwrite="true"/>
             </then>
         </if>
     </target>
 
 
     <target name="project.bundle.zip:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle.zip" depends="project.bundle.zip:init, project.bundle.zip:before, project.bundle.zip:main, project.bundle.zip:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="project.bundle.zip:help" depends="project.bundle.zip:init">
-        <echo message="Creating ZIP file with filename set to property project.bundle.zip.filename" />
-        <echo message="" />
-        <echo message="Property                         Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.bundle.zip.timestamped   ${project.bundle.zip.timestamped}" />
-        <echo message="project.bundle.zip.copy.todir    ${project.bundle.zip.copy.todir}" />
+        <echo message="Creating ZIP file with filename set to property project.bundle.zip.filename"/>
+        <echo message=""/>
+        <echo message="Property                         Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="project.bundle.zip.timestamped   ${project.bundle.zip.timestamped}"/>
+        <echo message="project.bundle.zip.copy.todir    ${project.bundle.zip.copy.todir}"/>
     </target>
 
 

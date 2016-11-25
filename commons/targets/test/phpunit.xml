@@ -5,111 +5,111 @@
 
 
     <target name="test.phpunit:init" hidden="true">
-        <property name="test.phpunit.coverage" value="yes" />
-        <property name="test.phpunit.php.display_errors" value="on" />
-        <property name="test.phpunit.php.error_reporting" value="32767" />
-        <property name="test.phpunit.php.default_timezone" value="Europe/Berlin" />
-        <property name="test.phpunit.haltonfailure" value="yes" />
-        <property name="test.phpunit.haltonerror" value="yes" />
+        <property name="test.phpunit.coverage" value="yes"/>
+        <property name="test.phpunit.php.display_errors" value="on"/>
+        <property name="test.phpunit.php.error_reporting" value="32767"/>
+        <property name="test.phpunit.php.default_timezone" value="Europe/Berlin"/>
+        <property name="test.phpunit.haltonfailure" value="yes"/>
+        <property name="test.phpunit.haltonerror" value="yes"/>
     </target>
 
 
     <target name="test.phpunit:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="test.phpunit:main" hidden="true">
-        <mkdir dir="${project.reports}/phpunit" />
-        <mkdir dir="${project.reports}/phpunit-coverage-report" />
+        <mkdir dir="${project.reports}/phpunit"/>
+        <mkdir dir="${project.reports}/phpunit-coverage-report"/>
 
         <if>
-            <istrue value="${test.phpunit.coverage}" />
+            <istrue value="${test.phpunit.coverage}"/>
             <then>
-                <property name="coverage" value="--coverage-html ${project.reports}/phpunit-coverage-report --coverage-clover ${project.reports}/phpunit-coverage-report/clover.xml" />
+                <property name="coverage" value="--coverage-html ${project.reports}/phpunit-coverage-report --coverage-clover ${project.reports}/phpunit-coverage-report/clover.xml"/>
             </then>
             <else>
-                <property name="coverage" value="" />
+                <property name="coverage" value=""/>
             </else>
         </if>
 
         <if>
-            <istrue value="${test.phpunit.haltonfailure}" />
+            <istrue value="${test.phpunit.haltonfailure}"/>
             <then>
-                <property name="haltonfailure" value="--stop-on-failure" />
+                <property name="haltonfailure" value="--stop-on-failure"/>
             </then>
             <else>
-                <property name="haltonfailure" value="" />
+                <property name="haltonfailure" value=""/>
             </else>
         </if>
 
         <if>
-            <istrue value="${test.phpunit.haltonerror}" />
+            <istrue value="${test.phpunit.haltonerror}"/>
             <then>
-                <property name="haltonerror" value="--stop-on-error" />
+                <property name="haltonerror" value="--stop-on-error"/>
             </then>
             <else>
-                <property name="haltonerror" value="" />
+                <property name="haltonerror" value=""/>
             </else>
         </if>
 
         <if>
             <or>
-                <available file="${project.root}/phpunit.xml" type="file" />
-                <available file="${project.root}/phpunit.xml.dist" type="file" />
+                <available file="${project.root}/phpunit.xml" type="file"/>
+                <available file="${project.root}/phpunit.xml.dist" type="file"/>
             </or>
             <then>
                 <exec executable="${phing:commons:root}/bin/phpunit" logoutput="false" passthru="true" level="info" checkreturn="yes">
-                    <arg line="${coverage}" />
-                    <arg value="--log-junit" />
-                    <arg file="${project.reports}/phpunit/testsuites.xml" />
-                    <arg line="-d error_reporting=${test.phpunit.php.error_reporting}" />
-                    <arg line="-d display_errors=${test.phpunit.php.display_errors}" />
-                    <arg line="-d date.timezone=${test.phpunit.php.default_timezone}" />
-                    <arg line="${haltonfailure}" />
-                    <arg line="${haltonerror}" />
+                    <arg line="${coverage}"/>
+                    <arg value="--log-junit"/>
+                    <arg file="${project.reports}/phpunit/testsuites.xml"/>
+                    <arg line="-d error_reporting=${test.phpunit.php.error_reporting}"/>
+                    <arg line="-d display_errors=${test.phpunit.php.display_errors}"/>
+                    <arg line="-d date.timezone=${test.phpunit.php.default_timezone}"/>
+                    <arg line="${haltonfailure}"/>
+                    <arg line="${haltonerror}"/>
                 </exec>
 
-                <exec command="grep &quot;&lt;testsuites/&gt;&quot; ${project.reports}/phpunit/testsuites.xml" returnProperty="test.phpunit.fix.testsuites" />
+                <exec command="grep &quot;&lt;testsuites/&gt;&quot; ${project.reports}/phpunit/testsuites.xml" returnProperty="test.phpunit.fix.testsuites"/>
 
                 <if>
-                    <equals arg1="${test.phpunit.fix.testsuites}" arg2="0" />
+                    <equals arg1="${test.phpunit.fix.testsuites}" arg2="0"/>
                     <then>
-                        <copy file="${phing:commons:root}/resources/phpunit/testsuites.xml" tofile="${project.reports}/phpunit/testsuites.xml" overwrite="true" />
+                        <copy file="${phing:commons:root}/resources/phpunit/testsuites.xml" tofile="${project.reports}/phpunit/testsuites.xml" overwrite="true"/>
                     </then>
                 </if>
 
-                <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" todir="${project.reports}/phpunit" format="noframes" />
-                <copy file="${project.reports}/phpunit/phpunit-noframes.html" tofile="${project.reports}/phpunit/index.html" />
+                <phpunitreport infile="${project.reports}/phpunit/testsuites.xml" todir="${project.reports}/phpunit" format="noframes"/>
+                <copy file="${project.reports}/phpunit/phpunit-noframes.html" tofile="${project.reports}/phpunit/index.html"/>
             </then>
             <else>
-                <echo message="skipped phpunit" />
-                <echo message="missing ${project.root}/phpunit.xml" />
-                <echo message="missing ${project.root}/phpunit.xml.dist" />
+                <echo message="skipped phpunit"/>
+                <echo message="missing ${project.root}/phpunit.xml"/>
+                <echo message="missing ${project.root}/phpunit.xml.dist"/>
             </else>
         </if>
     </target>
 
 
     <target name="test.phpunit:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="test.phpunit" depends="test.phpunit:init, test.phpunit:before, test.phpunit:main, test.phpunit:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="test.phpunit:help" depends="test.phpunit:init">
-        <echo message="Property                             Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="test.phpunit.coverage                yes|no: ${test.phpunit.coverage} (yes, no)" />
-        <echo message="test.phpunit.php.display_errors      ${test.phpunit.php.display_errors}" />
-        <echo message="test.phpunit.php.error_reporting     ${test.phpunit.php.error_reporting}" />
-        <echo message="test.phpunit.php.default_timezone    ${test.phpunit.php.default_timezone}" />
-        <echo message="test.phpunit.haltonfailure           yes|no: ${test.phpunit.haltonfailure}" />
-        <echo message="test.phpunit.haltonerror             yes|no: ${test.phpunit.haltonerror}" />
+        <echo message="Property                             Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="test.phpunit.coverage                yes|no: ${test.phpunit.coverage} (yes, no)"/>
+        <echo message="test.phpunit.php.display_errors      ${test.phpunit.php.display_errors}"/>
+        <echo message="test.phpunit.php.error_reporting     ${test.phpunit.php.error_reporting}"/>
+        <echo message="test.phpunit.php.default_timezone    ${test.phpunit.php.default_timezone}"/>
+        <echo message="test.phpunit.haltonfailure           yes|no: ${test.phpunit.haltonfailure}"/>
+        <echo message="test.phpunit.haltonerror             yes|no: ${test.phpunit.haltonerror}"/>
     </target>
 
 

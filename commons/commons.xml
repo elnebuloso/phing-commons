@@ -7,19 +7,19 @@
     <!-- ============================================ -->
     <!-- phing commons setup                          -->
     <!-- ============================================ -->
-    <property name="phing:commons:root" value="${phing.home}/../../.." override="true" />
+    <property name="phing:commons:root" value="${phing.home}/../../.." override="true"/>
 
-    <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}" />
-    <resolvepath propertyName="phing:commons:commons" file="${phing:commons:root}/commons" />
+    <resolvepath propertyName="phing:commons:root" file="${phing:commons:root}"/>
+    <resolvepath propertyName="phing:commons:commons" file="${phing:commons:root}/commons"/>
     <!-- <autoloader autoloaderpath="${phing:commons:root}/vendor/autoload.php" /> -->
 
     <!-- ============================================ -->
     <!-- phing commons properties                     -->
     <!-- ============================================ -->
-    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION" />
+    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION"/>
 
     <php function="trim" returnProperty="phing:commons:version" level="debug">
-        <param value="${phing:commons:version}" />
+        <param value="${phing:commons:version}"/>
     </php>
 
 
@@ -27,65 +27,65 @@
     <!-- project properties                           -->
     <!-- ============================================ -->
     <php function="dirname" returnProperty="project.root" level="debug">
-        <param value="${phing.file}" />
+        <param value="${phing.file}"/>
     </php>
 
-    <resolvepath propertyName="project.root" file="${project.root}" />
+    <resolvepath propertyName="project.root" file="${project.root}"/>
 
-    <property file="${user.home}/phing-commons/build.properties" />
-    <property file="${project.root}/build.properties" />
-    <property file="${project.root}/build.properties.local" />
+    <property file="${user.home}/phing-commons/build.properties"/>
+    <property file="${project.root}/build.properties"/>
+    <property file="${project.root}/build.properties.local"/>
 
-    <loadfile property="project.version" file="${project.root}/VERSION" />
+    <loadfile property="project.version" file="${project.root}/VERSION"/>
 
     <php function="trim" returnProperty="project.version" level="debug">
-        <param value="${project.version}" />
+        <param value="${project.version}"/>
     </php>
 
-    <fail unless="project.vendor" message="missing project.vendor" />
-    <fail unless="project.name" message="missing project.name" />
-    <fail unless="project.version" message="missing project.version" />
+    <fail unless="project.vendor" message="missing project.vendor"/>
+    <fail unless="project.name" message="missing project.name"/>
+    <fail unless="project.version" message="missing project.version"/>
 
-    <property name="project.tmp" value="${project.root}/.build/tmp" />
-    <property name="project.bundle" value="${project.root}/.build/bundle" />
-    <property name="project.reports" value="${project.root}/.build/reports" />
+    <property name="project.tmp" value="${project.root}/.build/tmp"/>
+    <property name="project.bundle" value="${project.root}/.build/bundle"/>
+    <property name="project.reports" value="${project.root}/.build/reports"/>
 
-    <resolvepath propertyName="project.tmp" file="${project.tmp}" />
-    <resolvepath propertyName="project.bundle" file="${project.bundle}" />
-    <resolvepath propertyName="project.reports" file="${project.reports}" />
+    <resolvepath propertyName="project.tmp" file="${project.tmp}"/>
+    <resolvepath propertyName="project.bundle" file="${project.bundle}"/>
+    <resolvepath propertyName="project.reports" file="${project.reports}"/>
 
 
     <!-- ============================================ -->
     <!-- commons tasks                                -->
     <!-- ============================================ -->
-    <taskdef classname="Commons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript" />
-    <taskdef classname="Commons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet" />
-    <taskdef classname="Commons\Phing\Task\Composer\FormatTask" name="commons-composer-format" />
-    <taskdef classname="Commons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains" />
-    <taskdef classname="Commons\Phing\Task\Twitter\TweetPackageTask" name="commons-twitter-tweet-package" />
+    <taskdef classname="Commons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript"/>
+    <taskdef classname="Commons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet"/>
+    <taskdef classname="Commons\Phing\Task\Composer\FormatTask" name="commons-composer-format"/>
+    <taskdef classname="Commons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains"/>
+    <taskdef classname="Commons\Phing\Task\Twitter\TweetPackageTask" name="commons-twitter-tweet-package"/>
 
 
     <!-- ============================================ -->
     <!-- phing commons targets                        -->
     <!-- ============================================ -->
-    <import file="${phing:commons:commons}/targets/bundle.xml" />
-    <import file="${phing:commons:commons}/targets/clean.xml" />
-    <import file="${phing:commons:commons}/targets/composer.xml" />
-    <import file="${phing:commons:commons}/targets/project.xml" />
-    <import file="${phing:commons:commons}/targets/report.xml" />
-    <import file="${phing:commons:commons}/targets/test.xml" />
-    <import file="${phing:commons:commons}/targets/twitter.xml" />
+    <import file="${phing:commons:commons}/targets/bundle.xml"/>
+    <import file="${phing:commons:commons}/targets/clean.xml"/>
+    <import file="${phing:commons:commons}/targets/composer.xml"/>
+    <import file="${phing:commons:commons}/targets/project.xml"/>
+    <import file="${phing:commons:commons}/targets/report.xml"/>
+    <import file="${phing:commons:commons}/targets/test.xml"/>
+    <import file="${phing:commons:commons}/targets/twitter.xml"/>
 
 
     <!-- ============================================ -->
     <!-- help.commons                                 -->
     <!-- ============================================ -->
     <target name="help.commons" hidden="true">
-        <echo message="Phing Commons Settings" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="phing:commons:version    ${phing:commons:version}" />
-        <echo message="phing:commons:commons    ${phing:commons:commons}" />
-        <echo message="phing:commons:root       ${phing:commons:root}" />
+        <echo message="Phing Commons Settings"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="phing:commons:version    ${phing:commons:version}"/>
+        <echo message="phing:commons:commons    ${phing:commons:commons}"/>
+        <echo message="phing:commons:root       ${phing:commons:root}"/>
     </target>
 
 
@@ -93,15 +93,15 @@
     <!-- help.project                                 -->
     <!-- ============================================ -->
     <target name="help.project" hidden="true">
-        <echo message="Project Settings" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.version    ${project.version}" />
-        <echo message="project.vendor     ${project.vendor}" />
-        <echo message="project.name       ${project.name}" />
-        <echo message="project.root       ${project.root}" />
-        <echo message="project.tmp        ${project.tmp}" />
-        <echo message="project.bundle     ${project.bundle}" />
-        <echo message="project.reports    ${project.reports}" />
+        <echo message="Project Settings"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="project.version    ${project.version}"/>
+        <echo message="project.vendor     ${project.vendor}"/>
+        <echo message="project.name       ${project.name}"/>
+        <echo message="project.root       ${project.root}"/>
+        <echo message="project.tmp        ${project.tmp}"/>
+        <echo message="project.bundle     ${project.bundle}"/>
+        <echo message="project.reports    ${project.reports}"/>
     </target>
 
 
@@ -109,42 +109,42 @@
     <!-- help.targets                                 -->
     <!-- ============================================ -->
     <target name="help.targets" hidden="true">
-        <echo message="Module Help" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="bundle:help      Overview of all Bundle Targets" />
-        <echo message="clean:help       Overview of all Clean Targets" />
-        <echo message="composer:help    Overview of all Composer Targets" />
-        <echo message="project:help     Overview of all Project Targets" />
-        <echo message="report:help      Overview of all Report Targets" />
-        <echo message="test:help        Overview of all Test Targets" />
+        <echo message="Module Help"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="bundle:help      Overview of all Bundle Targets"/>
+        <echo message="clean:help       Overview of all Clean Targets"/>
+        <echo message="composer:help    Overview of all Composer Targets"/>
+        <echo message="project:help     Overview of all Project Targets"/>
+        <echo message="report:help      Overview of all Report Targets"/>
+        <echo message="test:help        Overview of all Test Targets"/>
     </target>
 
 
-    <target name="help" depends="help.commons, help.project, help.targets" hidden="true" />
+    <target name="help" depends="help.commons, help.project, help.targets" hidden="true"/>
 
 
     <!-- ============================================ -->
     <!-- running commons                              -->
     <!-- ============================================ -->
-    <echo message="" />
-    <echo message="****************************************************************************************************" />
-    <echo message="* Phing Commons ${phing:commons:version}" />
-    <echo message="*" />
-    <echo message="* elnebuloso/phing-commons" />
-    <echo message="****************************************************************************************************" />
-    <echo message="" />
+    <echo message=""/>
+    <echo message="****************************************************************************************************"/>
+    <echo message="* Phing Commons ${phing:commons:version}"/>
+    <echo message="*"/>
+    <echo message="* elnebuloso/phing-commons"/>
+    <echo message="****************************************************************************************************"/>
+    <echo message=""/>
 
 
     <if>
-        <isset property="project.chains" />
+        <isset property="project.chains"/>
         <then>
-            <commons-system-import-chains pathToChainFolder="${phing:commons:commons}/chains" chains="${project.chains}" />
+            <commons-system-import-chains pathToChainFolder="${phing:commons:commons}/chains" chains="${project.chains}"/>
         </then>
     </if>
 
 
-    <import file="${phing:commons:commons}/chains/default.xml" />
-    <import file="${phing:commons:commons}/chains/hooks.xml" />
+    <import file="${phing:commons:commons}/chains/default.xml"/>
+    <import file="${phing:commons:commons}/chains/hooks.xml"/>
 
 
 </project>

@@ -5,33 +5,33 @@
 
 
     <target name="clean.reports:help" depends="clean.reports:init" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="clean.reports:init" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="clean.reports:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="clean.reports:main" hidden="true">
-        <delete dir="${project.reports}" />
-        <mkdir dir="${project.reports}" />
+        <delete dir="${project.reports}"/>
+        <mkdir dir="${project.reports}"/>
     </target>
 
 
     <target name="clean.reports:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="clean.reports" depends="clean.reports:init, clean.reports:before, clean.reports:main, clean.reports:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 

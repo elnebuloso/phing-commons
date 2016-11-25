@@ -5,71 +5,71 @@
 
 
     <target name="report.phpmd:init" hidden="true">
-        <property name="report.phpmd.sources" value="${project.root}/src" />
-        <property name="report.phpmd.rulesets" value="cleancode,codesize,controversial,design,naming,unusedcode" />
-        <property name="report.phpmd.suffixes" value="php" />
-        <property name="report.phpmd.arguments" value="" />
-        <property name="report.phpmd.out" value="${project.reports}/phpmd" />
-        <property name="report.phpmd.xsl" value="${phing:commons:root}/resources/phpmd/phpmd.xsl" />
+        <property name="report.phpmd.sources" value="${project.root}/src"/>
+        <property name="report.phpmd.rulesets" value="cleancode,codesize,controversial,design,naming,unusedcode"/>
+        <property name="report.phpmd.suffixes" value="php"/>
+        <property name="report.phpmd.arguments" value=""/>
+        <property name="report.phpmd.out" value="${project.reports}/phpmd"/>
+        <property name="report.phpmd.xsl" value="${phing:commons:root}/resources/phpmd/phpmd.xsl"/>
     </target>
 
 
     <target name="report.phpmd:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.phpmd:main" hidden="true">
-        <delete dir="${report.phpmd.out}" />
-        <mkdir dir="${report.phpmd.out}" />
+        <delete dir="${report.phpmd.out}"/>
+        <mkdir dir="${report.phpmd.out}"/>
 
         <exec executable="${phing:commons:root}/bin/phpmd" logoutput="false" passthru="true" level="info" checkreturn="false" returnProperty="report.phpmd.returncode">
-            <arg line="${report.phpmd.sources}" />
-            <arg line="xml" />
-            <arg line="${report.phpmd.rulesets}" />
-            <arg line="--suffixes ${report.phpmd.suffixes}" />
-            <arg line="--reportfile ${report.phpmd.out}/phpmd.xml" />
-            <arg line="${report.phpmd.arguments}" />
+            <arg line="${report.phpmd.sources}"/>
+            <arg line="xml"/>
+            <arg line="${report.phpmd.rulesets}"/>
+            <arg line="--suffixes ${report.phpmd.suffixes}"/>
+            <arg line="--reportfile ${report.phpmd.out}/phpmd.xml"/>
+            <arg line="${report.phpmd.arguments}"/>
         </exec>
 
         <if>
-            <equals arg1="${report.phpmd.returncode}" arg2="1" />
+            <equals arg1="${report.phpmd.returncode}" arg2="1"/>
             <then>
-                <echo message="phpmd exited with error code 1, unable to write report file" level="error" />
+                <echo message="phpmd exited with error code 1, unable to write report file" level="error"/>
             </then>
             <else>
-                <xslt file="${report.phpmd.out}/phpmd.xml" tofile="${report.phpmd.out}/index.html" style="${report.phpmd.xsl}" />
+                <xslt file="${report.phpmd.out}/phpmd.xml" tofile="${report.phpmd.out}/index.html" style="${report.phpmd.xsl}"/>
             </else>
         </if>
     </target>
 
 
     <target name="report.phpmd:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="report.phpmd" depends="report.phpmd:init, report.phpmd:before, report.phpmd:main, report.phpmd:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="report.phpmd:help" depends="report.phpmd:init" hidden="true">
-        <echo message="Property                  Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpmd.sources      ${report.phpmd.sources}" />
-        <echo message="report.phpmd.rulesets     ${report.phpmd.rulesets}" />
-        <echo message="report.phpmd.suffixes     ${report.phpmd.suffixes}" />
-        <echo message="report.phpmd.arguments    ${report.phpmd.arguments}" />
-        <echo message="report.phpmd.out          ${report.phpmd.out}" />
-        <echo message="report.phpmd.xsl          ${report.phpmd.xsl}" />
-        <echo message="" />
-        <echo message="Property Help" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="report.phpmd.sources      can be a comma-separated string" />
-        <echo message="report.phpmd.rulesets     can be a comma-separated string" />
-        <echo message="report.phpmd.suffixes     comma-separated string of valid source code filename extensions" />
-        <echo message="report.phpmd.arguments    optional arguments that may be put after the mandatory arguments" />
+        <echo message="Property                  Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpmd.sources      ${report.phpmd.sources}"/>
+        <echo message="report.phpmd.rulesets     ${report.phpmd.rulesets}"/>
+        <echo message="report.phpmd.suffixes     ${report.phpmd.suffixes}"/>
+        <echo message="report.phpmd.arguments    ${report.phpmd.arguments}"/>
+        <echo message="report.phpmd.out          ${report.phpmd.out}"/>
+        <echo message="report.phpmd.xsl          ${report.phpmd.xsl}"/>
+        <echo message=""/>
+        <echo message="Property Help"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpmd.sources      can be a comma-separated string"/>
+        <echo message="report.phpmd.rulesets     can be a comma-separated string"/>
+        <echo message="report.phpmd.suffixes     comma-separated string of valid source code filename extensions"/>
+        <echo message="report.phpmd.arguments    optional arguments that may be put after the mandatory arguments"/>
     </target>
 
 

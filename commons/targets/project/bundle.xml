@@ -5,58 +5,54 @@
 
 
     <target name="project.bundle:init" hidden="true">
-        <property name="project.bundle.patternset.id" value="project_bundle_patternset_default" />
+        <property name="project.bundle.patternset.id" value="project_bundle_patternset_default"/>
 
         <patternset id="project_bundle_patternset_default">
-            <include name="**/**" />
-            <exclude name=".build/**" />
-            <exclude name=".idea/**" />
-            <exclude name=".git/**" />
-            <exclude name=".svn/**" />
-            <exclude name="docs/**" />
-            <exclude name="tests/**" />
-            <exclude name="build.properties" />
-            <exclude name="build.properties.local" />
-            <exclude name="build.xml" />
-            <exclude name="phpunit.xml" />
-            <exclude name="${project.tmp}/**" />
-            <exclude name="${project.bundle}/**" />
-            <exclude name="${project.reports}/**" />
+            <include name="**/**"/>
+            <exclude name="${project.tmp}/**"/>
+            <exclude name="${project.bundle}/**"/>
+            <exclude name="${project.reports}/**"/>
+            <exclude name=".build/**"/>
+            <exclude name=".idea/**"/>
+            <exclude name=".git/**"/>
+            <exclude name=".svn/**"/>
+            <exclude name="docs/**"/>
+            <exclude name="tests/**"/>
         </patternset>
     </target>
 
 
     <target name="project.bundle:before" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle:main" hidden="true">
-        <delete dir="${project.bundle}" />
-        <mkdir dir="${project.bundle}" />
+        <delete dir="${project.bundle}"/>
+        <mkdir dir="${project.bundle}"/>
 
-        <copy todir="${project.bundle}" >
+        <copy todir="${project.bundle}">
             <fileset dir=".">
-                <patternset refid="${project.bundle.patternset.id}" />
+                <patternset refid="${project.bundle.patternset.id}"/>
             </fileset>
         </copy>
     </target>
 
 
     <target name="project.bundle:after" hidden="true">
-        <echo message="no actions defined" level="debug" />
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 
     <target name="project.bundle" depends="project.bundle:init, project.bundle:before, project.bundle:main, project.bundle:after">
-        <echo message="successful" />
+        <echo message="successful"/>
     </target>
 
 
     <target name="project.bundle:help" depends="project.bundle:init">
-        <echo message="Property                         Value" />
-        <echo message="----------------------------------------------------------------------------------------------------" />
-        <echo message="project.bundle.patternset.id     ${project.bundle.patternset.id}" />
+        <echo message="Property                         Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="project.bundle.patternset.id     ${project.bundle.patternset.id}"/>
     </target>
 
 
