@@ -5,13 +5,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.php56
+    environment:
+      - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
 
   php70:
     build:
       context: .
       dockerfile: Dockerfile.php70
+    environment:
+      - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
 
   php71:
     build:
       context: .
       dockerfile: Dockerfile.php71
+    environment:
+      - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token

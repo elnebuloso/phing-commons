@@ -1,0 +1,13 @@
+---
+- hosts: all
+
+  roles:
+    - role: elnebuloso.ci
+    - role: elnebuloso.ci-vcs
+    - role: elnebuloso.ci-compass
+    - role: geerlingguy.composer
+    - role: geerlingguy.nodejs
+      nodejs_version: "6.x"
+      nodejs_install_npm_user: "root"
+      nodejs_npm_global_packages: []
+    - role: ocha.yarn
