@@ -11,4 +11,4 @@ services:
 
   php71:
     build:
-      context: ./.docker/php70
+      context: ./.docker/php71

@@ -27,9 +27,33 @@ RUN apt-get update \
 # set system-wide locale settings
 ENV LC_ALL en_US.UTF-8
 
-# https://launchpad.net/~ondrej/+archive/ubuntu/php
-# The main PPA for PHP
-RUN add-apt-repository ppa:ondrej/php
+# add ppa's
+RUN add-apt-repository ppa:ondrej/php \
+    && apt-add-repository -y ppa:ansible/ansible
+
+# install essentials
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ansible \
+        php7.1-cli \
+        php7.1-common \
+        php7.1-apcu \
+        php7.1-curl \
+        php7.1-gd \
+        php7.1-geoip \
+        php7.1-imagick \
+        php7.1-intl \
+        php7.1-mbstring \
+        php7.1-mcrypt \
+        php7.1-memcached \
+        php7.1-mongodb \
+        php7.1-mysql \
+        php7.1-sqlite3 \
+        php7.1-xdebug \
+        php7.1-xml \
+        php7.1-xsl \
+        php7.1-yaml \
+        php7.1-zip
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]
