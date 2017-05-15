@@ -45,7 +45,9 @@ RUN apt-get update \
         php7.1-intl \
         php7.1-mbstring \
         php7.1-mcrypt \
+        php7.1-memcache \
         php7.1-memcached \
+        php7.1-mongo \
         php7.1-mongodb \
         php7.1-mysql \
         php7.1-sqlite3 \
