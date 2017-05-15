@@ -3,12 +3,15 @@ version: '2'
 services:
   php56:
     build:
-      context: ./.docker/php56
+      context: .
+      dockerfile: Dockerfile.php56
 
   php70:
     build:
-      context: ./.docker/php70
+      context: .
+      dockerfile: Dockerfile.php70
 
   php71:
     build:
-      context: ./.docker/php71
+      context: .
+      dockerfile: Dockerfile.php71
