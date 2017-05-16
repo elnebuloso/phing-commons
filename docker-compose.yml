@@ -7,6 +7,10 @@ services:
       dockerfile: Dockerfile.php56
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+    volumes:
+      - ./vendor-php56:/opt/phing-commons/vendor
+      - ./composer.lock.php56:/opt/phing-commons/composer.lock
 
   php70:
     build:
@@ -14,6 +18,9 @@ services:
       dockerfile: Dockerfile.php70
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+      - ./vendor-php70:/opt/phing-commons/vendor
+      - ./composer.lock.php70:/opt/phing-commons/composer.lock
 
   php71:
     build:
@@ -21,3 +28,6 @@ services:
       dockerfile: Dockerfile.php71
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+      - ./vendor-php71:/opt/phing-commons/vendor
+      - ./composer.lock.php71:/opt/phing-commons/composer.lock

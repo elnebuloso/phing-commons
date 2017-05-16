@@ -5,6 +5,7 @@ MAINTAINER jeff.tunessen@gmail.com
 # terminal
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
+ENV PHING_COMMONS_PHP php56
 
 # install essentials
 RUN apt-get update \
@@ -55,19 +56,23 @@ RUN apt-get update \
         php5.6-xml \
         php5.6-xsl \
         php5.6-yaml \
-        php5.6-zip
+        php5.6-zip \
+    && apt-get -y autoremove \
+    && apt-get -y clean \
+    && rm -rf /var/cache/apt/archives/* \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/tmp/* \
+    && rm -rf /usr/share/doc/* \
+    && rm -rf /usr/share/man/* \
+    && rm -rf /usr/share/locale/* \
+    && rm -rf /tmp/*
 
 # provision over ansible
-COPY ./.docker/ansible/ /opt/ansible/
-COPY ./commons /opt/phing-commons/commons
-COPY ./resources /opt/phing-commons/resources
-COPY ./src /opt/phing-commons/src
-COPY ./composer.json /opt/phing-commons/composer.json
-
+COPY .  /opt/phing-commons
 WORKDIR /opt/phing-commons
 
-RUN ansible-galaxy install -r /opt/ansible/roles.yml \
-    && ansible-playbook -i 'localhost,' -c local /opt/ansible/playbook.yml \
+RUN ansible-galaxy install -r /opt/phing-commons/roles.yml \
+    && ansible-playbook -i 'localhost,' -c local /opt/phing-commons/playbook.yml \
     && composer update \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \
@@ -84,7 +89,7 @@ RUN ansible-galaxy install -r /opt/ansible/roles.yml \
     && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
     && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
     && apt-get -y purge ansible \
-    && rm -rf /opt/ansible \
+    && rm -rf /opt/phing-commons \
     && rm -rf /etc/ansible \
     && apt-get -y autoremove \
     && apt-get -y clean \
@@ -95,6 +100,12 @@ RUN ansible-galaxy install -r /opt/ansible/roles.yml \
     && rm -rf /usr/share/man/* \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
+
+COPY ./CHANGELOG.md /opt/phing-commons/CHANGELOG.md
+COPY ./LICENSE /opt/phing-commons/LICENSE
+COPY ./README.md /opt/phing-commons/README.md
+COPY ./VERSION /opt/phing-commons/VERSION
+COPY ./release.sh /opt/phing-commons/release.sh
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]
