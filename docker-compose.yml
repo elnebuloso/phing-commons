@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile.php56
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+      - ./.releases:/releases
 
   php70:
     build:
@@ -14,6 +16,8 @@ services:
       dockerfile: Dockerfile.php70
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+      - ./.releases:/releases
 
   php71:
     build:
@@ -21,3 +25,5 @@ services:
       dockerfile: Dockerfile.php71
     environment:
       - COMPOSER_GITHUB_OAUTH_TOKEN=your-github-oauth-token
+    volumes:
+      - ./.releases:/releases
