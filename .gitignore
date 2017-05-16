@@ -2,6 +2,6 @@
 .releases
 /bin
 /build
-/vendor
+/vendor-php56
 build.properties.local
 composer.lock
