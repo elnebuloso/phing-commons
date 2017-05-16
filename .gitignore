@@ -1,5 +1,4 @@
 .idea
-.releases
 /bin
 /build
 /vendor
@@ -7,7 +6,3 @@
 /vendor-php70
 /vendor-php71
 build.properties.local
-composer.lock
-composer.lock.php56
-composer.lock.php70
-composer.lock.php71
