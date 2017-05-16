@@ -89,8 +89,10 @@ RUN ansible-galaxy install -r /opt/phing-commons/.docker/ansible/roles.yml \
     && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
     && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
     && apt-get -y purge ansible \
-    && rm -rf opt/phing-commons/.docker \
-    && rm -rf opt/phing-commons/.releases \
+    && rm -rf /opt/phing-commons/.idea \
+    && rm -rf /opt/phing-commons/.git \
+    && rm -rf /opt/phing-commons/.docker \
+    && rm -rf /opt/phing-commons/.releases \
     && rm -rf /etc/ansible \
     && apt-get -y autoremove \
     && apt-get -y clean \
