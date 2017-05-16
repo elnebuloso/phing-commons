@@ -68,11 +68,11 @@ RUN apt-get update \
     && rm -rf /tmp/*
 
 # provision over ansible
-COPY .  /opt/phing-commons
+COPY . /opt/phing-commons/
 WORKDIR /opt/phing-commons
 
-RUN ansible-galaxy install -r /opt/phing-commons/roles.yml \
-    && ansible-playbook -i 'localhost,' -c local /opt/phing-commons/playbook.yml \
+RUN ansible-galaxy install -r /opt/phing-commons/.docker/ansible/roles.yml \
+    && ansible-playbook -i 'localhost,' -c local /opt/phing-commons/.docker/ansible/playbook.yml \
     && composer update \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \
@@ -89,7 +89,6 @@ RUN ansible-galaxy install -r /opt/phing-commons/roles.yml \
     && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
     && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
     && apt-get -y purge ansible \
-    && rm -rf /opt/phing-commons \
     && rm -rf /etc/ansible \
     && apt-get -y autoremove \
     && apt-get -y clean \
@@ -100,12 +99,6 @@ RUN ansible-galaxy install -r /opt/phing-commons/roles.yml \
     && rm -rf /usr/share/man/* \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
-
-COPY ./CHANGELOG.md /opt/phing-commons/CHANGELOG.md
-COPY ./LICENSE /opt/phing-commons/LICENSE
-COPY ./README.md /opt/phing-commons/README.md
-COPY ./VERSION /opt/phing-commons/VERSION
-COPY ./release.sh /opt/phing-commons/release.sh
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]

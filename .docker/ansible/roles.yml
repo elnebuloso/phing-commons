@@ -1,18 +1,18 @@
 ---
-- src: elnebuloso.ci
-  version: 2.1.0
-
-- src: elnebuloso.ci-vcs
-  version: 2.1.0
-
-- src: elnebuloso.ci-compass
-  version: 2.1.0
-
+#- src: elnebuloso.ci
+#  version: 2.1.0
+#
+#- src: elnebuloso.ci-vcs
+#  version: 2.1.0
+#
+#- src: elnebuloso.ci-compass
+#  version: 2.1.0
+#
 - src: geerlingguy.composer
   version: 1.6.1
-
-- src: geerlingguy.nodejs
-  version: 4.1.0
-
-- src: ocha.yarn
-  version: v1.1.0
+#
+#- src: geerlingguy.nodejs
+#  version: 4.1.0
+#
+#- src: ocha.yarn
+#  version: v1.1.0
