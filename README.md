@@ -1,7 +1,13 @@
 # phing-commons
 
 [![License](https://poser.pugx.org/elnebuloso/phing-commons/license)](https://packagist.org/packages/elnebuloso/phing-commons)
-[![composer.lock](https://poser.pugx.org/elnebuloso/phing-commons/composerlock)](https://packagist.org/packages/elnebuloso/phing-commons)
+[![Docker Build Statu](https://img.shields.io/docker/build/elnebuloso/phing-commons.svg)](https://hub.docker.com/r/elnebuloso/phing-commons/builds/)
+
+## Supported tags and respective `Dockerfile` links
+
+- [`php56` (Dockerfile.php56)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php56)
+- [`php70` (Dockerfile.php70)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php70)
+- [`php71` (Dockerfile.php71)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php71)
 
 ## About
 

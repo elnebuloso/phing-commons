@@ -21,7 +21,7 @@
                 <commons-bundle-javascript file="${project.root}/.bundler/javascript.php"/>
             </then>
             <else>
-                <echo message="bundling of javascript disabled. enable by property bundle.javascript.enabled set to yes"/>
+                <echo message="bundling of javascript disabled. enable by property bundle.javascript.enabled set to yes" level="warning"/>
             </else>
         </if>
     </target>

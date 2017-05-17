@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Docker php71
 - removed phing target twitter tweeting
 - awesome startup ascii art
+- new phing setting: project.bundle.tar.enabled, default no
+- new phing setting: project.bundle.zip.enabled, default no
 
 
 ## [9.4.0]

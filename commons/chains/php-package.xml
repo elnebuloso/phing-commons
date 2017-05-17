@@ -3,7 +3,7 @@
 
 <project>
 
-    <echo message="loading chain: php-composer-package"/>
+    <echo message="loading chain: php-package"/>
 
     <target name="init:main" hidden="true" depends="clean.tmp, composer.validate, composer.install"/>
     <target name="test:main" hidden="true" depends="test.phplint, test.phpunit"/>
