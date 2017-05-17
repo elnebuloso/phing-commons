@@ -33,7 +33,6 @@
         "apigen/apigen": "^4.1",
         "phpunit/phpunit": "^4.8",
         "pear/archive_tar": "^1.4",
-        "abraham/twitteroauth": "^0.7",
         "elnebuloso/bundler": "^9.0",
         "cakephp/cakephp-codesniffer": "^2.1",
         "escapestudios/symfony2-coding-standard": "^2.9"
