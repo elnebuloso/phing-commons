@@ -1,3 +1,4 @@
 .idea
 .releases
+/vendor
 build.properties.local
