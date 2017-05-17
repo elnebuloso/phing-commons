@@ -18,9 +18,9 @@ services:
       dockerfile: Dockerfile.php70
     volumes:
       - ./composer.json:/opt/phing-commons/composer.json
-      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
-      - ./.php56/bin:/opt/phing-commons/bin
-      - ./.php56/vendor:/opt/phing-commons/vendor
+      - ./.php70/composer.lock:/opt/phing-commons/composer.lock
+      - ./.php70/bin:/opt/phing-commons/bin
+      - ./.php70/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
 
   php71:
@@ -29,7 +29,7 @@ services:
       dockerfile: Dockerfile.php71
     volumes:
       - ./composer.json:/opt/phing-commons/composer.json
-      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
-      - ./.php56/bin:/opt/phing-commons/bin
-      - ./.php56/vendor:/opt/phing-commons/vendor
+      - ./.php71/composer.lock:/opt/phing-commons/composer.lock
+      - ./.php71/bin:/opt/phing-commons/bin
+      - ./.php71/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
