@@ -99,26 +99,22 @@ COPY VERSION /opt/phing-commons/VERSION
 WORKDIR /opt/phing-commons
 
 # install phing-commons
-#RUN echo "installing phing-commons" \
-#    && composer install \
-#    && chmod -R 755 /opt/phing-commons/* \
-#    && chown -R root:root /opt/phing-commons/* \
-#    && ln -s /opt/phing-commons/bin/apigen /usr/local/bin/apigen \
-#    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
-#    && ln -s /opt/phing-commons/bin/jsonlint /usr/local/bin/jsonlint \
-#    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
-#    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
-#    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
-#    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
-#    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
-#    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
-#    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
-#    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
-#    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
-#    && rm -rf /opt/phing-commons/.idea \
-#    && rm -rf /opt/phing-commons/.git \
-#    && rm -rf /opt/phing-commons/.docker \
-#    && rm -rf /opt/phing-commons/.releases
+RUN echo "installing phing-commons" \
+    && composer install \
+    && chmod -R 755 /opt/phing-commons/* \
+    && chown -R root:root /opt/phing-commons/* \
+    && ln -s /opt/phing-commons/bin/apigen /usr/local/bin/apigen \
+    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
+    && ln -s /opt/phing-commons/bin/jsonlint /usr/local/bin/jsonlint \
+    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
+    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
+    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
+    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
+    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
+    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
+    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
+    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
+    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]
