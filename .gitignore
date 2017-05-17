@@ -1,6 +1,3 @@
 .idea
 .releases
-/bin
-/build
 build.properties.local
-composer.lock
