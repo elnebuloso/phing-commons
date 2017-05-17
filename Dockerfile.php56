@@ -67,35 +67,15 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# provision over ansible
-COPY . /opt/phing-commons/
-WORKDIR /opt/phing-commons
+COPY .docker/ /tmp/docker/
 
-RUN ansible-galaxy install -r /opt/phing-commons/.docker/ansible/roles.yml \
-    && ansible-playbook -i 'localhost,' -c local /opt/phing-commons/.docker/ansible/playbook.yml \
-    && composer update \
-    && chmod -R 755 /opt/phing-commons/* \
-    && chown -R root:root /opt/phing-commons/* \
-    && ln -s /opt/phing-commons/bin/apigen /usr/local/bin/apigen \
-    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
-    && ln -s /opt/phing-commons/bin/jsonlint /usr/local/bin/jsonlint \
-    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
-    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
-    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
-    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
-    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
-    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
-    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
-    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
-    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
+# install essentials
+RUN ansible-galaxy install -r /tmp/docker/ansible/roles.yml \
+    && ansible-playbook -i 'localhost,' -c local /tmp/docker/ansible/playbook.yml \
     && apt-get -y purge ansible \
-    && rm -rf /opt/phing-commons/.idea \
-    && rm -rf /opt/phing-commons/.git \
-    && rm -rf /opt/phing-commons/.docker \
-    && rm -rf /opt/phing-commons/.releases \
-    && rm -rf /etc/ansible \
     && apt-get -y autoremove \
     && apt-get -y clean \
+    && rm -rf /etc/ansible \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/tmp/* \
@@ -103,6 +83,53 @@ RUN ansible-galaxy install -r /opt/phing-commons/.docker/ansible/roles.yml \
     && rm -rf /usr/share/man/* \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
+
+# COPY . /opt/phing-commons/
+# COPY composer.lock.php56 /opt/phing-commons/composer.lock
+
+#COPY .$PHING_COMMONS_PHP/composer.json /opt/phing-commons/composer.json
+#COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
+#COPY commons/ /opt/phing-commons/commons/
+#COPY resources/ /opt/phing-commons/resources/
+#COPY src/ /opt/phing-commons/src/
+#COPY build.properties /opt/phing-commons/build.properties
+#COPY build.xml /opt/phing-commons/build.xml
+#COPY LICENSE /opt/phing-commons/LICENSE
+#COPY VERSION /opt/phing-commons/VERSION
+
+COPY .$PHING_COMMONS_PHP/composer.json /opt/phing-commons/composer.json
+COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
+COPY commons/ /opt/phing-commons/commons/
+COPY resources/ /opt/phing-commons/resources/
+COPY src/ /opt/phing-commons/src/
+COPY build.properties /opt/phing-commons/build.properties
+COPY build.xml /opt/phing-commons/build.xml
+COPY LICENSE /opt/phing-commons/LICENSE
+COPY VERSION /opt/phing-commons/VERSION
+
+WORKDIR /opt/phing-commons
+
+# install phing-commons
+#RUN echo "installing phing-commons" \
+#    && composer update \
+#    && chmod -R 755 /opt/phing-commons/* \
+#    && chown -R root:root /opt/phing-commons/* \
+#    && ln -s /opt/phing-commons/bin/apigen /usr/local/bin/apigen \
+#    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
+#    && ln -s /opt/phing-commons/bin/jsonlint /usr/local/bin/jsonlint \
+#    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
+#    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
+#    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
+#    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
+#    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
+#    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
+#    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
+#    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
+#    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
+#    && rm -rf /opt/phing-commons/.idea \
+#    && rm -rf /opt/phing-commons/.git \
+#    && rm -rf /opt/phing-commons/.docker \
+#    && rm -rf /opt/phing-commons/.releases
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]

@@ -6,7 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile.php56
     volumes:
-      - ./.releases:/releases
+      - ./.php56/composer.json:/opt/phing-commons/composer.json
+      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
+      - ./.php56/bin:/opt/phing-commons/bin
+      - ./.php56/vendor:/opt/phing-commons/vendor
 
   php70:
     build:
