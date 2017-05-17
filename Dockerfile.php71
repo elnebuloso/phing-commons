@@ -92,9 +92,8 @@ COPY commons/ /opt/phing-commons/commons/
 COPY resources/ /opt/phing-commons/resources/
 COPY src/ /opt/phing-commons/src/
 COPY build.properties /opt/phing-commons/build.properties
-COPY composer.json /opt/phing-commons/composer.json
 COPY build.xml /opt/phing-commons/build.xml
-COPY LICENSE /opt/phing-commons/LICENSE
+COPY composer.json /opt/phing-commons/composer.json
 COPY VERSION /opt/phing-commons/VERSION
 
 WORKDIR /opt/phing-commons
