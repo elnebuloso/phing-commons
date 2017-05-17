@@ -1,7 +1,7 @@
 .idea
 .releases
 
-/.php56/*
+/.php56/vendor
 
 /.php70/*
 
