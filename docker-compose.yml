@@ -6,30 +6,48 @@ services:
       context: .
       dockerfile: Dockerfile.php56
     volumes:
-      - ./composer.json:/opt/phing-commons/composer.json
       - ./.php56/composer.lock:/opt/phing-commons/composer.lock
       - ./.php56/bin:/opt/phing-commons/bin
       - ./.php56/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
+      - ./commons:/opt/phing-commons/commons
+      - ./resources:/opt/phing-commons/resources
+      - ./src:/opt/phing-commons/src
+      - ./build.properties:/opt/phing-commons/build.properties
+      - ./build.xml:/opt/phing-commons/build.xml
+      - ./composer.json:/opt/phing-commons/composer.json
+      - ./VERSION:/opt/phing-commons/VERSION
 
   php70:
     build:
       context: .
       dockerfile: Dockerfile.php70
     volumes:
-      - ./composer.json:/opt/phing-commons/composer.json
       - ./.php70/composer.lock:/opt/phing-commons/composer.lock
       - ./.php70/bin:/opt/phing-commons/bin
       - ./.php70/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
+      - ./commons:/opt/phing-commons/commons
+      - ./resources:/opt/phing-commons/resources
+      - ./src:/opt/phing-commons/src
+      - ./build.properties:/opt/phing-commons/build.properties
+      - ./build.xml:/opt/phing-commons/build.xml
+      - ./composer.json:/opt/phing-commons/composer.json
+      - ./VERSION:/opt/phing-commons/VERSION
 
   php71:
     build:
       context: .
       dockerfile: Dockerfile.php71
     volumes:
-      - ./composer.json:/opt/phing-commons/composer.json
       - ./.php71/composer.lock:/opt/phing-commons/composer.lock
       - ./.php71/bin:/opt/phing-commons/bin
       - ./.php71/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
+      - ./commons:/opt/phing-commons/commons
+      - ./resources:/opt/phing-commons/resources
+      - ./src:/opt/phing-commons/src
+      - ./build.properties:/opt/phing-commons/build.properties
+      - ./build.xml:/opt/phing-commons/build.xml
+      - ./composer.json:/opt/phing-commons/composer.json
+      - ./VERSION:/opt/phing-commons/VERSION
