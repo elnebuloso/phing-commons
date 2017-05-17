@@ -1,7 +1,7 @@
 .idea
 .releases
-/php56
-/php70
-/php71
+/php56/vendor
+/php70/vendor
+/php71/vendor
 /vendor
 build.properties.local
