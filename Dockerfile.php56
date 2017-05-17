@@ -99,7 +99,7 @@ COPY VERSION /opt/phing-commons/VERSION
 WORKDIR /opt/phing-commons
 
 # install phing-commons
-RUN echo "installing phing-commons" \
+RUN echo "installing phing-commons 10.0.0" \
     && composer install \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \

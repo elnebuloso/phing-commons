@@ -5,11 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [9.5.0] - 2015-05-15
+## [10.0.0] - 2015-05-18
 ### Added
-- Dockerfile php56
-- Dockerfile php70
-- Dockerfile php71
+- Docker php56
+- Docker php70
+- Docker php71
 
 
 ## [9.4.0]
