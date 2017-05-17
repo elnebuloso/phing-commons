@@ -1,0 +1,6 @@
+#!/bin/sh
+
+docker-compose up --build -d
+docker-compose exec php56 composer update
+docker-compose exec php70 composer update
+docker-compose exec php71 composer update
