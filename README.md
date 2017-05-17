@@ -96,7 +96,7 @@ To manipulate the steps, you have the possibility to overwrite each step in your
 If you want to use predefined chains by phing-commons you can add this as a list to the property: project.chains
 Separate the chains by ","
 
- * project.chains = php-composer-package
+ * project.chains = php-package
  * project.chains = foo,bar,baz
 
 ### default Chain
@@ -109,7 +109,7 @@ In chain, **clean:main** calls:
  * clean.tmp:after
  * clean.tmp
 
-### php-composer-package Chain
+### php-package Chain
 
 In chain, **init:main** calls:
 
