@@ -1,10 +1,6 @@
 .idea
 .releases
-
-/.php56/*
-
-/.php70/*
-
-/.php71/*
-
+.php56/*
+.php70/*
+.php71/*
 build.properties.local
