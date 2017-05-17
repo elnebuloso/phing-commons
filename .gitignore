@@ -6,5 +6,11 @@
 !.php56/composer.lock
 
 .php70/*
+!.php70/composer.json
+!.php70/composer.lock
+
 .php71/*
+!.php71/composer.json
+!.php71/composer.lock
+
 build.properties.local
