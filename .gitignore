@@ -1,6 +1,10 @@
 .idea
 .releases
+
 .php56/*
+!php56/composer.json
+!php56/composer.lock
+
 .php70/*
 .php71/*
 build.properties.local
