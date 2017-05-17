@@ -86,13 +86,13 @@ RUN ansible-galaxy install -r /tmp/docker/ansible/roles.yml \
 
 COPY .$PHING_COMMONS_PHP/bin /opt/phing-commons/bin
 COPY .$PHING_COMMONS_PHP/vendor /opt/phing-commons/vendor
-COPY .$PHING_COMMONS_PHP/composer.json /opt/phing-commons/composer.json
 COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
 
 COPY commons/ /opt/phing-commons/commons/
 COPY resources/ /opt/phing-commons/resources/
 COPY src/ /opt/phing-commons/src/
 COPY build.properties /opt/phing-commons/build.properties
+COPY composer.json /opt/phing-commons/composer.json
 COPY build.xml /opt/phing-commons/build.xml
 COPY LICENSE /opt/phing-commons/LICENSE
 COPY VERSION /opt/phing-commons/VERSION
