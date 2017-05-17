@@ -1,0 +1,5 @@
+#!/bin/sh
+
+docker rm -f ping-commons-php56
+docker rm -f ping-commons-php70
+docker rm -f ping-commons-php71
