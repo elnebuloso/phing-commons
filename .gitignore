@@ -1,6 +1,10 @@
 .idea
 .releases
 
+.php56/bin/*
+.php56/vendor/*
 
+!.php56/bin/README.md
+!.php56/vendor/README.md
 
 build.properties.local
