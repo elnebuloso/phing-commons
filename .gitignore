@@ -1,15 +1,6 @@
 .idea
 .releases
 
-.php56/bin/*
-.php56/vendor/*
-!.php56/bin
-!.php56/vendor
 
-.php70/bin/*
-.php70/vendor/*
-
-.php71/bin/*
-.php71/vendor/*
 
 build.properties.local
