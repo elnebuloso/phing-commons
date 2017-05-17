@@ -6,16 +6,21 @@ services:
       context: .
       dockerfile: Dockerfile.php56
     volumes:
-      - ./.php56/composer.json:/opt/phing-commons/composer.json
+      - ./composer.json:/opt/phing-commons/composer.json
       - ./.php56/composer.lock:/opt/phing-commons/composer.lock
       - ./.php56/bin:/opt/phing-commons/bin
       - ./.php56/vendor:/opt/phing-commons/vendor
+      - ./.releases:/releases
 
   php70:
     build:
       context: .
       dockerfile: Dockerfile.php70
     volumes:
+      - ./composer.json:/opt/phing-commons/composer.json
+      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
+      - ./.php56/bin:/opt/phing-commons/bin
+      - ./.php56/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
 
   php71:
@@ -23,4 +28,8 @@ services:
       context: .
       dockerfile: Dockerfile.php71
     volumes:
+      - ./composer.json:/opt/phing-commons/composer.json
+      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
+      - ./.php56/bin:/opt/phing-commons/bin
+      - ./.php56/vendor:/opt/phing-commons/vendor
       - ./.releases:/releases
