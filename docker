@@ -1,0 +1,40 @@
+#!/bin/sh
+
+while [ $# -gt 0 ]; do
+    arg=$1
+    case $arg in
+        start)
+            docker-compose up --build -d
+        ;;
+        stop)
+            docker-compose stop
+        ;;
+        update)
+            docker-compose exec php56 composer update
+            docker-compose exec php70 composer update
+            docker-compose exec php71 composer update
+        ;;
+        latest.start)
+            docker pull elnebuloso/phing-commons:php56-latest \
+            && docker run --name phing-commons-php56 -d elnebuloso/phing-commons:php56-latest
+
+            docker pull elnebuloso/phing-commons:php70-latest \
+            && docker run --name phing-commons-php70 -d elnebuloso/phing-commons:php70-latest
+
+            docker pull elnebuloso/phing-commons:php71-latest \
+            && docker run --name phing-commons-php71 -d elnebuloso/phing-commons:php71-latest
+        ;;
+        latest.stop)
+            docker rm -f ping-commons-php56
+            docker rm -f ping-commons-php70
+            docker rm -f ping-commons-php71
+        ;;
+        list)
+            echo start stop update latest.start latest.stop
+        ;;
+        *)
+            echo wrong option
+        ;;
+    esac
+    shift
+done
