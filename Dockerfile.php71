@@ -91,9 +91,11 @@ COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
 COPY commons/ /opt/phing-commons/commons/
 COPY resources/ /opt/phing-commons/resources/
 COPY src/ /opt/phing-commons/src/
+COPY tests/ /opt/phing-commons/tests/
 COPY build.properties /opt/phing-commons/build.properties
 COPY build.xml /opt/phing-commons/build.xml
 COPY composer.json /opt/phing-commons/composer.json
+COPY phpunit.xml /opt/phing-commons/phpunit.xml
 COPY VERSION /opt/phing-commons/VERSION
 
 WORKDIR /opt/phing-commons
