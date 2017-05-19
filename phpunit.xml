@@ -20,13 +20,11 @@
         <whitelist>
             <directory suffix=".php">./</directory>
             <exclude>
-                <directory>./docker</directory>
-                <directory>./php56</directory>
-                <directory>./php70</directory>
-                <directory>./php71</directory>
-                <directory>./releases</directory>
+                <directory>./bin</directory>
                 <directory>./commons</directory>
                 <directory>./resources</directory>
+                <directory>./tests</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>

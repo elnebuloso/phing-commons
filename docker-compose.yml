@@ -9,6 +9,7 @@ services:
       - ./.php56/bin:/opt/phing-commons/bin
       - ./.php56/vendor:/opt/phing-commons/vendor
       - ./.php56/composer.lock:/opt/phing-commons/composer.lock
+      - ./.build:/opt/phing-commons/.build
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src
@@ -27,6 +28,7 @@ services:
       - ./.php70/bin:/opt/phing-commons/bin
       - ./.php70/vendor:/opt/phing-commons/vendor
       - ./.php70/composer.lock:/opt/phing-commons/composer.lock
+      - ./.build:/opt/phing-commons/.build
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src
@@ -45,6 +47,7 @@ services:
       - ./.php71/bin:/opt/phing-commons/bin
       - ./.php71/vendor:/opt/phing-commons/vendor
       - ./.php71/composer.lock:/opt/phing-commons/composer.lock
+      - ./.build:/opt/phing-commons/.build
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src

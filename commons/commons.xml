@@ -57,10 +57,10 @@
     <!-- ============================================ -->
     <!-- commons tasks                                -->
     <!-- ============================================ -->
-    <taskdef classname="Commons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript"/>
-    <taskdef classname="Commons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet"/>
-    <taskdef classname="Commons\Phing\Task\Composer\FormatTask" name="commons-composer-format"/>
-    <taskdef classname="Commons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains"/>
+    <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript"/>
+    <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet"/>
+    <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Composer\FormatTask" name="commons-composer-format"/>
+    <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains"/>
 
 
     <!-- ============================================ -->

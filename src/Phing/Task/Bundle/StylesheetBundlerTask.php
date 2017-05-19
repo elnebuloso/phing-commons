@@ -1,17 +1,18 @@
 <?php
-namespace Commons\Phing\Task\Bundle;
+namespace elnebuloso\PhingCommons\Phing\Task\Bundle;
 
-use Bundler\JavascriptBundler;
+use Bundler\StylesheetBundler;
+use Task;
 use Zend\Log\Logger;
 use Zend\Log\Writer\Stream as StreamWriter;
 
 /**
- * Class JavascriptBundlerTask
+ * Class StylesheetBundlerTask
  *
  * @author Jeff Tunessen <jeff.tunessen@gmail.com>
  */
-class JavascriptBundlerTask extends \Task {
-
+class StylesheetBundlerTask extends Task
+{
     /**
      * @var string
      */
@@ -20,7 +21,8 @@ class JavascriptBundlerTask extends \Task {
     /**
      * @param string $file
      */
-    public function setFile($file) {
+    public function setFile($file)
+    {
         $this->file = $file;
     }
 
@@ -28,12 +30,13 @@ class JavascriptBundlerTask extends \Task {
      * @throws \BuildException
      * @return void
      */
-    public function main() {
+    public function main()
+    {
         $writer = new StreamWriter('php://output');
         $logger = new Logger();
         $logger->addWriter($writer);
 
-        $bundler = new JavascriptBundler($this->file);
+        $bundler = new StylesheetBundler($this->file);
         $bundler->getBundlerLogger()->setLogger($logger);
         $bundler->bundle();
     }

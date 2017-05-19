@@ -4,32 +4,32 @@
 <project default="report:help">
 
 
-    <import file="${phing:commons:commons}/targets/report/apigen.xml"/>
     <import file="${phing:commons:commons}/targets/report/phpcpd.xml"/>
     <import file="${phing:commons:commons}/targets/report/phpcs.xml"/>
     <import file="${phing:commons:commons}/targets/report/phpdepend.xml"/>
     <import file="${phing:commons:commons}/targets/report/phploc.xml"/>
     <import file="${phing:commons:commons}/targets/report/phpmd.xml"/>
+    <import file="${phing:commons:commons}/targets/report/phpmetrics.xml"/>
 
 
     <target name="report:help">
         <echo message="Report Targets"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.apigen       PHP Code Documentation"/>
-        <echo message="report.phpcpd       Copy/Paste Detector (CPD) for PHP Code"/>
-        <echo message="report.phpcs        Analysis of Coding Conventions"/>
-        <echo message="report.phpdepend    A software analyzer and metric tool for PHP Code"/>
-        <echo message="report.phploc       A tool for quickly measuring the size of a PHP project"/>
-        <echo message="report.phpmd        Project Mess Detector (PMD) for PHP Code"/>
+        <echo message="report.phpcpd        Copy/Paste Detector (CPD) for PHP Code"/>
+        <echo message="report.phpcs         Analysis of Coding Conventions"/>
+        <echo message="report.phpdepend     A software analyzer and metric tool for PHP Code"/>
+        <echo message="report.phploc        A tool for quickly measuring the size of a PHP project"/>
+        <echo message="report.phpmd         Project Mess Detector (PMD) for PHP Code"/>
+        <echo message="report.phpmetrics    Project Mess Detector (PMD) for PHP Code"/>
         <echo message=""/>
         <echo message="Report Targets Help"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.apigen:help"/>
         <echo message="report.phpcpd:help"/>
         <echo message="report.phpcs:help"/>
         <echo message="report.phpdepend:help"/>
         <echo message="report.phploc:help"/>
         <echo message="report.phpmd:help"/>
+        <echo message="report.phpmetrics:help"/>
     </target>
 
 

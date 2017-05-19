@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="report.phpmetrics">
+
+
+    <target name="report.phpmetrics:init" hidden="true">
+        <property name="report.phpmetrics.sources" value="${project.root}/src"/>
+        <property name="report.phpmetrics.out" value="${project.reports}/phpmetrics"/>
+    </target>
+
+
+    <target name="report.phpmetrics:before" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="report.phpmetrics:main" hidden="true">
+        <delete dir="${report.phpmetrics.out}"/>
+        <mkdir dir="${report.phpmetrics.out}"/>
+
+        <exec executable="${phing:commons:root}/bin/phpmetrics" logoutput="false" passthru="true" level="info" checkreturn="yes">
+            <arg line="--report-html=${report.phpmetrics.out}"/>
+            <arg line="${report.phpmetrics.sources}"/>
+        </exec>
+    </target>
+
+
+    <target name="report.phpmetrics:after" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="report.phpmetrics" depends="report.phpmetrics:init, report.phpmetrics:before, report.phpmetrics:main, report.phpmetrics:after">
+        <echo message="successful"/>
+    </target>
+
+
+    <target name="report.phpmetrics:help" depends="report.phpmetrics:init">
+        <echo message="Property                     Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpmetrics.sources    ${report.phpmetrics.sources}"/>
+        <echo message="report.phpmetrics.out        ${report.phpmetrics.out}"/>
+    </target>
+
+
+</project>

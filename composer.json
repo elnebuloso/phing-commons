@@ -1,8 +1,8 @@
 {
     "name": "elnebuloso/phing-commons",
-    "type": "library",
-    "license": "MIT",
     "description": "phing commons build stack",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "php",
         "phing",
@@ -16,27 +16,36 @@
             "role": "Maintainer"
         }
     ],
-    "autoload": {
-        "psr-0": {
-            "Commons\\": "src/"
-        }
-    },
-    "repositories": [],
     "require": {
         "php": "^5.6 || ^7.0",
         "phing/phing": "^2.16",
-        "phpmd/phpmd": "^2.5",
-        "pdepend/pdepend": "^2.3",
+        "phpmd/phpmd": "^2.6",
+        "pdepend/pdepend": "^2.5",
         "phploc/phploc": "^3.0",
         "sebastian/phpcpd": "^2.0",
+        "phpunit/phpunit": "^5.7",
+        "phpmetrics/phpmetrics": "^2.2",
         "squizlabs/php_codesniffer": "^2.7",
-        "apigen/apigen": "^4.1",
-        "phpunit/phpunit": "^4.8",
-        "pear/archive_tar": "^1.4",
-        "elnebuloso/bundler": "^9.0",
         "cakephp/cakephp-codesniffer": "^2.1",
-        "escapestudios/symfony2-coding-standard": "^2.9"
+        "escapestudios/symfony2-coding-standard": "^2.10",
+        "elnebuloso/bundler": "^9.0",
+        "pear/archive_tar": "^1.4"
     },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "elnebuloso\\PhingCommons\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "elnebuloso\\PhingCommonsTest\\": "tests/src"
+        }
+    },
+    "suggest": {},
+    "conflict": {},
+    "extra": {},
+    "repositories": [],
     "config": {
         "bin-dir": "bin"
     },

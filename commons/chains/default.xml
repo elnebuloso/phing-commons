@@ -48,7 +48,7 @@
 
 
     <target name="report" depends="report:before, report:main, report:after"/>
-    <target name="report:main" hidden="true" depends="report.apigen, report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd"/>
+    <target name="report:main" hidden="true" depends="report.phpcpd, report.phpcs, report.phpdepend, report.phploc, report.phpmd, report.phpmetrics"/>
 
 
 </project>
