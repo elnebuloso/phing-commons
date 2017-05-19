@@ -1,4 +1,5 @@
 .idea
+.build
 
 .php56/bin/*
 .php56/vendor/*
