@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - "phpmetrics/phpmetrics": "^2.2"
 - "escapestudios/symfony2-coding-standard": "^2.10"
 - removed apigen, conflicts with newest phing
-
+- removed ${user.home}/phing-commons/build.properties" property
 
 ## [10.0.0] - 2015-05-18
 ### Added

@@ -45,15 +45,12 @@ composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-ins
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <project basedir="." default="help">
-
 
     <!-- ============================================ -->
     <!-- import phing commons                         -->
     <!-- ============================================ -->
     <import file="${phing.home}/../../../commons/commons.xml" />
-
 
 </project>
 ```
