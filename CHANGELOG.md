@@ -7,14 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [10.1.0] - 2015-05-20
 ### Added
+- "phpmetrics/phpmetrics": "^2.2"
+
+### Changed
+- "phing/phing": "^2.16",
 - "phpmd/phpmd": "^2.6"
 - "pdepend/pdepend": "^2.5"
 - "phpunit/phpunit": "^5.7"
 - "phpmetrics/phpmetrics": "^2.2"
 - "escapestudios/symfony2-coding-standard": "^2.10"
-- "phpmetrics/phpmetrics": "^2.2"
-- removed apigen, conflict with newest phing and other dependencies
-- dropped packagist support, phing commons runs now as docker container
+- removed apigen, conflicts with newest phing
 
 
 ## [10.0.0] - 2015-05-18

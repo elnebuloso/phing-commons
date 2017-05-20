@@ -84,10 +84,13 @@ RUN ansible-galaxy install -r /tmp/docker/ansible/roles.yml \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
+# mounting for testing and generating newest composer.lock
+COPY .$PHING_COMMONS_PHP/.build /opt/phing-commons/.build
 COPY .$PHING_COMMONS_PHP/bin /opt/phing-commons/bin
 COPY .$PHING_COMMONS_PHP/vendor /opt/phing-commons/vendor
 COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
 
+# phing commons main files
 COPY commons/ /opt/phing-commons/commons/
 COPY resources/ /opt/phing-commons/resources/
 COPY src/ /opt/phing-commons/src/
@@ -117,7 +120,11 @@ RUN echo "installing phing-commons 10.1.0" \
     && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
     && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
     && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
-    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json
+    && ln -s /opt/phing-commons/bin/validate-json /usr/local/bin/validate-json \
+    && mkdir -p /app
+
+# change into /app for mounting project files
+WORKDIR /app
 
 # sleep infinity, use container as running system you can bash in
 CMD ["tail", "-f", "/dev/null"]

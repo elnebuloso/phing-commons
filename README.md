@@ -14,16 +14,33 @@
 This is a full delivered build stack using PHING as Build Tool. The Phing Commons Build Stack gives you pre-defined Targets which you can configure
 through a build.properties file.
 
-## Installation
+## Using Phing Commons as Docker Container (recommended)
+
+### Docker Compose
+
+```
+version: "2"
+
+services:
+  ci:
+    image: elnebuloso/phing-commons:latest
+    volumes:
+      - .:/app
+      - .build:/app/.build
+```
+
+## Using Phing Commons over Composer
 
 ```
 composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-installation
 ```
 
-## Usage
+### Usage
 
-Create build.xml file in your project root with the following content.
-To use the Phing Commons, just call /path/to/your/phing-commons-installation/**bin/phing**
+- create build.xml file in your project root with the following content.
+- call /path/to/your/phing-commons-installation/bin/phing in your project root
+
+
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
