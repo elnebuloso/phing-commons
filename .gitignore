@@ -1,5 +1,6 @@
 .idea
 
+.php56/.build/*
 .php56/bin/*
 .php56/vendor/*
 
@@ -7,6 +8,7 @@
 !.php56/bin/README.md
 !.php56/vendor/README.md
 
+.php70/.build/*
 .php70/bin/*
 .php70/vendor/*
 
@@ -14,6 +16,7 @@
 !.php70/bin/README.md
 !.php70/vendor/README.md
 
+.php71/.build/*
 .php71/bin/*
 .php71/vendor/*
 
