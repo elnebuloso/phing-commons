@@ -109,7 +109,6 @@ RUN echo "installing phing-commons 10.1.0" \
     && composer install \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \
-    && ln -s /opt/phing-commons/bin/apigen /usr/local/bin/apigen \
     && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
     && ln -s /opt/phing-commons/bin/jsonlint /usr/local/bin/jsonlint \
     && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \

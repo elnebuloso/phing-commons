@@ -26,7 +26,6 @@ services:
     image: elnebuloso/phing-commons:latest
     volumes:
       - .:/app
-      - .build:/app/.build
 ```
 
 ## Using Phing Commons over Composer
