@@ -28,18 +28,15 @@ services:
       - .:/app
 ```
 
-## Using Phing Commons over Composer
+## Using Phing Commons over Composer Installation
 
 ```
 composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-installation
 ```
 
-### Usage
+## Configuration (build.xml)
 
 - create build.xml file in your project root with the following content.
-- call /path/to/your/phing-commons-installation/bin/phing in your project root
-
-
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -54,14 +51,26 @@ composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-ins
 </project>
 ```
 
-## Configuration
+- If you want to configure the common targets, use a build.properties file to your project root.
+- For local additions or local behaviors add a build.properties.local file. This is an optional file.
+- But don't commit build.properties.local to your VCS.
+- The build.properties files are optional and are loaded when available.
 
-If you want to configure the common targets, use a build.properties file to your project root.
-For local additions or local behaviors add a build.properties.local file. This is an optional file.
-For global additions add /[home]/phing-commons/build.properties file. This is an optional file.
-But don't commit build.properties.local to your VCS.
+## Calling Phing over Docker Installation
 
-The build.properties files are optional and are loaded when available.
+- in project.root, call:
+
+```
+docker-compose exec ci phing
+```
+
+## Calling Phing over Composer Installation
+
+- in project.root, call:
+
+```
+/path/to/your/phing-commons-installation/bin/phing
+```
 
 ## Build Chain
 
