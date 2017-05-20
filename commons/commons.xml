@@ -158,4 +158,8 @@
     <import file="${phing:commons:commons}/chains/hooks.xml"/>
 
 
+    <!-- add projects autoloader for e.g. unit test etc. -->
+    <autoloader autoloaderpath="${project.root}/vendor/autoload.php"/>
+
+
 </project>
