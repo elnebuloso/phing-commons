@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - removed apigen, conflicts with newest phing
 - removed ${user.home}/phing-commons/build.properties" property
 
+
 ## [10.0.0] - 2015-05-18
 ### Added
 - Docker php56
