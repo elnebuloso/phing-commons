@@ -12,10 +12,9 @@
             <exclude name="${project.tmp}/**"/>
             <exclude name="${project.bundle}/**"/>
             <exclude name="${project.reports}/**"/>
-            <exclude name=".build/**"/>
-            <exclude name=".idea/**"/>
             <exclude name=".git/**"/>
             <exclude name=".svn/**"/>
+            <exclude name=".idea/**"/>
             <exclude name="docs/**"/>
             <exclude name="tests/**"/>
         </patternset>

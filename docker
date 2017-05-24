@@ -6,9 +6,11 @@ while [ $# -gt 0 ]; do
         start)
             docker-compose up --build -d
         ;;
+
         stop)
             docker-compose stop
         ;;
+
         latest.start)
             docker pull elnebuloso/phing-commons:php56-latest \
             && docker run --name phing-commons-php56-latest -d elnebuloso/phing-commons:php56-latest
@@ -19,14 +21,17 @@ while [ $# -gt 0 ]; do
             docker pull elnebuloso/phing-commons:php71-latest \
             && docker run --name phing-commons-php71-latest -d elnebuloso/phing-commons:php71-latest
         ;;
+
         latest.stop)
             docker rm -f ping-commons-php56-latest
             docker rm -f ping-commons-php70-latest
             docker rm -f ping-commons-php71-latest
         ;;
+
         list)
-            echo start stop update latest.start latest.stop
+            echo start | stop | latest.start | latest.stop
         ;;
+
         *)
             echo wrong option
         ;;

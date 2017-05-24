@@ -5,6 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [10.2.0] - 2015-05-25
+### Changed
+- removed ansible for installing tools
+- install tools without ansible
+- updated chains
+- git
+- subversion
+- ruby-compass
+- openjdk-8-jre-headless
+- optipng
+- jpegoptim
+- yui-compressor
+- closure-compiler
+- nodejs
+- yarn
+- flyway
+
+
 ## [10.1.0] - 2015-05-20
 ### Added
 - "phpmetrics/phpmetrics": "^2.2"

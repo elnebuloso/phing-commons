@@ -21,10 +21,18 @@ through a build.properties file.
 - PHP Packages for PHP 5.6, 7.0, 7.1
 - Composer
 - Phing
+- Compass
 - Node 6.x
 - NPM
-- Compass
-- and other Tools
+- Yarn
+- Google Closure Compiler
+- YUI Compressor
+- Flyway Database Migrations
+- optipng
+- jpegoptim
+- git
+- subversion
+
 
 ### docker compose
 

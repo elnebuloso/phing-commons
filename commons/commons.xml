@@ -154,8 +154,7 @@
     </if>
 
 
-    <import file="${phing:commons:commons}/chains/default.xml"/>
-    <import file="${phing:commons:commons}/chains/hooks.xml"/>
+    <import file="${phing:commons:commons}/chains/base.xml"/>
 
 
     <!-- add projects autoloader for e.g. unit test etc. -->
