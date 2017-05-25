@@ -23,9 +23,9 @@ while [ $# -gt 0 ]; do
         ;;
 
         latest.stop)
-            docker rm -f ping-commons-php56-latest
-            docker rm -f ping-commons-php70-latest
-            docker rm -f ping-commons-php71-latest
+            docker rm -f phing-commons-php56-latest
+            docker rm -f phing-commons-php70-latest
+            docker rm -f phing-commons-php71-latest
         ;;
 
         list)
