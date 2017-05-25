@@ -8,9 +8,7 @@
 
 
     <target name="clean" depends="clean:before, clean:main, clean:after"/>
-    <target name="clean:main" hidden="true">
-        <echo message="no actions defined" level="debug"/>
-    </target>
+    <target name="clean:main" hidden="true" depends="clean.tmp, clean.bundle, clean.reports"/>
     <target name="clean:before" hidden="true">
         <echo message="no actions defined" level="debug"/>
     </target>

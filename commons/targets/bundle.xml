@@ -13,6 +13,11 @@
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="bundle.javascript    Bundle your Javascript Files"/>
         <echo message="bundle.stylesheet    Bundle your Stylesheet Files"/>
+        <echo message=""/>
+        <echo message="Bundle Targets Help"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="bundle.javascript:help"/>
+        <echo message="bundle.stylesheet:help"/>
     </target>
 
 

@@ -5,18 +5,15 @@
 
 
     <target name="project.bundle:init" hidden="true">
-        <property name="project.bundle.patternset.id" value="project_bundle_patternset_default"/>
+        <property name="project.bundle.patternset" value="project_bundle_patternset_default"/>
 
         <patternset id="project_bundle_patternset_default">
             <include name="**/**"/>
+            <exclude name="docs/**"/>
+            <exclude name="tests/**"/>
             <exclude name="${project.tmp}/**"/>
             <exclude name="${project.bundle}/**"/>
             <exclude name="${project.reports}/**"/>
-            <exclude name=".git/**"/>
-            <exclude name=".svn/**"/>
-            <exclude name=".idea/**"/>
-            <exclude name="docs/**"/>
-            <exclude name="tests/**"/>
         </patternset>
     </target>
 
@@ -27,14 +24,22 @@
 
 
     <target name="project.bundle:main" hidden="true">
-        <delete dir="${project.bundle}"/>
-        <mkdir dir="${project.bundle}"/>
+        <if>
+            <istrue value="${project.bundle.enabled}"/>
+            <then>
+                <delete dir="${project.bundle}"/>
+                <mkdir dir="${project.bundle}"/>
 
-        <copy todir="${project.bundle}">
-            <fileset dir=".">
-                <patternset refid="${project.bundle.patternset.id}"/>
-            </fileset>
-        </copy>
+                <copy todir="${project.bundle}">
+                    <fileset dir=".">
+                        <patternset refid="${project.bundle.patternset}"/>
+                    </fileset>
+                </copy>
+            </then>
+            <else>
+                <echo message="project.bundle disabled. enable by property project.bundle.enabled set to yes" level="warning"/>
+            </else>
+        </if>
     </target>
 
 
@@ -49,9 +54,10 @@
 
 
     <target name="project.bundle:help" depends="project.bundle:init">
-        <echo message="Property                         Value"/>
+        <echo message="Property                     Value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.bundle.patternset.id     ${project.bundle.patternset.id}"/>
+        <echo message="project.bundle.enabled       yes|no: ${project.bundle.enabled}"/>
+        <echo message="project.bundle.patternset    ${project.bundle.patternset}"/>
     </target>
 
 

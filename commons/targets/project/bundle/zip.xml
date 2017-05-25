@@ -5,8 +5,7 @@
 
 
     <target name="project.bundle.zip:init" hidden="true">
-        <property name="project.bundle.zip.enabled" value="no"/>
-        <property name="project.bundle.zip.timestamped" value="yes"/>
+        <property name="project.bundle.zip.timestamped" value="no"/>
         <property name="project.bundle.zip.copy.todir" value=""/>
     </target>
 
@@ -18,42 +17,50 @@
 
     <target name="project.bundle.zip:main" hidden="true">
         <if>
-            <istrue value="${project.bundle.zip.enabled}"/>
+            <istrue value="${project.bundle.enabled}"/>
             <then>
-                <delete>
-                    <fileset dir="${project.tmp}">
-                        <include name="*.zip"/>
-                    </fileset>
-                </delete>
-
                 <if>
-                    <istrue value="${project.bundle.zip.timestamped}"/>
+                    <istrue value="${project.bundle.zip.enabled}"/>
                     <then>
-                        <tstamp/>
-                        <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.zip"/>
+                        <delete>
+                            <fileset dir="${project.tmp}">
+                                <include name="*.zip"/>
+                            </fileset>
+                        </delete>
+
+                        <if>
+                            <istrue value="${project.bundle.zip.timestamped}"/>
+                            <then>
+                                <tstamp/>
+                                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.name}__${project.version}__${DSTAMP}${TSTAMP}.zip"/>
+                            </then>
+                            <else>
+                                <property name="project.bundle.zip.filename" value="${project.tmp}/${project.name}__${project.version}.zip"/>
+                            </else>
+                        </if>
+
+                        <zip destfile="${project.bundle.zip.filename}">
+                            <fileset dir="${project.bundle}">
+                                <include name="**/**"/>
+                            </fileset>
+                        </zip>
+
+                        <if>
+                            <not>
+                                <equals arg1="${project.bundle.zip.copy.todir}" arg2=""/>
+                            </not>
+                            <then>
+                                <copy file="${project.bundle.zip.filename}" todir="${project.bundle.zip.copy.todir}" overwrite="true"/>
+                            </then>
+                        </if>
                     </then>
                     <else>
-                        <property name="project.bundle.zip.filename" value="${project.tmp}/${project.version}.zip"/>
+                        <echo message="project.bundle.zip disabled. enable by property project.bundle.tar.enabled set to yes" level="warning"/>
                     </else>
-                </if>
-
-                <zip destfile="${project.bundle.zip.filename}">
-                    <fileset dir="${project.bundle}">
-                        <include name="**/**"/>
-                    </fileset>
-                </zip>
-
-                <if>
-                    <not>
-                        <equals arg1="${project.bundle.zip.copy.todir}" arg2=""/>
-                    </not>
-                    <then>
-                        <copy file="${project.bundle.zip.filename}" todir="${project.bundle.zip.copy.todir}" overwrite="true"/>
-                    </then>
                 </if>
             </then>
             <else>
-                <echo message="project.bundle.zip disabled. enable by property project.bundle.tar.enabled set to yes" level="warning"/>
+                <echo message="project.bundle disabled. enable by property project.bundle.enabled set to yes" level="warning"/>
             </else>
         </if>
     </target>
@@ -64,7 +71,7 @@
     </target>
 
 
-    <target name="project.bundle.zip" depends="project.bundle.zip:init, project.bundle.zip:before, project.bundle.zip:main, project.bundle.zip:after">
+    <target name="project.bundle.zip" depends="project.bundle, project.bundle.zip:init, project.bundle.zip:before, project.bundle.zip:main, project.bundle.zip:after">
         <echo message="successful"/>
     </target>
 
@@ -74,8 +81,9 @@
         <echo message=""/>
         <echo message="Property                         Value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.bundle.zip.enabled       ${project.bundle.zip.enabled}"/>
-        <echo message="project.bundle.zip.timestamped   ${project.bundle.zip.timestamped}"/>
+        <echo message="project.bundle.enabled           yes|no: ${project.bundle.enabled}"/>
+        <echo message="project.bundle.zip.enabled       yes|no: ${project.bundle.zip.enabled}"/>
+        <echo message="project.bundle.zip.timestamped   yes|no: ${project.bundle.zip.timestamped}"/>
         <echo message="project.bundle.zip.copy.todir    ${project.bundle.zip.copy.todir}"/>
     </target>
 

@@ -4,6 +4,12 @@
 <project default="composer:help">
 
 
+    <property name="composer.name" value="${project.vendor}/${project.name}"/>
+    <property name="composer.description" value=""/>
+    <property name="composer.license" value=""/>
+    <property name="composer.type" value=""/>
+
+
     <import file="${phing:commons:commons}/targets/composer/format.xml"/>
     <import file="${phing:commons:commons}/targets/composer/install.xml"/>
     <import file="${phing:commons:commons}/targets/composer/install/nodev.xml"/>

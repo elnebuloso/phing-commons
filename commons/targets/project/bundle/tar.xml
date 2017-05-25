@@ -5,9 +5,8 @@
 
 
     <target name="project.bundle.tar:init" hidden="true">
-        <property name="project.bundle.tar.enabled" value="no"/>
+        <property name="project.bundle.tar.timestamped" value="no"/>
         <property name="project.bundle.tar.compression" value="gzip"/>
-        <property name="project.bundle.tar.timestamped" value="yes"/>
         <property name="project.bundle.tar.copy.todir" value=""/>
     </target>
 
@@ -19,56 +18,64 @@
 
     <target name="project.bundle.tar:main" hidden="true">
         <if>
-            <istrue value="${project.bundle.tar.enabled}"/>
+            <istrue value="${project.bundle.enabled}"/>
             <then>
-                <delete>
-                    <fileset dir="${project.tmp}">
-                        <include name="*.tar*"/>
-                    </fileset>
-                </delete>
-
                 <if>
-                    <istrue value="${project.bundle.tar.timestamped}"/>
+                    <istrue value="${project.bundle.tar.enabled}"/>
                     <then>
-                        <tstamp/>
-                        <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.${DSTAMP}${TSTAMP}.tar"/>
+                        <delete>
+                            <fileset dir="${project.tmp}">
+                                <include name="*.tar*"/>
+                            </fileset>
+                        </delete>
+
+                        <if>
+                            <istrue value="${project.bundle.tar.timestamped}"/>
+                            <then>
+                                <tstamp/>
+                                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.name}__${project.version}__${DSTAMP}${TSTAMP}.tar"/>
+                            </then>
+                            <else>
+                                <property name="project.bundle.tar.filename" value="${project.tmp}/${project.name}__${project.version}.tar"/>
+                            </else>
+                        </if>
+
+                        <if>
+                            <equals arg1="${project.bundle.tar.compression}" arg2="gzip"/>
+                            <then>
+                                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" override="true"/>
+                            </then>
+                        </if>
+
+                        <if>
+                            <equals arg1="${project.bundle.tar.compression}" arg2="bzip2"/>
+                            <then>
+                                <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" override="true"/>
+                            </then>
+                        </if>
+
+                        <tar destfile="${project.bundle.tar.filename}" compression="gzip">
+                            <fileset dir="${project.bundle}">
+                                <include name="**/**"/>
+                            </fileset>
+                        </tar>
+
+                        <if>
+                            <not>
+                                <equals arg1="${project.bundle.tar.copy.todir}" arg2=""/>
+                            </not>
+                            <then>
+                                <copy file="${project.bundle.tar.filename}" todir="${project.bundle.tar.copy.todir}" overwrite="true"/>
+                            </then>
+                        </if>
                     </then>
                     <else>
-                        <property name="project.bundle.tar.filename" value="${project.tmp}/${project.version}.tar"/>
+                        <echo message="project.bundle.tar disabled. enable by property project.bundle.tar.enabled set to yes" level="warning"/>
                     </else>
-                </if>
-
-                <if>
-                    <equals arg1="${project.bundle.tar.compression}" arg2="gzip"/>
-                    <then>
-                        <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.gz" override="true"/>
-                    </then>
-                </if>
-
-                <if>
-                    <equals arg1="${project.bundle.tar.compression}" arg2="bzip2"/>
-                    <then>
-                        <property name="project.bundle.tar.filename" value="${project.bundle.tar.filename}.bz2" override="true"/>
-                    </then>
-                </if>
-
-                <tar destfile="${project.bundle.tar.filename}" compression="gzip">
-                    <fileset dir="${project.bundle}">
-                        <include name="**/**"/>
-                    </fileset>
-                </tar>
-
-                <if>
-                    <not>
-                        <equals arg1="${project.bundle.tar.copy.todir}" arg2=""/>
-                    </not>
-                    <then>
-                        <copy file="${project.bundle.tar.filename}" todir="${project.bundle.tar.copy.todir}" overwrite="true"/>
-                    </then>
                 </if>
             </then>
             <else>
-                <echo message="project.bundle.tar disabled. enable by property project.bundle.tar.enabled set to yes" level="warning"/>
+                <echo message="project.bundle disabled. enable by property project.bundle.enabled set to yes" level="warning"/>
             </else>
         </if>
     </target>
@@ -79,7 +86,7 @@
     </target>
 
 
-    <target name="project.bundle.tar" depends="project.bundle.tar:init, project.bundle.tar:before, project.bundle.tar:main, project.bundle.tar:after">
+    <target name="project.bundle.tar" depends="project.bundle, project.bundle.tar:init, project.bundle.tar:before, project.bundle.tar:main, project.bundle.tar:after">
         <echo message="successful"/>
     </target>
 
@@ -89,9 +96,10 @@
         <echo message=""/>
         <echo message="Property                         Value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.bundle.tar.enabled       ${project.bundle.tar.enabled}"/>
+        <echo message="project.bundle.enabled           yes|no: ${project.bundle.enabled}"/>
+        <echo message="project.bundle.tar.enabled       yes|no: ${project.bundle.tar.enabled}"/>
+        <echo message="project.bundle.tar.timestamped   yes|no: ${project.bundle.tar.timestamped}"/>
         <echo message="project.bundle.tar.compression   ${project.bundle.tar.compression}"/>
-        <echo message="project.bundle.tar.timestamped   ${project.bundle.tar.timestamped}"/>
         <echo message="project.bundle.tar.copy.todir    ${project.bundle.tar.copy.todir}"/>
     </target>
 

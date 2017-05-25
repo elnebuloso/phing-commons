@@ -7,7 +7,15 @@
     <!-- ============================================ -->
     <!-- import phing commons                         -->
     <!-- ============================================ -->
-    <import file="commons/commons.xml" />
+    <import file="commons/commons.xml"/>
+
+
+    <property name="project.bundle.patternset" value="project_bundle_patternset_phing_commons"/>
+    <patternset id="project_bundle_patternset_phing_commons">
+        <include name="commons/**"/>
+        <include name="resources/**"/>
+        <include name="src/**"/>
+    </patternset>
 
 
 </project>

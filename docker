@@ -2,15 +2,19 @@
 
 while [ $# -gt 0 ]; do
     arg=$1
+
     case $arg in
         start)
             docker-compose up --build -d
         ;;
-
         stop)
             docker-compose stop
         ;;
-
+        update)
+            docker-compose exec php56 bash -c 'cd /opt/phing-commons; composer update'
+            docker-compose exec php70 bash -c 'cd /opt/phing-commons; composer update'
+            docker-compose exec php70 bash -c 'cd /opt/phing-commons; composer update'
+        ;;
         latest.start)
             docker pull elnebuloso/phing-commons:php56-latest \
             && docker run --name phing-commons-php56-latest -d elnebuloso/phing-commons:php56-latest
@@ -21,19 +25,21 @@ while [ $# -gt 0 ]; do
             docker pull elnebuloso/phing-commons:php71-latest \
             && docker run --name phing-commons-php71-latest -d elnebuloso/phing-commons:php71-latest
         ;;
-
         latest.stop)
             docker rm -f phing-commons-php56-latest
             docker rm -f phing-commons-php70-latest
             docker rm -f phing-commons-php71-latest
         ;;
-
-        list)
-            echo start | stop | latest.start | latest.stop
-        ;;
-
         *)
-            echo wrong option
+            echo ""
+            echo "commands:"
+            echo ""
+            echo "./docker start"
+            echo "./docker stop"
+            echo "./docker update"
+            echo "./docker latest.start"
+            echo "./docker latest.stop"
+            echo ""
         ;;
     esac
     shift

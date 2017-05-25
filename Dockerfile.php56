@@ -65,43 +65,6 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# mounting for testing and generating newest composer.lock
-COPY .$PHING_COMMONS_PHP/.build /opt/phing-commons/.build
-COPY .$PHING_COMMONS_PHP/bin /opt/phing-commons/bin
-COPY .$PHING_COMMONS_PHP/vendor /opt/phing-commons/vendor
-COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
-
-# phing commons main files
-COPY commons/ /opt/phing-commons/commons/
-COPY resources/ /opt/phing-commons/resources/
-COPY src/ /opt/phing-commons/src/
-COPY tests/ /opt/phing-commons/tests/
-COPY build.properties /opt/phing-commons/build.properties
-COPY build.xml /opt/phing-commons/build.xml
-COPY composer.json /opt/phing-commons/composer.json
-COPY phpunit.xml /opt/phing-commons/phpunit.xml
-COPY VERSION /opt/phing-commons/VERSION
-
-WORKDIR /opt/phing-commons
-
-# install phing-commons
-RUN echo "installing phing-commons 10.2.0" \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer self-update \
-    && composer install \
-    && chmod -R 755 /opt/phing-commons/* \
-    && chown -R root:root /opt/phing-commons/* \
-    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
-    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
-    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
-    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
-    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
-    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
-    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
-    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
-    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
-    && mkdir -p /app
-
 ENV FLYWAY_VERSION 4.2.0
 ADD https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz /opt/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz
 
@@ -136,6 +99,43 @@ RUN apt-get update \
     && rm -rf /usr/share/man/* \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
+
+# mounting for testing and generating newest composer.lock
+COPY .$PHING_COMMONS_PHP/.build /opt/phing-commons/.build
+COPY .$PHING_COMMONS_PHP/bin /opt/phing-commons/bin
+COPY .$PHING_COMMONS_PHP/vendor /opt/phing-commons/vendor
+COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
+
+# phing commons main files
+COPY commons/ /opt/phing-commons/commons/
+COPY resources/ /opt/phing-commons/resources/
+COPY src/ /opt/phing-commons/src/
+COPY tests/ /opt/phing-commons/tests/
+COPY build.properties /opt/phing-commons/build.properties
+COPY build.xml /opt/phing-commons/build.xml
+COPY composer.json /opt/phing-commons/composer.json
+COPY phpunit.xml /opt/phing-commons/phpunit.xml
+COPY VERSION /opt/phing-commons/VERSION
+
+WORKDIR /opt/phing-commons
+
+# install phing-commons
+RUN echo "installing phing-commons 10.3.0" \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer self-update \
+    && composer install \
+    && chmod -R 755 /opt/phing-commons/* \
+    && chown -R root:root /opt/phing-commons/* \
+    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
+    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
+    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
+    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
+    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
+    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
+    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
+    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
+    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
+    && mkdir -p /app
 
 # change into /app for mounting project files
 WORKDIR /app

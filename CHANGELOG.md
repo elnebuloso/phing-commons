@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [10.3.0] - 2015-05-25
+### Changed
+- changed behavior of bundle.project
+- bundle.project.tar depends on bundle.project and only runs if bundle.project.enabled
+- bundle.project.zip depends on bundle.project and only runs if bundle.project.enabled
+- updated phing help targets
+- updated docker layers
+
+
 ## [10.2.0] - 2015-05-25
 ### Changed
 - removed ansible for installing tools
