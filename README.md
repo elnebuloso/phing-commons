@@ -33,27 +33,6 @@ through a build.properties file.
 - git
 - subversion
 
-
-### docker compose
-
-- use the container version for your PHP Environment
-
-```
-version: "2"
-
-services:
-  ci:
-    image: elnebuloso/phing-commons:php71-latest
-    volumes:
-      - .:/app
-```
-
-## using phing commons over composer installation
-
-```
-composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-installation
-```
-
 ## configuration (build.xml)
 
 - create build.xml file in your project root with the following content.
@@ -76,15 +55,30 @@ composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-ins
 - but don't commit build.properties.local to your vcs.
 - the build.properties files are optional and are loaded when available.
 
-## calling phing over docker installation
+### run as docker
 
+- no installation necessary, just call latest, or by tagged version
 - in project.root, call:
 
 ```
-docker-compose exec ci phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-latest phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-latest phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-latest phing
 ```
 
-## calling phing over composer installation
+```
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-10.4.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-10.4.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-10.4.0 phing
+```
+
+## run over composer
+
+- install:
+
+```
+composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-installation
+```
 
 - in project.root, call:
 

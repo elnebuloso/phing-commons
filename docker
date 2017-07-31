@@ -4,11 +4,8 @@ while [ $# -gt 0 ]; do
     arg=$1
 
     case $arg in
-        start)
+        create)
             docker-compose up --build -d
-        ;;
-        stop)
-            docker-compose stop
         ;;
         update)
             docker-compose run php56 bash -c 'cd /opt/phing-commons; composer update'
@@ -19,8 +16,7 @@ while [ $# -gt 0 ]; do
             echo ""
             echo "commands:"
             echo ""
-            echo "./docker start"
-            echo "./docker stop"
+            echo "./docker create"
             echo "./docker update"
             echo ""
         ;;
