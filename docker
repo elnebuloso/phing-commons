@@ -13,7 +13,7 @@ while [ $# -gt 0 ]; do
         update)
             docker-compose exec php56 bash -c 'cd /opt/phing-commons; composer update'
             docker-compose exec php70 bash -c 'cd /opt/phing-commons; composer update'
-            docker-compose exec php70 bash -c 'cd /opt/phing-commons; composer update'
+            docker-compose exec php71 bash -c 'cd /opt/phing-commons; composer update'
         ;;
         latest.start)
             docker pull elnebuloso/phing-commons:php56-latest \

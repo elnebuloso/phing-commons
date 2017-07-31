@@ -5,7 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [10.3.0] - 2015-05-25
+## [10.4.0] - 2015-05-25
+### Changed
+- composer.lock.php56
+- composer.lock.php70
+- composer.lock.php71
+- dockerfiles without sleeping bash
+
+
+## [10.3.0] - 2017-05-25
 ### Changed
 - changed behavior of bundle.project
 - bundle.project.tar depends on bundle.project and only runs if bundle.project.enabled
@@ -14,7 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - updated docker layers
 
 
-## [10.2.0] - 2015-05-25
+## [10.2.0] - 2017-05-25
 ### Changed
 - removed ansible for installing tools
 - install tools without ansible
@@ -32,7 +40,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - flyway
 
 
-## [10.1.0] - 2015-05-20
+## [10.1.0] - 2017-05-20
 ### Added
 - "phpmetrics/phpmetrics": "^2.2"
 
@@ -47,7 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - removed ${user.home}/phing-commons/build.properties" property
 
 
-## [10.0.0] - 2015-05-18
+## [10.0.0] - 2017-05-18
 ### Added
 - Docker php56
 - Docker php70

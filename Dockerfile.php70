@@ -100,12 +100,6 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# mounting for testing and generating newest composer.lock
-COPY .$PHING_COMMONS_PHP/.build /opt/phing-commons/.build
-COPY .$PHING_COMMONS_PHP/bin /opt/phing-commons/bin
-COPY .$PHING_COMMONS_PHP/vendor /opt/phing-commons/vendor
-COPY .$PHING_COMMONS_PHP/composer.lock /opt/phing-commons/composer.lock
-
 # phing commons main files
 COPY commons/ /opt/phing-commons/commons/
 COPY resources/ /opt/phing-commons/resources/
@@ -117,10 +111,14 @@ COPY composer.json /opt/phing-commons/composer.json
 COPY phpunit.xml /opt/phing-commons/phpunit.xml
 COPY VERSION /opt/phing-commons/VERSION
 
+# phing commons composer
+COPY ./composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
+
+# change into /opt/phing-commons for updating composer
 WORKDIR /opt/phing-commons
 
 # install phing-commons
-RUN echo "installing phing-commons 10.3.0" \
+RUN echo "installing phing-commons 10.4.0" \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer self-update \
     && composer install \
@@ -139,6 +137,3 @@ RUN echo "installing phing-commons 10.3.0" \
 
 # change into /app for mounting project files
 WORKDIR /app
-
-# sleep infinity, use container as running system you can bash in
-CMD ["tail", "-f", "/dev/null"]

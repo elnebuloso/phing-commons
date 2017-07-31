@@ -6,13 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.php56
     volumes:
-      # mounting for testing and generating newest composer.lock
-      - ./.php56/.build:/opt/phing-commons/.build
-      - ./.php56/bin:/opt/phing-commons/bin
-      - ./.php56/vendor:/opt/phing-commons/vendor
-      - ./.php56/composer.lock:/opt/phing-commons/composer.lock
-
-      # phing commons main for developing
+      # phing commons main files
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src
@@ -22,19 +16,16 @@ services:
       - ./composer.json:/opt/phing-commons/composer.json
       - ./phpunit.xml:/opt/phing-commons/phpunit.xml
       - ./VERSION:/opt/phing-commons/VERSION
+
+      # phing commons composer
+      - ./composer.lock.php56:/opt/phing-commons/composer.lock
 
   php70:
     build:
       context: .
       dockerfile: Dockerfile.php70
     volumes:
-      # mounting for testing and generating newest composer.lock
-      - ./.php70/.build:/opt/phing-commons/.build
-      - ./.php70/bin:/opt/phing-commons/bin
-      - ./.php70/vendor:/opt/phing-commons/vendor
-      - ./.php70/composer.lock:/opt/phing-commons/composer.lock
-
-      # phing commons main for developing
+      # phing commons main files
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src
@@ -44,19 +35,16 @@ services:
       - ./composer.json:/opt/phing-commons/composer.json
       - ./phpunit.xml:/opt/phing-commons/phpunit.xml
       - ./VERSION:/opt/phing-commons/VERSION
+
+      # phing commons composer
+      - ./composer.lock.php70:/opt/phing-commons/composer.lock
 
   php71:
     build:
       context: .
       dockerfile: Dockerfile.php71
     volumes:
-      # mounting for testing and generating newest composer.lock
-      - ./.php71/.build:/opt/phing-commons/.build
-      - ./.php71/bin:/opt/phing-commons/bin
-      - ./.php71/vendor:/opt/phing-commons/vendor
-      - ./.php71/composer.lock:/opt/phing-commons/composer.lock
-
-      # phing commons main for developing
+      # phing commons main files
       - ./commons:/opt/phing-commons/commons
       - ./resources:/opt/phing-commons/resources
       - ./src:/opt/phing-commons/src
@@ -66,3 +54,6 @@ services:
       - ./composer.json:/opt/phing-commons/composer.json
       - ./phpunit.xml:/opt/phing-commons/phpunit.xml
       - ./VERSION:/opt/phing-commons/VERSION
+
+      # phing commons composer
+      - ./composer.lock.php71:/opt/phing-commons/composer.lock
