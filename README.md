@@ -5,9 +5,9 @@
 
 ## supported tags and respective `dockerfile` links
 
-- [`php56` (dockerfile.php56)](https://github.com/elnebuloso/phing-commons/blob/master/dockerfile.php56)
-- [`php70` (dockerfile.php70)](https://github.com/elnebuloso/phing-commons/blob/master/dockerfile.php70)
-- [`php71` (dockerfile.php71)](https://github.com/elnebuloso/phing-commons/blob/master/dockerfile.php71)
+- [`php56` (Dockerfile.php56)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php56)
+- [`php70` (Dockerfile.php70)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php70)
+- [`php71` (Dockerfile.php71)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php71)
 
 ## about
 
