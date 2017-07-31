@@ -5,11 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [10.4.0] - 2015-05-25
+## [10.4.0] - 2017-05-25
 ### Changed
-- composer.lock.php56
-- composer.lock.php70
-- composer.lock.php71
+- composer.lock.php56 updated
+- composer.lock.php70 updated
+- composer.lock.php71 updated
 - dockerfiles without sleeping bash
 
 
