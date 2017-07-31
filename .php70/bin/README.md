@@ -1,1 +1,0 @@
-# php70 intermediate files
