@@ -16,22 +16,13 @@ through a build.properties file.
 
 ## using phing commons as docker container (recommended)
 
-### Features
+### features
 
-- PHP Packages for PHP 5.6, 7.0, 7.1
-- Composer
+- PHP 5.6, 7.0, 7.1
 - Phing
-- Compass
-- Node 6.x
-- NPM
-- Yarn
-- Google Closure Compiler
+- Composer
 - YUI Compressor
-- Flyway Database Migrations
-- optipng
-- jpegoptim
-- git
-- subversion
+- Google Closure Compiler
 
 ## configuration (build.xml)
 
@@ -55,10 +46,15 @@ through a build.properties file.
 - but don't commit build.properties.local to your vcs.
 - the build.properties files are optional and are loaded when available.
 
-### run as docker
+### run through docker
 
-- no installation necessary, just call latest, or by tagged version
-- in project.root, call:
+- no installation necessary, just call in roject.root:
+
+```
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-10.5.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-10.5.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-10.5.0 phing
+```
 
 ```
 docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-latest phing
@@ -66,13 +62,7 @@ docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-latest phing
 docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-latest phing
 ```
 
-```
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-10.4.0 phing
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-10.4.0 phing
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-10.4.0 phing
-```
-
-## run over composer
+## run through composer
 
 - install:
 

@@ -65,31 +65,13 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-ENV FLYWAY_VERSION 4.2.0
-ADD https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz /opt/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz
-
-# add repositories for integration tools
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
-    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
 # install integration tools
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
         subversion \
-        ruby-compass \
-        openjdk-8-jre-headless \
-        optipng \
-        jpegoptim \
         yui-compressor \
         closure-compiler \
-        nodejs \
-        yarn \
-    && tar -xzf /opt/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz -C /opt \
-    && rm -rf /opt/flyway-commandline-${FLYWAY_VERSION}-linux-x64.tar.gz \
-    && chmod +x /opt/flyway-${FLYWAY_VERSION}/flyway \
-    && ln -sf /opt/flyway-${FLYWAY_VERSION}/flyway /usr/local/bin/flyway \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/cache/apt/archives/* \
@@ -118,7 +100,7 @@ COPY ./composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
 WORKDIR /opt/phing-commons
 
 # install phing-commons
-RUN echo "installing phing-commons 10.4.0" \
+RUN echo "installing phing-commons 10.5.0" \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer self-update \
     && composer install \

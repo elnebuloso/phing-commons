@@ -5,7 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [10.4.0] - 2017-05-25
+## [10.5.0] - 2017-07-31
+### Changed
+- removed unnecessary system packages
+- installing only system packages for phing commons build stack
+
+
+## [10.4.0] - 2017-07-31
 ### Changed
 - composer.lock.php56 updated
 - composer.lock.php70 updated
