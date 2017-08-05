@@ -100,7 +100,7 @@ COPY ./composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
 WORKDIR /opt/phing-commons
 
 # install phing-commons
-RUN echo "installing phing-commons 10.5.0" \
+RUN echo "installing phing-commons 10.6.0" \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer self-update \
     && composer install \
@@ -119,3 +119,5 @@ RUN echo "installing phing-commons 10.5.0" \
 
 # change into /app for mounting project files
 WORKDIR /app
+
+CMD ["sh"]

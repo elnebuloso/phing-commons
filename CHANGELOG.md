@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [10.6.0] - 2017-08-05
+### Changed
+- Added Dockerfile CMD ["sh"]
+- Updated Composer Dependencies
+
+
 ## [10.5.0] - 2017-07-31
 ### Changed
 - removed unnecessary system packages

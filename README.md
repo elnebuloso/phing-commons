@@ -5,6 +5,7 @@
 
 ## supported tags and respective `dockerfile` links
 
+- https://hub.docker.com/r/elnebuloso/phing-commons/tags/
 - [`php56` (Dockerfile.php56)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php56)
 - [`php70` (Dockerfile.php70)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php70)
 - [`php71` (Dockerfile.php71)](https://github.com/elnebuloso/phing-commons/blob/master/Dockerfile.php71)
@@ -14,9 +15,7 @@
 this is a full delivered build stack using phing as build tool. the phing commons build stack gives you pre-defined targets which you can configure
 through a build.properties file.
 
-## using phing commons as docker container (recommended)
-
-### features
+## features
 
 - PHP 5.6, 7.0, 7.1
 - Phing
@@ -46,14 +45,16 @@ through a build.properties file.
 - but don't commit build.properties.local to your vcs.
 - the build.properties files are optional and are loaded when available.
 
+## using phing commons as docker container (recommended)
+
 ### run through docker
 
 - no installation necessary, just call in roject.root:
 
 ```
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-10.5.0 phing
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-10.5.0 phing
-docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-10.5.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php56-10.6.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-10.6.0 phing
+docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-10.6.0 phing
 ```
 
 ```
@@ -62,15 +63,31 @@ docker run -v ${PWD}:/app elnebuloso/phing-commons:php70-latest phing
 docker run -v ${PWD}:/app elnebuloso/phing-commons:php71-latest phing
 ```
 
-## run through composer
+### run through docker-compose
 
-- install:
+```
+version: "2"
+
+services:
+  pc:
+    image: elnebuloso/phing-commons:php71-10.6.0
+    volumes:
+      - .:/app
+```
+
+```
+docker-compose run pc phing
+```
+
+## using phing commons through composer
+
+### install
 
 ```
 composer create-project elnebuloso/phing-commons /path/to/your/phing-commons-installation
 ```
 
-- in project.root, call:
+### run in project root
 
 ```
 /path/to/your/phing-commons-installation/bin/phing
