@@ -36,20 +36,10 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         php7.1-cli \
         php7.1-common \
-        php7.1-apcu \
         php7.1-curl \
         php7.1-gd \
-        php7.1-geoip \
         php7.1-imagick \
-        php7.1-intl \
         php7.1-mbstring \
-        php7.1-mcrypt \
-        php7.1-memcache \
-        php7.1-memcached \
-        php7.1-mongo \
-        php7.1-mongodb \
-        php7.1-mysql \
-        php7.1-sqlite3 \
         php7.1-xdebug \
         php7.1-xml \
         php7.1-xsl \
@@ -83,26 +73,25 @@ RUN apt-get update \
     && rm -rf /tmp/*
 
 # phing commons main files
-COPY commons/ /opt/phing-commons/commons/
-COPY resources/ /opt/phing-commons/resources/
-COPY src/ /opt/phing-commons/src/
-COPY tests/ /opt/phing-commons/tests/
+COPY commons /opt/phing-commons/commons
+COPY resources /opt/phing-commons/resources
+COPY src /opt/phing-commons/src
+COPY tests /opt/phing-commons/tests
+
 COPY build.properties /opt/phing-commons/build.properties
 COPY build.xml /opt/phing-commons/build.xml
 COPY composer.json /opt/phing-commons/composer.json
 COPY phpunit.xml /opt/phing-commons/phpunit.xml
 COPY VERSION /opt/phing-commons/VERSION
 
-# phing commons composer
-COPY ./composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
+# phing commons php version specific
+COPY vendor.$PHING_COMMONS_PHP /opt/phing-commons/vendor
+COPY composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
 
-# change into /opt/phing-commons for updating composer
-WORKDIR /opt/phing-commons
-
-# install phing-commons
-RUN echo "installing phing-commons 10.6.0" \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+# phing commons installation
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer self-update \
+    && cd /opt/phing-commons \
     && composer install \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \
@@ -114,10 +103,6 @@ RUN echo "installing phing-commons 10.6.0" \
     && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
     && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
     && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
-    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit \
-    && mkdir -p /app
-
-# change into /app for mounting project files
-WORKDIR /app
+    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit
 
 CMD ["sh"]

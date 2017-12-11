@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": ">=5.6.0",
         "phing/phing": "^2.16",
         "phpmd/phpmd": "^2.6",
         "pdepend/pdepend": "^2.5",

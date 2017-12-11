@@ -18,6 +18,7 @@ services:
       - ./VERSION:/opt/phing-commons/VERSION
 
       # phing commons composer
+      - ./vendor.php56:/opt/phing-commons/vendor
       - ./composer.lock.php56:/opt/phing-commons/composer.lock
 
   php70:
@@ -37,6 +38,7 @@ services:
       - ./VERSION:/opt/phing-commons/VERSION
 
       # phing commons composer
+      - ./vendor.php70:/opt/phing-commons/vendor
       - ./composer.lock.php70:/opt/phing-commons/composer.lock
 
   php71:
@@ -56,4 +58,5 @@ services:
       - ./VERSION:/opt/phing-commons/VERSION
 
       # phing commons composer
+      - ./vendor.php71:/opt/phing-commons/vendor
       - ./composer.lock.php71:/opt/phing-commons/composer.lock

@@ -1,7 +1,6 @@
 # phing-commons
 
-[![license](https://poser.pugx.org/elnebuloso/phing-commons/license)](https://packagist.org/packages/elnebuloso/phing-commons)
-[![docker build statu](https://img.shields.io/docker/build/elnebuloso/phing-commons.svg)](https://hub.docker.com/r/elnebuloso/phing-commons/builds/)
+Phing Build Stack
 
 ## supported tags and respective `dockerfile` links
 

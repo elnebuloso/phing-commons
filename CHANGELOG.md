@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [10.7.0] - 2017-12-10
+### Changed
+- removed php5.6-apcu, php7.0-apcu, php7.1-apcu
+- removed php5.6-memcache, php7.0-memcache, php7.1-memcache
+- removed php5.6-memcached, php7.0-memcached, php7.1-memcached
+- removed php5.6-mongo, php7.0-mongo, php7.1-mongo
+- removed php5.6-mongodb, php7.0-mongodb, php7.1-mongodb
+- removed php5.6-intl, php7.0-intl, php7.1-intl
+- removed php5.6-mcrypt, php7.0-mcrypt, php7.1-mcrypt
+- removed php5.6-mysql, php7.0-mysql, php7.1-mysql
+- removed php5.6-sqlite3, php7.0-sqlite3, php7.1-sqlite3
+
+
 ## [10.6.0] - 2017-08-05
 ### Changed
 - Added Dockerfile CMD ["sh"]
