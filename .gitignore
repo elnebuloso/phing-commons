@@ -1,4 +1,7 @@
 .idea
 
+build/*
+!build/.gitkeep
+
 vendor
 build.properties.local
