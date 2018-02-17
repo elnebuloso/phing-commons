@@ -3,5 +3,6 @@
 build/*
 !build/.gitkeep
 
+bin
 vendor
 build.properties.local
