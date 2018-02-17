@@ -1,10 +1,10 @@
 version: '2'
 
 services:
-  php56:
+  main:
     build:
       context: .
-      dockerfile: Dockerfile.php56
+      dockerfile: Dockerfile
     volumes:
       # phing commons main files
       - ./commons:/opt/phing-commons/commons
@@ -18,45 +18,5 @@ services:
       - ./VERSION:/opt/phing-commons/VERSION
 
       # phing commons composer
-      - ./vendor.php56:/opt/phing-commons/vendor
-      - ./composer.lock.php56:/opt/phing-commons/composer.lock
-
-  php70:
-    build:
-      context: .
-      dockerfile: Dockerfile.php70
-    volumes:
-      # phing commons main files
-      - ./commons:/opt/phing-commons/commons
-      - ./resources:/opt/phing-commons/resources
-      - ./src:/opt/phing-commons/src
-      - ./tests:/opt/phing-commons/tests
-      - ./build.properties:/opt/phing-commons/build.properties
-      - ./build.xml:/opt/phing-commons/build.xml
-      - ./composer.json:/opt/phing-commons/composer.json
-      - ./phpunit.xml:/opt/phing-commons/phpunit.xml
-      - ./VERSION:/opt/phing-commons/VERSION
-
-      # phing commons composer
-      - ./vendor.php70:/opt/phing-commons/vendor
-      - ./composer.lock.php70:/opt/phing-commons/composer.lock
-
-  php71:
-    build:
-      context: .
-      dockerfile: Dockerfile.php71
-    volumes:
-      # phing commons main files
-      - ./commons:/opt/phing-commons/commons
-      - ./resources:/opt/phing-commons/resources
-      - ./src:/opt/phing-commons/src
-      - ./tests:/opt/phing-commons/tests
-      - ./build.properties:/opt/phing-commons/build.properties
-      - ./build.xml:/opt/phing-commons/build.xml
-      - ./composer.json:/opt/phing-commons/composer.json
-      - ./phpunit.xml:/opt/phing-commons/phpunit.xml
-      - ./VERSION:/opt/phing-commons/VERSION
-
-      # phing commons composer
-      - ./vendor.php71:/opt/phing-commons/vendor
-      - ./composer.lock.php71:/opt/phing-commons/composer.lock
+      - ./vendor:/opt/phing-commons/vendor
+      - ./composer.lock:/opt/phing-commons/composer.lock

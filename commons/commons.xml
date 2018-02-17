@@ -59,7 +59,6 @@
     <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Bundle\JavascriptBundlerTask" name="commons-bundle-javascript"/>
     <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Bundle\StylesheetBundlerTask" name="commons-bundle-stylesheet"/>
     <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\Composer\FormatTask" name="commons-composer-format"/>
-    <taskdef classname="\elnebuloso\PhingCommons\Phing\Task\System\ImportChainsTask" name="commons-system-import-chains"/>
 
 
     <!-- ============================================ -->
@@ -70,7 +69,6 @@
     <import file="${phing:commons:commons}/targets/composer.xml"/>
     <import file="${phing:commons:commons}/targets/project.xml"/>
     <import file="${phing:commons:commons}/targets/report.xml"/>
-    <import file="${phing:commons:commons}/targets/test.xml"/>
 
 
     <!-- ============================================ -->
@@ -112,7 +110,6 @@
         <echo message="composer:help    Overview of all Composer Targets"/>
         <echo message="project:help     Overview of all Project Targets"/>
         <echo message="report:help      Overview of all Report Targets"/>
-        <echo message="test:help        Overview of all Test Targets"/>
     </target>
 
 
@@ -144,21 +141,6 @@
     <echo message="*"/>
     <echo message="****************************************************************************************************"/>
     <echo message=""/>
-
-
-    <if>
-        <isset property="project.chains"/>
-        <then>
-            <commons-system-import-chains pathToChainFolder="${phing:commons:commons}/chains" chains="${project.chains}"/>
-        </then>
-    </if>
-
-
-    <import file="${phing:commons:commons}/chains/base.xml"/>
-
-
-    <!-- add projects autoloader for e.g. unit test etc. -->
-    <autoloader autoloaderpath="${project.root}/vendor/autoload.php"/>
 
 
 </project>

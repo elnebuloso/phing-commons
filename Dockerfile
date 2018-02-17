@@ -5,10 +5,9 @@ MAINTAINER jeff.tunessen@gmail.com
 # terminal
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHING_COMMONS_PHP php71
 
-# install system
-RUN apt-get update \
+RUN echo "install essentials" \
+    && apt-get update \
     && apt-get install -y --no-install-recommends apt-transport-https software-properties-common ca-certificates locales curl less nano \
     && locale-gen en_US \
     && locale-gen en_US.UTF-8 \
@@ -31,8 +30,8 @@ ENV LC_ALL en_US.UTF-8
 # add repositories for php
 RUN add-apt-repository ppa:ondrej/php
 
-# install php
-RUN apt-get update \
+RUN echo "install php" \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         php7.1-cli \
         php7.1-common \
@@ -55,8 +54,8 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# install integration tools
-RUN apt-get update \
+RUN echo "install integration tools" \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
         subversion \
@@ -72,27 +71,11 @@ RUN apt-get update \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# phing commons main files
-COPY commons /opt/phing-commons/commons
-COPY resources /opt/phing-commons/resources
-COPY src /opt/phing-commons/src
-COPY tests /opt/phing-commons/tests
-
-COPY build.properties /opt/phing-commons/build.properties
-COPY build.xml /opt/phing-commons/build.xml
-COPY composer.json /opt/phing-commons/composer.json
-COPY phpunit.xml /opt/phing-commons/phpunit.xml
-COPY VERSION /opt/phing-commons/VERSION
-
-# phing commons php version specific
-COPY vendor.$PHING_COMMONS_PHP /opt/phing-commons/vendor
-COPY composer.lock.$PHING_COMMONS_PHP /opt/phing-commons/composer.lock
+COPY build/ /opt/phing-common/
 
 # phing commons installation
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer self-update \
-    && cd /opt/phing-commons \
-    && composer install \
+RUN echo "configure" \
+    && mkdir -p /opt/phing-commons \
     && chmod -R 755 /opt/phing-commons/* \
     && chown -R root:root /opt/phing-commons/* \
     && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \

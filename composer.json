@@ -23,7 +23,6 @@
         "pdepend/pdepend": "^2.5",
         "phploc/phploc": "^3.0",
         "sebastian/phpcpd": "^2.0",
-        "phpunit/phpunit": "^5.7",
         "phpmetrics/phpmetrics": "^2.2",
         "squizlabs/php_codesniffer": "^2.7",
         "cakephp/cakephp-codesniffer": "^2.1",

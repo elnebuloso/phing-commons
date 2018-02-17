@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [11.0.0] - 2018-02-17
+### Changed
+- removed php depencendies
+- removed composer
+
+
 ## [10.7.0] - 2017-12-10
 ### Changed
 - removed php5.6-apcu, php7.0-apcu, php7.1-apcu
