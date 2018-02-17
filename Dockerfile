@@ -33,17 +33,16 @@ RUN add-apt-repository ppa:ondrej/php
 RUN echo "install php" \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        php7.1-cli \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-gd \
-        php7.1-imagick \
-        php7.1-mbstring \
-        php7.1-xdebug \
-        php7.1-xml \
-        php7.1-xsl \
-        php7.1-yaml \
-        php7.1-zip \
+        php5.6-cli \
+        php5.6-common \
+        php5.6-curl \
+        php5.6-gd \
+        php5.6-imagick \
+        php5.6-mbstring \
+        php5.6-xml \
+        php5.6-xsl \
+        php5.6-yaml \
+        php5.6-zip \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/cache/apt/archives/* \

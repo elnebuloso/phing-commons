@@ -7,13 +7,13 @@ case "$1" in
     ;;
 
     install)
-        docker pull elnebuloso/composer:71
-        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:71 install
+        docker pull elnebuloso/composer:5.6
+        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:5.6 composer install
     ;;
 
     update)
-        docker pull elnebuloso/composer:71
-        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:71 update
+        docker pull elnebuloso/composer:5.6
+        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:5.6 composer update
     ;;
 
     stop)
