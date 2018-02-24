@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="application" basedir="." default="help">
+
+
+    <property file="build.properties" />
+    <property file="build.properties.local" />
+
+
+    <import file="/srv/phing/commons.xml" />
+
+
+</project>

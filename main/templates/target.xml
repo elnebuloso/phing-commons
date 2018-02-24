@@ -15,6 +15,7 @@
 
 
     <target name="foo:main" hidden="true">
+        <echo message="no actions defined" level="debug"/>
     </target>
 
 

@@ -4,9 +4,11 @@
 <project default="report.phpcpd">
 
 
+    <property name="report.phpcpd:description" value="PHP Copy and Paste Detection"/>
+
+
     <patternset id="report.phpcpd.patternset.default">
-        <include name="application/**/*.php"/>
-        <include name="src/**/*.php"/>
+        <include name="**/*.php"/>
     </patternset>
 
 
