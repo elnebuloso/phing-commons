@@ -37,12 +37,6 @@
     <echo message=""/>
 
 
-    <import file="${phing:commons:root}/commons/report.phpcpd.xml"/>
-    <import file="${phing:commons:root}/commons/report.phpdepend.xml"/>
-    <import file="${phing:commons:root}/commons/report.phploc.xml"/>
-    <import file="${phing:commons:root}/commons/report.phpmd.xml"/>
-
-
     <php function="dirname" returnProperty="project.root" level="debug">
         <param value="${phing.file}"/>
     </php>
@@ -61,7 +55,16 @@
     <resolvepath propertyName="project.build.reports" file="${project.build.reports}"/>
 
 
-    <target name="help" depends="help.project, help.report"/>
+    <import file="${phing:commons:root}/commons/clean.tmp.xml"/>
+    <import file="${phing:commons:root}/commons/clean.dist.xml"/>
+    <import file="${phing:commons:root}/commons/clean.reports.xml"/>
+    <import file="${phing:commons:root}/commons/report.phpcpd.xml"/>
+    <import file="${phing:commons:root}/commons/report.phpdepend.xml"/>
+    <import file="${phing:commons:root}/commons/report.phploc.xml"/>
+    <import file="${phing:commons:root}/commons/report.phpmd.xml"/>
+
+
+    <target name="help" depends="help.project, help.clean, help.report"/>
 
 
     <target name="help.project">
@@ -72,6 +75,15 @@
         <echo message="project.build.tmp        ${project.build.tmp}"/>
         <echo message="project.build.dist       ${project.build.dist}"/>
         <echo message="project.build.reports    ${project.build.reports}"/>
+    </target>
+
+
+    <target name="help.clean">
+        <echo message="target           description"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="clean.tmp        ${clean.tmp:description}"/>
+        <echo message="clean.dist       ${clean.dist:description}"/>
+        <echo message="clean.reports    ${clean.reports:description}"/>
     </target>
 
 
