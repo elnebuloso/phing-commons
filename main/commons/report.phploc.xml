@@ -56,6 +56,11 @@
 
     <patternset id="report.phploc.patternset.default">
         <include name="**/*.php"/>
+
+        <exclude name=".git/**"/>
+        <exclude name=".svn/**"/>
+        <exclude name=".idea/**"/>
+        <exclude name="build/**"/>
     </patternset>
 
 

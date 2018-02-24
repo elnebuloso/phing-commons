@@ -67,7 +67,7 @@ ENV PATH="/srv/composer/vendor/bin:${PATH}"
 RUN echo "install php tools" \
     && composer global require \
         phing/phing \
-        phploc/phploc:2.1.5 \
+        phploc/phploc:2.* \
         phpmd/phpmd:2.6.0 \
         pdepend/pdepend:2.5.0 \
         sebastian/phpcpd:2.0.4 \
