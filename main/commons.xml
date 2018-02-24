@@ -21,6 +21,7 @@
     <echo message="*       \/            \/      \/            \/     \/ "/>
     <echo message="*"/>
     <echo message="****************************************************************************************************"/>
+    <echo message=""/>
 
 
     <php function="dirname" returnProperty="project.root" level="debug">
@@ -47,10 +48,10 @@
     <target name="help.report">
         <echo message="target              description"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpcpd       PHP Copy and Paste Detection"/>
-        <echo message="report.phpdepend    PHP Software Metrics"/>
-        <echo message="report.phploc       PHP Lines of Code"/>
-        <echo message="report.phpmd        PHP Mess Detection"/>
+        <echo message="report.phpcpd       ${report.phpcpd:description}"/>
+        <echo message="report.phpdepend    ${report.phpdepend:description}"/>
+        <echo message="report.phploc       ${report.phploc:description}"/>
+        <echo message="report.phpmd        ${report.phpmd:description}"/>
     </target>
 
 

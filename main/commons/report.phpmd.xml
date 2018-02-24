@@ -4,6 +4,9 @@
 <project default="report.phpmd">
 
 
+    <property name="report.phpmd:description" value="PHP Mess Detection"/>
+
+
     <target name="report.phpmd:init" hidden="true">
         <property name="report.phpmd.sources" value="${project.root}/src"/>
         <property name="report.phpmd.rulesets" value="cleancode,codesize,controversial,design,naming,unusedcode"/>

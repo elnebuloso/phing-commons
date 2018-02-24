@@ -7,11 +7,6 @@
     <property name="report.phpcpd:description" value="PHP Copy and Paste Detection"/>
 
 
-    <patternset id="report.phpcpd.patternset.default">
-        <include name="**/*.php"/>
-    </patternset>
-
-
     <target name="report.phpcpd:init" hidden="true">
         <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default"/>
         <property name="report.phpcpd.out" value="${project.reports}/phpcpd"/>
@@ -56,6 +51,11 @@
         <echo message="report.phpcpd.out           ${report.phpcpd.out}"/>
         <echo message="report.phpcpd.xsl           ${report.phpcpd.xsl}"/>
     </target>
+
+
+    <patternset id="report.phpcpd.patternset.default">
+        <include name="**/*.php"/>
+    </patternset>
 
 
 </project>

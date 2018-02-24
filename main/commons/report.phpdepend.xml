@@ -4,6 +4,9 @@
 <project default="report.phpdepend">
 
 
+    <property name="report.phpdepend:description" value="PHP Software Metrics"/>
+
+
     <target name="report.phpdepend:init" hidden="true">
         <property name="report.phpdepend.sources" value="${project.root}/src"/>
         <property name="report.phpdepend.coderank" value="inheritance"/>

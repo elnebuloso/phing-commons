@@ -4,10 +4,7 @@
 <project default="report.phploc">
 
 
-    <patternset id="report.phploc.patternset.default">
-        <include name="application/**/*.php"/>
-        <include name="src/**/*.php"/>
-    </patternset>
+    <property name="report.phploc:description" value="PHP Lines of Code"/>
 
 
     <target name="report.phploc:init" hidden="true">
@@ -53,6 +50,11 @@
         <echo message="report.phploc.out           ${report.phploc.out}"/>
         <echo message="report.phploc.xsl           ${report.phploc.xsl}"/>
     </target>
+
+
+    <patternset id="report.phploc.patternset.default">
+        <include name="**/*.php"/>
+    </patternset>
 
 
 </project>
