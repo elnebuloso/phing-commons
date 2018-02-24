@@ -3,7 +3,7 @@
 case "$1" in
     create)
         clear
-        docker build -t phing-commons --rm --pull -f Dockerfile .
+        docker build -t phing-commons --rm -f Dockerfile .
     ;;
 
     verify)

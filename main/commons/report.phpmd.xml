@@ -39,7 +39,7 @@
 
 
     <target name="report.phpmd:before" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
@@ -61,7 +61,7 @@
 
 
     <target name="report.phpmd:after" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 

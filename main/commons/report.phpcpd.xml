@@ -26,7 +26,7 @@
 
 
     <target name="report.phpcpd:before" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
@@ -46,7 +46,7 @@
 
 
     <target name="report.phpcpd:after" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 

@@ -17,12 +17,12 @@
 
 
     <target name="clean.dist:init" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
     <target name="clean.dist:before" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
@@ -33,7 +33,7 @@
 
 
     <target name="clean.dist:after" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 

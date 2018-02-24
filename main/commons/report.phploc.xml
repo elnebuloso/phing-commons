@@ -26,7 +26,7 @@
 
 
     <target name="report.phploc:before" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
@@ -45,7 +45,7 @@
 
 
     <target name="report.phploc:after" hidden="true">
-        <echo message="no actions defined" level="debug"/>
+        <echo message="no actions defined"/>
     </target>
 
 
