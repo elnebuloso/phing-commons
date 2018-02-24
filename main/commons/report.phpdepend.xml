@@ -10,7 +10,7 @@
     <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
         <echo message="${report.phpdepend:description}"/>
         <echo message=""/>
-        <echo message="Property                      Value"/>
+        <echo message="property                      value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="report.phpdepend.sources      ${report.phpdepend.sources}"/>
         <echo message="report.phpdepend.coderank     ${report.phpdepend.coderank}"/>
@@ -19,21 +19,21 @@
         <echo message="report.phpdepend.out          ${report.phpdepend.out}"/>
         <echo message="report.phpdepend.xsl          ${report.phpdepend.xsl}"/>
         <echo message=""/>
-        <echo message="Property Help"/>
+        <echo message="property info"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpdepend.sources      can be a comma-separated string"/>
-        <echo message="report.phpdepend.coderank     Used CodeRank strategies. Comma separated list of inheritance, property, method"/>
-        <echo message="report.phpdepend.suffixes     comma-separated string of valid source code filename extensions"/>
+        <echo message="report.phpdepend.sources      can be a comma separated string"/>
+        <echo message="report.phpdepend.coderank     used coderank strategies. comma separated list of inheritance, property, method"/>
+        <echo message="report.phpdepend.suffixes     comma separated string of valid source code filename extensions"/>
         <echo message="report.phpdepend.arguments    optional arguments that may be put after the mandatory arguments"/>
     </target>
 
 
     <target name="report.phpdepend:init" hidden="true">
-        <property name="report.phpdepend.sources" value="${project.root}/src"/>
+        <property name="report.phpdepend.sources" value="${project.root}"/>
         <property name="report.phpdepend.coderank" value="inheritance"/>
         <property name="report.phpdepend.suffixes" value="php"/>
         <property name="report.phpdepend.arguments" value=""/>
-        <property name="report.phpdepend.out" value="${project.reports}/phpdepend"/>
+        <property name="report.phpdepend.out" value="${project.build.reports}/phpdepend"/>
         <property name="report.phpdepend.xsl" value="${phing:commons:root}/resources/phpdepend/phpdepend.xsl"/>
     </target>
 
@@ -47,7 +47,7 @@
         <delete dir="${report.phpdepend.out}"/>
         <mkdir dir="${report.phpdepend.out}"/>
 
-        <exec executable="${phing:commons:root}/bin/pdepend" logoutput="false" passthru="true" level="info" checkreturn="yes">
+        <exec executable="pdepend" logoutput="false" passthru="true" level="info" checkreturn="yes">
             <arg line="--suffix=${report.phpdepend.suffixes}"/>
             <arg line="--coderank-mode=${report.phpdepend.coderank}"/>
             <arg line="--summary-xml=${report.phpdepend.out}/summary.xml"/>

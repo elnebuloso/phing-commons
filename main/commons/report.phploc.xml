@@ -20,7 +20,7 @@
 
     <target name="report.phploc:init" hidden="true">
         <property name="report.phploc.patternset" value="report.phploc.patternset.default"/>
-        <property name="report.phploc.out" value="${project.reports}/phploc"/>
+        <property name="report.phploc.out" value="${project.build.reports}/phploc"/>
         <property name="report.phploc.xsl" value="${phing:commons:root}/resources/phploc/phploc.xsl"/>
     </target>
 

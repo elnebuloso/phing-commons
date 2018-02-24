@@ -20,7 +20,7 @@
 
     <target name="report.phpcpd:init" hidden="true">
         <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default"/>
-        <property name="report.phpcpd.out" value="${project.reports}/phpcpd"/>
+        <property name="report.phpcpd.out" value="${project.build.reports}/phpcpd"/>
         <property name="report.phpcpd.xsl" value="${phing:commons:root}/resources/phpcpd/phpcpd.xsl"/>
     </target>
 
