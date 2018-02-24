@@ -1,32 +1,42 @@
 #/bin/bash
 
 case "$1" in
-    start)
-        docker-compose pull
-        docker-compose up --build --remove-orphans -d
+    create)
+        clear
+        docker build -t phing --rm --pull -f Dockerfile .
     ;;
 
-    install)
-        docker pull elnebuloso/composer:5.6
-        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:5.6 composer install
-    ;;
+    verify)
+        ./app create
 
-    update)
-        docker pull elnebuloso/composer:5.6
-        docker run --rm -v $(pwd):$(pwd) -w $(pwd) -v composer_cache:/root/composer elnebuloso/composer:5.6 composer update
-    ;;
+        echo ""
+        docker run -it --rm phing php --version
 
-    stop)
-        docker-compose down --remove-orphans
+        echo ""
+        docker run -it --rm phing docker --version
+
+        echo ""
+        docker run -it --rm phing docker-compose --version
+
+        echo ""
+        docker run -it --rm phing phing -version
+
+        echo ""
+        docker run -it --rm phing phploc --version
+
+        echo ""
+        docker run -it --rm phing phpmd --version
+
+        echo ""
+        docker run -it --rm phing pdepend --version
+
+        echo ""
+        docker run -it --rm phing phpcpd --version
     ;;
 
     *)
-        clear
         echo ""
-        echo "- start     Start all containers"
-        echo "- install   Update PHP container sources"
-        echo "- update    Update PHP container sources"
-        echo "- stop      Stop all containers"
-        echo ""
+        echo " - create  create all containers"
+        echo " - verify  verify all containers"
     ;;
 esac

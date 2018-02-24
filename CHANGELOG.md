@@ -7,8 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [11.0.0] - 2018-02-17
 ### Changed
-- removed php depencendies
-- removed composer
+- restarted based on docker
 
 
 ## [10.7.0] - 2017-12-10

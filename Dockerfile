@@ -1,21 +1,27 @@
-# system
 FROM ubuntu:16.04
 MAINTAINER jeff.tunessen@gmail.com
 
-# terminal
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "install essentials" \
+RUN echo "install system essentials" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends apt-transport-https software-properties-common ca-certificates locales curl less nano \
+    && apt-get install -y --no-install-recommends \
+        software-properties-common \
+        ca-certificates locales \
+        curl \
+        less \
+        nano \
     && locale-gen en_US \
     && locale-gen en_US.UTF-8 \
     && locale-gen de_DE \
     && locale-gen de_DE.UTF-8 \
     && echo 'alias l="ls -alhF"' > /root/.bash_aliases \
+    && curl -sSL https://releases.rancher.com/install-docker/17.03.sh | bash \
+    && curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose \
+    && apt-get -y autoclean \
     && apt-get -y autoremove \
-    && apt-get -y clean \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/tmp/* \
@@ -24,25 +30,28 @@ RUN echo "install essentials" \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-# set system-wide locale settings
-ENV LC_ALL en_US.UTF-8
+ARG PHP_VERSION=7.2
 
-# add repositories for php
-RUN add-apt-repository ppa:ondrej/php
+ENV LC_ALL en_US.UTF-8
+ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_HOME /srv/composer
 
 RUN echo "install php" \
+    && add-apt-repository ppa:ondrej/php \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        php5.6-cli \
-        php5.6-common \
-        php5.6-curl \
-        php5.6-gd \
-        php5.6-imagick \
-        php5.6-mbstring \
-        php5.6-xml \
-        php5.6-xsl \
-        php5.6-yaml \
-        php5.6-zip \
+        php${PHP_VERSION}-cli \
+        php${PHP_VERSION}-common \
+        php${PHP_VERSION}-curl \
+        php${PHP_VERSION}-gd \
+        php${PHP_VERSION}-imagick \
+        php${PHP_VERSION}-intl \
+        php${PHP_VERSION}-mbstring \
+        php${PHP_VERSION}-ssh \
+        php${PHP_VERSION}-xml \
+        php${PHP_VERSION}-yaml \
+        php${PHP_VERSION}-zip \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && apt-get -y autoremove \
     && apt-get -y clean \
     && rm -rf /var/cache/apt/archives/* \
@@ -53,38 +62,16 @@ RUN echo "install php" \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-RUN echo "install integration tools" \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends \
-        git \
-        subversion \
-        yui-compressor \
-        closure-compiler \
-    && apt-get -y autoremove \
-    && apt-get -y clean \
-    && rm -rf /var/cache/apt/archives/* \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /var/tmp/* \
-    && rm -rf /usr/share/doc/* \
-    && rm -rf /usr/share/man/* \
-    && rm -rf /usr/share/locale/* \
-    && rm -rf /tmp/*
+ENV PATH="/srv/composer/vendor/bin:${PATH}"
 
-COPY build/ /opt/phing-common/
+RUN echo "install php tools" \
+    && composer global require \
+        phing/phing \
+        phploc/phploc \
+        phpmd/phpmd \
+        pdepend/pdepend \
+        sebastian/phpcpd
 
-# phing commons installation
-RUN echo "configure" \
-    && mkdir -p /opt/phing-commons \
-    && chmod -R 755 /opt/phing-commons/* \
-    && chown -R root:root /opt/phing-commons/* \
-    && ln -s /opt/phing-commons/bin/bundler /usr/local/bin/bundler \
-    && ln -s /opt/phing-commons/bin/pdepend /usr/local/bin/pdepend \
-    && ln -s /opt/phing-commons/bin/phing /usr/local/bin/phing \
-    && ln -s /opt/phing-commons/bin/phpcbf /usr/local/bin/phpcbf \
-    && ln -s /opt/phing-commons/bin/phpcpd /usr/local/bin/phpcpd \
-    && ln -s /opt/phing-commons/bin/phpcs /usr/local/bin/phpcs \
-    && ln -s /opt/phing-commons/bin/phploc /usr/local/bin/phploc \
-    && ln -s /opt/phing-commons/bin/phpmd /usr/local/bin/phpmd \
-    && ln -s /opt/phing-commons/bin/phpunit /usr/local/bin/phpunit
+COPY main /srv/phing
 
 CMD ["sh"]

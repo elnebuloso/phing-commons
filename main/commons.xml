@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="commons">
+
+
+    <php function="dirname" returnProperty="project.root" level="debug">
+        <param value="${phing.file}"/>
+    </php>
+
+
+    <import file="/srv/phing/commons/report.phpcpd.xml"/>
+    <import file="/srv/phing/commons/report.phpdepend.xml"/>
+    <import file="/srv/phing/commons/report.phploc.xml"/>
+    <import file="/srv/phing/commons/report.phpmd.xml"/>
+
+
+    <target name="help" depends="help.project, help.report"/>
+
+
+    <target name="help.project">
+        <echo message="property        value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="project.root    ${project.root}"/>
+    </target>
+
+
+    <target name="help.report">
+        <echo message="target              description"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpcpd       PHP Copy and Paste Detection"/>
+        <echo message="report.phpdepend    PHP Software Metrics"/>
+        <echo message="report.phploc       PHP Lines of Code"/>
+        <echo message="report.phpmd        PHP Mess Detection"/>
+    </target>
+
+
+</project>

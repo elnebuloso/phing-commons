@@ -1,8 +1,2 @@
-.idea
 .git
-
-commons
-resources
-src
-tests
-vendor
+.idea
