@@ -7,6 +7,17 @@
     <property name="report.phploc:description" value="PHP Lines of Code"/>
 
 
+    <target name="report.phploc:help" depends="report.phploc:init" hidden="true">
+        <echo message="${report.phploc:description}"/>
+        <echo message=""/>
+        <echo message="Property                    Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phploc.patternset    ${report.phploc.patternset}"/>
+        <echo message="report.phploc.out           ${report.phploc.out}"/>
+        <echo message="report.phploc.xsl           ${report.phploc.xsl}"/>
+    </target>
+
+
     <target name="report.phploc:init" hidden="true">
         <property name="report.phploc.patternset" value="report.phploc.patternset.default"/>
         <property name="report.phploc.out" value="${project.reports}/phploc"/>
@@ -40,15 +51,6 @@
 
     <target name="report.phploc" depends="report.phploc:init, report.phploc:before, report.phploc:main, report.phploc:after">
         <echo message="successful"/>
-    </target>
-
-
-    <target name="report.phploc:help" depends="report.phploc:init" hidden="true">
-        <echo message="Property                    Value"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phploc.patternset    ${report.phploc.patternset}"/>
-        <echo message="report.phploc.out           ${report.phploc.out}"/>
-        <echo message="report.phploc.xsl           ${report.phploc.xsl}"/>
     </target>
 
 

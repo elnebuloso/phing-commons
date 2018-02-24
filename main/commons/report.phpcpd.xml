@@ -7,6 +7,17 @@
     <property name="report.phpcpd:description" value="PHP Copy and Paste Detection"/>
 
 
+    <target name="report.phpcpd:help" depends="report.phpcpd:init" hidden="true">
+        <echo message="${report.phpcpd:description}"/>
+        <echo message=""/>
+        <echo message="property                    values"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpcpd.patternset    ${report.phpcpd.patternset}"/>
+        <echo message="report.phpcpd.out           ${report.phpcpd.out}"/>
+        <echo message="report.phpcpd.xsl           ${report.phpcpd.xsl}"/>
+    </target>
+
+
     <target name="report.phpcpd:init" hidden="true">
         <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default"/>
         <property name="report.phpcpd.out" value="${project.reports}/phpcpd"/>
@@ -41,17 +52,6 @@
 
     <target name="report.phpcpd" depends="report.phpcpd:init, report.phpcpd:before, report.phpcpd:main, report.phpcpd:after">
         <echo message="successful"/>
-    </target>
-
-
-    <target name="report.phpcpd:help" depends="report.phpcpd:init" hidden="true">
-        <echo message="${report.phpcpd:description}"/>
-        <echo message=""/>
-        <echo message="property                    values"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpcpd.patternset    ${report.phpcpd.patternset}"/>
-        <echo message="report.phpcpd.out           ${report.phpcpd.out}"/>
-        <echo message="report.phpcpd.xsl           ${report.phpcpd.xsl}"/>
     </target>
 
 

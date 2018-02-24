@@ -7,6 +7,27 @@
     <property name="report.phpmd:description" value="PHP Mess Detection"/>
 
 
+    <target name="report.phpmd:help" depends="report.phpmd:init" hidden="true">
+        <echo message="${report.phpmd:description}"/>
+        <echo message=""/>
+        <echo message="Property                  Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpmd.sources      ${report.phpmd.sources}"/>
+        <echo message="report.phpmd.rulesets     ${report.phpmd.rulesets}"/>
+        <echo message="report.phpmd.suffixes     ${report.phpmd.suffixes}"/>
+        <echo message="report.phpmd.arguments    ${report.phpmd.arguments}"/>
+        <echo message="report.phpmd.out          ${report.phpmd.out}"/>
+        <echo message="report.phpmd.xsl          ${report.phpmd.xsl}"/>
+        <echo message=""/>
+        <echo message="Property Help"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpmd.sources      can be a comma-separated string"/>
+        <echo message="report.phpmd.rulesets     can be a comma-separated string"/>
+        <echo message="report.phpmd.suffixes     comma-separated string of valid source code filename extensions"/>
+        <echo message="report.phpmd.arguments    optional arguments that may be put after the mandatory arguments"/>
+    </target>
+
+
     <target name="report.phpmd:init" hidden="true">
         <property name="report.phpmd.sources" value="${project.root}/src"/>
         <property name="report.phpmd.rulesets" value="cleancode,codesize,controversial,design,naming,unusedcode"/>
@@ -54,25 +75,6 @@
 
     <target name="report.phpmd" depends="report.phpmd:init, report.phpmd:before, report.phpmd:main, report.phpmd:after">
         <echo message="successful"/>
-    </target>
-
-
-    <target name="report.phpmd:help" depends="report.phpmd:init" hidden="true">
-        <echo message="Property                  Value"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpmd.sources      ${report.phpmd.sources}"/>
-        <echo message="report.phpmd.rulesets     ${report.phpmd.rulesets}"/>
-        <echo message="report.phpmd.suffixes     ${report.phpmd.suffixes}"/>
-        <echo message="report.phpmd.arguments    ${report.phpmd.arguments}"/>
-        <echo message="report.phpmd.out          ${report.phpmd.out}"/>
-        <echo message="report.phpmd.xsl          ${report.phpmd.xsl}"/>
-        <echo message=""/>
-        <echo message="Property Help"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpmd.sources      can be a comma-separated string"/>
-        <echo message="report.phpmd.rulesets     can be a comma-separated string"/>
-        <echo message="report.phpmd.suffixes     comma-separated string of valid source code filename extensions"/>
-        <echo message="report.phpmd.arguments    optional arguments that may be put after the mandatory arguments"/>
     </target>
 
 

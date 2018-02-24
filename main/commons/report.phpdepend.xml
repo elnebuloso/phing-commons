@@ -7,6 +7,27 @@
     <property name="report.phpdepend:description" value="PHP Software Metrics"/>
 
 
+    <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
+        <echo message="${report.phpdepend:description}"/>
+        <echo message=""/>
+        <echo message="Property                      Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpdepend.sources      ${report.phpdepend.sources}"/>
+        <echo message="report.phpdepend.coderank     ${report.phpdepend.coderank}"/>
+        <echo message="report.phpdepend.suffixes     ${report.phpdepend.suffixes}"/>
+        <echo message="report.phpdepend.arguments    ${report.phpdepend.arguments}"/>
+        <echo message="report.phpdepend.out          ${report.phpdepend.out}"/>
+        <echo message="report.phpdepend.xsl          ${report.phpdepend.xsl}"/>
+        <echo message=""/>
+        <echo message="Property Help"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="report.phpdepend.sources      can be a comma-separated string"/>
+        <echo message="report.phpdepend.coderank     Used CodeRank strategies. Comma separated list of inheritance, property, method"/>
+        <echo message="report.phpdepend.suffixes     comma-separated string of valid source code filename extensions"/>
+        <echo message="report.phpdepend.arguments    optional arguments that may be put after the mandatory arguments"/>
+    </target>
+
+
     <target name="report.phpdepend:init" hidden="true">
         <property name="report.phpdepend.sources" value="${project.root}/src"/>
         <property name="report.phpdepend.coderank" value="inheritance"/>
@@ -48,25 +69,6 @@
 
     <target name="report.phpdepend" depends="report.phpdepend:init, report.phpdepend:before, report.phpdepend:main, report.phpdepend:after">
         <echo message="successful"/>
-    </target>
-
-
-    <target name="report.phpdepend:help" depends="report.phpdepend:init" hidden="true">
-        <echo message="Property                      Value"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpdepend.sources      ${report.phpdepend.sources}"/>
-        <echo message="report.phpdepend.coderank     ${report.phpdepend.coderank}"/>
-        <echo message="report.phpdepend.suffixes     ${report.phpdepend.suffixes}"/>
-        <echo message="report.phpdepend.arguments    ${report.phpdepend.arguments}"/>
-        <echo message="report.phpdepend.out          ${report.phpdepend.out}"/>
-        <echo message="report.phpdepend.xsl          ${report.phpdepend.xsl}"/>
-        <echo message=""/>
-        <echo message="Property Help"/>
-        <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpdepend.sources      can be a comma-separated string"/>
-        <echo message="report.phpdepend.coderank     Used CodeRank strategies. Comma separated list of inheritance, property, method"/>
-        <echo message="report.phpdepend.suffixes     comma-separated string of valid source code filename extensions"/>
-        <echo message="report.phpdepend.arguments    optional arguments that may be put after the mandatory arguments"/>
     </target>
 
 
