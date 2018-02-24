@@ -4,6 +4,25 @@
 <project name="commons">
 
 
+    <echo message=""/>
+    <echo message="****************************************************************************************************"/>
+    <echo message="*"/>
+    <echo message="*         .__    .__                "/>
+    <echo message="*  ______ |  |__ |__| ____    ____  "/>
+    <echo message="*  \____ \|  |  \|  |/    \  / ___\ "/>
+    <echo message="*  |  |_> >   Y  \  |   |  \/ /_/  >"/>
+    <echo message="*  |   __/|___|  /__|___|  /\___  / "/>
+    <echo message="*  |__|        \/        \//_____/  "/>
+    <echo message="*"/>
+    <echo message="*    ____  ____   _____   _____   ____   ____   ______"/>
+    <echo message="*  _/ ___\/  _ \ /     \ /     \ /  _ \ /    \ /  ___/"/>
+    <echo message="*  \  \__(  &lt;_&gt; )  Y Y  \  Y Y  (  &lt;_&gt; )   |  \\___ \ "/>
+    <echo message="*   \___  >____/|__|_|  /__|_|  /\____/|___|  /____  >"/>
+    <echo message="*       \/            \/      \/            \/     \/ "/>
+    <echo message="*"/>
+    <echo message="****************************************************************************************************"/>
+
+
     <php function="dirname" returnProperty="project.root" level="debug">
         <param value="${phing.file}"/>
     </php>
