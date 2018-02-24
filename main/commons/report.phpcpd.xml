@@ -45,7 +45,9 @@
 
 
     <target name="report.phpcpd:help" depends="report.phpcpd:init" hidden="true">
-        <echo message="Property                    Value"/>
+        <echo message="${report.phpcpd:description}"/>
+        <echo message=""/>
+        <echo message="property                    values"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="report.phpcpd.patternset    ${report.phpcpd.patternset}"/>
         <echo message="report.phpcpd.out           ${report.phpcpd.out}"/>

@@ -73,5 +73,6 @@ RUN echo "install php tools" \
         sebastian/phpcpd
 
 COPY main /srv/phing
+COPY VERSION /srv/phing/VERSION
 
 CMD ["sh"]

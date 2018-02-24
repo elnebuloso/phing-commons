@@ -4,6 +4,15 @@
 <project name="commons">
 
 
+    <property name="phing:commons:root" value="/srv/phing"/>
+
+
+    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION"/>
+    <php function="trim" returnProperty="phing:commons:version" level="debug">
+        <param value="${phing:commons:version}"/>
+    </php>
+
+
     <echo message=""/>
     <echo message="****************************************************************************************************"/>
     <echo message="*"/>
@@ -20,19 +29,36 @@
     <echo message="*   \___  >____/|__|_|  /__|_|  /\____/|___|  /____  >"/>
     <echo message="*       \/            \/      \/            \/     \/ "/>
     <echo message="*"/>
+    <echo message="*  ${phing:commons:version}"/>
+    <echo message="*"/>
+    <echo message="*  elnebuloso/phing-commons"/>
+    <echo message="*"/>
     <echo message="****************************************************************************************************"/>
     <echo message=""/>
+
+
+    <import file="${phing:commons:root}/commons/report.phpcpd.xml"/>
+    <import file="${phing:commons:root}/commons/report.phpdepend.xml"/>
+    <import file="${phing:commons:root}/commons/report.phploc.xml"/>
+    <import file="${phing:commons:root}/commons/report.phpmd.xml"/>
 
 
     <php function="dirname" returnProperty="project.root" level="debug">
         <param value="${phing.file}"/>
     </php>
+    <resolvepath propertyName="project.root" file="${project.root}"/>
 
 
-    <import file="/srv/phing/commons/report.phpcpd.xml"/>
-    <import file="/srv/phing/commons/report.phpdepend.xml"/>
-    <import file="/srv/phing/commons/report.phploc.xml"/>
-    <import file="/srv/phing/commons/report.phpmd.xml"/>
+    <property name="project.build" value="${project.root}/build"/>
+    <property name="project.build.tmp" value="${project.root}/build/tmp"/>
+    <property name="project.build.dist" value="${project.root}/build/dist"/>
+    <property name="project.build.reports" value="${project.root}/build/reports"/>
+
+
+    <resolvepath propertyName="project.build" file="${project.build}"/>
+    <resolvepath propertyName="project.build.tmp" file="${project.build.tmp}"/>
+    <resolvepath propertyName="project.build.dist" file="${project.build.dist}"/>
+    <resolvepath propertyName="project.build.reports" file="${project.build.reports}"/>
 
 
     <target name="help" depends="help.project, help.report"/>
@@ -41,7 +67,11 @@
     <target name="help.project">
         <echo message="property        value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.root    ${project.root}"/>
+        <echo message="project.root             ${project.root}"/>
+        <echo message="project.build            ${project.build}"/>
+        <echo message="project.build.tmp        ${project.build.tmp}"/>
+        <echo message="project.build.dist       ${project.build.dist}"/>
+        <echo message="project.build.reports    ${project.build.reports}"/>
     </target>
 
 
