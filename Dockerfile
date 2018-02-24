@@ -68,10 +68,10 @@ RUN echo "install php tools" \
     && composer global require \
         phing/phing \
         phploc/phploc:2.* \
-        phpmd/phpmd:2.6.0 \
-        pdepend/pdepend:2.5.0 \
-        sebastian/phpcpd:2.0.4 \
-        phpmetrics/phpmetrics:2.2.0
+        phpmd/phpmd:2.* \
+        pdepend/pdepend:2.* \
+        sebastian/phpcpd:2.* \
+        phpmetrics/phpmetrics:2.*
 
 COPY main /srv/phing
 COPY VERSION /srv/phing/VERSION
