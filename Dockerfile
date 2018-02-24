@@ -67,10 +67,11 @@ ENV PATH="/srv/composer/vendor/bin:${PATH}"
 RUN echo "install php tools" \
     && composer global require \
         phing/phing \
-        phploc/phploc \
-        phpmd/phpmd \
-        pdepend/pdepend \
-        sebastian/phpcpd
+        phploc/phploc:2.1.5 \
+        phpmd/phpmd:2.6.0 \
+        pdepend/pdepend:2.5.0 \
+        sebastian/phpcpd:2.0.4 \
+        phpmetrics/phpmetrics:2.2.0
 
 COPY main /srv/phing
 COPY VERSION /srv/phing/VERSION
