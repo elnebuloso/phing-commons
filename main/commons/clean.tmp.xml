@@ -10,7 +10,7 @@
     <target name="clean.tmp:help" depends="clean.tmp:init" hidden="true">
         <echo message="${clean.tmp:description}"/>
         <echo message=""/>
-        <echo message="property             values"/>
+        <echo message="property             value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="project.build.tmp    ${project.build.reports}"/>
     </target>
