@@ -1,4 +1,7 @@
 .idea
 
-test/build
-test/main
+test/build/*
+!test/build/.gitkeep
+
+test/main/*
+!test/main/.gitkeep
