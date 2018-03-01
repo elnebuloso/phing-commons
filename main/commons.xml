@@ -43,6 +43,12 @@
     <resolvepath propertyName="project.root" file="${project.root}"/>
 
 
+    <loadfile property="project.version" file="${project.root}/VERSION"/>
+    <php function="trim" returnProperty="project.version" level="debug">
+        <param value="${project.version}"/>
+    </php>
+
+
     <property name="project.build" value="${project.root}/build"/>
     <property name="project.build.tmp" value="${project.root}/build/tmp"/>
     <property name="project.build.dist" value="${project.root}/build/dist"/>
@@ -71,6 +77,7 @@
         <echo message="property        value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="project.root             ${project.root}"/>
+        <echo message="project.version          ${project.version}"/>
         <echo message="project.build            ${project.build}"/>
         <echo message="project.build.tmp        ${project.build.tmp}"/>
         <echo message="project.build.dist       ${project.build.dist}"/>

@@ -17,7 +17,7 @@ RUN echo "install system essentials" \
     && locale-gen de_DE \
     && locale-gen de_DE.UTF-8 \
     && echo 'alias l="ls -alhF"' > /root/.bash_aliases \
-    && curl -sSL https://releases.rancher.com/install-docker/17.03.sh | bash \
+    && curl -sSL https://releases.rancher.com/install-docker/17.06.sh | bash \
     && curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose \
     && apt-get -y autoclean \
@@ -62,16 +62,16 @@ RUN echo "install php" \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-ENV PATH="/srv/composer/vendor/bin:${PATH}"
-
-RUN echo "install php tools" \
-    && composer global require \
-        phing/phing \
-        phploc/phploc:2.* \
-        phpmd/phpmd:2.* \
-        pdepend/pdepend:2.* \
-        sebastian/phpcpd:2.* \
-        phpmetrics/phpmetrics:2.*
+#ENV PATH="/srv/composer/vendor/bin:${PATH}"
+#
+#RUN echo "install php tools" \
+#    && composer global require \
+#        phing/phing \
+#        phploc/phploc:2.* \
+#        phpmd/phpmd:2.* \
+#        pdepend/pdepend:2.* \
+#        sebastian/phpcpd:2.* \
+#        phpmetrics/phpmetrics:2.*
 
 COPY main /srv/phing
 COPY VERSION /srv/phing/VERSION
