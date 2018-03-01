@@ -4,11 +4,11 @@
 <project name="application" basedir="." default="help">
 
 
-    <property file="build.properties" />
-    <property file="build.properties.local" />
+    <property file="build.properties"/>
+    <property file="build.properties.local"/>
 
 
-    <import file="/srv/phing/commons.xml" />
+    <import file="/srv/phing/commons.xml"/>
 
 
     <target name="run.all" depends="run.all.clean, run.all.reports"/>

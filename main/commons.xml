@@ -70,14 +70,19 @@
     <import file="${phing:commons:root}/commons/report.phpmd.xml"/>
 
 
+    <fail unless="project.name" message="missing project.name"/>
+    <fail unless="project.version" message="missing project.version"/>
+
+
     <target name="help" depends="help.project, help.clean, help.report"/>
 
 
     <target name="help.project">
         <echo message="property        value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.root             ${project.root}"/>
+        <echo message="project.name             ${project.name}"/>
         <echo message="project.version          ${project.version}"/>
+        <echo message="project.root             ${project.root}"/>
         <echo message="project.build            ${project.build}"/>
         <echo message="project.build.tmp        ${project.build.tmp}"/>
         <echo message="project.build.dist       ${project.build.dist}"/>
