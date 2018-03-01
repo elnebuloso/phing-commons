@@ -2,13 +2,10 @@
 
 case "$1" in
     create)
-        clear
         docker build -t phing-commons --rm --pull -f Dockerfile .
     ;;
 
     verify)
-        ./app create
-
         echo ""
         docker run -it --rm phing-commons php --version
         docker run -it --rm phing-commons docker --version
@@ -20,9 +17,15 @@ case "$1" in
         docker run -it --rm phing-commons phpmd --version
     ;;
 
+    test)
+        echo ""
+        docker run --rm -w $(pwd)/test -v $(pwd)/test:$(pwd)/test -v /var/run/docker.sock:/var/run/docker.sock phing-commons phing ${@:1}
+    ;;
+
     *)
         echo ""
         echo " - create  create all containers"
         echo " - verify  verify all containers"
+        echo " - test    test demo project"
     ;;
 esac
