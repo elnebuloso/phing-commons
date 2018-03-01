@@ -19,7 +19,7 @@ case "$1" in
 
     test)
         echo ""
-        docker run --rm -w $(pwd)/test -v $(pwd)/test:$(pwd)/test -v /var/run/docker.sock:/var/run/docker.sock phing-commons phing ${@:1}
+        docker run --rm -w $(pwd)/test -v $(pwd)/test:$(pwd)/test -v /var/run/docker.sock:/var/run/docker.sock phing-commons phing ${@:2}
     ;;
 
     *)
