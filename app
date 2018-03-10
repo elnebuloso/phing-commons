@@ -12,10 +12,6 @@ case "$1" in
         docker run -it --rm phing-commons docker --version
         docker run -it --rm phing-commons docker-compose --version
         docker run -it --rm phing-commons phing -version
-        docker run -it --rm phing-commons phpcpd --version
-        docker run -it --rm phing-commons pdepend --version
-        docker run -it --rm phing-commons phploc --version
-        docker run -it --rm phing-commons phpmd --version
     ;;
 
     phing)
