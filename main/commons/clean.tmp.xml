@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="clean.tmp">
+<project default="clean:tmp">
 
 
-    <property name="clean.tmp:description" value="Cleanup Project Temporary Folder"/>
+    <property name="clean.tmp.description" value="Cleanup Project Temporary Folder"/>
 
 
-    <target name="clean.tmp:help" depends="clean.tmp:init" hidden="true">
-        <echo message="${clean.tmp:description}"/>
+    <target name="clean:tmp:help" depends="clean:tmp:init" hidden="true">
+        <echo message="${clean.tmp.description}"/>
         <echo message=""/>
         <echo message="property             value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="project.build.tmp    ${project.build.reports}"/>
+        <echo message="project.build.tmp    ${project.build.tmp}"/>
     </target>
 
 
-    <target name="clean.tmp:init" hidden="true">
+    <target name="clean:tmp:init" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.tmp:before" hidden="true">
+    <target name="clean:tmp:before" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.tmp:main" hidden="true">
+    <target name="clean:tmp:main" hidden="true">
         <delete dir="${project.build.tmp}"/>
         <mkdir dir="${project.build.tmp}"/>
     </target>
 
 
-    <target name="clean.tmp:after" hidden="true">
+    <target name="clean:tmp:after" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.tmp" depends="clean.tmp:init, clean.tmp:before, clean.tmp:main, clean.tmp:after">
+    <target name="clean:tmp" depends="clean:tmp:init, clean:tmp:before, clean:tmp:main, clean:tmp:after">
         <echo message="successful"/>
     </target>
 

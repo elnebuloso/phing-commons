@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="clean.reports">
+<project default="clean:reports">
 
 
-    <property name="clean.reports:description" value="Cleanup Project Reports Folder"/>
+    <property name="clean.reports.description" value="Cleanup Project Reports Folder"/>
 
 
-    <target name="clean.reports:help" depends="clean.reports:init" hidden="true">
-        <echo message="${clean.reports:description}"/>
+    <target name="clean:reports:help" depends="clean:reports:init" hidden="true">
+        <echo message="${clean.reports.description}"/>
         <echo message=""/>
         <echo message="property                 value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
@@ -16,28 +16,28 @@
     </target>
 
 
-    <target name="clean.reports:init" hidden="true">
+    <target name="clean:reports:init" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.reports:before" hidden="true">
+    <target name="clean:reports:before" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.reports:main" hidden="true">
+    <target name="clean:reports:main" hidden="true">
         <delete dir="${project.build.reports}"/>
         <mkdir dir="${project.build.reports}"/>
     </target>
 
 
-    <target name="clean.reports:after" hidden="true">
+    <target name="clean:reports:after" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.reports" depends="clean.reports:init, clean.reports:before, clean.reports:main, clean.reports:after">
+    <target name="clean:reports" depends="clean:reports:init, clean:reports:before, clean:reports:main, clean:reports:after">
         <echo message="successful"/>
     </target>
 

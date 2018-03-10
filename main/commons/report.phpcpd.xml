@@ -1,68 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="report.phpcpd">
+<project default="report:phpcpd">
 
 
-    <property name="report.phpcpd:description" value="PHP Copy and Paste Detection"/>
+    <property name="report.phpcpd.description" value="PHP Copy and Paste Detection"/>
 
 
-    <target name="report.phpcpd:help" depends="report.phpcpd:init" hidden="true">
-        <echo message="${report.phpcpd:description}"/>
+    <target name="report:phpcpd:help" depends="report:phpcpd:init" hidden="true">
+        <echo message="${report.phpcpd.description}"/>
         <echo message=""/>
         <echo message="property                    value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpcpd.patternset    ${report.phpcpd.patternset}"/>
         <echo message="report.phpcpd.out           ${report.phpcpd.out}"/>
-        <echo message="report.phpcpd.xsl           ${report.phpcpd.xsl}"/>
     </target>
 
 
-    <target name="report.phpcpd:init" hidden="true">
-        <property name="report.phpcpd.patternset" value="report.phpcpd.patternset.default"/>
+    <target name="report:phpcpd:init" hidden="true">
         <property name="report.phpcpd.out" value="${project.build.reports}/phpcpd"/>
-        <property name="report.phpcpd.xsl" value="${phing:commons:root}/resources/phpcpd/phpcpd.xsl"/>
     </target>
 
 
-    <target name="report.phpcpd:before" hidden="true">
+    <target name="report:phpcpd:before" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="report.phpcpd:main" hidden="true">
-        <delete dir="${report.phpcpd.out}"/>
-        <mkdir dir="${report.phpcpd.out}"/>
-
-        <phpcpd>
-            <fileset dir="${project.root}">
-                <patternset refid="${report.phpcpd.patternset}"/>
-            </fileset>
-            <formatter type="pmd" outfile="${report.phpcpd.out}/phpcpd.xml"/>
-        </phpcpd>
-
-        <xslt file="${report.phpcpd.out}/phpcpd.xml" tofile="${report.phpcpd.out}/index.html" style="${report.phpcpd.xsl}"/>
+    <target name="report:phpcpd:main" hidden="true">
+        <delete dir="${report:phpcpd.out}"/>
+        <mkdir dir="${report:phpcpd.out}"/>
     </target>
 
 
-    <target name="report.phpcpd:after" hidden="true">
+    <target name="report:phpcpd:after" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="report.phpcpd" depends="report.phpcpd:init, report.phpcpd:before, report.phpcpd:main, report.phpcpd:after">
+    <target name="report:phpcpd" depends="report:phpcpd:init, report:phpcpd:before, report:phpcpd:main, report:phpcpd:after">
         <echo message="successful"/>
     </target>
-
-
-    <patternset id="report.phpcpd.patternset.default">
-        <include name="**/*.php"/>
-
-        <exclude name=".git/**"/>
-        <exclude name=".svn/**"/>
-        <exclude name=".idea/**"/>
-        <exclude name="build/**"/>
-    </patternset>
 
 
 </project>

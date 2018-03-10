@@ -4,12 +4,12 @@
 <project name="commons">
 
 
-    <property name="phing:commons:root" value="/srv/phing"/>
+    <property name="phing.commons.root" value="/srv/phing"/>
 
 
-    <loadfile property="phing:commons:version" file="${phing:commons:root}/VERSION"/>
-    <php function="trim" returnProperty="phing:commons:version" level="debug">
-        <param value="${phing:commons:version}"/>
+    <loadfile property="phing.commons.version" file="${phing.commons.root}/VERSION"/>
+    <php function="trim" returnProperty="phing.commons.version" level="debug">
+        <param value="${phing.commons.version}"/>
     </php>
 
 
@@ -29,7 +29,7 @@
     <echo message="*   \___  >____/|__|_|  /__|_|  /\____/|___|  /____  >"/>
     <echo message="*       \/            \/      \/            \/     \/ "/>
     <echo message="*"/>
-    <echo message="*  ${phing:commons:version}"/>
+    <echo message="*  ${phing.commons.version}"/>
     <echo message="*"/>
     <echo message="*  elnebuloso/phing-commons"/>
     <echo message="*"/>
@@ -61,23 +61,23 @@
     <resolvepath propertyName="project.build.reports" file="${project.build.reports}"/>
 
 
-    <import file="${phing:commons:root}/commons/clean.tmp.xml"/>
-    <import file="${phing:commons:root}/commons/clean.dist.xml"/>
-    <import file="${phing:commons:root}/commons/clean.reports.xml"/>
-    <import file="${phing:commons:root}/commons/report.phpcpd.xml"/>
-    <import file="${phing:commons:root}/commons/report.phpdepend.xml"/>
-    <import file="${phing:commons:root}/commons/report.phploc.xml"/>
-    <import file="${phing:commons:root}/commons/report.phpmd.xml"/>
+    <import file="${phing.commons.root}/commons/clean.tmp.xml"/>
+    <import file="${phing.commons.root}/commons/clean.dist.xml"/>
+    <import file="${phing.commons.root}/commons/clean.reports.xml"/>
+    <import file="${phing.commons.root}/commons/report.phpcpd.xml"/>
+    <import file="${phing.commons.root}/commons/report.phpdepend.xml"/>
+    <import file="${phing.commons.root}/commons/report.phploc.xml"/>
+    <import file="${phing.commons.root}/commons/report.phpmd.xml"/>
 
 
     <fail unless="project.name" message="missing project.name"/>
     <fail unless="project.version" message="missing project.version"/>
 
 
-    <target name="help" depends="help.project, help.clean, help.report"/>
+    <target name="help" depends="project:help, clean:help, report:help"/>
 
 
-    <target name="help.project">
+    <target name="project:help">
         <echo message="property        value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
         <echo message="project.name             ${project.name}"/>
@@ -90,22 +90,22 @@
     </target>
 
 
-    <target name="help.clean">
+    <target name="clean:help">
         <echo message="target           description"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="clean.tmp        ${clean.tmp:description}"/>
-        <echo message="clean.dist       ${clean.dist:description}"/>
-        <echo message="clean.reports    ${clean.reports:description}"/>
+        <echo message="clean:tmp        ${clean.tmp.description}"/>
+        <echo message="clean:dist       ${clean.dist.description}"/>
+        <echo message="clean:reports    ${clean.reports.description}"/>
     </target>
 
 
-    <target name="help.report">
+    <target name="report:help">
         <echo message="target              description"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
-        <echo message="report.phpcpd       ${report.phpcpd:description}"/>
-        <echo message="report.phpdepend    ${report.phpdepend:description}"/>
-        <echo message="report.phploc       ${report.phploc:description}"/>
-        <echo message="report.phpmd        ${report.phpmd:description}"/>
+        <echo message="report:phpcpd       ${report.phpcpd.description}"/>
+        <echo message="report:phpdepend    ${report.phpdepend.description}"/>
+        <echo message="report:phploc       ${report.phploc.description}"/>
+        <echo message="report:phpmd        ${report.phpmd.description}"/>
     </target>
 
 

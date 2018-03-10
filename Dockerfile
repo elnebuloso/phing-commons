@@ -62,16 +62,11 @@ RUN echo "install php" \
     && rm -rf /usr/share/locale/* \
     && rm -rf /tmp/*
 
-#ENV PATH="/srv/composer/vendor/bin:${PATH}"
-#
-#RUN echo "install php tools" \
-#    && composer global require \
-#        phing/phing \
-#        phploc/phploc:2.* \
-#        phpmd/phpmd:2.* \
-#        pdepend/pdepend:2.* \
-#        sebastian/phpcpd:2.* \
-#        phpmetrics/phpmetrics:2.*
+ENV PATH="/srv/composer/vendor/bin:${PATH}"
+
+RUN echo "install php tools" \
+    && composer global require \
+        phing/phing
 
 COPY main /srv/phing
 COPY VERSION /srv/phing/VERSION

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<project default="clean.dist">
+<project default="clean:dist">
 
 
-    <property name="clean.dist:description" value="Cleanup Project Distribution Folder"/>
+    <property name="clean.dist.description" value="Cleanup Project Distribution Folder"/>
 
 
-    <target name="clean.dist:help" depends="clean.dist:init" hidden="true">
-        <echo message="${clean.dist:description}"/>
+    <target name="clean:dist:help" depends="clean:dist:init" hidden="true">
+        <echo message="${clean.dist.description}"/>
         <echo message=""/>
         <echo message="property              value"/>
         <echo message="----------------------------------------------------------------------------------------------------"/>
@@ -16,28 +16,28 @@
     </target>
 
 
-    <target name="clean.dist:init" hidden="true">
+    <target name="clean:dist:init" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.dist:before" hidden="true">
+    <target name="clean:dist:before" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.dist:main" hidden="true">
+    <target name="clean:dist:main" hidden="true">
         <delete dir="${project.build.dist}"/>
         <mkdir dir="${project.build.dist}"/>
     </target>
 
 
-    <target name="clean.dist:after" hidden="true">
+    <target name="clean:dist:after" hidden="true">
         <echo message="no actions defined"/>
     </target>
 
 
-    <target name="clean.dist" depends="clean.dist:init, clean.dist:before, clean.dist:main, clean.dist:after">
+    <target name="clean:dist" depends="clean:dist:init, clean:dist:before, clean:dist:main, clean:dist:after">
         <echo message="successful"/>
     </target>
 
