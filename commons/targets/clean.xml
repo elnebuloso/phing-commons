@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="clean:help">
+
+
+    <import file="${phing:commons:commons}/targets/clean/bundle.xml"/>
+    <import file="${phing:commons:commons}/targets/clean/reports.xml"/>
+    <import file="${phing:commons:commons}/targets/clean/tmp.xml"/>
+
+
+    <target name="clean:help">
+        <echo message="Clean Targets"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="clean.bundle     Cleanup bundle directory"/>
+        <echo message="clean.reports    Cleanup reports directory"/>
+        <echo message="clean.tmp        Cleanup tmp directory"/>
+    </target>
+
+
+</project>

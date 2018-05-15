@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="clean.bundle">
+
+
+    <target name="clean.bundle:help" depends="clean.bundle:init" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="clean.bundle:init" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="clean.bundle:before" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="clean.bundle:main" hidden="true">
+        <delete dir="${project.bundle}"/>
+        <mkdir dir="${project.bundle}"/>
+    </target>
+
+
+    <target name="clean.bundle:after" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="clean.bundle" depends="clean.bundle:init, clean.bundle:before, clean.bundle:main, clean.bundle:after">
+        <echo message="successful"/>
+    </target>
+
+
+</project>

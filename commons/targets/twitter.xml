@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="twitter:help">
+
+
+    <import file="${phing:commons:commons}/targets/twitter/tweet/package.xml"/>
+
+
+    <target name="twitter:help">
+        <echo message="Twitter Targets"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="twitter.tweet.package    Tweet Current Package"/>
+    </target>
+
+
+</project>

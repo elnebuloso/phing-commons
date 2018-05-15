@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="composer.optimize">
+
+
+    <target name="composer.optimize:init" hidden="true">
+        <property name="composer.executable" value="composer"/>
+    </target>
+
+
+    <target name="composer.optimize:before" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="composer.optimize:main" hidden="true">
+        <available file="${project.root}/composer.json" type="file" property="composer.json.exists"/>
+
+        <if>
+            <isset property="composer.json.exists"/>
+            <then>
+                <exec executable="${composer.executable}" logoutput="true" passthru="true" level="info" checkreturn="yes">
+                    <arg line="dump-autoload --optimize"/>
+                </exec>
+            </then>
+        </if>
+    </target>
+
+
+    <target name="composer.optimize:after" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="composer.optimize" depends="composer.optimize:init, composer.optimize:before, composer.optimize:main, composer.optimize:after">
+        <echo message="successful"/>
+    </target>
+
+
+    <target name="composer.optimize:help" depends="composer.optimize:init">
+        <echo message="Property                 Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="composer.executable      ${composer.executable}"/>
+    </target>
+
+
+</project>

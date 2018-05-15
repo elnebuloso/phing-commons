@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project default="test.phplint">
+
+
+    <patternset id="test.phplint.patternset.default">
+        <include name="application/**/*.php"/>
+        <include name="src/**/*.php"/>
+    </patternset>
+
+
+    <target name="test.phplint:init" hidden="true">
+        <property name="test.phplint.patternset" value="test.phplint.patternset.default"/>
+        <property name="test.phplint.haltonfailure" value="yes"/>
+    </target>
+
+
+    <target name="test.phplint:before" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="test.phplint:main" hidden="true">
+        <mkdir dir="${project.reports}/phplint"/>
+
+        <phplint haltonfailure="${test.phplint.haltonfailure}" tofile="${project.reports}/phplint/phplint.txt" cachefile="${project.reports}/phplint/phplint.cache" level="info">
+            <fileset dir="${project.root}">
+                <patternset refid="${test.phplint.patternset}"/>
+            </fileset>
+        </phplint>
+    </target>
+
+
+    <target name="test.phplint:after" hidden="true">
+        <echo message="no actions defined" level="debug"/>
+    </target>
+
+
+    <target name="test.phplint" depends="test.phplint:init, test.phplint:before, test.phplint:main, test.phplint:after">
+        <echo message="successful"/>
+    </target>
+
+
+    <target name="test.phplint:help" depends="test.phplint:init">
+        <echo message="Property                      Value"/>
+        <echo message="----------------------------------------------------------------------------------------------------"/>
+        <echo message="test.phplint.patternset       ${test.phplint.patternset}"/>
+        <echo message="test.phplint.haltonfailure    yes|no: ${test.phplint.haltonfailure}"/>
+    </target>
+
+
+</project>

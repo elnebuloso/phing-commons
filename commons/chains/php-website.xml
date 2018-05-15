@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project>
+
+    <echo message="loading chain: php-website"/>
+
+    <target name="init:main" hidden="true" depends="clean.tmp, composer.validate, composer.install.nodev"/>
+    <target name="test:main" hidden="true" depends="test.phplint, test.phpunit"/>
+    <target name="bundle:main" hidden="true" depends="clean.bundle, bundle.javascript, bundle.stylesheet, composer.optimize, project.bundle"/>
+    <target name="package:main" hidden="true" depends="project.bundle.tar"/>
+
+    <!-- additional targets -->
+    <target name="release" hidden="true" depends="project.version.update, composer.validate, composer.format"/>
+    <target name="metrics" hidden="true" depends="clean.tmp, clean.reports, test, report"/>
+
+</project>
