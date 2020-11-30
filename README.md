@@ -1,7 +1,6 @@
 # phing-commons
 
-[![License](https://poser.pugx.org/elnebuloso/phing-commons/license)](https://packagist.org/packages/elnebuloso/phing-commons)
-[![composer.lock](https://poser.pugx.org/elnebuloso/phing-commons/composerlock)](https://packagist.org/packages/elnebuloso/phing-commons)
+![abandoned](https://img.shields.io/badge/project-abandoned-red)
 
 ## About
 
